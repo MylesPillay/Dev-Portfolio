@@ -14,6 +14,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -21,6 +22,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8.4.41",
+    "react-icons": "^5.3.0",
     "tailwindcss": "^3.4.10",
     "typescript": "^5"
   }

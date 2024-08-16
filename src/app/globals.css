@@ -46,6 +46,14 @@ nav {
 	font-size: 1.2em;
 	font-weight: bold;
 }
+.rotate-90 {
+	transform: rotate(90deg);
+	display: inline-block;
+}
+.writing-vertical {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+}
 
 nav ul {
 	list-style-type: none;
