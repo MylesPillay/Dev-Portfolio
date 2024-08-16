@@ -41,18 +41,10 @@ nav {
 .nav-title {
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
-	transform: rotate(180deg);
+	/* transform: rotate(180deg); */
 	padding: 20px 0;
 	font-size: 1.2em;
 	font-weight: bold;
-}
-.rotate-90 {
-	transform: rotate(90deg);
-	display: inline-block;
-}
-.writing-vertical {
-	writing-mode: vertical-rl;
-	text-orientation: mixed;
 }
 
 nav ul {
@@ -72,15 +64,15 @@ nav ul li {
 nav ul li a {
 	color: #fff;
 	text-decoration: none;
-	writing-mode: vertical-rl;
+	writing-mode: vertical-lr;
 	text-orientation: mixed;
-	transform: rotate(180deg);
-	padding: 10px 0;
+	/* transform: rotate(180deg); */
+	/* padding: 10px 0; */
 }
 
 main {
 	flex-grow: 1;
-	padding: 2rem;
+	/* padding: 2rem; */
 	overflow-y: auto;
 }
 
