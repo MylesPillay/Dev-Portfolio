@@ -15,19 +15,21 @@ export default function Projects() {
 	];
 	const projects = [
 		{
-			name: "Project 1",
+			name: "Air Oasis - Loving the Air Your Breath",
 			images: ["/images/project1_1.jpg", "/images/project1_2.jpg"]
 		},
 		{
-			name: "Project 2",
-			images: ["/images/project2_1.jpg", "/images/project2_2.jpg"]
+			name: "WhoCo - The People Company",
+			images: ["/images/project2_1.jpg", "/images/project2_2.jpg"],
+			url: "https://web.archive.org/web/20230216050654/https://whoco.com/"
 		},
 		{
-			name: "Project 3",
-			images: ["/images/project3_1.jpg", "/images/project3_2.jpg"]
+			name: "Vibe-A-Day - Daily Song Selections",
+			images: ["/images/project3_1.jpg", "/images/project3_2.jpg"],
+			url: ""
 		},
 		{
-			name: "Project 4",
+			name: "USA Scholarships - AI Monitored Scholarship Database",
 			images: ["/images/project4_1.jpg", "/images/project4_2.jpg"]
 		}
 	];
