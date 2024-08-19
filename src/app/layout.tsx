@@ -46,7 +46,8 @@ export default function RootLayout({
 							}
 						]
 							.filter(
-								(item) => item.href !== window.location.pathname
+								(item) =>
+									item.href !== window?.location.pathname
 							)
 							.map((item) => (
 								<li
