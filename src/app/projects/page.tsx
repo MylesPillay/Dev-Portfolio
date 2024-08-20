@@ -9,6 +9,8 @@ import ProjectControls from "../components/projects/ProjectImageChevrons";
 import ProjectsHeader from "../components/projects/ProjectHeader";
 import MobileImageContainer from "../components/projects/MobileAppProjectImages";
 import ProjectImagePagination from "../components/projects/ProjectImagePagination";
+import ProjectTextContent from "../components/projects/ProjectTextContent";
+import ProjectSkillsComponent from "../components/projects/ProjectSkills";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -57,70 +59,10 @@ const ProjectsDisplay = (): JSX.Element => {
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
 					/>
-					{/* <ProjectControls
-						selectedProject={selectedProject}
-						viewMode={viewMode}
-						currentImageIndex={currentImageIndex}
-						onViewModeChange={setViewMode}
-						onPrevImage={prevImage}
-						onNextImage={nextImage}
-					/> */}
-					<div
-						className={`flex flex-col w-full h-full min-h-[50%] pl-8 justify-center align-middle pr-2 py-4 rounded-r-lg border-black border-opacity-50 border-l-0 border-r-2 border-b-2 border-t-2 bg-black bg-opacity-40 ${
-							isHovered ? "hover-expand z-10" : ""
-						}`}
-						style={{
-							backgroundColor: isHovered ? "#071E22" : "",
-							borderBlockColor: isHovered ? "#1D7874" : ""
-						}}
-						onMouseEnter={() => setIsHovered(true)}
-						onMouseLeave={() => setIsHovered(false)}>
-						<h2 className='text-lg text-left font-bold mb-2 text-white'>
-							Skills / CodeStack
-						</h2>
-
-						<ul className='flex flex-col text-md font-medium w-full h-1/2 min-h-[50%]'>
-							{selectedProject.skills.map((skill, index) => (
-								<li
-									key={index}
-									className='mb-2 text-left text-emerald-200'>
-									{skill}
-								</li>
-							))}
-						</ul>
-					</div>
+					<ProjectSkillsComponent selectedProject={selectedProject} />
 				</div>
 				<div className='flex flex-row w-full my-4 justify-between mt-8 space-x-4'>
-					<div className='p-4 mx-8 rounded-lg mr-4 bg-black bg-opacity-40 w-full h-[50%] max-h-[80vh] '>
-						<h2 className='text-2xl font-semibold text-white text-justify'>
-							Objectives
-						</h2>
-						<h3 className='text-md font-normal text-white text-justify'>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Lorem ipsum dolor sit amet,
-							consectetur adipiscing elit. Sed do eiusmod tempor
-							incididunt ut labore et dolore magna aliqua. Lorem
-							ipsum dolor sit amet, consectetur adipiscing elit.
-							Sed do eiusmod tempor incididunt ut labore et dolore
-							magna aliqua. Lorem ipsum. Lorem ipsum dolor sit
-							amet, consectetur adipiscing elit. Sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.
-							Lorem ipsum dolor sit amet, ng elit. Sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit. Sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Lorem ipsum. Lorem ipsum dolor
-							sit amet, consectetur adipiscing elit. Sed do
-							eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua. Lorem ipsum dolor sit
-							amet, consectetur adipiscing elit. Sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.
-							Lorem ipsum
-						</h3>
-					</div>
+					<ProjectTextContent />
 
 					<div className='w-auto  items-end mt-1 self-right max-h-[90vh] max-w-[37vw] '>
 						{selectedProjectIndex === 0 ||
