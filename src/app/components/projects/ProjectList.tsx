@@ -13,7 +13,7 @@ const ProjectList: React.FC<ProjectListProps> = ({
 	return (
 		<ul
 			className='flex flex-col text-lg
-   font-medium w-full'>
+   font-medium w-full h-1/2 min-h-[50%]'>
 			{projects.map((project, index) => (
 				<li
 					key={index}
