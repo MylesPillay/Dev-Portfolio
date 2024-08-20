@@ -13,7 +13,9 @@ const config: Config = {
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 				"projects-gradient":
-					"linear-gradient(to right, #1D7874, #071E22)"
+					"linear-gradient(to right, #071E22, #1D7874)",
+				"nav-gradient":
+					"linear-gradient(to right, #1D787485, #1D787450, #071E2299)"
 			},
 			colors: {
 				goldenrod: "rgb(var(--color-goldenrod) / <alpha-value>)",

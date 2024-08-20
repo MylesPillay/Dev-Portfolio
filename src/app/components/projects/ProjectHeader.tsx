@@ -18,7 +18,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 	setViewMode
 }) => {
 	return (
-		<div className='flex flex-row justify-between w-full mb-2'>
+		<div className='flex flex-row justify-between w-full mb-2 pl-8'>
 			<h1 className='text-4xl font-bold text-left text-white justify-start w-[15%]'>
 				Projects
 			</h1>

@@ -22,31 +22,56 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className='flex h-screen w-screen p-0'>
 				<nav className='flex flex-col h-full w-auto max-w-[13%] text-black font-bold text-justify'>
-					<ul className='flex flex-row h-full w-full  text-white'>
+					<ul className='flex flex-row h-full w-full  text-white bg-nav-gradient'>
 						{[
 							{
 								href: "/contact",
 								label: "Contact",
-								backgroundColor: "#1D787450",
-								icon: <FaEnvelope size={30} color='white' />
+								// backgroundColor: "#1D787440",
+								backgroundColor: "transparent",
+
+								icon: (
+									<FaEnvelope
+										size={hovered === "/contact" ? 32 : 30}
+										color='white'
+									/>
+								)
 							},
 							{
 								href: "/interests",
 								label: "Interests",
-								backgroundColor: "#1D787475",
-								icon: <FaMicrophone size={29} />
+								// backgroundColor: "#1D787450",
+								backgroundColor: "transparent",
+								icon: (
+									<FaMicrophone
+										size={
+											hovered === "/interests" ? 32 : 30
+										}
+									/>
+								)
 							},
 							{
 								href: "/projects",
 								label: "Projects",
-								backgroundColor: "#1D787499",
-								icon: <FaLaptopCode size={30} />
+								// backgroundColor: "#1D787490",
+								backgroundColor: "transparent",
+								icon: (
+									<FaLaptopCode
+										size={hovered === "/projects" ? 32 : 30}
+									/>
+								)
 							},
 							{
 								href: "/",
 								label: "About Me",
-								backgroundColor: "#1D7874",
-								icon: <FaPortrait size={30} />
+								// backgroundColor: "#1D787490",
+								// backgroundColor: "#071E2280",
+								backgroundColor: "transparent",
+								icon: (
+									<FaPortrait
+										size={hovered === "/" ? 32 : 30}
+									/>
+								)
 							}
 						]
 							.filter(
@@ -56,7 +81,7 @@ export default function RootLayout({
 							.map((item) => (
 								<li
 									key={item.href}
-									className='h-full flex flex-col justify-start pt-12 pb-4 px-2'
+									className='h-full flex flex-col justify-start pt-12 pb-4 px-2.5 border-r-slate-950 border-opacity-40 border-r-2'
 									style={{
 										backgroundColor: item.backgroundColor
 									}}
@@ -70,7 +95,18 @@ export default function RootLayout({
 												: "text-white opacity-65"
 										}`}>
 										<div className='flex  items-center'>
-											<div className='justify-self-center w-auto px-[3.5px]'>
+											<div
+												className='justify-self-center w-auto'
+												style={{
+													paddingLeft:
+														hovered === item.href
+															? 3
+															: 3.5,
+													paddingRight:
+														hovered === item.href
+															? 3
+															: 3.5
+												}}>
 												{item.icon}
 											</div>
 											<div className='w-auto h-10'></div>
