@@ -12,15 +12,12 @@ interface ProjectControlsProps {
 }
 
 const ProjectControls: React.FC<ProjectControlsProps> = ({
-	selectedProject,
-
-	onViewModeChange,
 	onPrevImage,
 	onNextImage
 }) => {
 	return (
-		<div className='w-full justify-end flex-col space-y-2'>
-			<div className='flex flex-row justify-center space-x-2'>
+		<div className='w-full flex-col'>
+			<div className='flex flex-row justify-evenly'>
 				<button
 					onClick={onPrevImage}
 					className='transform bg-black bg-opacity-50 text-white p-2 rounded-full'>

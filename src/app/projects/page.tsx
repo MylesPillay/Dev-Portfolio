@@ -5,9 +5,10 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ProjectList from "../components/projects/ProjectList";
 import ProjectImages from "../components/projects/WebsiteProjectImages";
-import ProjectControls from "../components/projects/ProjectControls";
+import ProjectControls from "../components/projects/ProjectImageChevrons";
 import ProjectsHeader from "../components/projects/ProjectHeader";
 import MobileImageContainer from "../components/projects/MobileAppProjectImages";
+import ProjectImagePagination from "../components/projects/ProjectImagePagination";
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
@@ -52,14 +53,14 @@ const ProjectsDisplay = (): JSX.Element => {
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
 					/>
-					<ProjectControls
+					{/* <ProjectControls
 						selectedProject={selectedProject}
 						viewMode={viewMode}
 						currentImageIndex={currentImageIndex}
 						onViewModeChange={setViewMode}
 						onPrevImage={prevImage}
 						onNextImage={nextImage}
-					/>
+					/> */}
 					<div className=' flex flex-col w-full h-full min-h-[50%] justify-center items-start '>
 						<h2 className='text-xl text-left font-bold mb-2 text-slate-800 '>
 							Skills / CodeStack
@@ -94,13 +95,45 @@ const ProjectsDisplay = (): JSX.Element => {
 							magna aliqua. Lorem ipsum
 						</h3>
 					</div>
-					<div className=' w-auto  items-end  self- right max-h-[80vh] max-w-[37vw] '>
+
+					<div className='w-auto  items-end  self-right max-h-[90vh] max-w-[37vw] '>
 						{selectedProjectIndex === 0 ||
 						selectedProjectIndex === 3 ? (
-							<MobileImageContainer
-								images={selectedProject.images.mobile}
-								currentImageIndex={currentImageIndex}
-							/>
+							<div className=' w-full h-full  items-end   '>
+								<MobileImageContainer
+									images={selectedProject.images.mobile}
+									currentImageIndex={currentImageIndex}
+								/>
+								<div className='my-4  w-[100%] justify-center items-center'>
+									{/* <ProjectControls
+										selectedProject={selectedProject}
+										viewMode={viewMode}
+										currentImageIndex={currentImageIndex}
+										onViewModeChange={setViewMode}
+										onPrevImage={prevImage}
+										onNextImage={nextImage}
+									/> */}
+									<ProjectImagePagination
+										currentImageIndex={currentImageIndex}
+										totalImages={
+											selectedProject.images.mobile.length
+										}
+										onPageChange={(index) =>
+											setCurrentImageIndex(index)
+										}
+										onPrevImage={() =>
+											setCurrentImageIndex(
+												(prevIndex) => prevIndex - 1
+											)
+										}
+										onNextImage={() =>
+											setCurrentImageIndex(
+												(prevIndex) => prevIndex + 1
+											)
+										}
+									/>
+								</div>
+							</div>
 						) : (
 							<div className='shadow-neon rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
 								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'>
