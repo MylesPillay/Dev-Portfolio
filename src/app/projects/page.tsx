@@ -47,7 +47,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				setViewMode={setViewMode}
 			/>
 			<div className='flex flex-row items-start justify-center h-full min-h-[100%] w-full space-x-8'>
-				<div className='flex flex-col h-full justify-between w-[17vw] max-w-[17vw] min-h-[85vh] pt-[7.5vh]'>
+				<div className='flex flex-col h-full justify-between w-[17vw] max-w-[17vw] min-h-[85vh] pt-[6vh]'>
 					<ProjectList
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
@@ -78,7 +78,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						</ul>
 					</div>
 				</div>
-				<div className='flex flex-row w-full my-4 justify-between mt-16'>
+				<div className='flex flex-row w-full my-4 justify-between mt-14 space-x-4'>
 					<div className='p-4  rounded-lg mr-4 bg-slate-400 bg-opacity-50 w-full h-[50%] max-h-[80vh] '>
 						<h2 className='text-2xl font-semibold text-white text-justify'>
 							Objectives
