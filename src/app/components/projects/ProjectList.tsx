@@ -13,22 +13,22 @@ const ProjectList: React.FC<ProjectListProps> = ({
 	onProjectClick
 }) => {
 	return (
-		<div className='w-[20%] ml-2 rounded-lg'>
-			<ul className='flex flex-col font-medium'>
-				{projects.map((project, index) => (
-					<li
-						key={index}
-						className={`cursor-pointer my-2 text-left ${
-							selectedProject.name === project.name
-								? " text-white"
-								: "hover:text-white"
-						}`}
-						onClick={() => onProjectClick(index)}>
-						{project.name}
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul
+			className='flex flex-col text-lg
+   font-medium w-full'>
+			{projects.map((project, index) => (
+				<li
+					key={index}
+					className={`cursor-pointer mb-2 text-left ${
+						selectedProject.name === project.name
+							? " text-white"
+							: "hover:text-white"
+					}`}
+					onClick={() => onProjectClick(index)}>
+					{project.name}
+				</li>
+			))}
+		</ul>
 	);
 };
 

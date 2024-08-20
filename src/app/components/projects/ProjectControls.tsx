@@ -13,30 +13,13 @@ interface ProjectControlsProps {
 
 const ProjectControls: React.FC<ProjectControlsProps> = ({
 	selectedProject,
-	viewMode,
-	currentImageIndex,
+
 	onViewModeChange,
 	onPrevImage,
 	onNextImage
 }) => {
 	return (
-		<div className='w-[20%] justify-end flex-col space-y-2'>
-			{selectedProject.images.web &&
-				selectedProject.images.web.length > 0 && (
-					<button
-						className='w-full h-auto bg-slate-800 text-white align-middle justify-center items-center text-center rounded-md p-2 hover:bg-slate-600'
-						onClick={() => onViewModeChange("web")}>
-						Desktop
-					</button>
-				)}
-			{selectedProject.images.mobile &&
-				selectedProject.images.mobile.length > 0 && (
-					<button
-						onClick={() => onViewModeChange("mobile")}
-						className='w-full h-auto bg-slate-800 text-white align-middle justify-center items-center text-center rounded-md p-2 hover:bg-slate-600 mb-12'>
-						Mobile
-					</button>
-				)}
+		<div className='w-full justify-end flex-col space-y-2'>
 			<div className='flex flex-row justify-center space-x-2'>
 				<button
 					onClick={onPrevImage}

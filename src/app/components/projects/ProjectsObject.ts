@@ -2,8 +2,8 @@ interface Project {
 	name: string;
 	tagline: string;
 	images: {
-		web?: string[];
-		mobile?: string[];
+		web: string[];
+		mobile: string[];
 	};
 	url?: string;
 }
