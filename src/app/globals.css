@@ -66,6 +66,17 @@ nav {
 			0 0 10px rgb(255, 194, 40), 0 0 40px rgb(255, 194, 40);
 	}
 }
+.letter-visible {
+	opacity: 1;
+}
+
+.hover-expand {
+	transition: width 0.3s ease-in-out;
+}
+
+.hover-expand:hover {
+	width: 60vw;
+}
 
 nav ul {
 	list-style-type: none;
