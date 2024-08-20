@@ -4,9 +4,10 @@ import projects from "../components/projects/ProjectsObject";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ProjectList from "../components/projects/ProjectList";
-import ProjectImages from "../components/projects/ProjectImages";
+import ProjectImages from "../components/projects/WebsiteProjectImages";
 import ProjectControls from "../components/projects/ProjectControls";
 import ProjectsHeader from "../components/projects/ProjectHeader";
+import MobileImageContainer from "../components/projects/MobileAppProjectImages";
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
@@ -39,40 +40,7 @@ const ProjectsDisplay = (): JSX.Element => {
 	};
 
 	return (
-		<div className='bg-yellow-500 min-h-screen m-none text-slate-800 border-l-4 border-slate-200 p-8'>
-			{/* <div className='flex flex-row justify-between w-full mb-2'>
-				<h1 className='text-4xl font-bold text-left justify-start w-[20%]'>
-					Projects
-				</h1>
-				<h1 className='text-4xl font-bold w-auto justify-center'>
-					{selectedProject.name}
-				</h1>
-				<div className='flex flex-row justify-center items-center space-x-4'>
-					<button
-						className={`w-1/2 h-auto text-white text-lg text-left rounded-md p-2  ${
-							selectedProject.images.web.length > 0
-								? "bg-transparent  cursor-pointer"
-								: "bg-transparent opacity-50 cursor-default"
-						}`}
-						onClick={() => setViewMode("web")}
-						disabled={selectedProject.images.web.length === 0}>
-						Desktop
-					</button>
-
-					<div className='h-full w-px bg-white bg-transparent-25'></div>
-
-					<button
-						className={`w-1/2 h-auto text-white text-lg text-right rounded-md p-2 ${
-							selectedProject.images.mobile.length > 0
-								? "bg-transparent cursor-pointer"
-								: "bg-transparent opacity-50 cursor-default"
-						}`}
-						onClick={() => setViewMode("mobile")}
-						disabled={selectedProject.images.mobile.length === 0}>
-						Mobile
-					</button>
-				</div>
-			</div> */}
+		<div className='bg-projects-gradient min-h-screen m-none text-slate-800 border-l-4 border-slate-200 p-8'>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}
@@ -94,28 +62,67 @@ const ProjectsDisplay = (): JSX.Element => {
 					/>
 				</div>
 				<div className='w-full justify-end my-4'>
-					<div className='shadow-neon rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
-						<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[63vh] max-w-[58vw]'>
-							<div className='relative h-full w-full mx-auto justify-center align-middle items-center'>
-								<ProjectImages
-									selectedProject={selectedProject}
-									viewMode={viewMode}
-									currentImageIndex={currentImageIndex}
-								/>
+					<div className=' w-auto mx-auto justify-end max-h-[60vh] max-w-[45vw] '>
+						{selectedProjectIndex === 0 ||
+						selectedProjectIndex === 3 ? (
+							<MobileImageContainer
+								images={selectedProject.images.mobile}
+								currentImageIndex={currentImageIndex}
+							/>
+						) : (
+							<div className='shadow-neon rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
+								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'>
+									<div className='relative h-auto w-full mx-auto justify-center align-middle items-center'>
+										<ProjectImages
+											selectedProject={selectedProject}
+											viewMode={viewMode}
+											currentImageIndex={
+												currentImageIndex
+											}
+										/>
+									</div>
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			</div>
-			<h3 className='text-md font-normal text-slate-800 text-justify'>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum
-			</h3>
+			<div>
+				<div>
+					<div>
+						<h2 className='text-2xl font-semibold text-slate-800 text-justify'>
+							Skills / CodeStack
+						</h2>
+						<ul
+							className='flex flex-col text-lg
+   font-medium w-full'>
+							{selectedProject.skills.map((skill, index) => (
+								<li
+									key={index}
+									className={`cursor-pointer mb-2 text-left text-slate-300 over:text-white
+									`}>
+									{skill}
+								</li>
+							))}
+						</ul>
+					</div>
+					<div>
+						<h2 className='text-2xl font-semibold text-slate-800 text-justify'>
+							Objectives
+						</h2>
+						<h3 className='text-md font-normal text-slate-800 text-justify'>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Lorem ipsum dolor sit amet,
+							consectetur adipiscing elit. Sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua. Lorem
+							ipsum dolor sit amet, consectetur adipiscing elit.
+							Sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua. Lorem ipsum
+						</h3>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

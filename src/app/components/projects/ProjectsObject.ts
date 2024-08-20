@@ -6,6 +6,7 @@ interface Project {
 		mobile: string[];
 	};
 	url?: string;
+	skills: string[];
 }
 
 const projects: Project[] = [
@@ -23,7 +24,8 @@ const projects: Project[] = [
 				"/images/projects/airoasis/mobile/Mobile_Schedule_List.jpg",
 				"/images/projects/airoasis/mobile/Mobile_Settings.jpg"
 			]
-		}
+		},
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
 		name: "WhoCo",
@@ -39,7 +41,8 @@ const projects: Project[] = [
 				"/images/projects/whoco/mobile/WhoCo-Talent.jpg"
 			]
 		},
-		url: "https://web.archive.org/web/20230216050654/https://whoco.com/"
+		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
 		name: "Fluent Outreach",
@@ -56,7 +59,8 @@ const projects: Project[] = [
 			],
 			mobile: []
 		},
-		url: "https://web.archive.org/web/20230216050654/https://whoco.com/"
+		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
 		name: "Vibe-A-Day",
@@ -65,7 +69,8 @@ const projects: Project[] = [
 			web: [],
 			mobile: []
 		},
-		url: ""
+		url: "",
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
 		name: "usahi",
@@ -84,7 +89,8 @@ const projects: Project[] = [
 				"/images/projects/usahi/mobile/USAhi-AboutUS.jpg"
 			]
 		},
-		url: "https://usahomeimprovement.com/"
+		url: "https://usahomeimprovement.com/",
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
 		name: "Tuition Covered",
@@ -107,7 +113,8 @@ const projects: Project[] = [
 				"/images/projects/tuition-covered/mobile/TC-Scholarships.jpg"
 			]
 		},
-		url: "https://tuitioncovered.com/"
+		url: "https://tuitioncovered.com/",
+		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	}
 ];
 

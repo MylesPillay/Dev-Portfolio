@@ -11,10 +11,15 @@ const config: Config = {
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":
-					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
+					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+				"projects-gradient":
+					"linear-gradient(to right, #1D7874, #071E22)"
 			},
 			colors: {
-				goldenrod: "rgb(var(--color-goldenrod) / <alpha-value>)"
+				goldenrod: "rgb(var(--color-goldenrod) / <alpha-value>)",
+				background: {
+					gradient: "linear-gradient(to right, #1D787415, #FF6600)"
+				}
 			}
 		}
 	},

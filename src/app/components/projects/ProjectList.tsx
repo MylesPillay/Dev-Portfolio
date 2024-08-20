@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Project } from "next/dist/build/swc";
 import projects from "./ProjectsObject";
 
 interface ProjectListProps {
@@ -19,9 +17,9 @@ const ProjectList: React.FC<ProjectListProps> = ({
 			{projects.map((project, index) => (
 				<li
 					key={index}
-					className={`cursor-pointer mb-2 text-left ${
+					className={`cursor-pointer mb-2 text-left text-slate-300 ${
 						selectedProject.name === project.name
-							? " text-white"
+							? ""
 							: "hover:text-white"
 					}`}
 					onClick={() => onProjectClick(index)}>

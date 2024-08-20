@@ -21,7 +21,11 @@ body {
 		text-wrap: balance;
 	}
 }
+/* color pallete   */
 
+.background {
+	background-color: "#1D7874";
+}
 .container {
 	display: flex;
 	height: 100vh;
@@ -47,19 +51,19 @@ nav {
 }
 
 .shadow-neon {
-	box-shadow: 0 0 10px #ff660099, 0 0 20px #ff660099, 0 0 30px #ff660099,
-		0 0 40px #ff660099;
+	box-shadow: 0 0 10px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40),
+		0 0 15px rgb(255, 194, 40), 0 0 40px rgb(255, 194, 40);
 	animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes neon-glow {
 	from {
-		box-shadow: 0 0 5px #ff660099, 0 0 10px #ff660099, 0 0 15px #ff660099,
-			0 0 20px #ff660099;
+		box-shadow: 0 0 5px rgb(255, 194, 40), 0 0 10px rgb(255, 194, 40),
+			0 0 15px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40);
 	}
 	to {
-		box-shadow: 0 0 10px #ff660099, 0 0 20px #ff660099, 0 0 30px #ff660099,
-			0 0 40px #ff660099;
+		box-shadow: 0 0 10px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40),
+			0 0 10px rgb(255, 194, 40), 0 0 40px rgb(255, 194, 40);
 	}
 }
 
