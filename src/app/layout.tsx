@@ -20,28 +20,32 @@ export default function RootLayout({
 
 	return (
 		<html lang='en'>
-			<body className='flex h-screen w-screen p-0 bg-green-500'>
-				<nav className='flex flex-col h-full w-auto max-w-[13%] py-4 pl-2  bg-yellow-500 text-black font-bold text-justify'>
-					<ul className='flex flex-row h-full w-full space-x-2 bg-rose-500'>
+			<body className='flex h-screen w-screen p-0'>
+				<nav className='flex flex-col h-full w-auto max-w-[13%] text-black font-bold text-justify'>
+					<ul className='flex flex-row h-full w-full  text-white'>
 						{[
 							{
 								href: "/contact",
 								label: "Contact",
-								icon: <FaEnvelope size={30} />
+								backgroundColor: "#1D787450",
+								icon: <FaEnvelope size={30} color='white' />
 							},
 							{
 								href: "/interests",
 								label: "Interests",
+								backgroundColor: "#1D787475",
 								icon: <FaMicrophone size={29} />
 							},
 							{
 								href: "/projects",
 								label: "Projects",
+								backgroundColor: "#1D787499",
 								icon: <FaLaptopCode size={30} />
 							},
 							{
 								href: "/",
 								label: "About Me",
+								backgroundColor: "#1D7874",
 								icon: <FaPortrait size={30} />
 							}
 						]
@@ -52,17 +56,20 @@ export default function RootLayout({
 							.map((item) => (
 								<li
 									key={item.href}
-									className='h-full flex flex-col justify-start bg-amber-400'
+									className='h-full flex flex-col justify-start pt-12 pb-4 px-2'
+									style={{
+										backgroundColor: item.backgroundColor
+									}}
 									onMouseEnter={() => setHovered(item.href)}
 									onMouseLeave={() => setHovered(null)}>
 									<Link
 										href={item.href}
-										className={`flex flex-col items-center bg-purple-400 justify-start h-auto text-2xl tracking-widest text-center writing-vertical width-[25%] ${
+										className={`flex flex-col items-center  justify-start h-auto text-2xl tracking-widest text-center writing-vertical width-[25%] ${
 											hovered === item.href
-												? "text-slate-800"
-												: "text-slate-600 opacity-65"
+												? "text-white"
+												: "text-white opacity-65"
 										}`}>
-										<div className='flex   bg-white items-center'>
+										<div className='flex  items-center'>
 											<div className='justify-self-center w-auto px-[3.5px]'>
 												{item.icon}
 											</div>
@@ -76,7 +83,7 @@ export default function RootLayout({
 															(letter, index) => (
 																<div
 																	key={index}
-																	className={` inline-block transform -rotate-90 bg-teal-500 ${
+																	className={` inline-block transform -rotate-90  ${
 																		letter ===
 																		" "
 																			? "py-2"

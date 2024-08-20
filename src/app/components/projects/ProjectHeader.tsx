@@ -19,15 +19,15 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 }) => {
 	return (
 		<div className='flex flex-row justify-between w-full mb-2'>
-			<h1 className='text-4xl font-bold text-left text-slate-300 justify-start w-[15%]'>
+			<h1 className='text-4xl font-bold text-left text-white justify-start w-[15%]'>
 				Projects
 			</h1>
-			<h1 className='text-4xl font-bold w-[63%]  text-slate-300 justify-start '>
+			<h1 className='text-4xl font-bold w-[63%]  text-white justify-start '>
 				{selectedProject.name}
 			</h1>
 			<div className='flex flex-row justify-center items-center space-x-4'>
 				<button
-					className={`w-1/2 h-auto text-slate-300 text-lg text-left rounded-md p-2 ${
+					className={`w-1/2 h-auto text-white text-lg text-left rounded-md p-2 ${
 						selectedProject.images.web.length > 0
 							? "bg-transparent cursor-pointer"
 							: "bg-transparent opacity-50 cursor-default"

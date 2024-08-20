@@ -17,10 +17,10 @@ const ProjectList: React.FC<ProjectListProps> = ({
 			{projects.map((project, index) => (
 				<li
 					key={index}
-					className={`cursor-pointer mb-2 text-left text-slate-300 ${
+					className={`cursor-pointer mb-2 text-left  ${
 						selectedProject.name === project.name
-							? ""
-							: "hover:text-white"
+							? "text-white"
+							: "hover:text-white hover:text-opacity-80 text-slate-300"
 					}`}
 					onClick={() => onProjectClick(index)}>
 					{project.name}

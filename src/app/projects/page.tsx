@@ -9,6 +9,7 @@ import ProjectControls from "../components/projects/ProjectImageChevrons";
 import ProjectsHeader from "../components/projects/ProjectHeader";
 import MobileImageContainer from "../components/projects/MobileAppProjectImages";
 import ProjectImagePagination from "../components/projects/ProjectImagePagination";
+
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
@@ -41,7 +42,9 @@ const ProjectsDisplay = (): JSX.Element => {
 	};
 
 	return (
-		<div className='bg-projects-gradient min-h-screen m-none text-slate-800 border-l-4 border-slate-200 p-8'>
+		<div
+			className='bg-projects-gradient min-h-screen m-none  p-8'
+			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}
