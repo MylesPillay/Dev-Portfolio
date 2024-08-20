@@ -41,10 +41,26 @@ nav {
 .nav-title {
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
-	/* transform: rotate(180deg); */
 	padding: 20px 0;
 	font-size: 1.2em;
 	font-weight: bold;
+}
+
+.shadow-neon {
+	box-shadow: 0 0 10px #ff660099, 0 0 20px #ff660099, 0 0 30px #ff660099,
+		0 0 40px #ff660099;
+	animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+	from {
+		box-shadow: 0 0 5px #ff660099, 0 0 10px #ff660099, 0 0 15px #ff660099,
+			0 0 20px #ff660099;
+	}
+	to {
+		box-shadow: 0 0 10px #ff660099, 0 0 20px #ff660099, 0 0 30px #ff660099,
+			0 0 40px #ff660099;
+	}
 }
 
 nav ul {

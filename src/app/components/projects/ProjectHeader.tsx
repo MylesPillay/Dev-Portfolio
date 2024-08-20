@@ -39,7 +39,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 					Desktop
 				</button>
 
-				<div className='h-full w-px bg-white'></div>
+				<div className='h-[90%] w-px bg-white vertical-align-middle'></div>
 
 				<button
 					className={`w-1/2 h-auto text-white text-lg text-right rounded-md p-2  ${

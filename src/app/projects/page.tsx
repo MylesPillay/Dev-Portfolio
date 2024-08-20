@@ -93,14 +93,16 @@ const ProjectsDisplay = (): JSX.Element => {
 						onNextImage={nextImage}
 					/>
 				</div>
-				<div className='w-full justify-end py-2'>
-					<div className='w-auto bg-slate-400 mx-auto justify-end bg-opacity-50 rounded-lg p-2 overflow-scroll max-h-[63vh] max-w-[58vw]'>
-						<div className='relative h-full w-full mx-auto justify-center align-middle items-center'>
-							<ProjectImages
-								selectedProject={selectedProject}
-								viewMode={viewMode}
-								currentImageIndex={currentImageIndex}
-							/>
+				<div className='w-full justify-end my-4'>
+					<div className='shadow-neon rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
+						<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[63vh] max-w-[58vw]'>
+							<div className='relative h-full w-full mx-auto justify-center align-middle items-center'>
+								<ProjectImages
+									selectedProject={selectedProject}
+									viewMode={viewMode}
+									currentImageIndex={currentImageIndex}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
