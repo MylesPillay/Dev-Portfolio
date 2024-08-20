@@ -17,6 +17,8 @@ const ProjectsDisplay = (): JSX.Element => {
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 	const [isHovered, setIsHovered] = useState(false);
+	const [isImageContainerHovered, setIsImageContainerHovered] =
+		useState(false);
 
 	const handleProjectClick = (index: number) => {
 		const project = projects[index];
@@ -46,7 +48,7 @@ const ProjectsDisplay = (): JSX.Element => {
 
 	return (
 		<div
-			className='bg-projects-gradient min-h-screen m-none  pr-8  p-0 pt-11'
+			className='bg-projects-gradient overflow-hidden min-h-screen m-none  pr-8  p-0 pt-11'
 			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
@@ -64,24 +66,38 @@ const ProjectsDisplay = (): JSX.Element => {
 				<div className='flex flex-row w-full my-4 justify-between mt-8 space-x-4'>
 					<ProjectTextContent />
 
-					<div className='w-auto  items-end mt-1 self-right max-h-[90vh] max-w-[37vw] '>
+					<div
+						className='w-auto items-end mt-1 self-right max-h-[90vh] h-[80vh] max-w-[37vw] relative'
+						style={{
+							transform: isImageContainerHovered
+								? "translateX(2%)"
+								: "translateX(52%)",
+							transition: "transform 0.5s ease-in-out"
+						}}
+						onMouseEnter={() => setIsImageContainerHovered(true)}
+						onMouseLeave={() => setIsImageContainerHovered(false)}>
 						{selectedProjectIndex === 0 ||
 						selectedProjectIndex === 3 ? (
-							<div className=' w-full h-full  items-end   '>
+							<div className='w-full h-full items-end'>
 								<MobileImageContainer
+									hovered={isImageContainerHovered}
 									images={selectedProject.images.mobile}
 									currentImageIndex={currentImageIndex}
 								/>
-								<div className='my-4  w-[100%] justify-center items-center'>
+								<div
+									className={
+										"my-4 w-[100%] justify-center items-center"
+									}>
 									{/* <ProjectControls
-										selectedProject={selectedProject}
-										viewMode={viewMode}
-										currentImageIndex={currentImageIndex}
-										onViewModeChange={setViewMode}
-										onPrevImage={prevImage}
-										onNextImage={nextImage}
-									/> */}
+          selectedProject={selectedProject}
+          viewMode={viewMode}
+          currentImageIndex={currentImageIndex}
+          onViewModeChange={setViewMode}
+          onPrevImage={prevImage}
+          onNextImage={nextImage}
+        /> */}
 									<ProjectImagePagination
+										hovered={isImageContainerHovered}
 										currentImageIndex={currentImageIndex}
 										totalImages={
 											selectedProject.images.mobile.length

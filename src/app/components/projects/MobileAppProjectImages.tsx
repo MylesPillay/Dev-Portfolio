@@ -2,16 +2,20 @@ import React from "react";
 import Image from "next/image";
 
 interface MobileImageContainerProps {
+	hovered: boolean;
 	images: string[];
 	currentImageIndex: number;
 }
 
 const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
+	hovered,
 	images,
 	currentImageIndex
 }) => {
 	return (
-		<div className=' right-0 overflow-hidden'>
+		<div
+			className={`
+									right-0 overflow-hidden`}>
 			<div
 				className='flex flex-row transition-transform duration-300'
 				style={{
@@ -20,7 +24,7 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 				{images.map((image, index) => (
 					<div
 						key={index}
-						className='w-[50%]  h-1/2 flex-shrink-0   flex-grow-0 px-2'>
+						className='w-[50%]  h-1/2 flex-shrink-0 pr-3  flex-grow-0 '>
 						<Image
 							src={image}
 							className='rounded-lg'

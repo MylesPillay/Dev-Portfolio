@@ -2,6 +2,7 @@ import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface ProjectImagePaginationProps {
+	hovered: boolean;
 	currentImageIndex: number;
 	totalImages: number;
 	onPageChange: (index: number) => void;
@@ -10,6 +11,7 @@ interface ProjectImagePaginationProps {
 }
 
 const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
+	hovered,
 	currentImageIndex,
 	totalImages,
 	onPageChange,
@@ -27,26 +29,30 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 			<button
 				key={i}
 				onClick={() => onPageChange(i)}
-				className={`w-2 h-2 rounded-full mx-1 ${
-					i === currentImageIndex
-						? "bg-white"
-						: "bg-white bg-opacity-50 hover:bg-opacity-100"
+				className={`w-2.5 h-2.5 rounded-full mx-2   bg-opacity-60 ${
+					i === currentImageIndex ? "shadow-neon" : ""
 				}`}
+				style={{
+					backgroundColor: "#071E2299"
+				}}
 			/>
 		);
 	}
 
 	return (
-		<div className='flex justify-center align-middle  mt-4'>
+		<div
+			className={`${
+				hovered ? "flex " : "hidden"
+			} justify-center align-middle h-[15vh] items-center pb-12 `}>
 			<button
 				onClick={onPrevImage}
 				disabled={currentImageIndex <= 0}
-				className={`transform  text-white p-2 rounded-full mr-4 ${
+				className={`transform   p-2 rounded-full mr-4 ${
 					currentImageIndex <= 0
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronLeft />
+				<FaChevronLeft color='#A7F3D0' size={22} />
 			</button>
 			{dots}
 			<button
@@ -57,7 +63,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronRight />
+				<FaChevronRight color='#A7F3D0' size={22} />
 			</button>
 		</div>
 	);

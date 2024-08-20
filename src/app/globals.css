@@ -51,19 +51,36 @@ nav {
 }
 
 .shadow-neon {
-	box-shadow: 0 0 10px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40),
-		0 0 15px rgb(255, 194, 40), 0 0 40px rgb(255, 194, 40);
+	box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
+		0 0 10px rgb(29, 234, 132), 0 0 15px rgb(29, 234, 132);
 	animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes neon-glow {
 	from {
-		box-shadow: 0 0 5px rgb(255, 194, 40), 0 0 10px rgb(255, 194, 40),
-			0 0 15px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40);
+		box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
+			0 0 15px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132);
 	}
 	to {
-		box-shadow: 0 0 10px rgb(255, 194, 40), 0 0 20px rgb(255, 194, 40),
-			0 0 10px rgb(255, 194, 40), 0 0 40px rgb(255, 194, 40);
+		box-shadow: 0 0 10px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132),
+			0 0 10px rgb(29, 234, 132), 0 0 40px rgb(29, 234, 132);
+	}
+}
+
+.shadow-neon-left {
+	box-shadow: -5px 0 0px rgb(29, 234, 132), -10px 0 0px rgb(29, 234, 132),
+		-15px 0 5px rgb(29, 234, 132);
+	animation: neon-glow-left 0.1infinite alternate;
+}
+
+@keyframes neon-glow-left {
+	from {
+		box-shadow: -5px 0 5px rgb(29, 234, 132), -10px 0 10px rgb(29, 234, 132),
+			-15px 0 15px rgb(29, 234, 132);
+	}
+	to {
+		box-shadow: -10px 0 10px rgb(29, 234, 132),
+			-20px 0 20px rgb(29, 234, 132), -30px 0 30px rgb(29, 234, 132);
 	}
 }
 .letter-visible {
