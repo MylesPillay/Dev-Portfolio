@@ -46,7 +46,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				viewMode={viewMode}
 				setViewMode={setViewMode}
 			/>
-			<div className='flex flex-row items-start justify-start h-full w-full space-x-8'>
+			<div className='flex flex-row items-start justify-center h-full w-full space-x-8'>
 				<div className='w-[20%] max-w-[25%] '>
 					<ProjectList
 						selectedProject={selectedProject}
@@ -61,8 +61,23 @@ const ProjectsDisplay = (): JSX.Element => {
 						onNextImage={nextImage}
 					/>
 				</div>
-				<div className='w-full justify-end my-4'>
-					<div className=' w-auto mx-auto justify-end max-h-[60vh] max-w-[45vw] '>
+				<div className='flex flex-row w-full my-4 justify-between '>
+					<div className='p-4  rounded-lg mr-4 bg-slate-400 bg-opacity-50 w-full h-[50%] max-h-[80vh] '>
+						<h2 className='text-2xl font-semibold text-white text-justify'>
+							Objectives
+						</h2>
+						<h3 className='text-md font-normal text-white text-justify'>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Lorem ipsum dolor sit amet,
+							consectetur adipiscing elit. Sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua. Lorem
+							ipsum dolor sit amet, consectetur adipiscing elit.
+							Sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua. Lorem ipsum
+						</h3>
+					</div>
+					<div className=' w-auto  items-end  self- right max-h-[80vh] max-w-[37vw] '>
 						{selectedProjectIndex === 0 ||
 						selectedProjectIndex === 3 ? (
 							<MobileImageContainer
@@ -87,26 +102,24 @@ const ProjectsDisplay = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<div>
-				<div>
-					<div>
-						<h2 className='text-2xl font-semibold text-slate-800 text-justify'>
-							Skills / CodeStack
-						</h2>
-						<ul
-							className='flex flex-col text-lg
-   font-medium w-full'>
-							{selectedProject.skills.map((skill, index) => (
-								<li
-									key={index}
-									className={`cursor-pointer mb-2 text-left text-slate-300 over:text-white
+			<div className='-mt-16'>
+				<h2 className='text-xl font-bold mb-2 text-slate-800 text-justify'>
+					Skills / CodeStack
+				</h2>
+				<ul
+					className='flex flex-col text-md
+   font-semibold w-full'>
+					{selectedProject.skills.map((skill, index) => (
+						<li
+							key={index}
+							className={`cursor-pointer mb-2 text-left text-slate-300 over:text-white
 									`}>
-									{skill}
-								</li>
-							))}
-						</ul>
-					</div>
-					<div>
+							{skill}
+						</li>
+					))}
+				</ul>
+			</div>
+			{/* <div>
 						<h2 className='text-2xl font-semibold text-slate-800 text-justify'>
 							Objectives
 						</h2>
@@ -120,9 +133,7 @@ const ProjectsDisplay = (): JSX.Element => {
 							Sed do eiusmod tempor incididunt ut labore et dolore
 							magna aliqua. Lorem ipsum
 						</h3>
-					</div>
-				</div>
-			</div>
+					</div> */}
 		</div>
 	);
 };

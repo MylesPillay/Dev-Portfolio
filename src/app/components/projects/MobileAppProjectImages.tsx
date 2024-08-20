@@ -11,20 +11,22 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 	currentImageIndex
 }) => {
 	return (
-		<div className='relative overflow-hidden'>
+		<div className=' right-0 overflow-hidden'>
 			<div
 				className='flex flex-row transition-transform duration-300'
 				style={{
-					transform: `translateX(-${currentImageIndex * 33}%)`
+					transform: `translateX(-${currentImageIndex * 50}%)`
 				}}>
 				{images.map((image, index) => (
 					<div
 						key={index}
-						className='w-[33%]  h-1/2 flex-shrink-0  flex-grow-0 px-2'>
+						className='w-[50%]  h-1/2 flex-shrink-0   flex-grow-0 px-2'>
 						<Image
 							src={image}
+							className='rounded-lg'
 							alt={`Mobile screenshot ${index + 1}`}
 							layout='responsive'
+							objectFit='contain'
 							width={280}
 							height={300}
 							style={{ minHeight: 300 }}
