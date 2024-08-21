@@ -22,9 +22,10 @@ const config: Config = {
 				background: {
 					gradient: "linear-gradient(to right, #1D787415, #FF6600)"
 				}
-			}
+			},
+
+			plugins: []
 		}
-	},
-	plugins: []
+	}
 };
 export default config;

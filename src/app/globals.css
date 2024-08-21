@@ -54,7 +54,9 @@ nav {
 		0 5px 0 rgb(29, 234, 132), 0 5px 0 rgb(29, 234, 132);
 	animation: neon-glow-bottom 1.5s ease-in-out infinite alternate;
 }
-
+.project-text-section {
+	margin-bottom: 1rem;
+}
 @keyframes neon-glow-bottom {
 	from {
 		box-shadow: 0 5px 0 rgb(29, 234, 132), 0 5px 0 rgb(29, 234, 132),
