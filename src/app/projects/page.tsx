@@ -105,7 +105,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						/>
 					</div>
 					<div
-						className='w-auto mt-1  bg-yellow-300  self-right min-h-[70vh] max-h-[90vh] h- max-w-[55vw] relative'
+						className='w-auto  min-h-[70vh] max-h-[90vh] h- max-w-[55vw] relative'
 						style={{
 							transform: isImageContainerHovered
 								? "translateX(2%)"

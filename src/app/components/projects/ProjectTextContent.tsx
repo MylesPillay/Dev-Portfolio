@@ -18,10 +18,10 @@ const ProjectTextContent: React.FC<ProjectTextContentProps> = ({
 		<div
 			className='p-4  rounded-lg  bg-black bg-opacity-40 h-auto '
 			style={{
-				// 	transform: isImageContainerHovered
-				// 		? "translateX(-40%)"
-				// 		: "translateX(0)",
-				// 	transition: "transform 500ms ease-in-out",
+				transform: isImageContainerHovered
+					? "translateX(20%)"
+					: "translateX(20%)",
+				transition: "transform 500ms ease-in-out",
 				width: isImageContainerHovered ? "80%" : "100%"
 			}}>
 			<h2 className='text-2xl font-semibold text-white text-justify'>
