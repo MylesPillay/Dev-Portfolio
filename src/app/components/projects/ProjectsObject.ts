@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
 	name: string;
 	tagline: string;
 	images: {
@@ -6,8 +6,23 @@ interface Project {
 		mobile: string[];
 	};
 	details: {
+		overview: string;
 		objective: string;
-		keyResults: string[];
+		motivation?: string;
+		techStack?: {
+			frontend: string;
+			stateManagement: string;
+			backend: string;
+		};
+		keyFeatures?: {
+			title: string;
+			text: string;
+		}[];
+		keyResults?: string[];
+		outcomes?: {
+			title: string;
+			text: string;
+		}[];
 	};
 	url?: string;
 	skills: string[];
@@ -15,8 +30,8 @@ interface Project {
 
 const projects: Project[] = [
 	{
-		name: "Air Oasis",
-		tagline: "Loving the Air Your Breath",
+		name: "Air Oasis Home",
+		tagline: "- IoT Mobile Application",
 		images: {
 			web: [],
 			mobile: [
@@ -30,13 +45,50 @@ const projects: Project[] = [
 			]
 		},
 		details: {
+			overview:
+				"I developed Air Oasis Home, an IoT mobile application, independently from the ground up, available for both Android and iOS. Post-launch, I’ve taken sole responsibility for ongoing updates and maintenance on both the App Store and Google Play. This project showcases my ability to manage a full development cycle, from initial concept through to deployment and post-production support.",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
-			keyResults: [
-				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
-				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			motivation:
+				"Air Oasis Home was designed to solve the challenge of managing and controlling air purification devices remotely. The app connects users with their A.O. air purifiers via Bluetooth and WiFi, allowing them to seamlessly sync, control, and schedule their devices directly from their smartphones.",
+			techStack: {
+				frontend:
+					"React Native with TypeScript for robust and type-safe code.",
+				stateManagement:
+					"Zustand for local state management and XState for handling the complex state machines involved in device connectivity.",
+				backend:
+					"Firebase for a cloud-based database solution, ensuring real-time synchronization and reliable data storage."
+			},
+			keyFeatures: [
+				{
+					title: "Bluetooth & WiFi Integration",
+					text: "Utilized ESP-32 chip provisioning to enable device syncing over Bluetooth, with WiFi facilitating further backend communication."
+				},
+				{
+					title: "Real-time Feedback",
+					text: "Ensured real-time device status updates using a synchronised local state infrastructure, enhancing user experience with immediate feedback."
+				},
+				{
+					title: "UX/UI Design",
+					text: "Focused on creating an intuitive user interface, balancing aesthetics with functionality to provide users with a seamless and visually appealing experience."
+				}
+			],
+			outcomes: [
+				{
+					title: "User Experience",
+					text: "Delivered a user-friendly app that allows users to manage their air purifiers with ease, providing real-time device status, scheduling, and control options."
+				},
+				{
+					title: "Scalability & Maintenance",
+					text: "Optimized the backend to handle edge cases and ensure the app remains scalable as the user base grows. My ongoing maintenance ensures the app continues to perform reliably."
+				},
+				{
+					title: "Professional Growth",
+					text: "Gained extensive experience in UX / UI design, state management, and backend development, solidifying my expertise in building high - quality, scalable mobile applications."
+				}
 			]
 		},
+
 		skills: [
 			"React Native",
 			"Typescript",
@@ -70,6 +122,7 @@ const projects: Project[] = [
 		},
 		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
 		details: {
+			overview: "",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
 			keyResults: [
@@ -105,6 +158,7 @@ const projects: Project[] = [
 		},
 		url: "",
 		details: {
+			overview: "",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
 			keyResults: [
@@ -144,6 +198,7 @@ const projects: Project[] = [
 		},
 		url: "",
 		details: {
+			overview: "",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
 			keyResults: [
@@ -172,6 +227,7 @@ const projects: Project[] = [
 		},
 		url: "https://usahomeimprovement.com/",
 		details: {
+			overview: "",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
 			keyResults: [
@@ -215,6 +271,7 @@ const projects: Project[] = [
 		},
 		url: "https://tuitioncovered.com/",
 		details: {
+			overview: "",
 			objective:
 				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
 			keyResults: [

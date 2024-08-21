@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface MobileImageContainerProps {
@@ -24,7 +25,7 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 				{images.map((image, index) => (
 					<div
 						key={index}
-						className='w-[50%]  h-1/2 flex-shrink-0 pr-3  flex-grow-0 '>
+						className={`w-[50%]  h-1/2 flex-shrink-0 pr-3 flex-grow-0 				 `}>
 						<Image
 							src={image}
 							className='rounded-lg'

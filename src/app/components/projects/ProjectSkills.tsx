@@ -19,9 +19,6 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 			style={{
 				backgroundColor: isHovered ? "#071E22" : "",
 				borderColor: "#1D7874"
-				// width: isHovered
-				// 	? `${selectedProject.skills.length * 7}rem`
-				// 	: "auto"
 			}}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}>

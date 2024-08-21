@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
 import ProjectList from "../components/projects/ProjectList";
 import ProjectImages from "../components/projects/WebsiteProjectImages";
@@ -27,6 +27,22 @@ const ProjectsDisplay = (): JSX.Element => {
 		setCurrentImageIndex(0);
 	};
 
+	const [showHoverCursor, setShowHoverCursor] = useState<boolean | null>(
+		null
+	);
+
+	useEffect(() => {
+		if (!isImageContainerHovered && showHoverCursor === null) {
+			const timer = setTimeout(() => {
+				setShowHoverCursor(true);
+			}, 8000);
+			return () => clearTimeout(timer);
+		}
+		if (isImageContainerHovered) {
+			setShowHoverCursor(false);
+		}
+	}, [isImageContainerHovered, showHoverCursor]);
+
 	return (
 		<div
 			className='bg-projects-gradient overflow-hidden h-full w-full  m-none  pr-8  p-0 pt-6'
@@ -46,13 +62,78 @@ const ProjectsDisplay = (): JSX.Element => {
 				</div>
 
 				<div
-					className={`relative flex justify-evenly mx-auto w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[6vh] `}>
+					className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[6vh] `}>
 					<ProjectTextContent
 						selectedProject={selectedProject}
 						isImageContainerHovered={isImageContainerHovered}
 					/>
-
 					<div
+						className='min-h-[90vh] max-h-[90vh] h-[50vh] max-w-[37vw] sticky top-0 right-0'
+						style={{
+							transform: isImageContainerHovered
+								? "translateX(51%)"
+								: "translateX(97%)",
+							transition: "transform 0.5s ease-in-out"
+						}}
+						onMouseEnter={() => setIsImageContainerHovered(true)}
+						onMouseLeave={() => setIsImageContainerHovered(false)}>
+						{selectedProjectIndex === 0 ||
+						selectedProjectIndex === 3 ? (
+							<div className='w-full h-full min-h-[100%] items-end'>
+								<MobileImageContainer
+									hovered={isImageContainerHovered}
+									images={selectedProject.images.mobile}
+									currentImageIndex={currentImageIndex}
+								/>
+
+								<div className=' w-[100%] justify-center items-center'>
+									{showHoverCursor ? (
+										<div
+											className={`flex flex-grow justify-center align-start h-2 w-[17.5vw] items-center mb-[10vh]  -mt-2 shadow-neon-bottom`}></div>
+									) : (
+										<ProjectImagePagination
+											hovered={isImageContainerHovered}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									)}
+								</div>
+							</div>
+						) : (
+							<div className='rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw]'>
+								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'>
+									<div className='relative h-auto w-full mx-auto justify-center align-middle items-center'>
+										<ProjectImages
+											selectedProject={selectedProject}
+											viewMode={viewMode}
+											currentImageIndex={
+												currentImageIndex
+											}
+										/>
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+					{/* <div
 						className=' min-h-[90vh] max-h-[90vh] h-[50vh] max-w-[37vw] relative '
 						style={{
 							transform: isImageContainerHovered
@@ -111,7 +192,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								</div>
 							</div>
 						)}
-					</div>
+					</div> */}
 				</div>
 
 				{/* <div className=' rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
