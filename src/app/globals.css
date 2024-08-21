@@ -92,7 +92,8 @@ nav {
 }
 
 .hover-expand:hover {
-	width: 60vw;
+	width: auto;
+	max-width: 60vw;
 }
 
 nav ul {

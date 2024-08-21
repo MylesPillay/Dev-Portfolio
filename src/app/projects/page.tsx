@@ -67,7 +67,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					<ProjectTextContent />
 
 					<div
-						className='w-auto items-end mt-1 self-right max-h-[90vh] h-[80vh] max-w-[37vw] relative'
+						className='w-auto items-end mt-1 self-right max-h-[90vh] h- max-w-[37vw] relative'
 						style={{
 							transform: isImageContainerHovered
 								? "translateX(2%)"
