@@ -36,7 +36,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		if (!isImageContainerHovered && showHoverPrompt === null) {
 			const timer = setTimeout(() => {
 				setShowHoverPrompt(true);
-			}, 8000);
+			}, 5000);
 			return () => clearTimeout(timer);
 		}
 		if (isImageContainerHovered) {
@@ -74,7 +74,7 @@ const ProjectsDisplay = (): JSX.Element => {
 							transform: isImageContainerHovered
 								? "translateX(51%)"
 								: "translateX(97%)",
-							transition: "transform 0.5s ease-in-out"
+							transition: "transform 0.2s ease-in-out"
 						}}
 						onMouseEnter={() => setIsImageContainerHovered(true)}
 						onMouseLeave={() => setIsImageContainerHovered(false)}>
