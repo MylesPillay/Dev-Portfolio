@@ -32,7 +32,8 @@ export default function RootLayout({
 								icon: (
 									<FaEnvelope
 										size={hovered === "/contact" ? 32 : 30}
-										color='white'
+										opacity={1}
+										color='#A7F3D0'
 									/>
 								)
 							},
@@ -45,6 +46,7 @@ export default function RootLayout({
 										size={
 											hovered === "/interests" ? 32 : 30
 										}
+										color='#A7F3D0'
 									/>
 								)
 							},
@@ -55,6 +57,7 @@ export default function RootLayout({
 								icon: (
 									<FaLaptopCode
 										size={hovered === "/projects" ? 32 : 30}
+										color='#A7F3D0'
 									/>
 								)
 							},
@@ -65,6 +68,7 @@ export default function RootLayout({
 								icon: (
 									<FaPortrait
 										size={hovered === "/" ? 32 : 30}
+										color='#A7F3D0'
 									/>
 								)
 							}
@@ -81,14 +85,19 @@ export default function RootLayout({
 									onMouseLeave={() => setHovered(null)}>
 									<Link
 										href={item.href}
-										className={`flex flex-col items-center  justify-start h-auto text-2xl tracking-widest text-center  width-[25%] ${
-											hovered === item.href
-												? "text-white"
-												: "text-white opacity-65"
-										}`}>
-										<div className='flex  items-center'>
+										className={`flex flex-col items-center  justify-start h-auto text-2xl tracking-widest text-center  width-[25%]
+
+										`}>
+										<div
+											className='flex  items-center'
+											style={{
+												paddingTop:
+													hovered === item.href
+														? 1
+														: 2
+											}}>
 											<div
-												className='justify-self-center w-auto'
+												className='justify-center w-auto p-auto'
 												style={{
 													paddingLeft:
 														hovered === item.href
@@ -97,7 +106,11 @@ export default function RootLayout({
 													paddingRight:
 														hovered === item.href
 															? 3
-															: 4
+															: 4,
+													marginBottom:
+														hovered === item.href
+															? 0
+															: 1
 												}}>
 												{item.icon}
 											</div>

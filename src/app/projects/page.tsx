@@ -28,25 +28,25 @@ const ProjectsDisplay = (): JSX.Element => {
 		setCurrentImageIndex(0);
 	};
 
-	const [showHoverCursor, setShowHoverCursor] = useState<boolean | null>(
+	const [showHoverPrompt, setShowHoverPrompt] = useState<boolean | null>(
 		null
 	);
 
 	useEffect(() => {
-		if (!isImageContainerHovered && showHoverCursor === null) {
+		if (!isImageContainerHovered && showHoverPrompt === null) {
 			const timer = setTimeout(() => {
-				setShowHoverCursor(true);
+				setShowHoverPrompt(true);
 			}, 8000);
 			return () => clearTimeout(timer);
 		}
 		if (isImageContainerHovered) {
-			setShowHoverCursor(false);
+			setShowHoverPrompt(false);
 		}
-	}, [isImageContainerHovered, showHoverCursor]);
+	}, [isImageContainerHovered, showHoverPrompt]);
 
 	return (
 		<div
-			className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-8  p-0 pt-6'
+			className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
@@ -54,7 +54,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				setViewMode={setViewMode}
 			/>
 			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full'>
-				<div className='flex flex-col h-full justify-between w-[13.5vw] z-10 max-w-[13.5vw] min-h-[85vh] pt-[6vh]'>
+				<div className='flex flex-col  h-full justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] min-h-[85vh] pt-[6vh]'>
 					<ProjectList
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
@@ -88,7 +88,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								/>
 
 								<div className=' w-[100%] justify-center items-center'>
-									{showHoverCursor ? (
+									{showHoverPrompt ? (
 										<motion.div
 											initial={{ opacity: 0 }}
 											animate={{ opacity: 1 }}
