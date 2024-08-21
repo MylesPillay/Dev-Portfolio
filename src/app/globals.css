@@ -96,6 +96,19 @@ nav {
 	max-width: 60vw;
 }
 
+.project-skills {
+	transition: transform 0.5s ease-in-out;
+	transform: translateX(100%);
+}
+
+.project-skills.expanded {
+	transform: translateX(0);
+}
+
+.project-skills.transitioning {
+	pointer-events: none;
+}
+
 nav ul {
 	list-style-type: none;
 	padding: 0;

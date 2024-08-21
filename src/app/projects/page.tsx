@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
 import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -19,6 +19,30 @@ const ProjectsDisplay = (): JSX.Element => {
 	const [isHovered, setIsHovered] = useState(false);
 	const [isImageContainerHovered, setIsImageContainerHovered] =
 		useState(false);
+	// const [isSkillsHovered, setIsSkillsHovered] = useState(false);
+	// const skillsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	// // useEffect(() => {
+	// // 	if (isSkillsHovered && skillsTimeoutRef.current === null) {
+	// // 		skillsTimeoutRef.current = setTimeout(() => {
+	// // 			skillsTimeoutRef.current = null;
+	// // 		}, 100);
+	// // 	}
+	// // }, [isSkillsHovered]);
+
+	// const handleSkillsHover = () => {
+	// 	if (skillsTimeoutRef.current === null) {
+	// 		setIsSkillsHovered(true);
+	// 	}
+	// 	setIsSkillsHovered(true);
+	// };
+
+	// const handleSkillsLeave = () => {
+	// 	setIsSkillsHovered(false);
+	// 	skillsTimeoutRef.current = setTimeout(() => {
+	// 		skillsTimeoutRef.current = null;
+	// 	}, 500);
+	// };
 
 	const handleProjectClick = (index: number) => {
 		const project = projects[index];
@@ -61,13 +85,27 @@ const ProjectsDisplay = (): JSX.Element => {
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
 					/>
+
 					<ProjectSkillsComponent selectedProject={selectedProject} />
 				</div>
-				<div className='flex flex-row w-full my-4 justify-between mt-8 space-x-4'>
-					<ProjectTextContent />
-
+				<div className='flex flex-row justify-around mt-8 space-x-4'>
 					<div
-						className='w-auto items-end mt-1 self-right max-h-[90vh] h- max-w-[37vw] relative'
+						className='flex flex-shrink-0 w-auto mx-auto  mt-1 ml-[5vw]
+					max-w-[45%] relative'
+						// style={{
+						// 	transform: isImageContainerHovered
+						// 		? "translateX(-20%)"
+						// 		: "translateX(20%)",
+						// 	transition: "transform 0.5s ease-in-out"
+						// } }
+					>
+						<ProjectTextContent
+							selectedProject={selectedProject}
+							isImageContainerHovered={isImageContainerHovered}
+						/>
+					</div>
+					<div
+						className='w-auto mt-1  bg-yellow-300  self-right min-h-[70vh] max-h-[90vh] h- max-w-[55vw] relative'
 						style={{
 							transform: isImageContainerHovered
 								? "translateX(2%)"
@@ -78,7 +116,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						onMouseLeave={() => setIsImageContainerHovered(false)}>
 						{selectedProjectIndex === 0 ||
 						selectedProjectIndex === 3 ? (
-							<div className='w-full h-full items-end'>
+							<div className='w-full h-full min-h-[100%] items-end'>
 								<MobileImageContainer
 									hovered={isImageContainerHovered}
 									images={selectedProject.images.mobile}
@@ -88,14 +126,6 @@ const ProjectsDisplay = (): JSX.Element => {
 									className={
 										"my-4 w-[100%] justify-center items-center"
 									}>
-									{/* <ProjectControls
-          selectedProject={selectedProject}
-          viewMode={viewMode}
-          currentImageIndex={currentImageIndex}
-          onViewModeChange={setViewMode}
-          onPrevImage={prevImage}
-          onNextImage={nextImage}
-        /> */}
 									<ProjectImagePagination
 										hovered={isImageContainerHovered}
 										currentImageIndex={currentImageIndex}

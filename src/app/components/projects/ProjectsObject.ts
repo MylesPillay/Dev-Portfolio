@@ -5,6 +5,10 @@ interface Project {
 		web: string[];
 		mobile: string[];
 	};
+	details: {
+		objective: string;
+		keyResults: string[];
+	};
 	url?: string;
 	skills: string[];
 }
@@ -23,6 +27,14 @@ const projects: Project[] = [
 				"/images/projects/airoasis/mobile/Mobile_Places.jpg",
 				"/images/projects/airoasis/mobile/Mobile_Schedule_List.jpg",
 				"/images/projects/airoasis/mobile/Mobile_Settings.jpg"
+			]
+		},
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
 			]
 		},
 		skills: [
@@ -57,6 +69,14 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			]
+		},
 		skills: [
 			"React Native",
 			"React",
@@ -84,6 +104,14 @@ const projects: Project[] = [
 			mobile: []
 		},
 		url: "",
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			]
+		},
 		skills: [
 			"Next.js",
 			"Typescript",
@@ -115,6 +143,14 @@ const projects: Project[] = [
 			mobile: []
 		},
 		url: "",
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			]
+		},
 		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
 	},
 	{
@@ -135,6 +171,14 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://usahomeimprovement.com/",
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			]
+		},
 		skills: [
 			"React Native",
 			"React",
@@ -170,6 +214,14 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://tuitioncovered.com/",
+		details: {
+			objective:
+				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+			keyResults: [
+				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
+				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
+			]
+		},
 		skills: [
 			"Next.Js",
 			"TypeScript",

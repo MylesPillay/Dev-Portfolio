@@ -1,30 +1,45 @@
-const ProjectTextContent: React.FC = () => {
+import React from "react";
+
+interface ProjectTextContentProps {
+	selectedProject: {
+		details: {
+			objective: string;
+			keyResults: string[];
+		};
+	};
+	isImageContainerHovered: boolean;
+}
+
+const ProjectTextContent: React.FC<ProjectTextContentProps> = ({
+	selectedProject,
+	isImageContainerHovered
+}) => {
 	return (
-		<div className='p-4 mx-8 rounded-lg mr-4 bg-black bg-opacity-40 w-full h-[50%] max-h-[80vh] '>
+		<div
+			className='p-4  rounded-lg  bg-black bg-opacity-40 h-auto '
+			style={{
+				// 	transform: isImageContainerHovered
+				// 		? "translateX(-40%)"
+				// 		: "translateX(0)",
+				// 	transition: "transform 500ms ease-in-out",
+				width: isImageContainerHovered ? "80%" : "100%"
+			}}>
 			<h2 className='text-2xl font-semibold text-white text-justify'>
 				Objectives
 			</h2>
-			<h3 className='text-md font-normal text-white text-justify'>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing
-				elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
-				aliqua. Lorem ipsum dolor sit amet, ng elit. Sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum
-				dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Lorem ipsum
-			</h3>
+			<p className='text-md font-normal text-white text-justify mb-4'>
+				{selectedProject.details.objective}
+			</p>
+			<h2 className='text-2xl font-semibold text-white text-justify'>
+				Key Results
+			</h2>
+			<ul className='list-disc list-inside text-white text-justify'>
+				{selectedProject.details.keyResults.map((result, index) => (
+					<li key={index} className='text-md font-normal mb-2'>
+						{result}
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 };
