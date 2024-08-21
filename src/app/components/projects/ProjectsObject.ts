@@ -25,7 +25,22 @@ const projects: Project[] = [
 				"/images/projects/airoasis/mobile/Mobile_Settings.jpg"
 			]
 		},
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		skills: [
+			"React Native",
+			"Typescript",
+			"Firebase",
+			"Cloud-Firestore",
+			"Xcode",
+			"Android Studio",
+			"Android SDKs",
+			"Jest",
+			"JavaScript",
+			"Bluetooth-Low-Energy",
+			"React-Native-Maps",
+			"X-State",
+			"Zustand",
+			"React Native Testing Library"
+		]
 	},
 	{
 		name: "WhoCo",
@@ -42,7 +57,16 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		skills: [
+			"React Native",
+			"React",
+			"HubSpot",
+			"HubDb Tables",
+			"HTML",
+			"CSS",
+			"SCSS",
+			"SEO Optimisation"
+		]
 	},
 	{
 		name: "Fluent Outreach",
@@ -59,8 +83,29 @@ const projects: Project[] = [
 			],
 			mobile: []
 		},
-		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		url: "",
+		skills: [
+			"Next.js",
+			"Typescript",
+			"Supabase",
+			"TailwindCSS",
+			"ChatGPT API",
+			"React",
+			"REST APIs",
+			"PostgreSQL",
+			"JavaScript",
+			"Cypress Testing Suite",
+			"PHP",
+			"OAuth 2.0",
+			"Dashboard Creation",
+			"User Profiles",
+			"Twillio",
+			"Next-Auth",
+			"Firebase",
+			"Firebase-Auth",
+			"Upstash",
+			"React-Hook-Form"
+		]
 	},
 	{
 		name: "Vibe-A-Day",
@@ -90,7 +135,18 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://usahomeimprovement.com/",
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		skills: [
+			"React Native",
+			"React",
+			"Typescript",
+			"HTML",
+			"CSS",
+			"React",
+			"REST APIs",
+			"XML Sitemaps",
+			"SEO Optimisation",
+			"Google Analytics"
+		]
 	},
 	{
 		name: "Tuition Covered",
@@ -114,7 +170,24 @@ const projects: Project[] = [
 			]
 		},
 		url: "https://tuitioncovered.com/",
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		skills: [
+			"Next.Js",
+			"TypeScript",
+			"Supabase",
+			"TailwindCSS",
+			"ChatGPT API",
+			"OPEN AI GPT Models",
+			"JavaScript",
+			"SQL",
+			"PostgreSQL",
+			"HTML",
+			"CSS",
+			"React",
+			"REST APIs",
+			"XML Sitemaps",
+			"SEO Optimisation",
+			"Google Analytics"
+		]
 	}
 ];
 
