@@ -19,10 +19,10 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 }) => {
 	return (
 		<div className='flex flex-row justify-between w-full mb-2 pl-8'>
-			<h1 className='text-4xl font-bold text-left text-white justify-start w-[15%]'>
+			<h1 className='text-2xl font-bold text-left text-white justify-start align-text-bottom w-[15%] h-full mt-3'>
 				PROJECTS
 			</h1>
-			<h1 className='text-4xl font-bold  w-[37vw] max-w-[50vw] justify-center text-emerald-200 '>
+			<h1 className='text-4xl font-bold  w-[37vw] max-w-[50vw] justify-center text-emerald-200 mt-1'>
 				{selectedProject.name.toUpperCase()}
 			</h1>
 			<div className='flex flex-row justify-center items-center space-x-4'>

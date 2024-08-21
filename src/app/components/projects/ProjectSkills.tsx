@@ -13,15 +13,15 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 
 	return (
 		<div
-			className={`flex flex-col w-full h-[20vh]  pl-8 justify-center pr-2 py-4 rounded-r-lg border-black border-opacity-50 border-l-0 border-r-2 border-b-2 border-t-2 bg-black bg-opacity-40  ${
-				isHovered ? "hover-expand w-auto z-10" : ""
+			className={`flex flex-col w-full h-[20vh]  pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50 border-l-0 border-r-2 border-b-2 border-t-2 bg-black bg-opacity-40  ${
+				isHovered ? "hover-expand w-auto z-10 min-w-[65vw] " : ""
 			}`}
 			style={{
 				backgroundColor: isHovered ? "#071E22" : "",
-				borderBlockColor: isHovered ? "#1D7874" : "",
-				width: isHovered
-					? `${selectedProject.skills.length * 5}rem`
-					: "auto"
+				borderColor: "#1D7874"
+				// width: isHovered
+				// 	? `${selectedProject.skills.length * 7}rem`
+				// 	: "auto"
 			}}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}>

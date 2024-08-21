@@ -1,7 +1,5 @@
 "use client";
-import { Metadata } from "next";
 import Link from "next/link";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import {
 	FaEnvelope,
@@ -22,14 +20,13 @@ export default function RootLayout({
 
 	return (
 		<html lang='en'>
-			<body className='flex h-screen w-screen p-0'>
-				<nav className='flex flex-col h-full w-auto max-w-[13vw] text-black font-bold text-justify'>
+			<body className='flex min-h-screen min-w-screen p-0'>
+				<nav className='flex flex-col h-full w-auto max-w-[12vw] min-w-[12vw] text-black font-bold text-justify'>
 					<ul className='flex flex-row h-full w-full  text-white bg-nav-gradient'>
 						{[
 							{
 								href: "/contact",
 								label: "CONTACT",
-								// backgroundColor: "#1D787440",
 								backgroundColor: "transparent",
 
 								icon: (
@@ -42,7 +39,6 @@ export default function RootLayout({
 							{
 								href: "/interests",
 								label: "INTERESTS",
-								// backgroundColor: "#1D787450",
 								backgroundColor: "transparent",
 								icon: (
 									<FaMicrophone
@@ -55,7 +51,6 @@ export default function RootLayout({
 							{
 								href: "/projects",
 								label: "PROJECTS",
-								// backgroundColor: "#1D787490",
 								backgroundColor: "transparent",
 								icon: (
 									<FaLaptopCode
@@ -66,8 +61,6 @@ export default function RootLayout({
 							{
 								href: "/",
 								label: "ABOUT ME",
-								// backgroundColor: "#1D787490",
-								// backgroundColor: "#071E2280",
 								backgroundColor: "transparent",
 								icon: (
 									<FaPortrait
@@ -125,7 +118,7 @@ export default function RootLayout({
 													.map((letter, index) => (
 														<div
 															key={index}
-															className={`transform -rotate-90 transition-opacity duration-150  ${
+															className={`transform -rotate-90 transition-opacity duration-150   ${
 																letter === " "
 																	? "py-3"
 																	: "py-2"
@@ -150,7 +143,9 @@ export default function RootLayout({
 							))}
 					</ul>
 				</nav>
-				<main className=' overflow-y-auto flex-grow '>{children}</main>
+				<main className='h-full w-auto max-w-[89vw] min-w-[89vw]'>
+					{children}
+				</main>
 			</body>
 		</html>
 	);
