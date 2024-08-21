@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
 import ProjectList from "../components/projects/ProjectList";
@@ -45,7 +46,7 @@ const ProjectsDisplay = (): JSX.Element => {
 
 	return (
 		<div
-			className='bg-projects-gradient overflow-hidden h-full w-full  m-none  pr-8  p-0 pt-6'
+			className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-8  p-0 pt-6'
 			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
@@ -62,13 +63,13 @@ const ProjectsDisplay = (): JSX.Element => {
 				</div>
 
 				<div
-					className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[6vh] `}>
+					className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}>
 					<ProjectTextContent
 						selectedProject={selectedProject}
 						isImageContainerHovered={isImageContainerHovered}
 					/>
 					<div
-						className='min-h-[90vh] max-h-[90vh] h-[50vh] max-w-[37vw] sticky top-0 right-0'
+						className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
 						style={{
 							transform: isImageContainerHovered
 								? "translateX(51%)"
@@ -88,8 +89,14 @@ const ProjectsDisplay = (): JSX.Element => {
 
 								<div className=' w-[100%] justify-center items-center'>
 									{showHoverCursor ? (
-										<div
-											className={`flex flex-grow justify-center align-start h-2 w-[17.5vw] items-center mb-[10vh]  -mt-2 shadow-neon-bottom`}></div>
+										<motion.div
+											initial={{ opacity: 0 }}
+											animate={{ opacity: 1 }}
+											transition={{
+												duration: 1,
+												delay: 1
+											}}
+											className={`flex flex-grow justify-center align-start h-1.5 w-[17.3vw] items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
 									) : (
 										<ProjectImagePagination
 											hovered={isImageContainerHovered}
