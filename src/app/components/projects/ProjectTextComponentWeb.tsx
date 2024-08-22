@@ -1,18 +1,18 @@
 import React from "react";
 import { Project } from "./ProjectsObject";
 
-interface ProjectTextContentProps {
+interface ProjectTextContentWebProps {
 	selectedProject: Project;
 	isImageContainerHovered: boolean;
 }
 
-const ProjectTextContent: React.FC<ProjectTextContentProps> = ({
+const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 	selectedProject,
 	isImageContainerHovered
 }) => {
 	return (
 		<div
-			className={`absolute flex flex-col left-[2vw] p-8 py-4 rounded-lg bg-black bg-opacity-40 h-auto max-w-[50vw] text-justify max-h-[82vh] overflow-y-scroll  scroll-y-hidden ${
+			className={`absolute flex flex-col left-[2vw] p-8 py-4 rounded-lg bg-black bg-opacity-40 h-auto  text-justify max-h-[95vh] overflow-y-scroll  scroll-y-hidden ${
 				!isImageContainerHovered ? "w-[49vw] " : "w-[33vw] "
 			}`}
 			style={{
@@ -130,4 +130,4 @@ const ProjectTextContent: React.FC<ProjectTextContentProps> = ({
 	);
 };
 
-export default ProjectTextContent;
+export default ProjectTextContentWeb;
