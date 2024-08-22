@@ -138,17 +138,17 @@ const ProjectsDisplay = (): JSX.Element => {
 				)}
 
 				{selectedProjectIndex != 0 && 3 ? (
-					<div className='relative h-full w-full mx-auto justify-center align-middle  bg-cyan-600 after:items-center'>
+					<div className='relative h-full w-full mx-auto justify-evenly align-middle pt-[4vh] after:items-center'>
 						<ProjectTextContentWeb
 							selectedProject={selectedProject}
 							isImageContainerHovered={isImageContainerHovered}
 						/>
 						<div
-							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
+							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh]  max-w-[100vw] sticky top-0 right-30 '
 							style={{
 								transform: isImageContainerHovered
-									? "translateX(51%)"
-									: "translateX(97%)",
+									? "translateX(10%)"
+									: "translateX(90%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
@@ -157,7 +157,7 @@ const ProjectsDisplay = (): JSX.Element => {
 							onMouseLeave={() =>
 								setIsImageContainerHovered(false)
 							}>
-							<div className='w-full h-full min-h-[100%] items-end'>
+							<div className='w-full h-full min-h-[100%] items-end '>
 								<ProjectImages
 									selectedProject={selectedProject}
 									viewMode={viewMode}
@@ -180,7 +180,7 @@ const ProjectsDisplay = (): JSX.Element => {
 												currentImageIndex
 											}
 											totalImages={
-												selectedProject.images.mobile
+												selectedProject.images.web
 													.length
 											}
 											onPageChange={(index) =>

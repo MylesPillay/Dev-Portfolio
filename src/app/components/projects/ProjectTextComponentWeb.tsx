@@ -12,8 +12,8 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 }) => {
 	return (
 		<div
-			className={`absolute flex flex-col left-[2vw] p-8 py-4 rounded-lg bg-black bg-opacity-40 h-auto  text-justify max-h-[95vh] overflow-y-scroll  scroll-y-hidden ${
-				!isImageContainerHovered ? "w-[49vw] " : "w-[33vw] "
+			className={`absolute flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 rounded-lg bg-black bg-opacity-40 h-auto  text-justify max-h-[85vh] overflow-y-scroll  scroll-y-hidden ${
+				!isImageContainerHovered ? "w-[60vw] " : "w-[45vw] "
 			}`}
 			style={{
 				transition: "width 0.2s ease-in-out"
