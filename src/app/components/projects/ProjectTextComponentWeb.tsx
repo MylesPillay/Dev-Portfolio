@@ -12,7 +12,7 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 }) => {
 	return (
 		<div
-			className={`absolute flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 rounded-lg bg-black bg-opacity-40 h-auto  text-justify max-h-[85vh] overflow-y-scroll  scroll-y-hidden ${
+			className={` flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 rounded-lg bg-black bg-opacity-40 h-auto  text-justify max-h-[35vh] overflow-y-scroll  scroll-y-hidden ${
 				!isImageContainerHovered ? "w-[60vw] " : "w-[45vw] "
 			}`}
 			style={{
@@ -34,7 +34,7 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 					{selectedProject.details.objective}
 				</p>
 			</div>
-			<div className='project-text-section'>
+			{/* <div className='project-text-section'>
 				<h3 className='text-xl mb-2 font-semibold text-emerald-200 w-auto underline underline-offset-1'>
 					Motivation:
 				</h3>
@@ -125,7 +125,7 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 						</div>
 					</div>
 				))}
-			</div>
+			</div> */}
 		</div>
 	);
 };

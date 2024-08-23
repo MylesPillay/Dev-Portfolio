@@ -10,6 +10,7 @@ import ProjectImagePagination from "../components/projects/ProjectImagePaginatio
 import ProjectSkillsComponent from "../components/projects/ProjectSkills";
 import ProjectTextContentMobile from "../components/projects/ProjectTextContentMobile";
 import ProjectTextContentWeb from "../components/projects/ProjectTextComponentWeb";
+import ProjectTextComponentWeb from "../components/projects/ProjectDetailsTableWeb";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -138,13 +139,24 @@ const ProjectsDisplay = (): JSX.Element => {
 				)}
 
 				{selectedProjectIndex != 0 && 3 ? (
-					<div className='relative h-full w-full mx-auto justify-evenly align-middle pt-[4vh] after:items-center'>
-						<ProjectTextContentWeb
-							selectedProject={selectedProject}
-							isImageContainerHovered={isImageContainerHovered}
-						/>
+					<div className='flex h-full flex-row w-full mx-auto justify-evenly align-middle pt-[4vh] after:items-center'>
+						<div className='flex flex-col h-[90vh] max-h-[90vh] justify-evenly'>
+							<ProjectTextContentWeb
+								selectedProject={selectedProject}
+								isImageContainerHovered={
+									isImageContainerHovered
+								}
+							/>
+							<ProjectTextComponentWeb
+								selectedProject={selectedProject}
+								isImageContainerHovered={
+									isImageContainerHovered
+								}
+							/>
+						</div>
+
 						<div
-							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh]  max-w-[100vw] sticky top-0 right-30 '
+							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh]  max-w-[100vw] sticky top-0 right-80 '
 							style={{
 								transform: isImageContainerHovered
 									? "translateX(10%)"
@@ -158,6 +170,12 @@ const ProjectsDisplay = (): JSX.Element => {
 								setIsImageContainerHovered(false)
 							}>
 							<div className='w-full h-full min-h-[100%] items-end '>
+								{/* <ProjectImages
+									selectedProject={selectedProject}
+									viewMode={viewMode}
+									currentImageIndex={currentImageIndex}
+								/>
+								 */}
 								<ProjectImages
 									selectedProject={selectedProject}
 									viewMode={viewMode}
