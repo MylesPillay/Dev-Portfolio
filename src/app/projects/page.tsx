@@ -10,7 +10,7 @@ import ProjectImagePagination from "../components/projects/ProjectImagePaginatio
 import ProjectSkillsComponent from "../components/projects/ProjectSkills";
 import ProjectTextContentMobile from "../components/projects/ProjectTextContentMobile";
 import ProjectTextContentWeb from "../components/projects/ProjectTextComponentWeb";
-import ProjectTextComponentWeb from "../components/projects/ProjectDetailsTableWeb";
+import ProjectDetailsComponentWeb from "../components/projects/ProjectDetailsTableWeb";
 import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
 
 const ProjectsDisplay = (): JSX.Element => {
@@ -48,8 +48,11 @@ const ProjectsDisplay = (): JSX.Element => {
 	}, [isImageContainerHovered, showHoverPrompt]);
 
 	return (
+		// <div
+		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
+		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
-			className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
+			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0 pt-[6vh]'
 			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
@@ -68,7 +71,7 @@ const ProjectsDisplay = (): JSX.Element => {
 
 				{/* Mobile application content screen  */}
 
-				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
+				{/* {selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
 						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}>
 						<ProjectTextContentMobile
@@ -137,31 +140,33 @@ const ProjectsDisplay = (): JSX.Element => {
 					</div>
 				) : (
 					<></>
-				)}
+				)} */}
 
 				{selectedProjectIndex != 0 && 3 ? (
-					<div className='flex h-full flex-row w-auto mx-auto justify-evenly align-middle pt-[4vh]  after:items-center'>
-						<div className='flex flex-col h-[80vh] max-h-[80vh] justify-evenly'>
+					<div className='flex flex-row  h-full justify-between min-w-[130vw] max-w-[130vw] min-h-[95vh]'>
+						{/* <div
+						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll flex-wrap overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}> */}
+						<div
+							className={`flex flex-col justify-between mx-auto h-auto overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto max-w-[68vw] min-h-[90vh] `}>
 							<ProjectTextContentWeb
 								selectedProject={selectedProject}
 								isImageContainerHovered={
 									isImageContainerHovered
 								}
 							/>
-							<ProjectTextComponentWeb
+							<ProjectDetailsComponentWeb
 								selectedProject={selectedProject}
 								isImageContainerHovered={
 									isImageContainerHovered
 								}
 							/>
 						</div>
-
 						<div
-							className='max-h-[70vh] h-[70vh] bg-yellow-300 max-w-[90vw] w-auto  sticky top-0 right-0 '
+							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-auto max-w-[80vw] sticky top-0 right-0'
 							style={{
 								transform: isImageContainerHovered
-									? "translateX(-70%)"
-									: "translateX(75%)",
+									? "translateX(-20%)"
+									: "translateX(85%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
@@ -170,55 +175,68 @@ const ProjectsDisplay = (): JSX.Element => {
 							onMouseLeave={() =>
 								setIsImageContainerHovered(false)
 							}>
-							{/* <ProjectImages
+							{/* <div
+								className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
+								style={{
+									transform: isImageContainerHovered
+										? "translateX(51%)"
+										: "translateX(97%)",
+									transition: "transform 0.2s ease-in-out"
+								}}
+								onMouseEnter={() =>
+									setIsImageContainerHovered(true)
+								}
+								onMouseLeave={() =>
+									setIsImageContainerHovered(false)
+								}> */}
+							<div className='w-auto h-auto bg-cyan-900 items-end'>
+								<WebsiteProjectImages
 									selectedProject={selectedProject}
 									viewMode={viewMode}
 									currentImageIndex={currentImageIndex}
 								/>
-								 */}
 
-							<WebsiteProjectImages
-								selectedProject={selectedProject}
-								viewMode={viewMode}
-								currentImageIndex={currentImageIndex}
-							/>
-
-							<div className=' w-[100%] h-full justify-center items-center'>
-								{showHoverPrompt ? (
-									<motion.div
-										initial={{ opacity: 0 }}
-										animate={{ opacity: 1 }}
-										transition={{
-											duration: 1,
-											delay: 1
-										}}
-										className={`flex flex-grow justify-center align-start h-1.5 w-[17.3vw] items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
-								) : (
-									<ProjectImagePagination
-										hovered={isImageContainerHovered}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.web.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
-									/>
-								)}
+								<div className=' w-[60vw] bg-yellow-200 justify-center items-center'>
+									{showHoverPrompt ? (
+										<motion.div
+											initial={{ opacity: 0 }}
+											animate={{ opacity: 1 }}
+											transition={{
+												duration: 1,
+												delay: 1
+											}}
+											className={`flex flex-grow justify-center align-start h-1.5 w-[53vw] items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
+									) : (
+										<ProjectImagePagination
+											hovered={isImageContainerHovered}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									)}
+								</div>
 							</div>
 						</div>
 					</div>
 				) : (
+					// </div>
 					<></>
 				)}
 			</div>

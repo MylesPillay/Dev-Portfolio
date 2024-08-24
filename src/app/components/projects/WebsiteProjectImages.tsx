@@ -25,10 +25,10 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className='right-0 overflow-hidden w-full'>
+		<div className='right-0 w-full'>
 			<div className='rounded-lg'>
 				{viewMode === "web" ? (
-					<div className='w-[200%] h-full flex-shrink-0 pr-3 rounded-lg'>
+					<div className=' h-full flex-shrink-0 pr-3 rounded-lg'>
 						<Image
 							src={currentImage}
 							style={{

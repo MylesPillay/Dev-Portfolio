@@ -156,9 +156,8 @@ export default function RootLayout({
 							))}
 					</ul>
 				</nav>
-				<main className='h-full w-auto max-w-[89vw] min-w-[89vw]'>
-					{children}
-				</main>
+				{/* <main className='h-full w-auto max-w-[89vw] min-w-[89vw]'> */}
+				<main className='h-full w-auto bg-yellow-50'>{children}</main>
 			</body>
 		</html>
 	);
