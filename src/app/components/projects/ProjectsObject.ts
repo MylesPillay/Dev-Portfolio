@@ -1,3 +1,6 @@
+import { time } from "console";
+import { title } from "process";
+
 export interface Project {
 	name: string;
 	tagline: string;
@@ -10,19 +13,26 @@ export interface Project {
 		objective: string;
 		motivation?: string;
 		techStack?: {
+			title?: string;
 			frontend: string;
 			stateManagement: string;
 			backend: string;
 		};
 		keyFeatures?: {
-			title: string;
-			text: string;
-		}[];
+			title?: string;
+			features?: {
+				title: string;
+				text: string;
+			}[];
+		};
 		keyResults?: string[];
 		outcomes?: {
-			title: string;
-			text: string;
-		}[];
+			title?: string;
+			outcome: {
+				title: string;
+				text: string;
+			}[];
+		};
 	};
 	url?: string;
 	skills: string[];
@@ -52,6 +62,7 @@ const projects: Project[] = [
 			motivation:
 				"Air Oasis Home was designed to solve the challenge of managing and controlling air purification devices remotely. The app connects users with their A.O. air purifiers via Bluetooth and WiFi, allowing them to seamlessly sync, control, and schedule their devices directly from their smartphones.",
 			techStack: {
+				title: "Tech Stack",
 				frontend:
 					"React Native with TypeScript for robust and type-safe code.",
 				stateManagement:
@@ -59,34 +70,40 @@ const projects: Project[] = [
 				backend:
 					"Firebase for a cloud-based database solution, ensuring real-time synchronization and reliable data storage."
 			},
-			keyFeatures: [
-				{
-					title: "Bluetooth & WiFi Integration",
-					text: "Utilized ESP-32 chip provisioning to enable device syncing over Bluetooth, with WiFi facilitating further backend communication."
-				},
-				{
-					title: "Real-time Feedback",
-					text: "Ensured real-time device status updates using a synchronised local state infrastructure, enhancing user experience with immediate feedback."
-				},
-				{
-					title: "UX/UI Design",
-					text: "Focused on creating an intuitive user interface, balancing aesthetics with functionality to provide users with a seamless and visually appealing experience."
-				}
-			],
-			outcomes: [
-				{
-					title: "User Experience",
-					text: "Delivered a user-friendly app that allows users to manage their air purifiers with ease, providing real-time device status, scheduling, and control options."
-				},
-				{
-					title: "Scalability & Maintenance",
-					text: "Optimized the backend to handle edge cases and ensure the app remains scalable as the user base grows. My ongoing maintenance ensures the app continues to perform reliably."
-				},
-				{
-					title: "Professional Growth",
-					text: "Gained extensive experience in UX / UI design, state management, and backend development, solidifying my expertise in building high - quality, scalable mobile applications."
-				}
-			]
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "Bluetooth & WiFi Integration",
+						text: "Utilized ESP-32 chip provisioning to enable device syncing over Bluetooth, with WiFi facilitating further backend communication."
+					},
+					{
+						title: "Real-time Feedback",
+						text: "Ensured real-time device status updates using a synchronised local state infrastructure, enhancing user experience with immediate feedback."
+					},
+					{
+						title: "UX/UI Design",
+						text: "Focused on creating an intuitive user interface, balancing aesthetics with functionality to provide users with a seamless and visually appealing experience."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "User Experience",
+						text: "Delivered a user-friendly app that allows users to manage their air purifiers with ease, providing real-time device status, scheduling, and control options."
+					},
+					{
+						title: "Scalability & Maintenance",
+						text: "Optimized the backend to handle edge cases and ensure the app remains scalable as the user base grows. My ongoing maintenance ensures the app continues to perform reliably."
+					},
+					{
+						title: "Professional Growth",
+						text: "Gained extensive experience in UX / UI design, state management, and backend development, solidifying my expertise in building high - quality, scalable mobile applications."
+					}
+				]
+			}
 		},
 
 		skills: [
@@ -171,38 +188,44 @@ const projects: Project[] = [
 				backend:
 					"Upstash for low-latency, real-time data updates, Twilio SMS API for customer interactions, and OpenAI integration for the AI-powered customer service advisor. Cloud Firestore and PostgreSQL were used for data storage and retrieval, ensuring scalability and reliability."
 			},
-			keyFeatures: [
-				{
-					title: "AI-Powered Customer Service",
-					text: "Integrated an AI customer service advisor that can be trained on company-specific literature and automatically reach out to customers based on campaign checkpoints. The AI can book appointments in sync with the team's calendar and handle complex customer interactions."
-				},
-				{
-					title: "Campaign Management Dashboard",
-					text: "Developed a comprehensive dashboard that allows managers to onboard team members, assign permissions, and monitor the success of outreach campaigns through detailed analytics and real-time updates."
-				},
-				{
-					title: "Real-Time Communication",
-					text: "Created a responsive chat interface that supports real-time communication between customer service advisors and customers, with AI-driven automation for handling customer inquiries and scheduling appointments."
-				},
-				{
-					title: "User Authentication & Permissions",
-					text: "Implemented Next Auth for secure user authentication and session management, with customizable user permission profiles that allow managers to control access to various parts of the platform."
-				}
-			],
-			outcomes: [
-				{
-					title: "Enhanced Customer Interaction",
-					text: "The AI integration significantly reduced response times and improved customer satisfaction by ensuring timely follow-ups and accurate information, leading to higher conversion rates."
-				},
-				{
-					title: "Scalable and Maintainable Platform",
-					text: "The platform was built with scalability in mind, utilizing cloud-based technologies and a modular architecture that allows for easy maintenance and future expansion."
-				},
-				{
-					title: "Streamlined Team Management",
-					text: "Managers can efficiently onboard new team members, assign tasks, and monitor performance, thanks to the intuitive dashboard and robust permission management system."
-				}
-			]
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "AI-Powered Customer Service",
+						text: "Integrated an AI customer service advisor that can be trained on company-specific literature and automatically reach out to customers based on campaign checkpoints. The AI can book appointments in sync with the team's calendar and handle complex customer interactions."
+					},
+					{
+						title: "Campaign Management Dashboard",
+						text: "Developed a comprehensive dashboard that allows managers to onboard team members, assign permissions, and monitor the success of outreach campaigns through detailed analytics and real-time updates."
+					},
+					{
+						title: "Real-Time Communication",
+						text: "Created a responsive chat interface that supports real-time communication between customer service advisors and customers, with AI-driven automation for handling customer inquiries and scheduling appointments."
+					},
+					{
+						title: "User Authentication & Permissions",
+						text: "Implemented Next Auth for secure user authentication and session management, with customizable user permission profiles that allow managers to control access to various parts of the platform."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "Enhanced Customer Interaction",
+						text: "The AI integration significantly reduced response times and improved customer satisfaction by ensuring timely follow-ups and accurate information, leading to higher conversion rates."
+					},
+					{
+						title: "Scalable and Maintainable Platform",
+						text: "The platform was built with scalability in mind, utilizing cloud-based technologies and a modular architecture that allows for easy maintenance and future expansion."
+					},
+					{
+						title: "Streamlined Team Management",
+						text: "Managers can efficiently onboard new team members, assign tasks, and monitor performance, thanks to the intuitive dashboard and robust permission management system."
+					}
+				]
+			}
 		},
 		skills: [
 			"Next.js",
