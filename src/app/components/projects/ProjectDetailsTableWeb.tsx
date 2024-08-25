@@ -45,24 +45,30 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto text-justify max-h-[35vh] overflow-y-scroll scroll-y-hidden `}
+			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto text-justify max-h-40vh] overflow-y-scroll scroll-y-hidden `}
 			style={{
-				transition: "width 0.2s ease-in-out",
-				borderColor: "#FF6600",
-				borderWidth: "2px"
+				transition: "width 0.2s ease-in-out"
 			}}>
-			<div className='flex justify-between mb-4 '>
+			<div className='flex justify-between  '>
 				{categories.map((category) => (
 					<button
 						key={category}
-						className={` w-full  p-4 h-auto text-lg border-b-2 border-b-emerald-200 text-center   ${
+						style={{
+							borderColor:
+								activeCategory === category
+									? "#ff7316"
+									: "#A7F3D0",
+							color:
+								activeCategory === category
+									? "#ff7316"
+									: "#A7F3D0"
+						}}
+						className={` w-full  p-4 h-auto text-lg border-b-2 text-center   ${
 							selectedProject.images.web.length > 0
 								? "bg-transparent cursor-pointer"
 								: "bg-transparent opacity-50 cursor-default"
 						} ${
-							activeCategory === category
-								? " text-emerald-200"
-								: "text-slate-600"
+							activeCategory === category ? "" : "text-slate-600"
 						}`}
 						onClick={() => {
 							setActiveCategory(category), setActiveItemIndex(0);
@@ -71,21 +77,25 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 					</button>
 				))}
 			</div>
-			<div className=' flex flex-row  justify-center items-center py-2'>
-				<div className='flex flex-col justify-center py-2'>
+			<div className=' flex flex-row justify-center '>
+				<div className='flex flex-col justify-center py-8'>
 					{currentCategoryContent?.map((_, index) => (
 						<button
 							key={index}
-							className={`w-3 h-3 rounded-full mr-2 my-4 ml-6 ${
-								index === activeItemIndex
-									? "bg-white"
-									: "bg-gray-400"
-							}`}
-							onClick={() => setActiveItemIndex(index)}
-						/>
+							className={`w-2.5 h-2.5 rounded-full px-8 py-4 `}
+							onClick={() => setActiveItemIndex(index)}>
+							<div
+								className={`w-2.5 h-2.5 rounded-full`}
+								style={{
+									backgroundColor:
+										index === activeItemIndex
+											? "#ff7316"
+											: "#A7F3D0"
+								}}></div>
+						</button>
 					))}
 				</div>
-				<div className='text-white px-8 '>
+				<div className='text-white px-6 justify-start align-top items-start  pt-[4.5vh]'>
 					{currentCategoryContent?.[activeItemIndex]}
 				</div>
 			</div>

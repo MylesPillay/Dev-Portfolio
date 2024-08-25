@@ -20,7 +20,7 @@ const config: Config = {
 			colors: {
 				goldenrod: "rgb(var(--color-goldenrod) / <alpha-value>)",
 				background: {
-					gradient: "linear-gradient(to right, #1D787415, #FF6600)"
+					gradient: "linear-gradient(to right, #1D787415, #ff7316)"
 				}
 			},
 

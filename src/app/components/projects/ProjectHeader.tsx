@@ -25,10 +25,14 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				}
 				return;
 			}}>
-			<h1 className='text-2xl font-bold text-left text-white justify-start align-text-bottom w-[15%] h-full mt-3'>
+			<h1
+				className='text-2xl font-bold text-left text-white justify-start align-text-bottom w-[15%] h-full mt-3'
+				style={{
+					color: "#ff7316"
+				}}>
 				PROJECTS
 			</h1>
-			<h1 className='text-4xl font-bold  w-full max-w-[80vw] ml-[4vw] text-emerald-200 mt-1'>
+			<h1 className='text-4xl font-bold  w-full max-w-[80vw] ml-[4vw]  mt-1 text-white '>
 				{selectedProject.name.toUpperCase()}
 				{/* <span className='text-2xl ml-4 text-white'>
 					{selectedProject.tagline}
@@ -41,7 +45,9 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 							? "bg-transparent cursor-pointer"
 							: "bg-transparent opacity-50 cursor-default"
 					} ${
-						viewMode === "web" ? "underline underline-offset-8" : ""
+						viewMode === "web"
+							? "underline underline-offset-8 text-emerald-200"
+							: ""
 					}`}
 					onClick={() => setViewMode("web")}
 					disabled={selectedProject.images.web.length === 0}>
@@ -57,7 +63,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 							: "bg-transparent opacity-50 cursor-default"
 					} ${
 						viewMode === "mobile"
-							? "underline underline-offset-4"
+							? "underline underline-offset-4 text-emerald-200"
 							: ""
 					}`}
 					onClick={() => setViewMode("mobile")}

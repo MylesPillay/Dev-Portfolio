@@ -53,7 +53,11 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
 			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0 '
-			style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
+			style={{
+				borderColor: "#ff7316",
+				borderWidth: 0,
+				borderLeft: "0.5px solid #ff7316"
+			}}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}
@@ -154,13 +158,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				{selectedProjectIndex != 0 && 3 ? (
 					<div className='flex flex-row  justify-between w-auto max-w-[90vw] h-auto max-h-[90vh] '>
 						<div
-							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw]h-auto max-h-95vh`}
-							onMouseEnter={() => {
-								if (isImageContainerHovered) {
-									setIsImageContainerHovered(false);
-								}
-								return;
-							}}>
+							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw]h-auto max-h-95vh`}>
 							<ProjectTextContentWeb
 								selectedProject={selectedProject}
 								isImageContainerHovered={
@@ -176,11 +174,16 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 
 						<div
-							className='min-h-[75vh] max-h-[25vh] mt-[2vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto'
+							className='min-h-[75vh] max-h-[25vh] mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto'
 							style={{
-								transform: isImageContainerHovered
-									? "translateX(-10%)"
-									: "translateX(55%)",
+								transform:
+									isImageContainerHovered &&
+									viewMode === "web"
+										? "translateX(-17.5%)"
+										: isImageContainerHovered &&
+										  viewMode === "mobile"
+										? "translateX(0%)"
+										: "translateX(92%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
