@@ -52,7 +52,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
-			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0 '
+			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0 overflow-x-hidden '
 			style={{
 				borderColor: "#ff7316",
 				borderWidth: 0,
@@ -174,7 +174,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 
 						<div
-							className='min-h-[75vh] max-h-[25vh] mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto'
+							className='min-h-[75vh] max-h-[25vh] mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto overflow-x-hidden'
 							style={{
 								transform:
 									isImageContainerHovered &&
@@ -189,7 +189,7 @@ const ProjectsDisplay = (): JSX.Element => {
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
 							}>
-							<div className='w-auto h-auto justify-center items-center'>
+							<div className='w-auto h-auto justify-center items-center overflow-x-hidden'>
 								<WebsiteProjectImages
 									selectedProject={selectedProject}
 									viewMode={viewMode}
