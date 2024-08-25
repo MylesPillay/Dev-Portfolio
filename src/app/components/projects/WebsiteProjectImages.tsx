@@ -25,15 +25,13 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className='right-0 w-full'>
+		<div className=' w-full'>
 			<div className='rounded-lg'>
 				{viewMode === "web" ? (
-					<div className=' h-full flex-shrink-0 pr-3 rounded-lg'>
+					<div className=' h-full flex-shrink-0 w-full rounded-lg overflow-hidden'>
 						<Image
 							src={currentImage}
-							style={{
-								borderRadius: "12px"
-							}}
+							style={{}}
 							alt={`${selectedProject.name} web screenshot ${
 								currentImageIndex + 1
 							}`}
