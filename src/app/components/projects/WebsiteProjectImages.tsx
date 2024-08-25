@@ -25,39 +25,36 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className=' w-full'>
-			<div className='rounded-lg'>
-				{viewMode === "web" ? (
-					<div className=' h-full flex-shrink-0 w-full rounded-lg overflow-hidden'>
-						<Image
-							src={currentImage}
-							style={{}}
-							alt={`${selectedProject.name} web screenshot ${
-								currentImageIndex + 1
-							}`}
-							layout='responsive'
-							width={1920}
-							height={1080}
-							objectFit='contain'
-							quality={100}
-						/>
-					</div>
-				) : (
-					<div className='relative'>
-						<Image
-							src={currentImage}
-							alt={`${selectedProject.name} mobile screenshot ${
-								currentImageIndex + 1
-							}`}
-							layout='responsive'
-							width={375}
-							height={812}
-							objectFit='contain'
-							quality={100}
-						/>
-					</div>
-				)}
-			</div>
+		<div className='rounded-lg max-h-[75vh] overflow-y-auto'>
+			{viewMode === "web" ? (
+				<div className='w-full h-auto rounded-lg overflow-hidden'>
+					<Image
+						src={currentImage}
+						alt={`${selectedProject.name} web screenshot ${
+							currentImageIndex + 1
+						}`}
+						layout='responsive'
+						width={1920}
+						height={1080}
+						objectFit='contain'
+						quality={100}
+					/>
+				</div>
+			) : (
+				<div className='w-[65%] h-auto rounded-lg overflow-hidden'>
+					<Image
+						src={currentImage}
+						alt={`${selectedProject.name} mobile screenshot ${
+							currentImageIndex + 1
+						}`}
+						layout='responsive'
+						width={455.5}
+						height={890}
+						objectFit='contain'
+						quality={100}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

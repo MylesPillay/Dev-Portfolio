@@ -80,7 +80,7 @@ const ProjectsDisplay = (): JSX.Element => {
 
 				{/* Mobile application content screen  */}
 
-				{/* {selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
+				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
 						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}>
 						<ProjectTextContentMobile
@@ -149,14 +149,12 @@ const ProjectsDisplay = (): JSX.Element => {
 					</div>
 				) : (
 					<></>
-				)} */}
+				)}
 
 				{selectedProjectIndex != 0 && 3 ? (
-					<div className='flex flex-row  justify-between min-w-[135vw] max-w-[135vw] h-auto max-h-[90vh] '>
-						{/* <div
-						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll flex-wrap overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}> */}
+					<div className='flex flex-row  justify-between w-auto max-w-[90vw] h-auto max-h-[90vh] '>
 						<div
-							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto max-w-[69vw] h-auto max-h-95vh `}
+							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw]h-auto max-h-95vh`}
 							onMouseEnter={() => {
 								if (isImageContainerHovered) {
 									setIsImageContainerHovered(false);
@@ -176,32 +174,18 @@ const ProjectsDisplay = (): JSX.Element => {
 								}
 							/>
 						</div>
+
 						<div
-							className='min-h-[75vh] max-h-[75vh] mt-[2vh] h-auto max-w-[90vw] sticky  right-0'
+							className='min-h-[75vh] max-h-[25vh] mt-[2vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto'
 							style={{
 								transform: isImageContainerHovered
 									? "translateX(-10%)"
-									: "translateX(95%)",
+									: "translateX(55%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
 							}>
-							{/* <div
-								className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
-								style={{
-									transform: isImageContainerHovered
-										? "translateX(51%)"
-										: "translateX(97%)",
-									transition: "transform 0.2s ease-in-out"
-								}}
-								onMouseEnter={() =>
-									setIsImageContainerHovered(true)
-								}
-								onMouseLeave={() =>
-									setIsImageContainerHovered(false)
-								}> */}
-
 							<div className='w-auto h-auto justify-center items-center'>
 								<WebsiteProjectImages
 									selectedProject={selectedProject}
@@ -209,7 +193,7 @@ const ProjectsDisplay = (): JSX.Element => {
 									currentImageIndex={currentImageIndex}
 								/>
 
-								<div className=' w-auto h-auto justify-center items-center'>
+								<div className='w-auto h-auto justify-center items-center'>
 									{showHoverPrompt ? (
 										<motion.div
 											initial={{ opacity: 0 }}
@@ -249,145 +233,10 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 					</div>
 				) : (
-					// </div>
 					<></>
 				)}
 			</div>
-			{/* <div
-						className=' min-h-[90vh] max-h-[90vh] h-[50vh] max-w-[37vw] relative '
-						style={{
-							transform: isImageContainerHovered
-								? "translateX(52%)"
-								: "translateX(100%)",
-							transition: "transform 0.5s ease-in-out"
-						}}
-						onMouseEnter={() => setIsImageContainerHovered(true)}
-						onMouseLeave={() => setIsImageContainerHovered(false)}>
-						{selectedProjectIndex === 0 ||
-						selectedProjectIndex === 3 ? (
-							<div className='w-full h-full min-h-[100%] items-end '>
-								<MobileImageContainer
-									hovered={isImageContainerHovered}
-									images={selectedProject.images.mobile}
-									currentImageIndex={currentImageIndex}
-								/>
-								<div
-									className={
-										"my-4 w-[100%] justify-center items-center"
-									}>
-									<ProjectImagePagination
-										hovered={isImageContainerHovered}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
-									/>
-								</div>
-							</div>
-						) : (
-							<div className=' rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
-								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'>
-									<div className='relative h-auto w-full mx-auto justify-center align-middle items-center'>
-										<ProjectImages
-											selectedProject={selectedProject}
-											viewMode={viewMode}
-											currentImageIndex={
-												currentImageIndex
-											}
-										/>
-									</div>
-								</div>
-							</div>
-						)}
-					</div> */}
 		</div>
-
-		/* <div className=' rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
-								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'></div> */
-
-		/* <div className='flex flex-row justify-around mt-8 space-x-4'>
-					<div
-						className='flex flex-shrink-0 w-auto mx-auto  mt-1 ml-[5vw]
-					max-w-[45%] relative'>
-						<ProjectTextContent
-							selectedProject={selectedProject}
-							isImageContainerHovered={isImageContainerHovered}
-						/>
-					</div>
-					<div
-						className='w-auto  min-h-[70vh] max-h-[90vh] h- max-w-[55vw] relative'
-						style={{
-							transform: isImageContainerHovered
-								? "translateX(2%)"
-								: "translateX(52%)",
-							transition: "transform 0.5s ease-in-out"
-						}}
-						onMouseEnter={() => setIsImageContainerHovered(true)}
-						onMouseLeave={() => setIsImageContainerHovered(false)}>
-						{selectedProjectIndex === 0 ||
-						selectedProjectIndex === 3 ? (
-							<div className='w-full h-full min-h-[100%] items-end'>
-								<MobileImageContainer
-									hovered={isImageContainerHovered}
-									images={selectedProject.images.mobile}
-									currentImageIndex={currentImageIndex}
-								/>
-								<div
-									className={
-										"my-4 w-[100%] justify-center items-center"
-									}>
-									<ProjectImagePagination
-										hovered={isImageContainerHovered}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
-									/>
-								</div>
-							</div>
-						) : (
-							<div className=' rounded-lg w-auto mx-auto justify-end max-h-[63vh] max-w-[58vw] '>
-								<div className='w-auto rounded-lg justify-end mx-auto overflow-scroll max-h-[55vh] max-w-[58vw]'>
-									<div className='relative h-auto w-full mx-auto justify-center align-middle items-center'>
-										<ProjectImages
-											selectedProject={selectedProject}
-											viewMode={viewMode}
-											currentImageIndex={
-												currentImageIndex
-											}
-										/>
-									</div>
-								</div>
-							</div>
-						)}
-					</div>
-				</div> */
 	);
 };
 

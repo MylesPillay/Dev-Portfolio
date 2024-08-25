@@ -12,7 +12,7 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 }) => {
 	return (
 		<div
-			className={` flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto  text-justify overflow-y-scroll max-h-[50vh] scroll-y-hidden
+			className={`flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto  text-justify overflow-y-scroll max-h-[50vh] scroll-y-hidden
 			`}
 			style={{
 				transition: "width 0.2s ease-in-out"
