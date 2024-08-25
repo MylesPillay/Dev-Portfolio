@@ -58,9 +58,18 @@ const ProjectsDisplay = (): JSX.Element => {
 				selectedProject={selectedProject}
 				viewMode={viewMode}
 				setViewMode={setViewMode}
+				isImageContainerHovered={isImageContainerHovered}
+				setIsImageContainerHovered={setIsImageContainerHovered}
 			/>
 			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full'>
-				<div className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full pt-[6vh]] '>
+				<div
+					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full'
+					onMouseEnter={() => {
+						if (isImageContainerHovered) {
+							setIsImageContainerHovered(false);
+						}
+						return;
+					}}>
 					<ProjectList
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
@@ -143,11 +152,17 @@ const ProjectsDisplay = (): JSX.Element => {
 				)} */}
 
 				{selectedProjectIndex != 0 && 3 ? (
-					<div className='flex flex-row  justify-between min-w-[130vw] max-w-[130vw] h-auto max-h-[85vh] '>
+					<div className='flex flex-row  justify-between min-w-[135vw] max-w-[135vw] h-auto max-h-[90vh] '>
 						{/* <div
 						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll flex-wrap overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}> */}
 						<div
-							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto max-w-[69vw] h-auto max-h-95vh `}>
+							className={`flex flex-col justify-between  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto max-w-[69vw] h-auto max-h-95vh `}
+							onMouseEnter={() => {
+								if (isImageContainerHovered) {
+									setIsImageContainerHovered(false);
+								}
+								return;
+							}}>
 							<ProjectTextContentWeb
 								selectedProject={selectedProject}
 								isImageContainerHovered={
@@ -162,18 +177,15 @@ const ProjectsDisplay = (): JSX.Element => {
 							/>
 						</div>
 						<div
-							className='min-h-[87vh] max-h-[95vh] mt-[6vh] h-auto max-w-[69vw] sticky  right-0'
+							className='min-h-[75vh] max-h-[75vh] mt-[2vh] h-auto max-w-[90vw] sticky  right-0'
 							style={{
 								transform: isImageContainerHovered
-									? "translateX(-16%)"
-									: "translateX(92%)",
+									? "translateX(-10%)"
+									: "translateX(95%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
-							}
-							onMouseLeave={() =>
-								setIsImageContainerHovered(false)
 							}>
 							{/* <div
 								className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
@@ -189,6 +201,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								onMouseLeave={() =>
 									setIsImageContainerHovered(false)
 								}> */}
+
 							<div className='w-auto h-auto justify-center items-center'>
 								<WebsiteProjectImages
 									selectedProject={selectedProject}

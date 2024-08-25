@@ -5,15 +5,26 @@ interface ProjectsHeaderProps {
 	selectedProject: Project;
 	viewMode: "web" | "mobile";
 	setViewMode: (mode: "web" | "mobile") => void;
+	isImageContainerHovered: boolean;
+	setIsImageContainerHovered: (hovered: boolean) => void;
 }
 
 const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 	selectedProject,
 	viewMode,
-	setViewMode
+	setViewMode,
+	isImageContainerHovered,
+	setIsImageContainerHovered
 }) => {
 	return (
-		<div className='flex flex-row justify-between w-full my-2 pl-8 pr-8 pt-6'>
+		<div
+			className='flex flex-row justify-between w-full my-2 pl-8 pr-8 pt-6'
+			onMouseEnter={() => {
+				if (isImageContainerHovered) {
+					setIsImageContainerHovered(false);
+				}
+				return;
+			}}>
 			<h1 className='text-2xl font-bold text-left text-white justify-start align-text-bottom w-[15%] h-full mt-3'>
 				PROJECTS
 			</h1>
