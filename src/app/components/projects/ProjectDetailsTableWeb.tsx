@@ -48,7 +48,9 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg  pb-4 bg-black bg-opacity-40 h-auto text-justify max-h-42vh] overflow-y-scroll scroll-y-hidden `}
+			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg  pb-4 bg-black bg-opacity-40 h-auto text-justify  overflow-y-scroll scroll-y-hidden ${
+				isImageContainerHovered ? "max-h-[25vh]" : "max-h-[45vh]"
+			}`}
 			style={{
 				transition: "width 0.2s ease-in-out"
 			}}>

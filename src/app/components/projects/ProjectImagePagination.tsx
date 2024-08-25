@@ -29,11 +29,12 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 			<button
 				key={i}
 				onClick={() => onPageChange(i)}
-				className={`w-2.5 h-2.5 rounded-full mx-2   bg-opacity-60 ${
-					i === currentImageIndex ? "shadow-neon" : ""
+				className={`w-2.5 h-2.5 rounded-full mx-2  border-white  bg-opacity-60 ${
+					i === currentImageIndex ? "shadow-neon-dot" : ""
 				}`}
 				style={{
-					backgroundColor: "#071E2299"
+					backgroundColor:
+						i === currentImageIndex ? "#ff7316" : "#071E229925"
 				}}
 			/>
 		);
@@ -43,7 +44,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 		<div
 			className={`${
 				hovered ? "flex" : "hidden"
-			} justify-center align-middle h-[8vh] w-auto items-center rounded-b-xl py-4 bg-black bg-opacity-50`}>
+			} justify-center align-middle h-[8vh] w-auto items-center rounded-b-xl py-4 `}>
 			<button
 				onClick={onPrevImage}
 				disabled={currentImageIndex <= 0}
@@ -52,7 +53,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronLeft color='#A7F3D0' size={22} />
+				<FaChevronLeft color='white' size={22} />
 			</button>
 			{dots}
 			<button
@@ -63,7 +64,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronRight color='#A7F3D0' size={22} />
+				<FaChevronRight color='white' size={22} />
 			</button>
 		</div>
 	);

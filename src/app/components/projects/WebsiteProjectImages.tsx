@@ -25,9 +25,9 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className='rounded-lg rounded-b-none max-h-[75vh] overflow-y-auto overflow-x-hidden'>
+		<div className='rounded-lg  max-h-[75vh] overflow-y-auto overflow-x-hidden'>
 			{viewMode === "web" ? (
-				<div className='w-full h-auto rounded-lg rounded-b-none overflow-hidden'>
+				<div className='w-full h-auto rounded-lg  overflow-hidden'>
 					<Image
 						src={currentImage}
 						alt={`${selectedProject.name} web screenshot ${
