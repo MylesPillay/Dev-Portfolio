@@ -133,12 +133,12 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 	return (
 		<div className='flex flex-row space-between relative'>
 			<div
-				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50 border-l-0 border-r-2 border-b-2 border-t-2   ${
+				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50   ${
 					isHovered
-						? "hover-expand min-w-[65vw] z-30"
+						? "hover-expand min-w-[65vw] z-30  border-4 "
 						: showHoverPrompt
 						? "pr-3"
-						: ""
+						: "border-2"
 				}`}
 				style={{
 					backgroundColor: "#071E22",

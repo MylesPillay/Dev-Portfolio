@@ -10,24 +10,27 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 	selectedProject,
 	isImageContainerHovered
 }) => {
-	const [activeCategory, setActiveCategory] = useState("Overview");
+	const [activeCategory, setActiveCategory] = useState("Tech Stack");
 	const [activeItemIndex, setActiveItemIndex] = useState(0);
 
-	const categories = ["Overview", "Tech Stack", "Key Features", "Outcomes"];
+	const categories = ["Tech Stack", "Key Features", "Outcomes"];
 
 	const getCategoryContent = (category: string) => {
 		switch (category) {
-			case "Overview":
-				return [
-					selectedProject.details.overview,
-					selectedProject.details.objective,
-					selectedProject.details.motivation
-				];
 			case "Tech Stack":
 				return [
-					`Frontend: ${selectedProject.details.techStack?.frontend}`,
-					`State Management: ${selectedProject.details.techStack?.stateManagement}`,
-					`Backend: ${selectedProject.details.techStack?.backend}`
+					{
+						title: "FrontEnd",
+						item: selectedProject.details.techStack?.frontend
+					},
+					{
+						title: "State Management",
+						item: selectedProject.details.techStack?.stateManagement
+					},
+					{
+						title: "Backend",
+						item: selectedProject.details.techStack?.backend
+					}
 				];
 			case "Key Features":
 				return selectedProject.details.keyFeatures?.features?.map(
@@ -45,7 +48,7 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto text-justify max-h-40vh] overflow-y-scroll scroll-y-hidden `}
+			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg  pb-4 bg-black bg-opacity-40 h-auto text-justify max-h-42vh] overflow-y-scroll scroll-y-hidden `}
 			style={{
 				transition: "width 0.2s ease-in-out"
 			}}>
@@ -95,9 +98,72 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 						</button>
 					))}
 				</div>
-				<div className='text-white px-6 justify-start align-top items-start  pt-[4.5vh]'>
-					{currentCategoryContent?.[activeItemIndex]}
-				</div>
+				{activeCategory === "Tech Stack" ? (
+					currentCategoryContent &&
+					currentCategoryContent[activeItemIndex] && (
+						<div className='flex flex-col px-6 pl-5 justify-start align-top items-start pt-[4.5vh] text-white'>
+							{typeof currentCategoryContent[activeItemIndex] ===
+								"object" &&
+								currentCategoryContent[activeItemIndex]
+									.title && (
+									<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+										{
+											currentCategoryContent[
+												activeItemIndex
+											].title
+										}
+									</div>
+								)}
+							{typeof currentCategoryContent[activeItemIndex] ===
+							"object"
+								? currentCategoryContent[activeItemIndex].item
+								: currentCategoryContent[activeItemIndex]}
+						</div>
+					)
+				) : activeCategory === "Key Features" ||
+				  activeCategory === "Outcomes" ? (
+					<div className='flex flex-col px-6 pl-5 justify-start align-top items-start pt-[4.5vh] text-white'>
+						{currentCategoryContent &&
+							currentCategoryContent[activeItemIndex] && (
+								<>
+									<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+										{typeof currentCategoryContent[
+											activeItemIndex
+										] === "string"
+											? currentCategoryContent[
+													activeItemIndex
+											  ].split(": ")[0]
+											: currentCategoryContent[
+													activeItemIndex
+											  ].title}
+									</div>
+									<div>
+										{typeof currentCategoryContent[
+											activeItemIndex
+										] === "string"
+											? currentCategoryContent[
+													activeItemIndex
+											  ].split(": ")[1]
+											: currentCategoryContent[
+													activeItemIndex
+											  ].title}
+									</div>
+								</>
+							)}
+					</div>
+				) : (
+					<div className='text-white px-6 justify-start align-top items-start  pt-[4.5vh]'>
+						{typeof currentCategoryContent?.[activeItemIndex] ===
+						"object"
+							? (
+									currentCategoryContent[activeItemIndex] as {
+										title: string;
+										item: string | undefined;
+									}
+							  ).item
+							: currentCategoryContent?.[activeItemIndex]}
+					</div>
+				)}
 			</div>
 		</div>
 	);

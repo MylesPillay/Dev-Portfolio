@@ -52,7 +52,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
-			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0 overflow-x-hidden '
+			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0  '
 			style={{
 				borderColor: "#ff7316",
 				borderWidth: 0,
@@ -174,7 +174,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 
 						<div
-							className='min-h-[75vh] max-h-[25vh] mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto overflow-x-hidden'
+							className='flex flex-col min-h-[75vh]  mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto overflow-x-hidden'
 							style={{
 								transform:
 									isImageContainerHovered &&
@@ -195,7 +195,6 @@ const ProjectsDisplay = (): JSX.Element => {
 									viewMode={viewMode}
 									currentImageIndex={currentImageIndex}
 								/>
-
 								<div className='w-auto h-auto justify-center items-center'>
 									{showHoverPrompt ? (
 										<motion.div
@@ -205,7 +204,7 @@ const ProjectsDisplay = (): JSX.Element => {
 												duration: 1,
 												delay: 1
 											}}
-											className={`flex flex-grow justify-center align-center h-1.5 w-[53vw] items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
+											className={`flex flex-grow justify-center align-center h-1.5 w-auto items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
 									) : (
 										<ProjectImagePagination
 											hovered={isImageContainerHovered}

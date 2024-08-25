@@ -42,12 +42,12 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 	return (
 		<div
 			className={`${
-				hovered ? "flex " : "hidden"
-			} justify-center align-middle h-[15vh] items-center pb-12 `}>
+				hovered ? "flex" : "hidden"
+			} justify-center align-middle h-[8vh] w-auto items-center rounded-b-xl py-4 bg-black bg-opacity-50`}>
 			<button
 				onClick={onPrevImage}
 				disabled={currentImageIndex <= 0}
-				className={`transform   p-2 rounded-full mr-4 ${
+				className={`transform  p-2 rounded-full mr-4 ${
 					currentImageIndex <= 0
 						? "opacity-50 cursor-not-allowed"
 						: ""
