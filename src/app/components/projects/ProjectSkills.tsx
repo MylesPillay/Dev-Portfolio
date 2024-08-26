@@ -135,14 +135,18 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 			<div
 				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50   ${
 					isHovered
-						? "hover-expand min-w-[65vw] z-30  border-4 "
+						? "hover-expand min-w-[65vw] z-30  "
 						: showHoverPrompt
 						? "pr-3"
-						: "border-2"
-				}`}
+						: ""
+				}
+
+					`}
 				style={{
 					backgroundColor: "#071E22",
-					borderColor: "#1D7874"
+					borderColor: "#ff7316",
+					borderWidth: 1,
+					borderLeft: "none"
 				}}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
