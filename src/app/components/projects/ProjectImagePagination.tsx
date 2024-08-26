@@ -19,26 +19,18 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 	onNextImage
 }) => {
 	const maxDots = 5;
-	const dots = [];
-
-	const startIndex = Math.max(0, currentImageIndex - Math.floor(maxDots / 2));
-	const endIndex = Math.min(totalImages - 2, startIndex + maxDots - 1);
-
-	for (let i = startIndex; i <= endIndex; i++) {
-		dots.push(
-			<button
-				key={i}
-				onClick={() => onPageChange(i)}
-				className={`w-2.5 h-2.5 rounded-full mx-2  border-white  bg-opacity-60 ${
-					i === currentImageIndex ? "shadow-neon-dot" : ""
-				}`}
-				style={{
-					backgroundColor:
-						i === currentImageIndex ? "#ff7316" : "#071E229925"
-				}}
-			/>
+	const getPaginationDots = () => {
+		const startIndex = Math.max(
+			0,
+			currentImageIndex - Math.floor(maxDots / 2)
 		);
-	}
+		const endIndex = Math.min(totalImages - 1, startIndex + maxDots - 1);
+
+		return Array.from(
+			{ length: endIndex - startIndex + 1 },
+			(_, i) => i + startIndex
+		);
+	};
 
 	return (
 		<div
@@ -48,23 +40,37 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 			<button
 				onClick={onPrevImage}
 				disabled={currentImageIndex <= 0}
-				className={`transform  p-2 rounded-full mr-4 ${
+				className={`transform p-2 rounded-full mr-4 ${
 					currentImageIndex <= 0
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronLeft color='white' size={22} />
+				<FaChevronLeft color='#ff731655' size={22} />
 			</button>
-			{dots}
+			{getPaginationDots().map((dotIndex) => (
+				<button
+					key={dotIndex}
+					onClick={() => onPageChange(dotIndex)}
+					className={`w-2.5 h-2.5 rounded-full mx-2  border-white  bg-opacity-60 ${
+						dotIndex === currentImageIndex ? "shadow-neon-dot" : ""
+					}`}
+					style={{
+						backgroundColor:
+							dotIndex === currentImageIndex
+								? "#ff7316"
+								: "#071E229925"
+					}}
+				/>
+			))}
 			<button
 				onClick={onNextImage}
-				disabled={currentImageIndex >= totalImages - 2}
-				className={`transform  text-white p-2 rounded-full ml-4 ${
-					currentImageIndex >= totalImages - 2
+				disabled={currentImageIndex >= totalImages - 1}
+				className={`transform text-white p-2 rounded-full ml-4 ${
+					currentImageIndex >= totalImages - 1
 						? "opacity-50 cursor-not-allowed"
 						: ""
 				}`}>
-				<FaChevronRight color='white' size={22} />
+				<FaChevronRight color='#ff731655' size={22} />
 			</button>
 		</div>
 	);

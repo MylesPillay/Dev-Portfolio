@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
 import ProjectList from "../components/projects/ProjectList";
-import ProjectImages from "../components/projects/WebsiteProjectImages";
 import ProjectsHeader from "../components/projects/ProjectHeader";
 import MobileImageContainer from "../components/projects/MobileAppProjectImages";
 import ProjectImagePagination from "../components/projects/ProjectImagePagination";
@@ -16,17 +15,23 @@ import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
+	const selectedProject = projects[selectedProjectIndex];
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+	const images =
+		viewMode === "web"
+			? selectedProject.images.web
+			: selectedProject.images.mobile;
+	const totalImages = images.length;
+
 	const [isImageContainerHovered, setIsImageContainerHovered] =
 		useState(false);
-	const selectedProject = projects[selectedProjectIndex];
 	const handleProjectClick = (index: number) => {
 		const project = projects[index];
 		setSelectedProjectIndex(index);
 		setViewMode(
-			project.images.web && project.images.web.length > 0
-				? "web"
-				: "mobile"
+			project.images.mobile && project.images.mobile.length > 0
+				? "mobile"
+				: "web"
 		);
 		setCurrentImageIndex(0);
 	};
@@ -195,6 +200,7 @@ const ProjectsDisplay = (): JSX.Element => {
 									viewMode={viewMode}
 									currentImageIndex={currentImageIndex}
 								/>
+
 								<div className='w-auto h-auto justify-center items-center'>
 									{showHoverPrompt ? (
 										<motion.div
@@ -211,21 +217,26 @@ const ProjectsDisplay = (): JSX.Element => {
 											currentImageIndex={
 												currentImageIndex
 											}
-											totalImages={
-												selectedProject.images.mobile
-													.length
-											}
+											totalImages={totalImages}
 											onPageChange={(index) =>
 												setCurrentImageIndex(index)
 											}
 											onPrevImage={() =>
 												setCurrentImageIndex(
-													(prevIndex) => prevIndex - 1
+													(prevIndex) =>
+														Math.max(
+															prevIndex - 1,
+															0
+														)
 												)
 											}
 											onNextImage={() =>
 												setCurrentImageIndex(
-													(prevIndex) => prevIndex + 1
+													(prevIndex) =>
+														Math.min(
+															prevIndex + 1,
+															totalImages - 1
+														)
 												)
 											}
 										/>
