@@ -19,15 +19,19 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 	onNextImage
 }) => {
 	const maxDots = 5;
+	const isFirstImage = currentImageIndex === 0;
+	const isLastImage = currentImageIndex === totalImages - 1;
+
 	const getPaginationDots = () => {
 		const startIndex = Math.max(
 			0,
-			currentImageIndex - Math.floor(maxDots / 2)
+			Math.min(
+				currentImageIndex - Math.floor(maxDots / 2),
+				totalImages - maxDots
+			)
 		);
-		const endIndex = Math.min(totalImages - 1, startIndex + maxDots - 1);
-
 		return Array.from(
-			{ length: endIndex - startIndex + 1 },
+			{ length: Math.min(maxDots, totalImages) },
 			(_, i) => i + startIndex
 		);
 	};
@@ -36,41 +40,35 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 		<div
 			className={`${
 				hovered ? "flex" : "hidden"
-			} justify-center align-middle h-[8vh] w-auto items-center rounded-b-xl py-4 `}>
+			} justify-center align-middle h-[8vh] w-full max-w-[70vw] min-w-[15vw] mx-auto items-center rounded-b-xl py-4 `}>
 			<button
 				onClick={onPrevImage}
-				disabled={currentImageIndex <= 0}
-				className={`transform p-2 rounded-full mr-4 ${
-					currentImageIndex <= 0
-						? "opacity-50 cursor-not-allowed"
-						: ""
+				disabled={isFirstImage}
+				className={`transform p-2 justify-center items-center rounded-full mr-4 ${
+					isFirstImage
+						? "opacity-75 cursor-not-allowed bg-none"
+						: "bg-white bg-opacity-25"
 				}`}>
-				<FaChevronLeft color='#ff731655' size={22} />
+				<FaChevronLeft color='#071E22' size={23} />
 			</button>
 			{getPaginationDots().map((dotIndex) => (
 				<button
 					key={dotIndex}
 					onClick={() => onPageChange(dotIndex)}
-					className={`w-2.5 h-2.5 rounded-full mx-2  border-white  bg-opacity-60 ${
+					className={`w-2 h-2 rounded-full mx-2 bg-black ${
 						dotIndex === currentImageIndex ? "shadow-neon-dot" : ""
 					}`}
-					style={{
-						backgroundColor:
-							dotIndex === currentImageIndex
-								? "#ff7316"
-								: "#071E229925"
-					}}
 				/>
 			))}
 			<button
 				onClick={onNextImage}
-				disabled={currentImageIndex >= totalImages - 1}
-				className={`transform text-white p-2 rounded-full ml-4 ${
-					currentImageIndex >= totalImages - 1
-						? "opacity-50 cursor-not-allowed"
-						: ""
+				disabled={isLastImage}
+				className={`transform text-white p-2 justify-center items-center rounded-full ml-4 ${
+					isLastImage
+						? "opacity-75 cursor-not-allowed bg-none"
+						: "bg-white bg-opacity-25"
 				}`}>
-				<FaChevronRight color='#ff731655' size={22} />
+				<FaChevronRight color='#071E22' size={23} />
 			</button>
 		</div>
 	);

@@ -97,7 +97,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								setIsImageContainerHovered(false)
 							}
 							className={`absolute flex flex-col  h-auto text-justify max-h-[85vh]
-								 justify-start  w-auto  max-w-[80vw]
+								 justify-start
 								overflow-y-scroll scroll-y-hidden ${
 									!isImageContainerHovered
 										? "w-[54vw] "
@@ -147,7 +147,7 @@ const ProjectsDisplay = (): JSX.Element => {
 												duration: 1,
 												delay: 1
 											}}
-											className={`flex flex-grow justify-center align-start h-1.5 w-[17.3vw] items-center mb-[10vh] -mt-3 shadow-neon-bottom px-4`}></motion.div>
+											className={`flex flex-grow justify-center align-start h-1.5 w-[17.3vw] items-center mb-[10vh] mt-[4vh] shadow-neon-bottom px-4`}></motion.div>
 									) : (
 										<ProjectImagePagination
 											hovered={isImageContainerHovered}
@@ -208,8 +208,11 @@ const ProjectsDisplay = (): JSX.Element => {
 										? "translateX(-17.5%)"
 										: isImageContainerHovered &&
 										  viewMode === "mobile"
-										? "translateX(0%)"
-										: "translateX(92%)",
+										? "translateX(-17.5%)"
+										: !isImageContainerHovered &&
+										  viewMode === "web"
+										? "translateX(92%)"
+										: "translateX(71%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
