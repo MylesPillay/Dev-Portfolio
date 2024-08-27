@@ -1,6 +1,3 @@
-import { time } from "console";
-import { title } from "process";
-
 export interface Project {
 	name: string;
 	tagline: string;
@@ -250,19 +247,90 @@ const projects: Project[] = [
 		tagline: "Daily Song Selections",
 		images: {
 			web: [],
-			mobile: []
+			mobile: [
+				"/images/projects/vibeaday/mobile/VibeADay1.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay2.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay3.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay4.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay5.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay6.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay7.jpg",
+				"/images/projects/vibeaday/mobile/VibeADay8.jpg"
+			]
 		},
 		url: "",
 		details: {
-			overview: "",
+			overview:
+				"Vibe-A-Day is a mobile application designed to broaden users' musical horizons by providing daily curated song recommendations across a variety of genres. The app delivers five new tracks each day, carefully selected to appeal to both casual listeners and avid music enthusiasts. Vibe-A-Day aims to introduce users to niche musical artists and diverse genres, ensuring a fresh and enriching musical experience.",
 			objective:
-				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
-			keyResults: [
-				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
-				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
-			]
+				"The goal of Vibe-A-Day was to create a seamless and user-friendly mobile app that curates and delivers high-quality music recommendations daily. The app is built to be simple yet effective, catering to music lovers who may not have the time to discover new music on their own. It also provides users with multiple options for streaming or purchasing the recommended tracks, thereby supporting independent artists.",
+			motivation:
+				"Music has always been a passion of mine, and Vibe-A-Day was born out of a desire to share the joy of discovering new music with others. As life becomes more hectic, finding time to explore new music can be challenging. This app fills that gap, offering a convenient way for users to enjoy fresh tracks and explore genres they might not have encountered otherwise. The app also addresses the need to support independent musicians by encouraging users to purchase tracks through platforms like Bandcamp and Apple Music, rather than just streaming.",
+			techStack: {
+				title: "Tech Stack",
+				frontend:
+					"React Native with Expo for streamlined development and a smooth user experience.",
+				stateManagement:
+					"Zustand for managing local state, ensuring quick and responsive interactions.",
+				backend:
+					"Supabase for handling track and playlist data, providing a robust and scalable backend solution."
+			},
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "Daily Curated Song Recommendations",
+						text: "Users receive five new songs every day, each carefully curated to ensure high quality and broad appeal across different genres."
+					},
+					{
+						title: "Multi-Platform Support",
+						text: "Each song recommendation includes links to multiple platforms such as Spotify, Apple Music, Bandcamp, and SoundCloud, allowing users to listen and support artists in their preferred way."
+					},
+					{
+						title: "Smooth and Intuitive UI/UX",
+						text: "The app's design prioritizes ease of use, with a clean and modern interface that makes exploring new music a delightful experience."
+					},
+					{
+						title: "Artist and Genre Diversity",
+						text: "The app ensures a wide range of genres and artists are featured each week, encouraging users to discover and enjoy music outside of their usual preferences."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "Enhanced Music Discovery",
+						text: "Users have reported finding new favorite artists and genres, expanding their musical tastes through the app's daily recommendations."
+					},
+					{
+						title: "Support for Independent Musicians",
+						text: "By providing purchase options and social media links, the app helps users directly support independent artists, fostering a more sustainable music ecosystem."
+					},
+					{
+						title: "Personal Growth as a Developer",
+						text: "This project marked my first foray into using Expo with React Native, which enhanced my skills in mobile app development and broadened my understanding of building user-centric applications."
+					}
+				]
+			}
 		},
-		skills: ["React Native", "React", "Typescript", "TailwindCSS"]
+		skills: [
+			"React Native",
+			"React",
+			"Typescript",
+			"TailwindCSS",
+			"Expo",
+			"Supabase",
+			"Supabase Client API",
+			"Auth",
+			" OAuth2.0",
+			"Spotify API",
+			"Spotify Auth",
+			"SoundCloud API",
+			"SoundCloud Auth",
+			"Bandcamp API",
+			"Bandcamp Auth"
+		]
 	},
 	{
 		name: "usahi",

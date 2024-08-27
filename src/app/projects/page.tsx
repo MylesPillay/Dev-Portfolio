@@ -160,7 +160,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					<></>
 				)}
 
-				{selectedProjectIndex != 0 && 3 ? (
+				{selectedProjectIndex != 0 && selectedProjectIndex != 3 ? (
 					<div className='flex flex-row  justify-start w-auto max-w-[90vw] h-auto max-h-[90vh] '>
 						<div
 							className={`flex flex-col justify-start  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw] h-auto max-h-85vh`}>
