@@ -53,11 +53,11 @@ const projects: Project[] = [
 		},
 		details: {
 			overview:
-				"I developed Air Oasis Home, an IoT mobile application, independently from the ground up, available for both Android and iOS. Post-launch, I’ve taken sole responsibility for ongoing updates and maintenance on both the App Store and Google Play. This project showcases my ability to manage a full development cycle, from initial concept through to deployment and post-production support.",
+				"Air Oasis Home is an IoT mobile application developed for Android and iOS, designed to manage and control air purification devices remotely. The app allows users to sync their Air Oasis air purifiers via Bluetooth and WiFi, providing a seamless interface for device control and scheduling. I independently developed the app from the ground up, including post-launch updates and maintenance.",
 			objective:
-				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
+				"The primary objective was to create an IoT mobile app that enables users to sync their Air Oasis air purifiers with their smartphones, offering real-time control, scheduling capabilities, and device status updates.",
 			motivation:
-				"Air Oasis Home was designed to solve the challenge of managing and controlling air purification devices remotely. The app connects users with their A.O. air purifiers via Bluetooth and WiFi, allowing them to seamlessly sync, control, and schedule their devices directly from their smartphones.",
+				"Air Oasis Home was designed to address the challenge of remotely managing air purification devices, providing users with the convenience of controlling their devices from anywhere. The app needed to be intuitive, reliable, and capable of managing complex device connectivity scenarios.",
 			techStack: {
 				title: "Tech Stack",
 				frontend:
@@ -76,7 +76,7 @@ const projects: Project[] = [
 					},
 					{
 						title: "Real-time Feedback",
-						text: "Ensured real-time device status updates using a synchronised local state infrastructure, enhancing user experience with immediate feedback."
+						text: "Ensured real-time device status updates using a synchronized local state infrastructure, enhancing user experience with immediate feedback."
 					},
 					{
 						title: "UX/UI Design",
@@ -97,25 +97,24 @@ const projects: Project[] = [
 					},
 					{
 						title: "Professional Growth",
-						text: "Gained extensive experience in UX / UI design, state management, and backend development, solidifying my expertise in building high - quality, scalable mobile applications."
+						text: "Gained extensive experience in UX/UI design, state management, and backend development, solidifying my expertise in building high-quality, scalable mobile applications."
 					}
 				]
 			}
 		},
-
 		skills: [
 			"React Native",
-			"Typescript",
+			"TypeScript",
 			"Firebase",
-			"Cloud-Firestore",
+			"Cloud Firestore",
 			"Xcode",
 			"Android Studio",
 			"Android SDKs",
 			"Jest",
 			"JavaScript",
-			"Bluetooth-Low-Energy",
-			"React-Native-Maps",
-			"X-State",
+			"Bluetooth Low Energy",
+			"React Native Maps",
+			"XState",
 			"Zustand",
 			"React Native Testing Library"
 		]
@@ -371,13 +370,13 @@ const projects: Project[] = [
 		skills: [
 			"React Native",
 			"React",
-			"Typescript",
-			"TailwindCSS",
+			"TypeScript",
+			"Tailwind CSS",
 			"Expo",
 			"Supabase",
 			"Supabase Client API",
 			"Auth",
-			" OAuth2.0",
+			"OAuth2.0",
 			"Spotify API",
 			"Spotify Auth",
 			"SoundCloud API",

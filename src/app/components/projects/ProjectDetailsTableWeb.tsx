@@ -71,7 +71,7 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 						className={` w-full  p-4 h-auto text-lg border-b-2 text-center   ${
 							selectedProject.images.web.length > 0
 								? "bg-transparent cursor-pointer"
-								: "bg-transparent opacity-50 cursor-default"
+								: " cursor-default"
 						} ${
 							activeCategory === category ? "" : "text-slate-600"
 						}`}

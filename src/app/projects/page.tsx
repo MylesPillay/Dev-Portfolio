@@ -70,7 +70,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				isImageContainerHovered={isImageContainerHovered}
 				setIsImageContainerHovered={setIsImageContainerHovered}
 			/>
-			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full'>
+			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full '>
 				<div
 					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full'
 					onMouseEnter={() => {
@@ -91,25 +91,46 @@ const ProjectsDisplay = (): JSX.Element => {
 
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
-						className={`relative flex justify-evenly mx-auto h-auto overflow-y-scroll  overflow-x-hidden w-[74.5vw] max-w-[74.5vw] min-h-[85vh] pt-[4vh] `}>
-						<ProjectTextContentMobile
-							selectedProject={selectedProject}
-							isImageContainerHovered={isImageContainerHovered}
-						/>
+						className={`relative flex justify-between h-auto overflow-y-scroll w-full max-w-[100vw] min-h-[85vh] pt-[4vh] `}>
+						<div
+							onMouseEnter={() =>
+								setIsImageContainerHovered(false)
+							}
+							className={`absolute flex flex-col  h-auto text-justify max-h-[85vh]
+								 justify-start  w-auto  max-w-[80vw]
+								overflow-y-scroll scroll-y-hidden ${
+									!isImageContainerHovered
+										? "w-[54vw] "
+										: "w-[37vw] "
+								}`}
+							style={{
+								transition: "width 0.2s ease-in-out"
+							}}>
+							<ProjectTextContentWeb
+								selectedProject={selectedProject}
+								isImageContainerHovered={
+									isImageContainerHovered
+								}
+							/>
+							<ProjectDetailsComponentWeb
+								selectedProject={selectedProject}
+								isImageContainerHovered={
+									isImageContainerHovered
+								}
+							/>
+						</div>
 						<div
 							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
 							style={{
 								transform: isImageContainerHovered
-									? "translateX(51%)"
-									: "translateX(97%)",
+									? "translateX(37vw)"
+									: "translateX(54vw)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
 							}
-							onMouseLeave={() =>
-								setIsImageContainerHovered(false)
-							}>
+							onMouseLeave={() => {}}>
 							<div className='w-full h-full min-h-[100%] items-end'>
 								<MobileImageContainer
 									hovered={isImageContainerHovered}
