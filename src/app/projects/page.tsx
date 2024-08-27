@@ -7,7 +7,6 @@ import ProjectsHeader from "../components/projects/ProjectHeader";
 import MobileImageContainer from "../components/projects/MobileAppProjectImages";
 import ProjectImagePagination from "../components/projects/ProjectImagePagination";
 import ProjectSkillsComponent from "../components/projects/ProjectSkills";
-import ProjectTextContentMobile from "../components/projects/ProjectTextContentMobile";
 import ProjectTextContentWeb from "../components/projects/ProjectTextComponentWeb";
 import ProjectDetailsComponentWeb from "../components/projects/ProjectDetailsTableWeb";
 import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
@@ -29,7 +28,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		const project = projects[index];
 		setSelectedProjectIndex(index);
 		setViewMode(
-			project.images.mobile && project.images.mobile.length > 0
+			project.images.mobile && project.images.web.length === 0
 				? "mobile"
 				: "web"
 		);
@@ -57,7 +56,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
-			className='bg-projects-gradient  h-full w-full  m-none  pr-0  p-0  '
+			className='bg-projects-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
 			style={{
 				borderColor: "#ff7316",
 				borderWidth: 0,
@@ -200,7 +199,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 
 						<div
-							className='flex flex-col min-h-[75vh]  mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto overflow-x-hidden'
+							className='flex flex-col min-h-[75vh] max-h-[78vh]  justify-between mt-[4vh] h-auto max-w-[90vw] min-w-[60vw] sticky right-0 overflow-y-auto overflow-x-hidden'
 							style={{
 								transform:
 									isImageContainerHovered &&
@@ -218,14 +217,14 @@ const ProjectsDisplay = (): JSX.Element => {
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
 							}>
-							<div className='w-auto h-auto justify-center items-center overflow-x-hidden'>
+							<div className='w-auto h-full justify-between items-center overflow-x-hidden'>
 								<WebsiteProjectImages
 									selectedProject={selectedProject}
 									viewMode={viewMode}
 									currentImageIndex={currentImageIndex}
 								/>
 
-								<div className='w-auto h-auto justify-center items-center'>
+								<div className='w-auto h-auto flex-end justify-center items-center'>
 									{showHoverPrompt ? (
 										<motion.div
 											initial={{ opacity: 0 }}
