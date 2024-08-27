@@ -490,7 +490,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "Tuition Covered",
-		tagline: "AI maintained Scholarship Database",
+		tagline: "AI-Maintained Scholarship Database",
 		images: {
 			web: [
 				"/images/projects/tuition-covered/web/TC-Categories2.jpg",
@@ -511,31 +511,81 @@ const projects: Project[] = [
 		},
 		url: "https://tuitioncovered.com/",
 		details: {
-			overview: "",
+			overview:
+				"Tuition Covered is an AI-powered scholarship database designed to assist students in finding and applying for scholarships. The platform provides a comprehensive dashboard that helps educational institutions manage their scholarship offerings, track applications, and ensure that students are matched with the most relevant opportunities. The system leverages AI to maintain and update the scholarship database, ensuring that all information is current and accurate.",
 			objective:
-				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
-			keyResults: [
-				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
-				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
-			]
+				"The goal of the Tuition Covered project was to create a robust, AI-maintained platform that simplifies the scholarship application process for students while providing educational institutions with a tool to manage and promote their scholarship programs. The platform needed to be scalable, user-friendly, and capable of handling large volumes of data with high efficiency.",
+			motivation:
+				"Access to education is a critical issue, and scholarships play a vital role in helping students achieve their academic goals. Tuition Covered was developed to bridge the gap between students seeking financial aid and institutions offering scholarships. By automating the process with AI, the platform ensures that students have access to the most relevant and up-to-date information, increasing their chances of securing financial support.",
+			techStack: {
+				title: "Tech Stack",
+				frontend:
+					"Next.js was used for building a responsive and fast user interface, with Tailwind CSS providing the styling framework.",
+				stateManagement:
+					"React Hook Form was implemented to manage form data efficiently, ensuring a smooth user experience during the application process.",
+				backend:
+					"Supabase and PostgreSQL were used for data storage and real-time updates, while the ChatGPT API was integrated for AI-driven content management and interaction."
+			},
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "AI-Powered Scholarship Management",
+						text: "The platform automatically updates and maintains the scholarship database using AI, ensuring that students always have access to the most accurate and relevant opportunities."
+					},
+					{
+						title: "User-Friendly Dashboard",
+						text: "Developed a comprehensive dashboard for students and institutions, providing tools for tracking applications, managing scholarship offerings, and analyzing application trends."
+					},
+					{
+						title: "Real-Time Updates and Notifications",
+						text: "Utilized Supabase for real-time data synchronization, ensuring that both students and administrators receive instant updates on application statuses and new scholarship opportunities."
+					},
+					{
+						title: "Customizable User Permissions",
+						text: "Implemented a robust user authentication system using Next-Auth, allowing educational institutions to manage access rights for different users, from administrators to scholarship reviewers."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "Streamlined Scholarship Applications",
+						text: "The AI-driven platform significantly reduced the time and effort required for students to find and apply for scholarships, increasing application rates and student satisfaction."
+					},
+					{
+						title: "Efficient Scholarship Management",
+						text: "Educational institutions reported greater efficiency in managing their scholarship programs, with real-time updates and automated data management streamlining their workflows."
+					},
+					{
+						title: "Increased Accessibility",
+						text: "By automating the maintenance of the scholarship database, the platform ensured that students from diverse backgrounds had equal access to educational funding opportunities."
+					},
+					{
+						title: "Professional Growth and AI Integration",
+						text: "This project provided valuable experience in integrating AI with web applications, enhancing my skills in both front-end and back-end development, as well as in managing complex data systems."
+					}
+				]
+			}
 		},
 		skills: [
-			"Next.Js",
-			"TypeScript",
+			"Next.js",
+			"Next-Auth",
 			"Supabase",
-			"TailwindCSS",
+			"PostgreSQL",
+			"Tailwind CSS",
 			"ChatGPT API",
-			"OPEN AI GPT Models",
+			"TypeScript",
+			"React Hook Form",
+			"REST APIs",
 			"JavaScript",
 			"SQL",
-			"PostgreSQL",
-			"HTML",
-			"CSS",
-			"React",
-			"REST APIs",
-			"XML Sitemaps",
-			"SEO Optimisation",
-			"Google Analytics"
+			"Google Analytics",
+			"SEO Optimization",
+			"Responsive Design",
+			"AI Integration",
+			"Agile Development"
 		]
 	}
 ];
