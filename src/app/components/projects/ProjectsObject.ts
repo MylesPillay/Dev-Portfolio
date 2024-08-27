@@ -136,23 +136,77 @@ const projects: Project[] = [
 		},
 		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
 		details: {
-			overview: "",
+			overview:
+				"WhoCo is a high-performance, scalable website developed for a U.S.-based recruitment startup founded by a former MySpace co-founder. The website was designed to align with their Figma-based UX/UI designs, offering a sleek, responsive, and multilingual experience. Hosted on the HubSpot platform, WhoCo allows the internal team to easily create and manage content through custom templates and components.",
 			objective:
-				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
-			keyResults: [
-				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
-				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
-			]
+				"The primary objective of the WhoCo project was to build a highly responsive, visually appealing website that could be easily managed by the WhoCo team. The site was built to be scalable and performant, supporting a growing user base while maintaining fast load times and excellent SEO optimization.",
+			motivation:
+				"Given WhoCo's ambition to disrupt the recruitment industry with a modern approach, the website needed to reflect their innovative spirit. It was crucial to create a platform that was not only beautiful and easy to use but also technically robust, ensuring a seamless experience for users across the globe. Working closely with the design team, we ensured that the website faithfully translated their Figma designs into a functional, high-quality product.",
+			techStack: {
+				title: "Tech Stack",
+				frontend:
+					"HTML, CSS, and JavaScript were used for building the front-end, with a focus on clean, maintainable code that closely followed the provided designs.",
+				stateManagement:
+					"Handled via custom JavaScript code, ensuring smooth interactions and dynamic content updates.",
+				backend:
+					"Hosted on the HubSpot platform, leveraging HubL (HubSpot's templating language) and HubDb for managing dynamic content and database-driven elements."
+			},
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "Responsive and Multilingual Design",
+						text: "The website was built to be fully responsive, providing an optimal viewing experience across all devices. Additionally, it supports multiple languages, broadening WhoCo's reach to a global audience."
+					},
+					{
+						title: "Custom HubSpot Integration",
+						text: "Developed custom components using HubL to dynamically pull content from HubDb, allowing the WhoCo team to easily manage and update the site without technical assistance."
+					},
+					{
+						title: "SEO Optimization and Performance",
+						text: "Implemented best practices for SEO, including meta tags, alt attributes, and clean URLs. The website was optimized for speed through image compression, code minification, and efficient loading of assets, resulting in fast page load times."
+					},
+					{
+						title: "Collaborative Agile Development",
+						text: "The project was developed using Agile methodologies, which involved close collaboration between developers, designers, and the WhoCo team. This approach ensured that the project met deadlines and exceeded client expectations."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "High-Performance Website",
+						text: "Delivered a scalable, responsive website that provides a seamless user experience across devices, with excellent performance metrics that enhance user satisfaction and engagement."
+					},
+					{
+						title: "Client Empowerment",
+						text: "The integration with HubSpot allows the WhoCo team to easily manage their content, enabling them to stay agile and responsive to business needs without relying on continuous developer intervention."
+					},
+					{
+						title: "Professional Growth and Team Collaboration",
+						text: "This project marked one of my first full-team collaborations at KJA. It was an invaluable experience in teamwork and Agile development, deepening my understanding of collaborative coding practices, project management, and delivering a high-quality product within tight deadlines."
+					},
+					{
+						title: "Enhanced SEO and Accessibility",
+						text: "The site was optimized for both search engines and accessibility, ensuring it meets the needs of all users and performs well in search rankings."
+					}
+				]
+			}
 		},
 		skills: [
-			"React Native",
-			"React",
+			"HTML",
+			"CSS",
+			"JavaScript",
 			"HubSpot",
+			"HubL",
 			"HubDb Tables",
 			"HTML",
 			"CSS",
 			"SCSS",
-			"SEO Optimisation"
+			"SEO Optimization",
+			"Responsive Design",
+			"Agile Development"
 		]
 	},
 	{
@@ -172,37 +226,38 @@ const projects: Project[] = [
 		},
 		details: {
 			overview:
-				"Fluent Outreach is a commercial web application designed to empower companies and teams to manage customer lead inboxes and monitor outreach campaign success. This application features an AI-powered customer service advisor, providing a seamless customer experience by automating responses and scheduling appointments based on real-time calendar availability.",
+				"WhoCo is a high-performance, scalable website developed for a U.S.-based recruitment startup founded by a former MySpace co-founder. The website was designed to align with their Figma-based UX/UI designs, offering a sleek, responsive, and multilingual experience. Hosted on the HubSpot platform, WhoCo allows the internal team to easily create and manage content through custom templates and components.",
 			objective:
-				"Collaborated with the client company's CEO and leadership team to develop a minimum viable product (MVP) dashboard that enables companies to manage their customer outreach campaigns efficiently. The application allows for AI-driven customer interactions, manual overrides by users, and robust analytics to track campaign performance.",
+				"The primary objective of the WhoCo project was to build a highly responsive, visually appealing website that could be easily managed by the WhoCo team. The site was built to be scalable and performant, supporting a growing user base while maintaining fast load times and excellent SEO optimization.",
 			motivation:
-				"The Fluent Outreach platform was created to streamline the customer outreach process by integrating AI into customer service, reducing the burden on human advisors, and ensuring timely and accurate responses to customer inquiries. The aim was to enhance conversion rates from potential leads to confirmed appointments by automating and optimizing key touchpoints in the customer journey.",
+				"Given WhoCo's ambition to disrupt the recruitment industry with a modern approach, the website needed to reflect their innovative spirit. It was crucial to create a platform that was not only beautiful and easy to use but also technically robust, ensuring a seamless experience for users across the globe. Working closely with the design team, we ensured that the website faithfully translated their Figma designs into a functional, high-quality product.",
 			techStack: {
+				title: "Tech Stack",
 				frontend:
-					"Next.js and Tailwind CSS for building a responsive and user-friendly interface, with custom components tailored to the specific needs of the platform.",
+					"HTML, CSS, and JavaScript were used for building the front-end, with a focus on clean, maintainable code that closely followed the provided designs.",
 				stateManagement:
-					"React Hook Form for handling form data, synchronized with Firebase and Supabase for real-time updates and authentication management.",
+					"Handled via custom JavaScript code, ensuring smooth interactions and dynamic content updates.",
 				backend:
-					"Upstash for low-latency, real-time data updates, Twilio SMS API for customer interactions, and OpenAI integration for the AI-powered customer service advisor. Cloud Firestore and PostgreSQL were used for data storage and retrieval, ensuring scalability and reliability."
+					"Hosted on the HubSpot platform, leveraging HubL (HubSpot's templating language) and HubDb for managing dynamic content and database-driven elements."
 			},
 			keyFeatures: {
 				title: "Key Features",
 				features: [
 					{
-						title: "AI-Powered Customer Service",
-						text: "Integrated an AI customer service advisor that can be trained on company-specific literature and automatically reach out to customers based on campaign checkpoints. The AI can book appointments in sync with the team's calendar and handle complex customer interactions."
+						title: "Responsive and Multilingual Design",
+						text: "The website was built to be fully responsive, providing an optimal viewing experience across all devices. Additionally, it supports multiple languages, broadening WhoCo's reach to a global audience."
 					},
 					{
-						title: "Campaign Management Dashboard",
-						text: "Developed a comprehensive dashboard that allows managers to onboard team members, assign permissions, and monitor the success of outreach campaigns through detailed analytics and real-time updates."
+						title: "Custom HubSpot Integration",
+						text: "Developed custom components using HubL to dynamically pull content from HubDb, allowing the WhoCo team to easily manage and update the site without technical assistance."
 					},
 					{
-						title: "Real-Time Communication",
-						text: "Created a responsive chat interface that supports real-time communication between customer service advisors and customers, with AI-driven automation for handling customer inquiries and scheduling appointments."
+						title: "SEO Optimization and Performance",
+						text: "Implemented best practices for SEO, including meta tags, alt attributes, and clean URLs. The website was optimized for speed through image compression, code minification, and efficient loading of assets, resulting in fast page load times."
 					},
 					{
-						title: "User Authentication & Permissions",
-						text: "Implemented Next Auth for secure user authentication and session management, with customizable user permission profiles that allow managers to control access to various parts of the platform."
+						title: "Collaborative Agile Development",
+						text: "The project was developed using Agile methodologies, which involved close collaboration between developers, designers, and the WhoCo team. This approach ensured that the project met deadlines and exceeded client expectations."
 					}
 				]
 			},
@@ -210,36 +265,34 @@ const projects: Project[] = [
 				title: "Outcomes",
 				outcome: [
 					{
-						title: "Enhanced Customer Interaction",
-						text: "The AI integration significantly reduced response times and improved customer satisfaction by ensuring timely follow-ups and accurate information, leading to higher conversion rates."
+						title: "High-Performance Website",
+						text: "Delivered a scalable, responsive website that provides a seamless user experience across devices, with excellent performance metrics that enhance user satisfaction and engagement."
 					},
 					{
-						title: "Scalable and Maintainable Platform",
-						text: "The platform was built with scalability in mind, utilizing cloud-based technologies and a modular architecture that allows for easy maintenance and future expansion."
+						title: "Client Empowerment",
+						text: "The integration with HubSpot allows the WhoCo team to easily manage their content, enabling them to stay agile and responsive to business needs without relying on continuous developer intervention."
 					},
 					{
-						title: "Streamlined Team Management",
-						text: "Managers can efficiently onboard new team members, assign tasks, and monitor performance, thanks to the intuitive dashboard and robust permission management system."
+						title: "Professional Growth and Team Collaboration",
+						text: "This project marked one of my first full-team collaborations at KJA. It was an invaluable experience in teamwork and Agile development, deepening my understanding of collaborative coding practices, project management, and delivering a high-quality product within tight deadlines."
+					},
+					{
+						title: "Enhanced SEO and Accessibility",
+						text: "The site was optimized for both search engines and accessibility, ensuring it meets the needs of all users and performs well in search rankings."
 					}
 				]
 			}
 		},
 		skills: [
-			"Next.js",
-			"Next-Auth",
-			"Firebase",
-			"Firebase-Auth",
-			"Upstash",
-			"Twilio",
-			"PostgreSQL",
-			"React-Hook-Form",
-			"TypeScript",
-			"Supabase",
-			"Tailwind CSS",
-			"ChatGPT API",
+			"HTML",
+			"CSS",
 			"JavaScript",
-			"React",
-			"REST APIs"
+			"HubSpot",
+			"HubL",
+			"HubDb",
+			"SEO Optimization",
+			"Responsive Design",
+			"Agile Development"
 		]
 	},
 	{

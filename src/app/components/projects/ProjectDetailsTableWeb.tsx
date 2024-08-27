@@ -82,8 +82,8 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 					</button>
 				))}
 			</div>
-			<div className=' flex flex-row justify-center '>
-				<div className='flex flex-col justify-center py-8'>
+			<div className=' flex flex-row justify-start '>
+				<div className='flex flex-col justify-start py-8'>
 					{currentCategoryContent?.map((_, index) => (
 						<button
 							key={index}
