@@ -387,7 +387,7 @@ const projects: Project[] = [
 		]
 	},
 	{
-		name: "usahi",
+		name: "USAHI",
 		tagline: "Home Improvement",
 		images: {
 			web: [
@@ -405,25 +405,87 @@ const projects: Project[] = [
 		},
 		url: "https://usahomeimprovement.com/",
 		details: {
-			overview: "",
+			overview:
+				"USAHI is a comprehensive project aimed at revamping the operations and customer experience of a Florida-based renovation company. The project involved a complete overhaul of their business model, optimizing logistics, streamlining the customer journey, and maximizing lead conversion. This was achieved through the migration of their booking and sales platform to Salesforce and a complete redesign of their customer-facing website using HubSpot and React.",
 			objective:
-				"Was tasked as a solo project to Design and built an IoT Android and iOS mobile app which enables customers to sync their A.O Air Purifiers via Blu-Fi, with a control interface and scheduling capabilities.",
-			keyResults: [
-				"Developed skills in UX and UI design as well as gaining robust coding principles and experience in producing quality, scalable, performance optimized apps for a high profile client.",
-				"Created an exceptionally Type-safe local and real-time cloud state management system within the application, and optimised the backend to repair edge-case errors, as well as ensure scalability going forwards."
-			]
+				"The primary objective of the USAHI project was to modernize the company's operations and improve their customer experience. This included optimizing their internal logistics, enhancing the efficiency of field operations through a custom booking widget, and creating a high-performing, SEO-optimized website that effectively converts leads into customers.",
+			motivation:
+				"USAHI needed to modernize its business model to stay competitive in the renovation industry. By leveraging technology, the company sought to reduce operational costs, increase productivity, and provide a better customer experience. The project was driven by the need to create a scalable and efficient system that would support the company’s growth and enhance its market presence.",
+			techStack: {
+				title: "Tech Stack",
+				frontend:
+					"React and HubL were used to build the front-end, providing a dynamic and responsive user experience. HTML, CSS, and SCSS ensured the site was visually appealing and maintainable.",
+				stateManagement:
+					"Custom JavaScript was used to handle state and interactions across the website, ensuring smooth user experience.",
+				backend:
+					"Salesforce was integrated for managing customer interactions, booking, and sales operations. HubSpot was used to manage the website content, with HubL and HubDb supporting the dynamic content and data management."
+			},
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "Salesforce Integration",
+						text: "Migrated the company's booking and sales platform to Salesforce, allowing the sales team and managers to access and manage leads, track KPIs, and optimize field operations with real-time data."
+					},
+					{
+						title: "Custom Booking Widget",
+						text: "Developed an algorithm-driven booking widget that optimizes fuel efficiency and minimizes time wastage for field operatives. This widget assigns appointments based on the operative's location, job type, and estimated completion time."
+					},
+					{
+						title: "SEO-Optimized Website",
+						text: "Created a highly responsive and SEO-optimized website using HubSpot and React, with individual pages for each service offered. The site was designed to rank highly in search results, improving visibility and lead conversion."
+					},
+					{
+						title: "Scalable and Accessible Design",
+						text: "Built a scalable website structure that allows the USAHI team to update content independently. The design focused on accessibility, ensuring a seamless experience across devices and compliance with accessibility standards."
+					}
+				]
+			},
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "Optimized Operations",
+						text: "The integration with Salesforce and the custom booking widget significantly improved operational efficiency, reducing costs and increasing productivity for field operatives."
+					},
+					{
+						title: "Enhanced Customer Experience",
+						text: "The new website and streamlined customer journey led to higher lead conversion rates and improved customer satisfaction. The site’s SEO performance also boosted the company’s visibility, attracting more potential customers."
+					},
+					{
+						title: "Professional Growth and Team Collaboration",
+						text: "This project provided valuable experience in client collaboration, Agile development, and the implementation of scalable solutions. It also enhanced my skills in React, HubSpot, and Salesforce integration."
+					},
+					{
+						title: "Successful Modernization",
+						text: "USAHI's revamped business model and modernized operations have positioned the company for sustained growth and success in the competitive renovation industry."
+					}
+				]
+			}
 		},
 		skills: [
-			"React Native",
 			"React",
 			"Typescript",
 			"HTML",
 			"CSS",
-			"React",
 			"REST APIs",
 			"XML Sitemaps",
 			"SEO Optimisation",
-			"Google Analytics"
+			"Google Analytics",
+			"HubSpot",
+			"HubL",
+			"HubDb",
+			"Salesforce",
+			"React Hook Form",
+			"Accessability",
+			"Agile Development",
+			"Figma Design Recreation",
+			"User Accounts and Permissions",
+			"Image Optimization",
+			"Mobile Web-Design",
+			"Navigation Routing",
+			"CTAs and Lead Conversion",
+			"Client Collaboration"
 		]
 	},
 	{
