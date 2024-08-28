@@ -4,19 +4,16 @@ import { Project } from "./ProjectsObject";
 interface ProjectAccordionWebProps {
 	selectedProject: Project;
 	imageContainerHovered: boolean;
+	activeSection: string;
+	setActiveSection: (section: string) => void;
 }
 
 const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 	selectedProject,
-	imageContainerHovered
+	imageContainerHovered,
+	activeSection,
+	setActiveSection
 }) => {
-	const [activeSection, setActiveSection] = useState("Overview");
-	React.useEffect(() => {
-		if (imageContainerHovered) {
-			setActiveSection("Overview");
-		}
-	}, [imageContainerHovered]);
-
 	const getCategoryContent = (category: string) => {
 		switch (category) {
 			case "Tech Stack":

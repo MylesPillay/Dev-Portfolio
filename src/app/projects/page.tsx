@@ -40,6 +40,13 @@ const ProjectsDisplay = (): JSX.Element => {
 		null
 	);
 
+	const [activeSection, setActiveSection] = useState("Overview");
+	React.useEffect(() => {
+		if (isImageContainerHovered) {
+			setActiveSection("Overview");
+		}
+	}, [isImageContainerHovered]);
+
 	useEffect(() => {
 		if (!isImageContainerHovered && showHoverPrompt === null) {
 			const timer = setTimeout(() => {
@@ -84,7 +91,11 @@ const ProjectsDisplay = (): JSX.Element => {
 						onProjectClick={handleProjectClick}
 					/>
 
-					<ProjectSkillsComponent selectedProject={selectedProject} />
+					<ProjectSkillsComponent
+						selectedProject={selectedProject}
+						activeSection={activeSection}
+						isImageHovered={isImageContainerHovered}
+					/>
 				</div>
 
 				{/* Mobile application content screen  */}
@@ -135,6 +146,8 @@ const ProjectsDisplay = (): JSX.Element => {
 							<ProjectAccordionWeb
 								selectedProject={selectedProject}
 								imageContainerHovered={isImageContainerHovered}
+								activeSection={activeSection}
+								setActiveSection={setActiveSection}
 							/>
 						</div>
 						<div
@@ -229,6 +242,8 @@ const ProjectsDisplay = (): JSX.Element => {
 							<ProjectAccordionWeb
 								selectedProject={selectedProject}
 								imageContainerHovered={isImageContainerHovered}
+								activeSection={activeSection}
+								setActiveSection={setActiveSection}
 							/>
 							{/* </div> */}
 						</div>
