@@ -32,21 +32,28 @@ export default function Contact() {
 			}}>
 			<div className='flex flex-col justify-between w-full'>
 				<div className='flex flex-row justify-between w-full'>
-					<div className='flex flex-col w-auto h-[70vh] ml-8 rounded-lg items-center justify-center'>
+					<div className='flex flex-col w-[75vw] h-[95vh] ml-8 rounded-lg items-center justify-center'>
 						{/* HEADER SECTION */}
 
 						<h1 className='text-2md font-bold text-left justify-start align-text-bottom w-full h-[5vh] mt-4 text-orangeflame '>
 							CONTACT
 						</h1>
-						<div className=' w-full h-full flex flex-col justify-center items-center'>
+						<div className=' w-full h-full flex flex-col justify-between'>
 							{/* TAGLINE TRIPLETS  */}
-							<h1 className='text-xl font-bold text-center justify-center align-text-center text-white '>
-								"Dreaming up the next big thing? Let's turn it
-								into reality. Got a challenge that needs solving
-								or an app that needs building? I’m here for it.
+							<div className='text-xl font-bold text-left text-white w-full mt-2%] justify-start ml-[8%]  '>
+								<h1 className=' w-[50%]'>
+									Dreaming up the next big thing? <br></br>
+									<div className='text-emerald-200 text-center my-4 text-4xl w-full mt-6'>
+										Let's turn it into reality.
+									</div>
+								</h1>
+							</div>
+
+							<h1 className='text-2xl font-bold text-center justify-center align-text-center text-white '>
 								If you're ready to create something amazing,
-								reach out below—I'd love to hear from you!"
+								reach out below — I'd love to hear from you!
 							</h1>
+
 							{/* CONTACT FORM CONTAINER */}
 							<form onSubmit={() => {}}>
 								<div className='flex flex-block flex-wrap w-[40vw] mx-auto'>
@@ -150,6 +157,17 @@ export default function Contact() {
 									</button>
 								</div>
 							</form>
+							<div className=' flex flex-col text-xl  font-bold w-[100%] text-white my-4 '>
+								<div className='justify-start  max-w-[100%]  lg:pl-[55%]'>
+									<h1 className=' self-end w-[100%] text-left '>
+										Got a challenge that needs solving or an
+										app that needs building?
+									</h1>
+								</div>
+								<div className='text-orangeflame text-4xl my-4  self-end w-[100%] text-right  '>
+									I’m all ears!
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
