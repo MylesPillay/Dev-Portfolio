@@ -26,10 +26,8 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				return;
 			}}>
 			<h1
-				className='text-2xl font-bold text-left text-white justify-start align-text-bottom w-[15%] h-full mt-3'
-				style={{
-					color: "#ff7316"
-				}}>
+				className='text-2xl font-bold text-left justify-start align-text-bottom w-[15%] h-full mt-3 text-orangeflame'
+				style={{}}>
 				PROJECTS
 			</h1>
 			<h1 className='text-4xl font-bold  w-full max-w-[80vw] ml-[4vw]  mt-1 text-white '>

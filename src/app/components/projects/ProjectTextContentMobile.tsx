@@ -12,11 +12,12 @@ const ProjectTextContentMobile: React.FC<ProjectTextContentMobileProps> = ({
 }) => {
 	return (
 		<div
-			className={`absolute flex flex-col left-[2vw] p-8 py-4 rounded-lg bg-black bg-opacity-40 h-auto max-w-[50vw] text-justify max-h-[82vh] overflow-y-scroll scroll-y-hidden ${
+			className={`absolute flex flex-col left-[2vw] p-8 py-4 rounded-lg  h-auto max-w-[50vw] text-justify max-h-[82vh] overflow-y-scroll scroll-y-hidden ${
 				!isImageContainerHovered ? "w-[49vw] " : "w-[33vw] "
 			}`}
 			style={{
-				transition: "width 0.2s ease-in-out"
+				transition: "width 0.2s ease-in-out",
+				backgroundColor: "#070e2d"
 			}}>
 			<div className='project-text-section'>
 				<h2 className='text-xl w-auto mb-2 font-semibold text-emerald-200 underline underline-offset-1'>

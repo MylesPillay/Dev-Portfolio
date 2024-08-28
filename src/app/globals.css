@@ -75,7 +75,7 @@ nav {
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
-
+/*
 .shadow-neon-dot {
 	box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
 		0 0 10px rgb(29, 234, 132), 0 0 15px rgb(29, 234, 132);
@@ -91,24 +91,15 @@ nav {
 		box-shadow: 0 0 10px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132),
 			0 0 10px rgb(29, 234, 132), 0 0 40px rgb(29, 234, 132);
 	}
-}
-/*
+} */
+
 .shadow-neon-dot {
+	border-width: 2px;
+	border-color: rgb(255, 98, 0);
 	box-shadow: 0 0 5px rgb(255, 115, 22), 0 0 10px rgb(255, 115, 22),
 		0 0 10px rgb(255, 115, 22), 0 0 15px rgb(255, 115, 22);
-	animation: neon-glow-dot 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes neon-glow-dot {
-	from {
-		box-shadow: 0 0 5px rgb(255, 115, 22), 0 0 10px rgb(255, 115, 22),
-			0 0 15px rgb(255, 115, 22), 0 0 20px rgb(255, 115, 22);
-	}
-	to {
-		box-shadow: 0 0 10px rgb(255, 115, 22), 0 0 20px rgb(255, 115, 22),
-			0 0 10px rgb(255, 115, 22), 0 0 40px rgb(255, 115, 22);
-	}
-} */
 .shadow-neon-bottom.show {
 	opacity: 1;
 }

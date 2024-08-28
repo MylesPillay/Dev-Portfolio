@@ -48,32 +48,34 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg  pb-4 bg-black bg-opacity-40 h-auto text-justify  overflow-y-scroll scroll-y-hidden ${
+			className={`flex flex-col left-[1vw]  m-6 mt-0 w-auto rounded-lg  pb-4  h-auto text-justify  overflow-y-scroll scroll-y-hidden ${
 				isImageContainerHovered ? "max-h-[25vh]" : "max-h-[45vh]"
 			}`}
 			style={{
-				transition: "width 0.2s ease-in-out"
+				transition: "width 0.2s ease-in-out",
+				backgroundColor: "#070e2d"
 			}}>
 			<div className='flex justify-between  '>
-				{categories.map((category) => (
+				{categories.map((category, index) => (
 					<button
 						key={category}
 						style={{
-							borderColor:
-								activeCategory === category
-									? "#ff7316"
-									: "#A7F3D0",
+							borderColor: "#FFFFFF75",
+
 							color:
 								activeCategory === category
-									? "#ff7316"
-									: "#A7F3D0"
+									? "#FF7D11"
+									: "#A7F3D0",
+							backgroundColor:
+								activeCategory === category
+									? "#0B1541"
+									: "#070e2d"
 						}}
-						className={` w-full  p-4 h-auto text-lg border-b-2 text-center   ${
-							selectedProject.images.web.length > 0
-								? "bg-transparent cursor-pointer"
-								: " cursor-default"
-						} ${
-							activeCategory === category ? "" : "text-slate-600"
+						className={` w-full  p-4 h-auto text-lg text-center border border-b-0
+						${index === 0 ? "rounded-tl-lg border-l border-r-0" : ""} ${
+							index === 2
+								? "rounded-tr-lg border-r border-l-0"
+								: ""
 						}`}
 						onClick={() => {
 							setActiveCategory(category), setActiveItemIndex(0);
@@ -82,7 +84,12 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 					</button>
 				))}
 			</div>
-			<div className=' flex flex-row justify-start'>
+			<div
+				className='border flex flex-row justify-start'
+				style={{
+					borderColor: "#FFFFFF75",
+					backgroundColor: "#0B1541"
+				}}>
 				<div className='flex flex-col justify-start py-8'>
 					{currentCategoryContent?.map((_, index) => (
 						<button
@@ -94,7 +101,7 @@ const ProjectTextComponentWeb: React.FC<ProjectTextContentWebProps> = ({
 								style={{
 									backgroundColor:
 										index === activeItemIndex
-											? "#ff7316"
+											? "#FF7D11"
 											: "#A7F3D0"
 								}}></div>
 						</button>

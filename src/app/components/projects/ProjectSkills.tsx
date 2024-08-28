@@ -143,8 +143,8 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 
 					`}
 				style={{
-					backgroundColor: "#071E22",
-					borderColor: "#ff7316",
+					backgroundColor: "#070e2d",
+					borderColor: "#FF7D11",
 					borderWidth: 1,
 					borderLeft: "none"
 				}}

@@ -10,6 +10,7 @@ import ProjectSkillsComponent from "../components/projects/ProjectSkills";
 import ProjectTextContentWeb from "../components/projects/ProjectTextComponentWeb";
 import ProjectDetailsComponentWeb from "../components/projects/ProjectDetailsTableWeb";
 import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
+import ProjectAccordionWeb from "../components/projects/ProjectAccordianWeb";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -58,9 +59,9 @@ const ProjectsDisplay = (): JSX.Element => {
 		<div
 			className='bg-projects-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
 			style={{
-				borderColor: "#ff7316",
+				borderColor: "#FF7D11",
 				borderWidth: 0,
-				borderLeft: "0.5px solid #ff7316"
+				borderLeft: "0.5px solid #FF7D11"
 			}}>
 			<ProjectsHeader
 				selectedProject={selectedProject}
@@ -89,13 +90,39 @@ const ProjectsDisplay = (): JSX.Element => {
 				{/* Mobile application content screen  */}
 
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
+					// <div
+					// 	className={`relative flex justify-between h-auto overflow-y-scroll w-full max-w-[100vw] min-h-[85vh] pt-[4vh] `}>
+					// <div
+					// 	onMouseEnter={() =>
+					// 		setIsImageContainerHovered(false)
+					// 	}
+					// 	className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
+					// 		 justify-start
+					// 		overflow-y-scroll scroll-y-hidden ${
+					// 			!isImageContainerHovered
+					// 				? "w-[54vw] "
+					// 				: "w-[37vw] "
+					// 		}`}
+					// 	style={{
+					// 		transition: "width 0.2s ease-in-out"
+					// 	}}>
+					// 		<ProjectTextContentWeb
+					// 			selectedProject={selectedProject}
+					// 		/>
+					// 		<ProjectDetailsComponentWeb
+					// 			selectedProject={selectedProject}
+					// 			isImageContainerHovered={
+					// 				isImageContainerHovered
+					// 			}
+					// 		/>
+					// 	</div>
 					<div
 						className={`relative flex justify-between h-auto overflow-y-scroll w-full max-w-[100vw] min-h-[85vh] pt-[4vh] `}>
 						<div
 							onMouseEnter={() =>
 								setIsImageContainerHovered(false)
 							}
-							className={`absolute flex flex-col  h-auto text-justify max-h-[85vh]
+							className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
 								 justify-start
 								overflow-y-scroll scroll-y-hidden ${
 									!isImageContainerHovered
@@ -105,17 +132,9 @@ const ProjectsDisplay = (): JSX.Element => {
 							style={{
 								transition: "width 0.2s ease-in-out"
 							}}>
-							<ProjectTextContentWeb
+							<ProjectAccordionWeb
 								selectedProject={selectedProject}
-								isImageContainerHovered={
-									isImageContainerHovered
-								}
-							/>
-							<ProjectDetailsComponentWeb
-								selectedProject={selectedProject}
-								isImageContainerHovered={
-									isImageContainerHovered
-								}
+								imageContainerHovered={isImageContainerHovered}
 							/>
 						</div>
 						<div
@@ -184,18 +203,34 @@ const ProjectsDisplay = (): JSX.Element => {
 					<div className='flex flex-row  justify-start w-auto max-w-[90vw] h-auto max-h-[90vh] '>
 						<div
 							className={`flex flex-col justify-start  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw] h-auto max-h-85vh`}>
-							<ProjectTextContentWeb
+							{/* <ProjectTextContentWeb
 								selectedProject={selectedProject}
-								isImageContainerHovered={
-									isImageContainerHovered
-								}
 							/>
 							<ProjectDetailsComponentWeb
 								selectedProject={selectedProject}
 								isImageContainerHovered={
 									isImageContainerHovered
 								}
+							/> */}
+							{/* <div
+								onMouseEnter={() =>
+									setIsImageContainerHovered(false)
+								}
+								className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
+								 justify-start
+								overflow-y-scroll scroll-y-hidden ${
+									!isImageContainerHovered
+										? "w-[54vw] "
+										: "w-[37vw] "
+								}`}
+								style={{
+									transition: "width 0.2s ease-in-out"
+								}}> */}
+							<ProjectAccordionWeb
+								selectedProject={selectedProject}
+								imageContainerHovered={isImageContainerHovered}
 							/>
+							{/* </div> */}
 						</div>
 
 						<div
@@ -204,14 +239,14 @@ const ProjectsDisplay = (): JSX.Element => {
 								transform:
 									isImageContainerHovered &&
 									viewMode === "web"
-										? "translateX(-17.5%)"
+										? "translateX(-22.5%)"
 										: isImageContainerHovered &&
 										  viewMode === "mobile"
-										? "translateX(-17.5%)"
+										? "translateX(-22.5%)"
 										: !isImageContainerHovered &&
 										  viewMode === "web"
-										? "translateX(92%)"
-										: "translateX(71%)",
+										? "translateX(77%)"
+										: "translateX(56%)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>

@@ -45,17 +45,15 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 				onClick={onPrevImage}
 				disabled={isFirstImage}
 				className={`transform p-2 justify-center items-center rounded-full mr-4 ${
-					isFirstImage
-						? "opacity-75 cursor-not-allowed bg-none"
-						: "bg-white bg-opacity-25"
+					isFirstImage ? " cursor-not-allowed " : ""
 				}`}>
-				<FaChevronLeft color='#071E22' size={23} />
+				<FaChevronLeft color='rgb(255, 115, 22' size={23} />
 			</button>
 			{getPaginationDots().map((dotIndex) => (
 				<button
 					key={dotIndex}
 					onClick={() => onPageChange(dotIndex)}
-					className={`w-2 h-2 rounded-full mx-2 bg-black ${
+					className={`w-2 h-2 rounded-full mx-2 bg-white bg-opacity-85 ${
 						dotIndex === currentImageIndex ? "shadow-neon-dot" : ""
 					}`}
 				/>
@@ -63,12 +61,17 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 			<button
 				onClick={onNextImage}
 				disabled={isLastImage}
-				className={`transform text-white p-2 justify-center items-center rounded-full ml-4 ${
+				className={`transform text-white p-2 justify-center  items-center rounded-full ml-4 ${
 					isLastImage
-						? "opacity-75 cursor-not-allowed bg-none"
-						: "bg-white bg-opacity-25"
+						? "opacity-75 cursor-not-allowed "
+						: " bg-opacity-25"
 				}`}>
-				<FaChevronRight color='#071E22' size={23} />
+				<FaChevronRight
+					color='rgb(255, 115, 22'
+					size={23}
+					strokeWidth={1}
+					stroke='white'
+				/>
 			</button>
 		</div>
 	);

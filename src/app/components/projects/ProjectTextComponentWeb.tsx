@@ -3,19 +3,18 @@ import { Project } from "./ProjectsObject";
 
 interface ProjectTextContentWebProps {
 	selectedProject: Project;
-	isImageContainerHovered: boolean;
 }
 
 const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
-	selectedProject,
-	isImageContainerHovered
+	selectedProject
 }) => {
 	return (
 		<div
-			className={`flex flex-col left-[1vw] p-8 py-4 m-6 mt-0 w-auto rounded-lg bg-black bg-opacity-40 h-auto  text-justify overflow-y-scroll max-h-[50vh] scroll-y-hidden
+			className={`flex flex-col left-[1vw]  py-4 m-6 mt-0 w-auto rounded-lg h-auto  text-justify overflow-y-scroll max-h-[50vh] scroll-y-hidden
 			`}
 			style={{
-				transition: "width 0.2s ease-in-out"
+				transition: "width 0.2s ease-in-out",
+				backgroundColor: "#0B154111"
 			}}>
 			<div className='project-text-section'>
 				<h2 className='text-xl w-auto mb-2 font-semibold text-emerald-200 underline underline-offset-1'>
