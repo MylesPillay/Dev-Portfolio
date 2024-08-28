@@ -92,6 +92,13 @@ nav {
 			0 0 10px rgb(29, 234, 132), 0 0 40px rgb(29, 234, 132);
 	}
 } */
+@layer base {
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
 
 .shadow-neon-dot {
 	border-width: 2px;

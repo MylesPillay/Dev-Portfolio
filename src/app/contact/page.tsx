@@ -7,145 +7,152 @@ export default function Contact() {
 	const [message, setMessage] = useState("");
 	const [number, setNumber] = useState("");
 
-	const [isNameFieldFilled, setIsNameFieldFilled] = useState<boolean | null>(
-		false
-	);
-	const [isEmailFieldFilled, setIsEmailFieldFilled] = useState<
-		boolean | null
-	>(false);
-	const [isMessageFieldFilled, setIsMessageFieldFilled] = useState<
-		boolean | null
-	>(false);
-
+	const [isNameFieldFilled, setIsNameFieldFilled] = useState(false);
+	const [isEmailFieldFilled, setIsEmailFieldFilled] = useState(false);
+	const [isMessageFieldFilled, setIsMessageFieldFilled] = useState(false);
 	useEffect(() => {
-		setIsNameFieldFilled(name.length > 0 ? true : false);
+		setIsNameFieldFilled(name.length > 0);
 	}, [name]);
 
 	useEffect(() => {
-		setIsEmailFieldFilled(email.length > 0 ? true : false);
+		setIsEmailFieldFilled(email.length > 0);
 	}, [email]);
 
 	useEffect(() => {
-		setIsMessageFieldFilled(message.length > 0 ? true : false);
+		setIsMessageFieldFilled(message.length > 0);
 	}, [message]);
 
 	return (
-		<div className=' min-h-screen max-w-[75vw] w-auto flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pr-[10vw]'>
-			<div className='max-w-3xl w-auto space-y-8'>
-				<div>
-					<h1 className='text-3xl font-bold text-center text-orangeflame'>
-						Contact
-					</h1>
-					<p className='mt-2 text-center text-xl text-white'>
-						If you would like to get in touch with me regarding a
-						project / job opportunity, please fill out the form
-						below. I'd love to hear from you!
-					</p>
-				</div>
-				<form
-					onSubmit={(e) => {
-						e.preventDefault(); /* Handle form submission */
-					}}
-					className='mt-8 space-y-6'>
-					<div className='rounded-md shadow-sm -space-y-px'>
-						<div>
-							<label htmlFor='name' className='sr-only'>
-								Your Name
-							</label>
-							<input
-								id='name'
-								name='name'
-								type='text'
-								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
-									isNameFieldFilled
-										? "border-red-400"
-										: "border-orangeflame"
-								} placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orangeflame focus:border-orangeflame focus:z-10 sm:text-sm`}
-								placeholder='Your Name'
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-							{isNameFieldFilled && (
-								<p className='text-sm text-red-600 mt-1'>
-									Please enter your name
-								</p>
-							)}
-						</div>
-						<div>
-							<label htmlFor='email' className='sr-only'>
-								Your Email
-							</label>
-							<input
-								id='email'
-								name='email'
-								type='email'
-								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
-									isEmailFieldFilled
-										? "border-red-400"
-										: "border-orangeflame"
-								} placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orangeflame focus:border-orangeflame focus:z-10 sm:text-sm`}
-								placeholder='Email Address'
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							{isEmailFieldFilled && (
-								<p className='text-sm text-red-600 mt-1'>
-									Please enter your email
-								</p>
-							)}
-						</div>
-						<div>
-							<label htmlFor='number' className='sr-only'>
-								Your Contact Number
-							</label>
-							<input
-								id='number'
-								name='number'
-								type='tel'
-								className='appearance-none rounded-none relative block w-full px-3 py-2 border border-orangeflame placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orangeflame focus:border-orangeflame focus:z-10 sm:text-sm'
-								placeholder='Contact Number (optional)'
-								value={number}
-								onChange={(e) => setNumber(e.target.value)}
-							/>
-						</div>
-						<div>
-							<label htmlFor='message' className='sr-only'>
-								Your Message
-							</label>
-							<textarea
-								id='message'
-								name='message'
-								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
-									isMessageFieldFilled
-										? "border-red-400"
-										: "border-orangeflame"
-								} placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orangeflame focus:border-orangeflame focus:z-10 sm:text-sm`}
-								placeholder='Your Message'
-								rows={4}
-								value={message}
-								onChange={(e) =>
-									setMessage(e.target.value)
-								}></textarea>
-							{isMessageFieldFilled && (
-								<p className='text-sm text-red-600 mt-1'>
-									Please let me know your reason for
-									contacting
-								</p>
-							)}
-						</div>
-					</div>
+		<div
+			className='bg-projects-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0 py-6  '
+			style={{
+				borderColor: "#FF7D11",
+				borderWidth: 0,
+				borderLeft: "0.5px solid #FF7D11"
+			}}>
+			<div className='flex flex-col justify-between w-full'>
+				<div className='flex flex-row justify-between w-full'>
+					<div className='flex flex-col w-auto h-[70vh] ml-8 rounded-lg items-center justify-center'>
+						{/* HEADER SECTION */}
 
-					<div>
-						<button
-							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-tealAccent hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangeflame'>
-							Submit
-						</button>
+						<h1 className='text-2md font-bold text-left justify-start align-text-bottom w-full h-[5vh] mt-4 text-orangeflame '>
+							CONTACT
+						</h1>
+						<div className=' w-full h-full flex flex-col justify-center items-center'>
+							{/* TAGLINE TRIPLETS  */}
+							<h1 className='text-xl font-bold text-center justify-center align-text-center text-white '>
+								"Dreaming up the next big thing? Let's turn it
+								into reality. Got a challenge that needs solving
+								or an app that needs building? I’m here for it.
+								If you're ready to create something amazing,
+								reach out below—I'd love to hear from you!"
+							</h1>
+							{/* CONTACT FORM CONTAINER */}
+							<form onSubmit={() => {}}>
+								<div className='flex flex-block flex-wrap w-[40vw] mx-auto'>
+									<div className='flex flex-col w-full md:w-1/2 lg:w-1/3 px-4 mb-2'>
+										<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  mt text-white'>
+											Your Name :
+										</h1>
+										<input
+											className={`text-md text-white bg-black bg-opacity-50 border text-left my-2 ${
+												isNameFieldFilled
+													? "border-red-400"
+													: " border-orangeflame py-2 px-4 rounded-md focus:border-tealAccent   focus:mt-[7px] focus:border-2  focus:outline-none "
+											}`}
+											required
+											type='text'
+											value={name}
+											onChange={(e) =>
+												setName(e.target.value)
+											}
+											placeholder='Your Name'
+										/>
+										<div
+											className={` text-sm text-red-600 text-left my-2 ${
+												name.length ? null : "hidden"
+											}`}>
+											{" "}
+											Please enter your name
+										</div>
+									</div>
+									<br></br>
+									<div className='flex flex-col w-full md:w-1/2 lg:w-1/3 px-4 mb-2'>
+										<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  mt text-white'>
+											Your Email :
+										</h1>
+										<input
+											className={`text-md text-white bg-black bg-opacity-50  border text-left my-2 ${
+												isEmailFieldFilled
+													? "border-red-400"
+													: " border-orangeflame py-2 px-4 rounded-md focus:border-tealAccent   focus:mt-[7px] focus:border-2  focus:outline-none "
+											}`}
+											type='text'
+											required
+											placeholder='Email Address'
+											value={email}
+											onChange={(e) =>
+												setEmail(e.target.value)
+											}
+										/>
+										<div
+											className={` text-sm text-red-600 text-left my-2 ${
+												email.length ? null : "hidden"
+											}`}>
+											Please enter your email
+										</div>
+									</div>
+									<br></br>
+									<div className='flex flex-col w-full md:w-1/2 lg:w-1/3 px-4 mb-2'>
+										<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  mt text-white'>
+											Your Contact Number:
+										</h1>
+										<input
+											className={`text-md text-white bg-black bg-opacity-50  border text-left my-2 border-orangeflame py-2 px-4  rounded-md focus:border-tealAccent   focus:mt-[7px] focus:border-2  focus:outline-none `}
+											type='number'
+											placeholder='Contact Number'
+											value={number}
+											onChange={(e) =>
+												setNumber(e.target.value)
+											}
+										/>
+									</div>
+									<br></br>
+									<div className='flex flex-col w-full md:w-1/2 lg:w-1/3 px-4 mb-2'>
+										<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  mt text-white'>
+											Your Message :
+										</h1>
+										<textarea
+											className={`text-md text-white bg-black bg-opacity-50  border text-left my-2 ${
+												isMessageFieldFilled
+													? "border-red-400"
+													: " border-orangeflame py-2 px-4 rounded-md focus:border-tealAccent   focus:mt-[7px] focus:border-2  focus:outline-none "
+											}`}
+											value={message}
+											required
+											onChange={(e) =>
+												setMessage(e.target.value)
+											}
+											placeholder='Message'></textarea>
+										<div
+											className={`text-sm text-red-600 text-left my-2 ${
+												message.length ? null : "hidden"
+											}`}>
+											Please let me know your reason for
+											contacting
+										</div>
+									</div>
+									<br></br>
+									<button
+										className='justify-center items-center self-center w-auto mx-auto p-2 px-8  rounded-lg  bg-orangeflame  text-white border border-white text-lg font-bold  hover:bg-opacity-80 hover:border-2 '
+										type='submit'>
+										Submit
+									</button>
+								</div>
+							</form>
+						</div>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

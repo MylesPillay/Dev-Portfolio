@@ -44,26 +44,27 @@ export default function Home() {
 						</div>
 					</div>
 					<div className='justify-center items-center w-[55%] h-[35vh] mx-auto mr-[15%] mt-[10%]'>
-						<div className='h-[100%] p-4'>
-							<div className='flex flex-col space-y-2 align-middle items-center justify-evenly '>
-								<div className='flex flex-row space-x-3 align-middle items-center justify-evenly '>
-									<h3 className='text-4xl font-semibold text-white'>
-										Full Stack
-									</h3>
-									<h3 className='text-3xl text-emerald-600 font-semibold '>
-										/
-									</h3>
-									<h3 className='text-4xl font-semibold text-orangeflame'>
-										React Native
-									</h3>
-								</div>
+						<div className='h-[100%] px-2 py-4'>
+							<div className='flex flex-row  align-middle items-center justify-between '>
 								<h3 className='text-4xl font-semibold text-emerald-200'>
+									Full Stack
+								</h3>
+								<h3 className='text-3xl mx-2 text-emerald-600 font-semibold '>
+									/
+								</h3>
+								<h3 className='text-4xl font-semibold text-orangeflame mr-2'>
+									React Native
+								</h3>
+
+								<h3 className='text-4xl font-semibold text-white'>
 									Developer
 								</h3>
 							</div>
-							<h3 className='text-lg m-auto mt-[6%] font-normal text-white text-wrap text-center'>
-								Passionate about creating scalable high-impact
-								applications.
+							<h3 className='text-xl m-auto mt-[6%] font-normal text-white text-wrap text-left'>
+								<span className='text-left'>
+									Dedicated dev with 2+ years experience
+									creating scalable high-impact applications.
+								</span>
 								<br></br>
 								<br></br>
 								Whether it's a sophisticated
@@ -80,7 +81,7 @@ export default function Home() {
 							</h3>
 							<div className='flex flex-row justify-end items-center w-full h-auto mt-[6%]'>
 								<Link
-									className='justify-center items-center self-center w-auto mx-auto p-2 px-8  rounded-lg  bg-orangeflame  text-white border border-white text-lg font-bold  hover:bg-opacity-80 hover:border-2 '
+									className='justify-center items-center self-center w-auto mx-auto p-2 px-8  mt-[7vh] rounded-lg  bg-orangeflame  text-white border border-white text-lg font-bold  hover:bg-opacity-80 hover:border-2 '
 									href={"/projects"}>
 									LEARN MORE
 								</Link>
