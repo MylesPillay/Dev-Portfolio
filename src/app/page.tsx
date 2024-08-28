@@ -6,12 +6,24 @@ export default function Home() {
 	const [isHovered, setIsHovered] = useState(false);
 
 	return (
-		<div className='bg-yellow-500 min-h-screen m-none text-slate-800 border-l-4 border-slate-200 p-8'>
-			<h1 className='text-4xl font-bold mb-4'>Myles Pillay</h1>
-			<div className='flex flex-row space-x-8 h-full'>
+		<div
+			className='bg-projects-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0    py-6  '
+			style={{
+				borderColor: "#FF7D11",
+				borderWidth: 0,
+				borderLeft: "0.5px solid #FF7D11"
+			}}>
+			{/* <div className='flex flex-row justify-between w-full my-2 pl-8 pr-8 pt-6'> */}
+
+			<div className='flex flex-col space-x-2 h-full justify-start align-middle items-start my-[1vh]'>
 				{/* Left container - 80% height */}
-				<div className='w-2/6 h-[80vh] bg-slate-400 bg-opacity-50 rounded-lg  items-center justify-start'>
-					<div className='relative h-[400px] w-[350px] overflow-hidden'>
+				<div className='flex flex-col w-2/6 h-[70vh] ml-8 rounded-lg items-start justify-start'>
+					<h1
+						className='text-2xl font-bold text-left justify-start align-text-bottom w-auto h-[5vh] mt-3 text-orangeflame '
+						style={{}}>
+						ABOUT ME
+					</h1>
+					<div className=' justify-center align-middle relative h-full w-[350px] overflow-hidden'>
 						<Image
 							src='/images/profile.jpg'
 							alt='profile'
@@ -20,21 +32,6 @@ export default function Home() {
 							objectPosition='center'
 							quality={100}
 						/>
-					</div>
-					<div
-						className='relative h-auto p-8 w-full justify-center align-middle items-center my-6 bg-green-300'
-						onMouseEnter={() => setIsHovered(true)}
-						onMouseLeave={() => setIsHovered(false)}>
-						CodeStack
-						<div
-							className={`absolute left-full top-0 h-full bg-blue-300 overflow-hidden transition-all duration-300 ${
-								isHovered ? "w-[205%]" : "w-0"
-							}`}>
-							<div className='p-8 whitespace-nowrap'>
-								Expanded content goes here. This can be as wide
-								as needed.
-							</div>
-						</div>
 					</div>
 				</div>
 
@@ -78,6 +75,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			{/* </div> */}
 		</div>
 	);
 }
