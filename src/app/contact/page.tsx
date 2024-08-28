@@ -30,8 +30,8 @@ export default function Contact() {
 	}, [message]);
 
 	return (
-		<div className='bg-projects-gradient min-h-screen w-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
-			<div className='max-w-3xl w-full space-y-8'>
+		<div className=' min-h-screen max-w-[75vw] w-auto flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pr-[10vw]'>
+			<div className='max-w-3xl w-auto space-y-8'>
 				<div>
 					<h1 className='text-3xl font-bold text-center text-orangeflame'>
 						Contact
@@ -57,7 +57,7 @@ export default function Contact() {
 								name='name'
 								type='text'
 								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
 									isNameFieldFilled
 										? "border-red-400"
 										: "border-orangeflame"
@@ -81,7 +81,7 @@ export default function Contact() {
 								name='email'
 								type='email'
 								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
 									isEmailFieldFilled
 										? "border-red-400"
 										: "border-orangeflame"
@@ -118,7 +118,7 @@ export default function Contact() {
 								id='message'
 								name='message'
 								required
-								className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+								className={`appearance-none rounded-none relative block w-full px-3 py-2 border-2 ${
 									isMessageFieldFilled
 										? "border-red-400"
 										: "border-orangeflame"
@@ -141,7 +141,7 @@ export default function Contact() {
 					<div>
 						<button
 							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orangeflame hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangeflame'>
+							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-tealAccent hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangeflame'>
 							Submit
 						</button>
 					</div>
