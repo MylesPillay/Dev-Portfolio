@@ -13,6 +13,7 @@ import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
 import ProjectAccordionWeb from "../components/projects/ProjectAccordianWeb";
 import ImagesFormatSelector from "../components/projects/ImagesFormatSelector";
 import MobileProjectTitleStickyHeader from "../components/projects/MobileProjectTitleStickyHeader";
+import MediumScreenProjectAccordion from "../components/projects/MediumScreenPorjectAccordian";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -108,6 +109,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
 						className={`relative flex h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-full `}>
+						{/* HIDES AT md: */}
 						<div
 							onMouseEnter={() =>
 								setIsImageContainerHovered(false)
@@ -179,6 +181,70 @@ const ProjectsDisplay = (): JSX.Element => {
 								</div>
 							</div>
 						</div>
+
+						{/* md: screeens to lg: screens  */}
+
+						<div
+							className={`sm:hidden md:flex lg:hidden md:flex-col justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto`}>
+							<div className='w-full mx-auto h-auto justify-center items-center align-middle'>
+								<MediumScreenProjectAccordion
+									selectedProject={selectedProject}
+									imageContainerHovered={
+										isImageContainerHovered
+									}
+									activeSection={activeSection}
+									setActiveSection={setActiveSection}
+								/>
+							</div>
+							<div
+								// className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[45%] sticky lg:top-0 md:right-0  lg:flex flex-col justify-center items-center `}
+								className='w-full mx-auto h-auto justify-center items-center align-middle'>
+								<div className='flex w-full justify-end items-center'>
+									<ImagesFormatSelector
+										selectedProject={selectedProject}
+										viewMode={viewMode}
+										setViewMode={setViewMode}
+										headerPosition={false}
+									/>
+								</div>
+
+								<div className='h-full w-auto max-w-[34vw] mx-auto justify-center items-center pl-4'>
+									<MobileImageContainer
+										hovered={isImageContainerHovered}
+										images={selectedProject.images.mobile}
+										currentImageIndex={currentImageIndex}
+									/>
+
+									<div className='w-full justify-center items-center'>
+										<ProjectImagePagination
+											hovered={isImageContainerHovered}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{/* HIDES at SCREEN ABOVE md:  */}
 						<div className='md:hidden flex w-full mx-auto h-auto'>
 							<MobileProjectTitleStickyHeader
 								projectTitle={selectedProject.name}
