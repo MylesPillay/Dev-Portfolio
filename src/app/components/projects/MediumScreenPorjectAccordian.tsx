@@ -90,11 +90,8 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 		<div
 			className={`flex flex-grow flex-col   w-full border-y ${
 				activeSection === "Overview" ? "border-t-0" : ""
-			} border-orangeflame space-y-2 ${
-				imageContainerHovered
-					? "max-w-[51%] w-auto"
-					: "min-w-[73%] w-auto"
-			}`}>
+			} border-orangeflame space-y-2
+			`}>
 			{sections.map((section, index) => (
 				<div
 					key={section.title}
