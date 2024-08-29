@@ -20,12 +20,14 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 			<div
 				className='flex flex-row transition-transform duration-300'
 				style={{
-					transform: `translateX(-${currentImageIndex * 50}%)`
+					transform: hovered
+						? `translateX(-${currentImageIndex * 45.2}%)`
+						: `translateX(-${0}%)`
 				}}>
 				{images.map((image, index) => (
 					<div
 						key={index}
-						className={`w-[50%]  h-1/2 flex-shrink-0 pr-3 flex-grow-0`}>
+						className={`w-[33vh]  h-1/2 flex-shrink-0 pr-3 flex-grow-0`}>
 						<Image
 							src={image}
 							className='rounded-lg'

@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className='flex min-h-screen min-w-screen p-0'>
-				<div className='sm:hidden fixed top-4 right-4 z-50'>
+				<div className='md:hidden fixed top-4 right-4 z-50'>
 					<button
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
 						className='flex flex-col items-center justify-center text-emerald-200 p-2 rounded-md'>
@@ -34,8 +34,6 @@ export default function RootLayout({
 						) : (
 							<FaBars size={30} />
 						)}
-						{/* <FaLine />
-						<FaLine /> */}
 					</button>
 					{mobileMenuOpen && (
 						<div className='sm:hidden fixed right-0 inset-0 p-8 h-[38vh] w-[50%] ml-[50%] bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>

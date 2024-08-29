@@ -11,6 +11,7 @@ import ProjectTextContentWeb from "../components/projects/ProjectTextComponentWe
 import ProjectDetailsComponentWeb from "../components/projects/ProjectDetailsTableWeb";
 import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
 import ProjectAccordionWeb from "../components/projects/ProjectAccordianWeb";
+import ImagesFormatSelector from "../components/projects/ImagesFormatSelector";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -74,7 +75,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				setIsImageContainerHovered={setIsImageContainerHovered}
 				onProjectClick={handleProjectClick}
 			/>
-			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full '>
+			<div className='flex lg:flex-row flex-col items-start justify-start h-full max-h-[90vh] w-full '>
 				<div
 					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full'
 					onMouseEnter={() => {
@@ -87,56 +88,27 @@ const ProjectsDisplay = (): JSX.Element => {
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
 					/>
-
-					<ProjectSkillsComponent
-						selectedProject={selectedProject}
-						activeSection={activeSection}
-						isImageHovered={isImageContainerHovered}
-					/>
+					<div className='hidden lg:flex'>
+						<ProjectSkillsComponent
+							selectedProject={selectedProject}
+							activeSection={activeSection}
+							isImageHovered={isImageContainerHovered}
+						/>
+					</div>
 				</div>
 
-				{/* Mobile application content screen  */}
-
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
-					// <div
-					// 	className={`relative flex justify-between h-auto overflow-y-scroll w-full max-w-[100vw] min-h-[85vh] pt-[4vh] `}>
-					// <div
-					// 	onMouseEnter={() =>
-					// 		setIsImageContainerHovered(false)
-					// 	}
-					// 	className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
-					// 		 justify-start
-					// 		overflow-y-scroll scroll-y-hidden ${
-					// 			!isImageContainerHovered
-					// 				? "w-[54vw] "
-					// 				: "w-[37vw] "
-					// 		}`}
-					// 	style={{
-					// 		transition: "width 0.2s ease-in-out"
-					// 	}}>
-					// 		<ProjectTextContentWeb
-					// 			selectedProject={selectedProject}
-					// 		/>
-					// 		<ProjectDetailsComponentWeb
-					// 			selectedProject={selectedProject}
-					// 			isImageContainerHovered={
-					// 				isImageContainerHovered
-					// 			}
-					// 		/>
-					// 	</div>
 					<div
-						className={`relative flex justify-between h-auto overflow-y-scroll w-full max-w-[100vw] min-h-[85vh] pt-[4vh] `}>
+						className={`relative flex h-auto overflow-y-scroll w-full max-w-[100vw] lg:min-h-[85vh] min-h-full ]`}>
 						<div
 							onMouseEnter={() =>
 								setIsImageContainerHovered(false)
 							}
-							className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
-								 justify-start
-								overflow-y-scroll scroll-y-hidden ${
-									!isImageContainerHovered
-										? "w-[54vw] "
-										: "w-[37vw] "
-								}`}
+							className={`flex flex-col justify-start  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto  ${
+								isImageContainerHovered
+									? "max-w-[50%] w-auto"
+									: "min-w-[75%] w-auto"
+							}`}
 							style={{
 								transition: "width 0.2s ease-in-out"
 							}}>
@@ -147,26 +119,37 @@ const ProjectsDisplay = (): JSX.Element => {
 								setActiveSection={setActiveSection}
 							/>
 						</div>
+
 						<div
-							className='min-h-[90vh] max-h-[90vh] mt-0.5 h-[50vh] max-w-[37vw] sticky top-0 right-0'
+							className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[100%] lg:sticky lg:top-0 md:right-0 hidden lg:flex flex-col justify-center items-center ${
+								isImageContainerHovered
+									? "md:translate-x-[3vw]"
+									: "md:translate-x-[13vw]"
+							}`}
 							style={{
-								transform: isImageContainerHovered
-									? "translateX(37vw)"
-									: "translateX(54vw)",
 								transition: "transform 0.2s ease-in-out"
 							}}
 							onMouseEnter={() =>
 								setIsImageContainerHovered(true)
 							}
 							onMouseLeave={() => {}}>
-							<div className='w-full h-full min-h-[100%] items-end'>
+							<div className='flex-end w-full lg:hidden'>
+								<ImagesFormatSelector
+									selectedProject={selectedProject}
+									viewMode={viewMode}
+									setViewMode={setViewMode}
+									headerPosition={false}
+								/>
+							</div>
+
+							<div className='h-full w-auto max-w-[100%] lg:min-h-[100%]  lg:max-w-[100%] items-center'>
 								<MobileImageContainer
 									hovered={isImageContainerHovered}
 									images={selectedProject.images.mobile}
 									currentImageIndex={currentImageIndex}
 								/>
 
-								<div className=' w-[100%] justify-center items-center'>
+								<div className='w-full justify-center items-center'>
 									{showHoverPrompt ? (
 										<motion.div
 											initial={{ opacity: 0 }}
@@ -210,39 +193,15 @@ const ProjectsDisplay = (): JSX.Element => {
 				)}
 
 				{selectedProjectIndex != 0 && selectedProjectIndex != 3 ? (
-					<div className='flex flex-row  justify-start w-auto max-w-[90vw] h-auto max-h-[90vh] '>
+					<div className='flex flex-row  justify-start w-auto max-w-[80vw] h-auto max-h-[90vh] '>
 						<div
-							className={`flex flex-col justify-start  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[68vw] max-w-[68vw] h-auto max-h-85vh`}>
-							{/* <ProjectTextContentWeb
-								selectedProject={selectedProject}
-							/>
-							<ProjectDetailsComponentWeb
-								selectedProject={selectedProject}
-								isImageContainerHovered={
-									isImageContainerHovered
-								}
-							/> */}
-							{/* <div
-								onMouseEnter={() =>
-									setIsImageContainerHovered(false)
-								}
-								className={`absolute flex flex-col pr-8 h-auto text-justify max-h-[85vh]
-								 justify-start
-								overflow-y-scroll scroll-y-hidden ${
-									!isImageContainerHovered
-										? "w-[54vw] "
-										: "w-[37vw] "
-								}`}
-								style={{
-									transition: "width 0.2s ease-in-out"
-								}}> */}
+							className={`flex flex-col justify-start  overflow-y-scroll  overflow-x-hidden md:pt-[4vh] w-auto min-w-[60vw] max-w-[60vw] pr-8 h-auto max-h-85vh`}>
 							<ProjectAccordionWeb
 								selectedProject={selectedProject}
 								imageContainerHovered={isImageContainerHovered}
 								activeSection={activeSection}
 								setActiveSection={setActiveSection}
 							/>
-							{/* </div> */}
 						</div>
 
 						<div
@@ -318,6 +277,13 @@ const ProjectsDisplay = (): JSX.Element => {
 				) : (
 					<></>
 				)}
+				<div className='flex md:hidden'>
+					<ProjectSkillsComponent
+						selectedProject={selectedProject}
+						activeSection={activeSection}
+						isImageHovered={isImageContainerHovered}
+					/>
+				</div>
 			</div>
 		</div>
 	);
