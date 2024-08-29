@@ -32,12 +32,12 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				}
 			}}>
 			{/* PROJECTS Button */}
-			<div className='flex flex-col justify-between w-auto px-6'>
+			<div className='flex flex-col justify-between w-auto '>
 				<button
 					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
 					className='lg:pointer-events-none lg:cursor-default'
 					disabled={window.innerWidth >= 1024}>
-					<h1 className='text-2xl font-bold text-left w-auto bg-green-200  justify-start align-text-bottom  text-orangeflame'>
+					<h1 className='text-2xl font-bold text-left w-auto  justify-start align-text-bottom  text-orangeflame'>
 						PROJECTS
 					</h1>
 				</button>

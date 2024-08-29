@@ -32,7 +32,7 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 	}, [isHovered, showHoverPrompt]);
 
 	return (
-		<div className='md:flex hidden flex-row space-between relative'>
+		<div className='md:flex hidden flex-row space-between justify-end align-bottom items-end '>
 			<div
 				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50   ${
 					isHovered ||
@@ -55,12 +55,12 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 				}}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
-				<h2 className='text-lg text-left font-bold mb-3 text-white'>
+				<h2 className='lg:text-lg text-md text-left font-bold mb-3 text-white'>
 					Skills / CodeStack
 				</h2>
 
 				<ul
-					className={`flex flex-wrap  text-left  justify-start text-md font-medium`}>
+					className={`flex flex-wrap  text-left  justify-start lg:text-md text-sm font-medium`}>
 					{selectedProject.skills.map((skill, index) => (
 						<li
 							key={index}

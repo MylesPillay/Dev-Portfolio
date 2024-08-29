@@ -74,7 +74,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		// <div
 		// 	className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
-		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden overflow-y-visible m-none  pr-0 py-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
+		<div className='md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0 pt-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}
@@ -83,7 +83,7 @@ const ProjectsDisplay = (): JSX.Element => {
 				setIsImageContainerHovered={setIsImageContainerHovered}
 				onProjectClick={handleProjectClick}
 			/>
-			<div className='flex lg:flex-row flex-col items-start justify-start h-full max-h-[90vh] w-full '>
+			<div className='flex lg:flex-row flex-col items-start justify-start h-full min-h-[110vh] w-full '>
 				<div
 					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full'
 					onMouseEnter={() => {
@@ -96,7 +96,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						selectedProject={selectedProject}
 						onProjectClick={handleProjectClick}
 					/>
-					<div className='hidden lg:flex'>
+					<div className='hidden lg:flex sticky bottom-0'>
 						<ProjectSkillsComponent
 							selectedProject={selectedProject}
 							activeSection={activeSection}
@@ -107,12 +107,12 @@ const ProjectsDisplay = (): JSX.Element => {
 
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
-						className={`relative flex h-auto overflow-y-scroll w-full max-w-[100vw] lg:min-h-[85vh] min-h-full `}>
+						className={`relative flex h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-full `}>
 						<div
 							onMouseEnter={() =>
 								setIsImageContainerHovered(false)
 							}
-							className={`hidden md:flex flex-row justify-between w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto `}
+							className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto`}
 							style={{
 								transition: "width 0.2s ease-in-out"
 							}}>
@@ -123,9 +123,9 @@ const ProjectsDisplay = (): JSX.Element => {
 								setActiveSection={setActiveSection}
 							/>
 							<div
-								className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[100%] sticky lg:top-0 md:right-0  lg:flex flex-col justify-center items-center ${
+								className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[45%] sticky lg:top-0 md:right-0  lg:flex flex-col justify-center items-center ${
 									isImageContainerHovered
-										? "md:translate-x-[-5vw]"
+										? "md:translate-x-[-2vw]"
 										: "md:translate-x-[11vw]"
 								}`}
 								style={{
