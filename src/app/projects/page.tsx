@@ -63,19 +63,16 @@ const ProjectsDisplay = (): JSX.Element => {
 		// <div
 		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
-		<div
-			className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
-			style={{
-				borderColor: "#FF7D11",
-				borderWidth: 0,
-				borderLeft: "0.5px solid #FF7D11"
-			}}>
+		// <div
+		// 	className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
+		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden sm:overflow-y-visible m-none  pr-0 py-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}
 				setViewMode={setViewMode}
 				isImageContainerHovered={isImageContainerHovered}
 				setIsImageContainerHovered={setIsImageContainerHovered}
+				onProjectClick={handleProjectClick}
 			/>
 			<div className='flex flex-row items-start justify-start h-full max-h-[90vh] w-full '>
 				<div

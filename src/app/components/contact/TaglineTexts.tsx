@@ -5,7 +5,7 @@ const TaglineText = () => {
 				Have you dreamt up the next big thing?
 			</h1>
 			<h1 className=' w-auto  text-white my-8'>
-				Whatever challenge needs solving or app needs building -
+				Whatever challenge needs solving or app needs building...
 			</h1>
 			<div className='text-emerald-200 lg:w-[110%] md:w-[80%] sm:[60%]  text-center mt-10 md:text-4xl text-2xl mb-8'>
 				Let's turn it into{" "}

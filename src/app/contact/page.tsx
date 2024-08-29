@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import ContactForm from "../components/contact/ContactForm";
-import TaglineText from "../components/contact/TaglineTetxs";
+import TaglineText from "../components/contact/TaglineTexts";
 
 export default function Contact() {
 	const [name, setName] = useState("");
