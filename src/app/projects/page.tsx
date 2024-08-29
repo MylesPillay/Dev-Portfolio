@@ -64,7 +64,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		// 	className='bg-projects-gradient overflow-hidden  h-full w-full  m-none  pr-0  p-0 pt-6'
 		// 	style={{ borderColor: "#071E2201", borderWidth: "0.5px" }}>
 		<div
-			className='bg-projects-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
+			className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden overflow-y-hidden  m-none  pr-0  p-0  '
 			style={{
 				borderColor: "#FF7D11",
 				borderWidth: 0,
