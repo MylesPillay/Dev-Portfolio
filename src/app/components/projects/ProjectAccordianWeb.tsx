@@ -87,7 +87,12 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 	};
 
 	return (
-		<div className='flex flex-grow flex-col w-full max-w-[100vw] space-y-2 '>
+		<div
+			className={`flex flex-grow flex-col w-full max-w-[60vw] space-y-2 ${
+				imageContainerHovered
+					? "max-w-[50%] w-auto"
+					: "min-w-[73%] w-auto"
+			}`}>
 			{sections.map((section) => (
 				<div
 					key={section.title}

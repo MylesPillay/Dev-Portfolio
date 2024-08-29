@@ -20,14 +20,14 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 }) => {
 	const maxDots = 5;
 	const isFirstImage = currentImageIndex === 0;
-	const isLastImage = currentImageIndex === totalImages - 1;
+	const isLastImage = currentImageIndex === totalImages - 2;
 
 	const getPaginationDots = () => {
 		const startIndex = Math.max(
 			0,
 			Math.min(
 				currentImageIndex - Math.floor(maxDots / 2),
-				totalImages - maxDots
+				totalImages - 1 - maxDots
 			)
 		);
 		return Array.from(
