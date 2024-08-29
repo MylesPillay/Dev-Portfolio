@@ -56,7 +56,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 									setIsNameFieldUpdated(true);
 									setName(e.target.value);
 								}}
-								placeholder='Your Name'
+								placeholder=''
 							/>
 							<div
 								className={`text-sm text-red-500 text-left ${
@@ -82,7 +82,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 								}`}
 								type='text'
 								required
-								placeholder='Email Address'
+								placeholder=''
 								value={email}
 								onChange={(e) => {
 									setIsEmailFieldUpdated(true);
@@ -106,7 +106,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 							<input
 								className={`text-md w-full  text-white bg-black bg-opacity-50  text-left my-2 border-orangeflame border-2 border-opacity-75 focus:border-opacity-100 py-2 px-4  rounded-md focus:border-tealAccent   focus:border-2  focus:outline-none `}
 								type='number'
-								placeholder='Contact Number'
+								placeholder=''
 								value={number}
 								onChange={(e) => setNumber(e.target.value)}
 							/>
@@ -129,7 +129,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 									setIsMessageFieldUpdated(true);
 									setMessage(e.target.value);
 								}}
-								placeholder='Message'></textarea>
+								placeholder=''></textarea>
 							<div
 								className={`text-sm text-red-500 text-left  ${
 									isMessageFieldUpdated && !message.length
