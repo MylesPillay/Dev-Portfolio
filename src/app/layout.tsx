@@ -5,7 +5,10 @@ import {
 	FaEnvelope,
 	FaMicrophone,
 	FaLaptopCode,
-	FaPortrait
+	FaPortrait,
+	FaLine,
+	FaBars,
+	FaXing
 } from "react-icons/fa";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -17,12 +20,49 @@ export default function RootLayout({
 }) {
 	const [hovered, setHovered] = useState<string | null>(null);
 	const pathname = usePathname();
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
 		<html lang='en'>
 			<body className='flex min-h-screen min-w-screen p-0'>
-				<nav className='flex flex-col h-full w-auto max-w-[12vw] min-w-[12vw] text-black font-bold text-justify'>
-					<ul className='flex flex-row h-full w-full  text-white bg-nav-gradient'>
+				<div className='sm:hidden fixed top-4 right-4 z-50'>
+					<button
+						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+						className='flex flex-col items-center justify-center text-emerald-200 p-2 rounded-md'>
+						{mobileMenuOpen ? (
+							<FaXing className='z-50' size={30} />
+						) : (
+							<FaBars size={30} />
+						)}
+						{/* <FaLine />
+						<FaLine /> */}
+					</button>
+					{mobileMenuOpen && (
+						<div className='sm:hidden fixed right-0 inset-0 p-8 h-[38vh] w-[50%] ml-[50%] bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>
+							<div className='flex flex-col items-start p-2 h-[10%]'>
+								{[
+									{ href: "/contact", label: "CONTACT" },
+									{ href: "/interests", label: "INTERESTS" },
+									{ href: "/projects", label: "PROJECTS" },
+									{ href: "/", label: "ABOUT ME" }
+								].map((item) => (
+									<Link
+										key={item.href}
+										href={item.href}
+										className='text-orangeflame text-xl text-left font-semibold my-4'
+										onClick={() =>
+											setMobileMenuOpen(false)
+										}>
+										{item.label}
+									</Link>
+								))}
+							</div>
+						</div>
+					)}
+				</div>
+
+				<nav className='hidden md:flex sm:flex-col h-full w-auto max-w-[12vw] min-w-[12vw] text-black font-bold text-justify'>
+					<ul className='md:flex md:flex-row h-full w-full text-white bg-nav-gradient'>
 						{[
 							{
 								href: "/contact",

@@ -17,13 +17,7 @@ export default function Contact() {
 		useState<boolean>(false);
 
 	return (
-		<div
-			className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden sm:overflow-y-visible m-none  pr-0 py-6  '
-			style={{
-				borderColor: "#FF7D11",
-				borderWidth: 0,
-				borderLeft: "0.5px solid #FF7D11"
-			}}>
+		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden sm:overflow-y-visible m-none  pr-0 py-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
 			<div className='flex flex-col justify-between w-full'>
 				<div className='flex flex-row justify-between w-full'>
 					<div className='flex flex-col w-screen h-[95vh] rounded-lg items-center justify-center'>
