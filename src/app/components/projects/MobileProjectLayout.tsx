@@ -11,6 +11,7 @@ import WebsiteProjectImages from "./WebsiteProjectImages";
 
 interface MobileProjectLayoutProps {
 	selectedProject: Project;
+	selectedIndex: number;
 	viewMode: "web" | "mobile";
 	setViewMode: (mode: "web" | "mobile") => void;
 	currentImageIndex: number;
@@ -23,6 +24,7 @@ interface MobileProjectLayoutProps {
 }
 const MobileProjectLayout = ({
 	selectedProject,
+	selectedIndex,
 	viewMode,
 	setViewMode,
 	currentImageIndex,
@@ -33,7 +35,6 @@ const MobileProjectLayout = ({
 	onNextImage,
 	loadNextProject
 }: MobileProjectLayoutProps) => {
-	console.log(selectedProject.name, " RENDERING MOBILKE OPRIOJESDVSAd");
 	return (
 		<>
 			<div className='md:hidden flex  flex-col w-full mx-auto h-auto'>
@@ -66,53 +67,44 @@ const MobileProjectLayout = ({
 								<></>
 							)}
 						</div>
-						<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50 pl-[20vw] justify-evenly align-middle items-center'>
-							{selectedProject.name === "Air Oasis Home" ||
-							"Vibe-A-Day" ? (
-								<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
-									<MediumMobileAppProjectImages
-										images={selectedProject.images.mobile}
-										currentImageIndex={currentImageIndex}
-									/>
-
-									<ProjectImagePagination
-										hovered={true}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={onPrevImage}
-										onNextImage={onNextImage}
-									/>
+						<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50  justify-evenly align-middle items-center'>
+							<div className=' flex flex-col justify-center h-full w-[100%] self-center align-top items-center overflow-x-scroll'>
+								<div className='w-[90%]'>
+									{selectedIndex === 0 ||
+									selectedIndex === 3 ? (
+										<MediumMobileAppProjectImages
+											images={
+												selectedProject.images[viewMode]
+											}
+											currentImageIndex={
+												currentImageIndex
+											}
+										/>
+									) : (
+										<WebsiteProjectImages
+											images={
+												selectedProject.images[viewMode]
+											}
+											currentImageIndex={
+												currentImageIndex
+											}
+											selectedProject={selectedProject}
+										/>
+									)}
 								</div>
-							) : (
-								<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
-									<WebsiteProjectImages
-										images={
-											viewMode === "web"
-												? selectedProject.images.web
-												: selectedProject.images.mobile
-										}
-										currentImageIndex={currentImageIndex}
-										selectedProject={selectedProject}
-									/>
-									<ProjectImagePagination
-										hovered={true}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={onPrevImage}
-										onNextImage={onNextImage}
-									/>
-								</div>
-							)}
+								<ProjectImagePagination
+									hovered={true}
+									currentImageIndex={currentImageIndex}
+									totalImages={
+										selectedProject.images.mobile.length
+									}
+									onPageChange={(index) =>
+										setCurrentImageIndex(index)
+									}
+									onPrevImage={onPrevImage}
+									onNextImage={onNextImage}
+								/>
+							</div>
 						</div>
 					</div>
 
