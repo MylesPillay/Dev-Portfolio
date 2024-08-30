@@ -102,10 +102,9 @@ const ProjectsDisplay = (): JSX.Element => {
 					</div>
 				</div>
 
-				{/* {selectedProjectIndex === 0 || selectedProjectIndex === 3 ? ( */}
 				<div
 					className={`relative flex flex-col h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen  overflow-x-hidden `}>
-					{/* HIDES AT md: */}
+					{/* HIDES BELOW md: */}
 					<div
 						onMouseEnter={() => setIsImageContainerHovered(false)}
 						className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto   `}
@@ -143,36 +142,84 @@ const ProjectsDisplay = (): JSX.Element => {
 								/>
 							</div>
 
-							<div className='h-full w-full  mx-auto justify-center items-center pl-4'>
-								<MobileImageContainer
-									hovered={isImageContainerHovered}
-									images={selectedProject.images.mobile}
-									currentImageIndex={currentImageIndex}
-								/>
-
-								<div className='w-full justify-end items-end'>
-									<ProjectImagePagination
+							{selectedIndex === 0 || 3 ? (
+								<div className='h-full w-full  mx-auto justify-center items-center pl-4'>
+									<MobileImageContainer
 										hovered={isImageContainerHovered}
+										images={selectedProject.images.mobile}
 										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
 									/>
+
+									<div className='w-full justify-end items-end'>
+										<ProjectImagePagination
+											hovered={isImageContainerHovered}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									</div>
 								</div>
-							</div>
+							) : (
+								<div
+									className={`h-full w-full  mx-auto justify-center items-center pl-4  ${
+										isImageContainerHovered
+											? "md:w-[70vw] md:translate-x-[0vw] w-auto"
+											: "md:w-[13vw] md:translate-x-[50vw] w-auto"
+									}`}>
+									<WebsiteProjectImages
+										selectedProject={selectedProject}
+										images={
+											viewMode === "web"
+												? selectedProject.images.web
+												: selectedProject.images.mobile
+										}
+										currentImageIndex={currentImageIndex}
+									/>
+
+									<div className='w-full justify-end items-end'>
+										<ProjectImagePagination
+											hovered={isImageContainerHovered}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									</div>
+								</div>
+							)}
 						</div>
 					</div>
 					{/* md: screens to lg: screens  */}
@@ -186,9 +233,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								setActiveSection={setActiveSection}
 							/>
 						</div>
-						<div
-							// className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[45%] sticky lg:top-0 md:right-0  lg:flex flex-col justify-center items-center `}
-							className='w-full mx-auto h-full justify-center items-center align-middle'>
+						<div className='w-full mx-auto h-full justify-center items-center align-middle'>
 							<div className='flex w-full justify-center items-center'>
 								{selectedProject.images.mobile.length > 0 &&
 								selectedProject.images.web.length > 0 ? (
@@ -203,35 +248,81 @@ const ProjectsDisplay = (): JSX.Element => {
 								)}
 							</div>
 							<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50 pl-[15vw] justify-evenly align-middle items-center'>
-								<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
-									<MediumMobileAppProjectImages
-										// hovered={isImageContainerHovered}
-										images={selectedProject.images.mobile}
-										currentImageIndex={currentImageIndex}
-									/>
-									{/* <div className='w-full h-auto justify-center items-center'> */}
-									<ProjectImagePagination
-										hovered={true}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
-									/>
-									{/* </div> */}
-								</div>
+								{selectedIndex === 0 || 3 ? (
+									<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
+										<MediumMobileAppProjectImages
+											images={
+												selectedProject.images.mobile
+											}
+											currentImageIndex={
+												currentImageIndex
+											}
+										/>
+
+										<ProjectImagePagination
+											hovered={true}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									</div>
+								) : (
+									<div className=' flex flex-col  w-[80%] self-center items-center overflow-x-scroll'>
+										<WebsiteProjectImages
+											selectedProject={selectedProject}
+											images={
+												viewMode === "web"
+													? selectedProject.images.web
+													: selectedProject.images
+															.mobile
+											}
+											currentImageIndex={
+												currentImageIndex
+											}
+										/>
+
+										<ProjectImagePagination
+											hovered={true}
+											currentImageIndex={
+												currentImageIndex
+											}
+											totalImages={
+												selectedProject.images.mobile
+													.length
+											}
+											onPageChange={(index) =>
+												setCurrentImageIndex(index)
+											}
+											onPrevImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex - 1
+												)
+											}
+											onNextImage={() =>
+												setCurrentImageIndex(
+													(prevIndex) => prevIndex + 1
+												)
+											}
+										/>
+									</div>
+								)}
 							</div>
 						</div>
 

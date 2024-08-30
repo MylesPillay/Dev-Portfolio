@@ -2,62 +2,57 @@ import React from "react";
 import Image from "next/image";
 import projects from "./ProjectsObject";
 
-interface ProjectImagesProps {
+interface WebsiteProjectImagesProps {
 	selectedProject: (typeof projects)[0];
-	viewMode: "web" | "mobile";
+	images: string[];
 	currentImageIndex: number;
 }
 
-const ProjectImages: React.FC<ProjectImagesProps> = ({
+const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 	selectedProject,
-	viewMode,
+	images,
 	currentImageIndex
 }) => {
 	if (!selectedProject) return null;
-
-	const images =
-		viewMode === "web"
-			? selectedProject.images.web
-			: selectedProject.images.mobile;
 
 	if (!images || images.length === 0) return null;
 
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className='rounded-lg align-middle  justify-center items-center self-center max-h-[69vh] min-h-[69vh] overflow-y-hidden overflow-x-hidden'>
-			{viewMode === "web" ? (
-				<div className='w-full h-full rounded-lg  overflow-hidden'>
-					<Image
-						src={currentImage}
-						alt={`${selectedProject.name} web screenshot ${
-							currentImageIndex + 1
-						}`}
-						layout='responsive'
-						width={1920}
-						height={1080}
-						objectFit='contain'
-						quality={100}
-					/>
+		<div className='rounded-lg align-middle  justify-center items-center self-center max-h-[69vh] min-h-[69vh] overflow-y-scroll overflow-x-hidden'>
+			<div
+				className={`
+									flex justify-center  w-full `}>
+				<div
+					className='flex justify-center transition-transform duration-300'
+					// style={{
+					// 	transform: hovered
+					// 		? `translateX(-${currentImageIndex * 51.5}%)`
+					// 		: `translateX(-${0}%)`
+					// }}>
+				>
+					{images.map((image, index) => (
+						<div
+							key={index}
+							className={`w-[100%]  h-auto flex-shrink-0 pr-5 flex-grow-0`}>
+							<Image
+								src={image}
+								className='rounded-lg'
+								alt={`Project screenshot ${index + 1}`}
+								layout='responsive'
+								objectFit='contain'
+								width={800}
+								height={580}
+								style={{ minHeight: 400 }}
+								quality={100}
+							/>
+						</div>
+					))}
 				</div>
-			) : (
-				<div className='justify-center items-center align-middle w-auto h-auto rounded-lg  overflow-hidden'>
-					<Image
-						src={currentImage}
-						className='rounded-lg max-w-[35vw] mx-auto'
-						alt={`${selectedProject.name} mobile screenshot ${
-							currentImageIndex + 1
-						}`}
-						layout='responsive'
-						width={455.5}
-						height={890}
-						objectFit='contain'
-						quality={100}
-					/>
-				</div>
-			)}
+			</div>
 		</div>
 	);
 };
 
-export default ProjectImages;
+export default WebsiteProjectImages;

@@ -7,6 +7,7 @@ import ProjectImagePagination from "../../components/projects/ProjectImagePagina
 import ImagesFormatSelector from "../../components/projects/ImagesFormatSelector";
 import { Project } from "./ProjectsObject";
 import { on } from "events";
+import WebsiteProjectImages from "./WebsiteProjectImages";
 
 interface MobileProjectLayoutProps {
 	selectedProject: Project;
@@ -66,27 +67,52 @@ const MobileProjectLayout = ({
 							)}
 						</div>
 						<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50 pl-[20vw] justify-evenly align-middle items-center'>
-							<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
-								<MediumMobileAppProjectImages
-									// hovered={isImageContainerHovered}
-									images={selectedProject.images.mobile}
-									currentImageIndex={currentImageIndex}
-								/>
-								{/* <div className='w-full h-auto justify-center items-center'> */}
-								<ProjectImagePagination
-									hovered={true}
-									currentImageIndex={currentImageIndex}
-									totalImages={
-										selectedProject.images.mobile.length
-									}
-									onPageChange={(index) =>
-										setCurrentImageIndex(index)
-									}
-									onPrevImage={onPrevImage}
-									onNextImage={onNextImage}
-								/>
-								{/* </div> */}
-							</div>
+							{selectedProject.name === "Air Oasis Home" ||
+							"Vibe-A-Day" ? (
+								<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
+									<MediumMobileAppProjectImages
+										images={selectedProject.images.mobile}
+										currentImageIndex={currentImageIndex}
+									/>
+
+									<ProjectImagePagination
+										hovered={true}
+										currentImageIndex={currentImageIndex}
+										totalImages={
+											selectedProject.images.mobile.length
+										}
+										onPageChange={(index) =>
+											setCurrentImageIndex(index)
+										}
+										onPrevImage={onPrevImage}
+										onNextImage={onNextImage}
+									/>
+								</div>
+							) : (
+								<div className=' flex flex-col  w-[70%] self-center items-center overflow-x-scroll'>
+									<WebsiteProjectImages
+										images={
+											viewMode === "web"
+												? selectedProject.images.web
+												: selectedProject.images.mobile
+										}
+										currentImageIndex={currentImageIndex}
+										selectedProject={selectedProject}
+									/>
+									<ProjectImagePagination
+										hovered={true}
+										currentImageIndex={currentImageIndex}
+										totalImages={
+											selectedProject.images.mobile.length
+										}
+										onPageChange={(index) =>
+											setCurrentImageIndex(index)
+										}
+										onPrevImage={onPrevImage}
+										onNextImage={onNextImage}
+									/>
+								</div>
+							)}
 						</div>
 					</div>
 
