@@ -74,7 +74,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 										onClick={() =>
 											setProjectsMenuOpen(false)
 										}>
-										CLOSE MENU
+										CLOSE
 									</li>
 								</ul>
 							</div>
