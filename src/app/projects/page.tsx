@@ -82,7 +82,7 @@ const ProjectsDisplay = (): JSX.Element => {
 			/>
 			<div className='flex lg:flex-row flex-col items-start justify-start h-full min-h-[101vh] w-full'>
 				<div
-					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full lg:mr-[3vw] lg:mt-[5.5vh]'
+					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full lg:mr-[3vw] lg:mt-[5.5vh] ]'
 					onMouseEnter={() => {
 						if (isImageContainerHovered) {
 							setIsImageContainerHovered(false);
