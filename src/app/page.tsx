@@ -68,7 +68,7 @@ export default function Home() {
 								</span>
 								<br></br>
 								<br></br>
-								Whether it's a sophisticated
+								Whether a sophisticated
 								<span className='text-emerald-200 font-semibold'>
 									{" "}
 									web platform{" "}

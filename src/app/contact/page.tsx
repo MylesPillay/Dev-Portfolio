@@ -31,9 +31,9 @@ export default function Contact() {
 							<div className='bg-slate-800 bg-opacity-50  w-screen p-4 lg:px-4 px-8 border-t border-b border-orangeflame '>
 								<div className='w-[80%] justify-center'>
 									<h1 className='lg:text-xl sm:text-md font-semibold text-center justify-center align-text-top text-white '>
-										If you're ready to create something
-										amazing, reach out below — I'd love to
-										hear from you!
+										If you are ready to create something
+										amazing, reach out below — I would love
+										to hear from you!
 									</h1>
 								</div>
 							</div>
