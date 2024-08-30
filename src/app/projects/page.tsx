@@ -178,10 +178,10 @@ const ProjectsDisplay = (): JSX.Element => {
 								</div>
 							) : (
 								<div
-									className={`h-auto max-h-[80vh]   overflow-y-hidden bg-pink-100  justify-center items-center ${
+									className={`h-auto max-h-[80vh] overflow-y-hidden bg-pink-100 justify-center items-center transition-transform duration-300 ease-in-out ${
 										isImageContainerHovered
-											? "md:min-w-[80vw] md:translate-x-[-50vw] w-auto absolute"
-											: "md:min-w-[13vw] md:translate-x-[0vw] w-auto flex"
+											? "lg:absolute lg:left-0 lg:top-0 lg:w-full lg:h-full lg:translate-x-0 lg:z-20"
+											: "relative lg:min-w-[13vw] lg:translate-x-[0vw] w-auto flex"
 									}`}>
 									<WebsiteProjectImages
 										selectedProject={selectedProject}
