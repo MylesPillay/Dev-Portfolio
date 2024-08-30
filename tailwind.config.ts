@@ -8,14 +8,6 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			// backgroundImage: {
-			// 	"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-			// 	"gradient-conic":
-			// 		"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-			// 	"projects-gradient":
-			// 		"linear-gradient(to left, #201056, #0B1541)",
-			// 	"nav-gradient": "linear-gradient(to right, #0B154185, #0B1541)"
-			// },
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":

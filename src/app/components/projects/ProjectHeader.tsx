@@ -40,7 +40,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
 					className='lg:pointer-events-none lg:cursor-default'
 					disabled={width >= 1100}>
-					<h1 className='text-2xl font-bold text-left w-auto  justify-start align-text-bottom  text-orangeflame'>
+					<h1 className='text-2xl font-bold text-left w-auto sm:mt-3 mt-0 ml-4  pb-2 sm:pb-0 sm:ml-0 justify-start align-text-bottom  text-orangeflame'>
 						PROJECTS
 					</h1>
 				</button>
@@ -52,7 +52,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 									{projects.map((project, index) => (
 										<li
 											key={index}
-											className={`cursor-pointer mb-2 text-left md:text-lg text-md ${
+											className={`cursor-pointer mb-2text-left md:text-lg text-md ${
 												selectedProject.name ===
 												project.name
 													? "text-white font-bold md:text-xl text-lg"
@@ -86,7 +86,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			</div>
 
 			{/* Project Name Field */}
-			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[4vw] mt-1 text-white'>
+			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[8vw] mt-1 text-white'>
 				{selectedProject.name.toUpperCase()}
 			</h1>
 

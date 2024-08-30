@@ -17,7 +17,6 @@ export default function Home() {
 			<div className='flex flex-col justify-between w-full'>
 				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly lg:w-full  w-[80%] lg:px-2 '>
 					<div className='flex flex-col space-x-2 h-full lg:w-3/6  w-auto justify-start align-middle items-start lg:my-[1vh]'>
-						{/* Left container - 80% height */}
 						<div className='flex flex-col w-auto h-auto ml-8 rounded-lg items-start justify-start'>
 							<div className='flex flex-row justify-start align-middle items-center'>
 								<h1
@@ -43,7 +42,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className='justify-center items-center  w-[100vw] h-auto lg:w-[55%] lg:h-[35vh] lg:mr-[15%] lg:mt-[10%]'>
+					<div className='justify-center items-center w-[100vw] h-auto lg:w-[55%] lg:h-[35vh] lg:mr-[15%] lg:mt-[10%]'>
 						<div className='lg:h-[100%] h-auto px-2 py-4'>
 							<div className='flex flex-row flex-wrap w-auto  align-middle items-center justify-center '>
 								<h3 className='md:text-2xl text-lg lg:text-3xl font-semibold text-emerald-200'>

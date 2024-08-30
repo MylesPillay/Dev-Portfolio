@@ -25,7 +25,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({
 	const currentImage = images[currentImageIndex % images.length];
 
 	return (
-		<div className='rounded-lg align-middle  justify-center items-center self-center max-h-[69vh] min-h-[69vh] overflow-y-auto overflow-x-hidden'>
+		<div className='rounded-lg align-middle  justify-center items-center self-center max-h-[69vh] min-h-[69vh] overflow-y-hidden overflow-x-hidden'>
 			{viewMode === "web" ? (
 				<div className='w-full h-full rounded-lg  overflow-hidden'>
 					<Image

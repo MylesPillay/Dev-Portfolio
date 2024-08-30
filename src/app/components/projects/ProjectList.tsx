@@ -12,12 +12,12 @@ const ProjectList: React.FC<ProjectListProps> = ({
 }) => {
 	return (
 		<ul
-			className='lg:flex flex-col hidden
-   md:font-medium w-auto h-auto min-h-[50%] pl-8 pt-[6vh]'>
+			className='lg:flex  justify-center  px-8items-start text-left flex-col hidden
+   md:font-medium w-auto min-w-[200px]'>
 			{projects.map((project, index) => (
 				<li
 					key={index}
-					className={`cursor-pointer mb-2 text-left responsive-text-md ${
+					className={`cursor-pointer mb-2 text-left md:text-responsive-xl text-lg ${
 						selectedProject.name === project.name
 							? "text-white font-bold "
 							: "hover:text-white hover:text-opacity-80 text-emerald-200"
