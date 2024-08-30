@@ -125,6 +125,9 @@ const ProjectsDisplay = (): JSX.Element => {
 								imageContainerHovered={isImageContainerHovered}
 								activeSection={activeSection}
 								setActiveSection={setActiveSection}
+								setIsImageContainerHovered={
+									setIsImageContainerHovered
+								}
 							/>
 							<div
 								className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${

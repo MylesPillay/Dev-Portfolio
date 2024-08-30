@@ -6,11 +6,13 @@ interface ProjectAccordionWebProps {
 	imageContainerHovered: boolean;
 	activeSection: string;
 	setActiveSection: (section: string) => void;
+	setIsImageContainerHovered?: (hovered: boolean) => void;
 }
 
 const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 	selectedProject,
 	imageContainerHovered,
+	setIsImageContainerHovered,
 	activeSection,
 	setActiveSection
 }) => {
@@ -94,7 +96,14 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 				imageContainerHovered
 					? "lg:max-w-[51%] w-auto"
 					: "min-w-[73%] lg:max-w-[73%] w-auto"
-			}`}>
+			}`}
+			onMouseEnter={() => {
+				if (imageContainerHovered) {
+					setIsImageContainerHovered
+						? setIsImageContainerHovered(false)
+						: null;
+				}
+			}}>
 			{sections.map((section, index) => (
 				<div
 					key={section.title}
