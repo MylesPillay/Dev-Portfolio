@@ -43,7 +43,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				</button>
 				<div className='fixed  top-4 z-50'>
 					{projectsMenuOpen && (
-						<div className=' fixed left-0 inset-0 p-8 h-[38vh] w-[50%] ml-[10.7vw] bg-deepBlueBg z-40 border-emerald-200 border-r border-b'>
+						<div className=' fixed left-0 inset-0 p-8 h-[38vh] w-[50%] ml-[10.7vw] bg-deepBlueBg z-40 border-emerald-200 border-x border-b'>
 							<div className='flex flex-col items-start p-2 h-[10%]'>
 								<ul className='flex flex-col font-medium w-full pl-2 pt-2'>
 									{projects.map((project, index) => (

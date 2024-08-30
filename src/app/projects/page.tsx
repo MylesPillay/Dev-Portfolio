@@ -16,11 +16,13 @@ import MobileProjectTitleStickyHeader from "../components/projects/MobileProject
 import MediumScreenProjectAccordion from "../components/projects/MediumScreenPorjectAccordian";
 import MediumMobileAppProjectImages from "../components/projects/MediumMobileAppProjectImages";
 import MediumScreenProjectSkillsComponent from "../components/projects/MediumScreenProjectSkillsComponent";
+import MobileProjectLayout from "../components/projects/MobileProjectLayout";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
 	const selectedProject = projects[selectedProjectIndex];
+	const mobileProjectNextUp = projects[selectedProjectIndex + 1];
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 	const images =
 		viewMode === "web"
@@ -110,7 +112,7 @@ const ProjectsDisplay = (): JSX.Element => {
 
 				{selectedProjectIndex === 0 || selectedProjectIndex === 3 ? (
 					<div
-						className={`relative flex h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen  overflow-x-hidden `}>
+						className={`relative flex flex-col h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen  overflow-x-hidden `}>
 						{/* HIDES AT md: */}
 						<div
 							onMouseEnter={() =>
@@ -190,7 +192,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						{/* md: screens to lg: screens  */}
 
 						<div
-							className={`sm:hidden md:flex lg:hidden md:flex-col align-middle items-center justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto pb-[10vh]`}>
+							className={`hidden md:flex lg:hidden md:flex-col align-middle items-center justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto pb-[10vh]`}>
 							<div className='w-full mx-auto h-auto justify-center items-center align-middle'>
 								<MediumScreenProjectAccordion
 									selectedProject={selectedProject}
@@ -261,7 +263,7 @@ const ProjectsDisplay = (): JSX.Element => {
 								activeSection={activeSection}
 								setActiveSection={setActiveSection}
 							/>
-							<div className='w-[100%] h-auto my-10 bg-slate-800 bg-opacity-50 border-tealAccent border-y-2'>
+							<div className='w-[100%] h-auto my-10 bg-slate-800 bg-opacity-50 border-tealAccent border-y-4'>
 								<MediumScreenProjectSkillsComponent
 									selectedProject={selectedProject}
 								/>
@@ -269,28 +271,57 @@ const ProjectsDisplay = (): JSX.Element => {
 						</div>
 
 						{/* HIDES at SCREEN ABOVE md:  */}
-						<div className='md:hidden flex w-full mx-auto h-auto'>
+
+						<MobileProjectLayout
+							selectedProject={selectedProject}
+							viewMode={viewMode}
+							setViewMode={setViewMode}
+							currentImageIndex={currentImageIndex}
+							setCurrentImageIndex={setCurrentImageIndex}
+							setActiveSection={setActiveSection}
+							activeSection={activeSection}
+							onPrevImage={() =>
+								setCurrentImageIndex(
+									(prevIndex) => prevIndex - 1
+								)
+							}
+							onNextImage={() =>
+								setCurrentImageIndex(
+									(prevIndex) => prevIndex + 1
+								)
+							}
+						/>
+
+						{/* NEXT UP PROJECT HEADER FOOTER  */}
+						<div className='flex md:hidden justify-center items-center w-full h-auto'>
 							<MobileProjectTitleStickyHeader
-								projectTitle={selectedProject.name}
-							/>
-							<ProjectAccordionWeb
-								selectedProject={selectedProject}
-								imageContainerHovered={isImageContainerHovered}
-								activeSection={activeSection}
-								setActiveSection={setActiveSection}
+								projectTitle={nextProjectName}
 							/>
 						</div>
+						{/* HIDES at SCREEN ABOVE md:  */}
+						<MobileProjectLayout
+							selectedProject={mobileProjectNextUp}
+							viewMode={viewMode}
+							setViewMode={setViewMode}
+							currentImageIndex={currentImageIndex}
+							setCurrentImageIndex={setCurrentImageIndex}
+							setActiveSection={setActiveSection}
+							activeSection={activeSection}
+							onPrevImage={() =>
+								setCurrentImageIndex(
+									(prevIndex) => prevIndex - 1
+								)
+							}
+							onNextImage={() =>
+								setCurrentImageIndex(
+									(prevIndex) => prevIndex + 1
+								)
+							}
+						/>
 					</div>
 				) : (
 					<></>
 				)}
-
-				{/* NEXT UP PROJECT HEADER FOOTER  */}
-				<div className='flex md:hidden justify-center items-center w-full h-auto'>
-					<MobileProjectTitleStickyHeader
-						projectTitle={nextProjectName}
-					/>
-				</div>
 
 				{/* <div
 							className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[100%] lg:sticky lg:top-0 md:right-0 hidden lg:flex flex-col justify-center items-center ${
