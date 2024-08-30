@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Project } from "./ProjectsObject";
 import projects from "./ProjectsObject";
 import ImagesFormatSelector from "./ImagesFormatSelector";
+import useDeviceScreenSize from "@/app/hooks/useDeviceScreenSize";
 
 interface ProjectsHeaderProps {
 	selectedProject: Project;
@@ -23,6 +24,8 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 }) => {
 	const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
 
+	const [width, height] = useDeviceScreenSize();
+
 	return (
 		<div
 			className='flex flex-row justify-start items-center align-middle w-full sm:my-2 my-0 sm:pl-8 sm:pr-8'
@@ -36,7 +39,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				<button
 					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
 					className='lg:pointer-events-none lg:cursor-default'
-					disabled={window.innerWidth >= 1100}>
+					disabled={width >= 1100}>
 					<h1 className='text-2xl font-bold text-left w-auto  justify-start align-text-bottom  text-orangeflame'>
 						PROJECTS
 					</h1>

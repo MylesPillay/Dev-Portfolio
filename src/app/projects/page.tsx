@@ -73,32 +73,6 @@ const ProjectsDisplay = (): JSX.Element => {
 		? projects[selectedIndex + 1].name
 		: "Back to Top";
 
-	// const [showNextComponents, setShowNextComponents] = useState(false);
-	// useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		console.log("Scrolled");
-
-	// 		const anchorElement = document.getElementById("scroll-anchor");
-
-	// 		if (anchorElement) {
-	// 			console.log(anchorElement, "FOUND ANCHOR ELEMENT");
-
-	// 			const anchorPosition =
-	// 				anchorElement.getBoundingClientRect().top;
-	// 			if (anchorPosition < window.innerHeight) {
-	// 				setShowNextComponents(true);
-	// 			}
-	// 		} else {
-	// 			console.log("NO ANCHOR ELEMENT FOUND");
-	// 		}
-	// 	};
-
-	// 	// Add scroll event listener
-	// 	window.addEventListener("scrollY", handleScroll);
-
-	// 	// Clean up the event listener on component unmount
-	// }, [scrollY]); // Dependency array to run only once when the component mounts
-
 	return (
 		<div className='md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0 pt-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
 			<ProjectsHeader
