@@ -36,29 +36,50 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 				<button
 					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
 					className='lg:pointer-events-none lg:cursor-default'
-					disabled={window.innerWidth >= 1024}>
+					disabled={window.innerWidth >= 1100}>
 					<h1 className='text-2xl font-bold text-left w-auto  justify-start align-text-bottom  text-orangeflame'>
 						PROJECTS
 					</h1>
 				</button>
+				<div className='fixed  top-4 z-50'>
+					{projectsMenuOpen && (
+						<div className=' fixed left-0 inset-0 p-8 h-[38vh] w-[50%] ml-[10.7vw] bg-deepBlueBg z-40 border-emerald-200 border-r border-b'>
+							<div className='flex flex-col items-start p-2 h-[10%]'>
+								<ul className='flex flex-col font-medium w-full pl-2 pt-2'>
+									{projects.map((project, index) => (
+										<li
+											key={index}
+											className={`cursor-pointer mb-2 text-left md:text-lg text-md ${
+												selectedProject.name ===
+												project.name
+													? "text-white font-bold md:text-xl text-lg"
+													: "hover:text-white hover:text-opacity-80 text-emerald-200"
+											}`}
+											onClick={() => {
+												onProjectClick(index);
+												setProjectsMenuOpen(
+													!projectsMenuOpen
+												);
+											}}>
+											{project.name}
+										</li>
+									))}
+
+									<li
+										className='cursor-pointer mb-2 text-right text-lg text-orangeflame font-bold
+												 hover:text-white hover:text-opacity-80 '
+										onClick={() =>
+											setProjectsMenuOpen(false)
+										}>
+										CLOSE
+									</li>
+								</ul>
+							</div>
+						</div>
+					)}
+				</div>
 
 				{/* Conditional Rendering of Project List */}
-				{projectsMenuOpen && window.innerWidth < 1024 ? (
-					<ul className='flex flex-col font-medium w-full pl-2 pt-2'>
-						{projects.map((project, index) => (
-							<li
-								key={index}
-								className={`cursor-pointer mb-2 text-left md:text-lg text-md ${
-									selectedProject.name === project.name
-										? "text-white font-bold md:text-xl text-lg"
-										: "hover:text-white hover:text-opacity-80 text-emerald-200"
-								}`}
-								onClick={() => onProjectClick(index)}>
-								{project.name}
-							</li>
-						))}
-					</ul>
-				) : null}
 			</div>
 
 			{/* Project Name Field */}

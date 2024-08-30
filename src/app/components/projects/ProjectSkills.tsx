@@ -32,7 +32,7 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 	}, [isHovered, showHoverPrompt]);
 
 	return (
-		<div className='md:flex hidden flex-row space-between justify-end align-bottom items-end '>
+		<div className='md:flex hidden flex-row space-between justify-end align-bottom item '>
 			<div
 				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2  py-[3vh] rounded-r-lg border-black border-opacity-50   ${
 					isHovered ||

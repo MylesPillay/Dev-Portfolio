@@ -40,7 +40,6 @@ export default function RootLayout({
 							<div className='flex flex-col items-start p-2 h-[10%]'>
 								{[
 									{ href: "/contact", label: "CONTACT" },
-									{ href: "/interests", label: "INTERESTS" },
 									{ href: "/projects", label: "PROJECTS" },
 									{ href: "/", label: "ABOUT ME" }
 								].map((item) => (
@@ -59,7 +58,7 @@ export default function RootLayout({
 					)}
 				</div>
 
-				<nav className='hidden md:flex sm:flex-col h-full w-auto max-w-[12vw] min-w-[12vw] text-black font-bold text-justify'>
+				<nav className='hidden md:flex flex-wrap sm:flex-col h-full md:w-full md:max-w-[9%] md:min-w-[100px]  text-black font-bold md:text-justify md:justify-center md:align-top md:items-center'>
 					<ul className='md:flex md:flex-row h-full w-full text-white bg-nav-gradient'>
 						{[
 							{
@@ -75,19 +74,19 @@ export default function RootLayout({
 									/>
 								)
 							},
-							{
-								href: "/interests",
-								label: "INTERESTS",
-								backgroundColor: "transparent",
-								icon: (
-									<FaMicrophone
-										size={
-											hovered === "/interests" ? 32 : 30
-										}
-										color='#A7F3D0'
-									/>
-								)
-							},
+							// {
+							// 	href: "/interests",
+							// 	label: "INTERESTS",
+							// 	backgroundColor: "transparent",
+							// 	icon: (
+							// 		<FaMicrophone
+							// 			size={
+							// 				hovered === "/interests" ? 32 : 30
+							// 			}
+							// 			color='#A7F3D0'
+							// 		/>
+							// 	)
+							// },
 							{
 								href: "/projects",
 								label: "PROJECTS",
@@ -115,7 +114,7 @@ export default function RootLayout({
 							.map((item) => (
 								<li
 									key={item.href}
-									className={`h-full flex flex-col justify-start pt-10 pb-4 px-2.5 border-r-slate-950 border-opacity-40 border-r-2`}
+									className={`h-full w-[50%] flex flex-col justify-start pt-10 pb-4  border-r-slate-950 border-opacity-40 border-r-2`}
 									style={{
 										backgroundColor: item.backgroundColor
 									}}
@@ -123,7 +122,7 @@ export default function RootLayout({
 									onMouseLeave={() => setHovered(null)}>
 									<Link
 										href={item.href}
-										className={`flex flex-col items-center  justify-start h-auto text-2xl tracking-widest text-center  width-[25%]
+										className={`flex flex-col items-center  justify-center w-full h-auto lg:text-2xl md:text-xl tracking-widest text-start
 
 										`}>
 										<div
@@ -158,11 +157,9 @@ export default function RootLayout({
 													hovered === item.href
 														? "opacity-100"
 														: "opacity-0"
-												}  ${
-													item.label == "INTERESTS"
-														? "pt-10"
-														: ""
-												}`}>
+												}
+
+												`}>
 												{item.label
 													.toUpperCase()
 													.split("")

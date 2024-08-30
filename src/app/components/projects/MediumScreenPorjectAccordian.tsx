@@ -3,14 +3,14 @@ import { Project } from "./ProjectsObject";
 
 interface ProjectAccordionWebProps {
 	selectedProject: Project;
-	imageContainerHovered: boolean;
 	activeSection: string;
 	setActiveSection: (section: string) => void;
+	topAccordion: boolean;
 }
 
 const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 	selectedProject,
-	imageContainerHovered,
+	topAccordion,
 	activeSection,
 	setActiveSection
 }) => {
@@ -52,6 +52,20 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 		{ title: "Outcomes", content: getCategoryContent("Outcomes") }
 	];
 
+	// Filter sections based on the topAccordion prop
+	const filteredSections = topAccordion
+		? sections.filter(
+				(section) =>
+					section.title === "Overview" ||
+					section.title === "Objectives" ||
+					section.title === "Key Features"
+		  )
+		: sections.filter(
+				(section) =>
+					section.title === "Tech Stack" ||
+					section.title === "Outcomes"
+		  );
+
 	const renderContent = (section: any) => {
 		if (typeof section.content === "string") {
 			return <p>{section.content}</p>;
@@ -90,9 +104,10 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 		<div
 			className={`flex flex-grow flex-col   w-full border-y ${
 				activeSection === "Overview" ? "border-t-0" : ""
-			} border-orangeflame space-y-2
-			`}>
-			{sections.map((section, index) => (
+			}  border-orangeflame space-y-2
+			`}
+			style={{ borderTopWidth: topAccordion ? undefined : 1 }}>
+			{filteredSections.map((section, index) => (
 				<div
 					key={section.title}
 					className={` px-[3%] ${

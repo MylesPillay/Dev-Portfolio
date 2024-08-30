@@ -16,12 +16,12 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 	return (
 		<div
 			className={`
-									right-0 overflow-x-hidden w-auto `}>
+									right-0  w-auto `}>
 			<div
 				className='flex flex-row transition-transform duration-300'
 				style={{
 					transform: hovered
-						? `translateX(-${currentImageIndex * 50}%)`
+						? `translateX(-${currentImageIndex * 51.5}%)`
 						: `translateX(-${0}%)`
 				}}>
 				{images.map((image, index) => (

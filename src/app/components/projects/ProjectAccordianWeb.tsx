@@ -88,24 +88,30 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-grow flex-col w-full max-w-[60vw] space-y-2 ${
+			className={`flex flex-grow flex-col   border-t ${
+				activeSection === "Overview" ? "border-t-0" : ""
+			} border-orangeflame space-y-2 ${
 				imageContainerHovered
-					? "max-w-[51%] w-auto"
-					: "min-w-[73%] w-auto"
+					? "lg:max-w-[51%] w-auto"
+					: "min-w-[73%] lg:max-w-[73%] w-auto"
 			}`}>
-			{sections.map((section) => (
+			{sections.map((section, index) => (
 				<div
 					key={section.title}
-					className={`${
+					className={` px-2 ${
 						activeSection === section.title
 							? "border-orangeflame border-y"
 							: ""
 					}`}>
 					<button
-						className='w-full text-left text-2xl p-4 py-2 font-semibold text-orangeflame'
+						className={`w-full text-left text-2xl p-4 py-2 font-semibold ${
+							activeSection === section.title
+								? "text-orangeflame"
+								: "text-emerald-400"
+						}`}
 						onClick={() => setActiveSection(section.title)}>
 						{section.title}{" "}
-						<span className='text-emerald-400 text-xl'>
+						<span className='text-orangeflame text-xl'>
 							{" "}
 							{activeSection !== section.title ? " ..." : ""}
 						</span>

@@ -40,7 +40,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
 		<div
 			className={`${
 				hovered ? "flex" : "hidden"
-			} justify-center align-middle h-[8vh] w-full max-w-[70vw] min-w-[15vw] mx-auto items-center rounded-b-xl py-4 `}>
+			} justify-center align-middle h-[8vh] w-auto max-w-[70vw] min-w-[15vw] mx-auto items-center rounded-b-xl py-4 `}>
 			<button
 				onClick={onPrevImage}
 				disabled={isFirstImage}
