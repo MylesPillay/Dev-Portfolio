@@ -22,13 +22,10 @@ interface MediumToLargeLayoutProps {
 }
 
 const MediumToLargeLayout = ({
-	setIsImageContainerHovered,
-	isImageContainerHovered,
 	selectedIndex,
 	currentImageIndex,
 	setCurrentImageIndex,
 	viewMode,
-	setViewMode,
 	selectedProject,
 	activeSection,
 	setActiveSection
@@ -53,10 +50,21 @@ const MediumToLargeLayout = ({
 					<div className='flex flex-col justify-center items-center w-[90%] self-center overflow-x-scroll'>
 						<div className='w-full flex justify-center'>
 							{selectedIndex === 0 || selectedIndex === 3 ? (
-								<MediumMobileAppProjectImages
-									images={selectedProject.images[viewMode]}
-									currentImageIndex={currentImageIndex}
-								/>
+								<div
+									className={`w-[100%]  pr-[15%] h-auto max-h-[50vh] ${
+										selectedProject.name ===
+											"Air Oasis Home" ||
+										selectedProject.name === "Vibe-A-Day"
+											? "max-w-[69vw]"
+											: "max-h-[50vh]"
+									}`}>
+									<MediumMobileAppProjectImages
+										images={
+											selectedProject.images[viewMode]
+										}
+										currentImageIndex={currentImageIndex}
+									/>
+								</div>
 							) : (
 								<div className='w-[100%]  pr-[15%] h-auto max-h-[50vh]'>
 									<WebsiteProjectImages

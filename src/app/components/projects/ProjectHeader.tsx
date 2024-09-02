@@ -28,7 +28,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 
 	return (
 		<div
-			className='flex flex-row justify-start items-center align-middle w-full sm:my-2 my-0 sm:pl-8 sm:pr-8'
+			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-10 pb-4 bg-project-title-gradient bg-opacity-100  z-50 '
 			onMouseEnter={() => {
 				if (isImageContainerHovered) {
 					setIsImageContainerHovered(false);
@@ -40,7 +40,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
 					className='lg:pointer-events-none lg:cursor-default'
 					disabled={width >= 1100}>
-					<h1 className='text-2xl font-bold text-left w-auto sm:mt-3 mt-0 ml-4  pb-2 sm:pb-0 sm:ml-0 justify-start align-text-bottom  text-orangeflame'>
+					<h1 className='text-2xl font-bold text-left w-auto   ml-4   sm:ml-0 justify-start h-auto align-text-bottom  text-orangeflame '>
 						PROJECTS
 					</h1>
 				</button>
@@ -86,7 +86,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			</div>
 
 			{/* Project Name Field */}
-			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[8vw] mt-1 text-white'>
+			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[8vw]  text-white'>
 				{selectedProject.name.toUpperCase()}
 			</h1>
 

@@ -4,38 +4,39 @@ import Image from "next/image";
 
 interface MediumMobileAppProjectImagesProps {
 	// hovered: boolean;
+	smallMobileScreen?: boolean;
 	images: string[];
 	currentImageIndex: number;
 }
 
 const MediumMobileAppProjectImages: React.FC<
 	MediumMobileAppProjectImagesProps
-> = ({ images, currentImageIndex }) => {
+> = ({ smallMobileScreen, images, currentImageIndex }) => {
 	return (
 		<div
-			className={`
-									flex justify-center  w-full `}>
-			<div
-				className='flex flex-row justify-between transition-transform duration-300'
-				// style={{
-				// 	transform: hovered
-				// 		? `translateX(-${currentImageIndex * 51.5}%)`
-				// 		: `translateX(-${0}%)`
-				// }}>
-			>
+			className={`flex w-[100%] bg-pink-200 rounded-lg align-start justify-center items-center mt-4 overflow-y-scroll overflow-x-scroll ${
+				smallMobileScreen
+					? " h-auto max-h-[50vh] min-h-[35vh]"
+					: "h-auto max-h-[40vh] min-h-[40vh]"
+			} `}>
+			<div className='flex flex-row space-x-4 justify-between  align-top items-start transition-transform duration-300'>
 				{images.map((image, index) => (
 					<div
-						key={index}
-						className={`w-[50%]  h-auto flex-shrink-0 pr-5 flex-grow-0`}>
+						className={`w-[50%] justify-center h-[50%]flex-grow flex-shrink-0  `}
+						style={{
+							transform: `translateX(-${
+								currentImageIndex * 99.5
+							}%)`
+						}}>
 						<Image
 							src={image}
 							className='rounded-lg'
-							alt={`Mobile screenshot ${index + 1}`}
+							alt={`Project screenshot `}
 							layout='responsive'
 							objectFit='contain'
-							width={280}
-							height={300}
-							style={{ minHeight: 300 }}
+							width={500}
+							height={450}
+							style={{ minHeight: 200 }}
 							quality={100}
 						/>
 					</div>

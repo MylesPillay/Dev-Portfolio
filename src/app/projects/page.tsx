@@ -1,18 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
-import ProjectList from "../components/projects/ProjectList";
 import ProjectsHeader from "../components/projects/ProjectHeader";
-import MobileImageContainer from "../components/projects/MobileAppProjectImages";
-import ProjectImagePagination from "../components/projects/ProjectImagePagination";
 import ProjectSkillsComponent from "../components/projects/ProjectSkills";
-import WebsiteProjectImages from "../components/projects/WebsiteProjectImages";
-import ProjectAccordionWeb from "../components/projects/ProjectAccordianWeb";
-import ImagesFormatSelector from "../components/projects/ImagesFormatSelector";
-import MediumScreenProjectAccordion from "../components/projects/MediumScreenPorjectAccordian";
-import MediumScreenProjectSkillsComponent from "../components/projects/MediumScreenProjectSkillsComponent";
 import MobileProjectLayout from "../components/projects/MobileProjectLayout";
-import MediumMobileAppProjectImages from "../components/projects/MediumMobileAppProjectImages";
 import ProjectListAndSkills from "../components/projects/responsive-layout-components/ProjectListAndSkills";
 import OverMediumLayout from "../components/projects/responsive-layout-components/OverMediumLayout";
 import MediumToLargeLayout from "../components/projects/responsive-layout-components/MediumToLargeLayout";
@@ -21,7 +12,7 @@ const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
 	const selectedProject = projects[selectedProjectIndex];
-	const mobileProjectNextUp = projects[selectedProjectIndex + 1];
+	[selectedProjectIndex + 1];
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 	const images =
 		viewMode === "web"
@@ -68,12 +59,9 @@ const ProjectsDisplay = (): JSX.Element => {
 	const selectedIndex = projects.findIndex(
 		(project) => project.name === selectedProject.name
 	);
-	const nextProjectName = projects[selectedIndex + 1]
-		? projects[selectedIndex + 1].name
-		: "Back to Top";
 
 	return (
-		<div className='md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0 pt-6  border-0 sm:border-l-[0.5px] border-orangeflame '>
+		<div className='relative md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0   border-0 sm:border-l-[0.5px] border-orangeflame '>
 			<ProjectsHeader
 				selectedProject={selectedProject}
 				viewMode={viewMode}

@@ -124,14 +124,14 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 								: "text-emerald-400"
 						}`}
 						onClick={() => setActiveSection(section.title)}>
-						{section.title} {screenSize ?? "no screen size prop"}
+						{section.title}
 						<span className='text-orangeflame text-xl'>
 							{" "}
 							{activeSection !== section.title ? " ..." : ""}
 						</span>
 					</button>
 					{activeSection === section.title && (
-						<div className='p-4 text-white justify-start ml-[2vw] md:w-[80%] w-[100%'>
+						<div className='p-4 text-white justify-start ml-[2vw] md:w-[80%] w-[100%]'>
 							{renderContent(section)}
 						</div>
 					)}

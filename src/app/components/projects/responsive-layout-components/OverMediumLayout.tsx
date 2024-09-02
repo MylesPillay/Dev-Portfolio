@@ -33,7 +33,7 @@ const OverMediumLayout = ({
 	return (
 		<div
 			onMouseEnter={() => setIsImageContainerHovered(false)}
-			className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto   `}
+			className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden  h-auto   `}
 			style={{
 				transition: "width 0.2s ease-in-out"
 			}}>
@@ -51,25 +51,6 @@ const OverMediumLayout = ({
 					setActiveSection={setActiveSection}
 					setIsImageContainerHovered={setIsImageContainerHovered}
 				/>
-				{/* <div
-					className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
-						isImageContainerHovered
-							? "md:w-[43vw] md:translate-x-[0vw] w-auto"
-							: "md:w-[23vw] md:translate-x-[11vw] w-auto"
-					}`}
-					style={{
-						transition: "transform 0.2s ease-in-out"
-					}}
-					onMouseEnter={() => setIsImageContainerHovered(true)}
-					onMouseLeave={() => {}}>
-					<div className='flex w-full justify-end items-center'>
-						<ImagesFormatSelector
-							selectedProject={selectedProject}
-							viewMode={viewMode}
-							setViewMode={setViewMode}
-							headerPosition={false}
-						/>
-					</div> */}
 
 				{selectedIndex === 0 || selectedIndex === 3 ? (
 					<div
@@ -91,7 +72,7 @@ const OverMediumLayout = ({
 								headerPosition={false}
 							/>
 						</div>
-						<div className='h-full w-full mx-auto justify-center items-center pl-4'>
+						<div className='h-full w-[99%] mx-auto justify-end items-center ml-4'>
 							<MobileImageContainer
 								hovered={isImageContainerHovered}
 								images={selectedProject.images.mobile}
@@ -126,7 +107,7 @@ const OverMediumLayout = ({
 					// 		className={` flex flex-col  mb-[40%] w-full h-full items-start align-top justify-around  self-start overflow-y-hidden bg-pink-100
 					// `}>
 					<div
-						className={`min-h-[59vh] max-h-[90vh] mt-0.5 lg:h-auto  min-w-[90.5vw] h-[80vh] max-w-[90vw] sticky top-0 right-0 overflow-x-scroll flex flex-col justify-center items-center ${
+						className={`min-h-[59vh] max-h-[90vh] mt-0.5 lg:h-auto  min-w-[90.5vw] h-[80vh] max-w-[90vw] sticky  right-0 overflow-x-scroll flex flex-col justify-center items-center ${
 							isImageContainerHovered
 								? " md:translate-x-[-15vw] "
 								: " md:translate-x-[51vw] "
@@ -162,7 +143,10 @@ const OverMediumLayout = ({
 									hovered={isImageContainerHovered}
 									currentImageIndex={currentImageIndex}
 									totalImages={
-										selectedProject.images.mobile.length
+										viewMode === "web"
+											? selectedProject.images.web.length
+											: selectedProject.images.mobile
+													.length
 									}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)

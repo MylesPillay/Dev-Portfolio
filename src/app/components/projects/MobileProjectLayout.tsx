@@ -67,12 +67,13 @@ const MobileProjectLayout = ({
 								<></>
 							)}
 						</div>
-						<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50  justify-evenly align-middle items-center'>
-							<div className=' flex flex-col justify-center h-full w-[100%] self-center align-top items-center overflow-x-scroll'>
-								<div className='w-[90%]'>
+						<div className='flex flex-grow h-auto bg-yellow-200  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
+							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
+								<div className=''>
 									{selectedIndex === 0 ||
 									selectedIndex === 3 ? (
 										<MediumMobileAppProjectImages
+											smallMobileScreen={true}
 											images={
 												selectedProject.images[viewMode]
 											}

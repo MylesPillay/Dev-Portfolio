@@ -14,29 +14,28 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 	currentImageIndex
 }) => {
 	return (
-		<div
-			className={`
-									right-0  w-auto `}>
+		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center h-auto max-h-[70vh] min-h-[40vh] overflow-y-scroll overflow-x-hidden '>
 			<div
-				className='flex flex-row transition-transform duration-300'
-				style={{
-					transform: hovered
-						? `translateX(-${currentImageIndex * 51.5}%)`
-						: `translateX(-${0}%)`
-				}}>
+				className={`
+									flex flex-row justify-apart  h-[70%] w-full overflow-x-scroll`}>
 				{images.map((image, index) => (
 					<div
-						key={index}
-						className={`w-[33vh]  h-1/2 flex-shrink-0 pr-3 flex-grow-0`}>
+						className={`w-[27vh] flex-shrink-0 pr-3
+					transition-transform duration-300`}
+						style={{
+							transform: hovered
+								? `translateX(-${currentImageIndex * 99.5}%)`
+								: `translateX(-${0}%)`
+						}}>
 						<Image
 							src={image}
 							className='rounded-lg'
-							alt={`Mobile screenshot ${index + 1}`}
+							alt={`Project screenshot `}
 							layout='responsive'
 							objectFit='contain'
-							width={280}
-							height={300}
-							style={{ minHeight: 300 }}
+							width={1000}
+							height={450}
+							style={{ minHeight: 400 }}
 							quality={100}
 						/>
 					</div>
