@@ -26,6 +26,7 @@ const MediumToLargeLayout = ({
 	currentImageIndex,
 	setCurrentImageIndex,
 	viewMode,
+	setViewMode,
 	selectedProject,
 	activeSection,
 	setActiveSection
@@ -44,75 +45,81 @@ const MediumToLargeLayout = ({
 					setActiveSection={setActiveSection}
 				/>
 
-				{/* <div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50  justify-evenly align-middle items-center'>
-					<div className=' flex flex-col justify-center h-auto w-[100%] self-center align-top items-center overflow-x-scroll'> */}
-				<div className='h-auto w-full overflow-x-hidden py-10 bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center'>
-					<div className='flex flex-col justify-center items-center w-[90%] self-center overflow-x-scroll'>
-						<div className='w-full flex justify-center'>
-							{selectedIndex === 0 || selectedIndex === 3 ? (
-								<div
-									className={`w-[100%]  pr-[15%] h-auto max-h-[50vh] ${
-										selectedProject.name ===
-											"Air Oasis Home" ||
-										selectedProject.name === "Vibe-A-Day"
-											? "max-w-[69vw]"
-											: "max-h-[50vh]"
-									}`}>
-									<MediumMobileAppProjectImages
-										images={
-											selectedProject.images[viewMode]
-										}
-										currentImageIndex={currentImageIndex}
-									/>
-								</div>
-							) : (
-								<div className='w-[100%]  pr-[15%] h-auto max-h-[50vh]'>
-									<WebsiteProjectImages
-										images={
-											selectedProject.images[viewMode]
-										}
-										currentImageIndex={currentImageIndex}
-										selectedProject={selectedProject}
-									/>
-								</div>
-							)}
-						</div>
-						<div className='w-[100%]  pr-[15%] justify-center items-center mt-2'>
-							<ProjectImagePagination
-								hovered={true}
-								currentImageIndex={currentImageIndex}
-								totalImages={
-									selectedProject.images.mobile.length
-								}
-								onPageChange={(index) =>
-									setCurrentImageIndex(index)
-								}
-								onPrevImage={() =>
-									setCurrentImageIndex(
-										(prevIndex) => prevIndex - 1
-									)
-								}
-								onNextImage={() =>
-									setCurrentImageIndex(
-										(prevIndex) => prevIndex + 1
-									)
-								}
+				<div className='h-auto w-full overflow-x-hidden  bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center'>
+					<div className=' flex-col justify-center items-center align-middle'>
+						{selectedProject.images.mobile.length > 0 &&
+						selectedProject.images.web.length > 0 ? (
+							<ImagesFormatSelector
+								selectedProject={selectedProject}
+								viewMode={viewMode}
+								setViewMode={setViewMode}
+								headerPosition={false}
 							/>
+						) : (
+							<></>
+						)}
+
+						<div className='flex flex-col flex-grow h-auto   overflow-x-hidden  bg-opacity-50  justify-center align-middle items-center w-auto'>
+							<div className=' flex flex-col justify-center h-auto w-[85%] max-h-[100%]  items-start overflow-x-scroll'>
+								{selectedIndex === 0 || selectedIndex === 3 ? (
+									<MediumMobileAppProjectImages
+										smallMobileScreen={false}
+										images={
+											selectedProject.images[viewMode]
+										}
+										currentImageIndex={currentImageIndex}
+									/>
+								) : (
+									<div className='w-[100%]  pr-[15%] h-auto max-h-[50vh]'>
+										<WebsiteProjectImages
+											images={
+												selectedProject.images[viewMode]
+											}
+											currentImageIndex={
+												currentImageIndex
+											}
+											selectedProject={selectedProject}
+										/>
+									</div>
+								)}
+							</div>
+							<div className='w-full justify-center items-center mt-2'>
+								<ProjectImagePagination
+									hovered={true}
+									currentImageIndex={currentImageIndex}
+									totalImages={
+										selectedProject.images.mobile.length
+									}
+									onPageChange={(index) =>
+										setCurrentImageIndex(index)
+									}
+									onPrevImage={() =>
+										setCurrentImageIndex(
+											(prevIndex) => prevIndex - 1
+										)
+									}
+									onNextImage={() =>
+										setCurrentImageIndex(
+											(prevIndex) => prevIndex + 1
+										)
+									}
+								/>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<MediumScreenProjectAccordion
-				selectedProject={selectedProject}
-				topAccordion={false}
-				activeSection={activeSection}
-				setActiveSection={setActiveSection}
-			/>
-			<div className='w-[100%] h-auto my-10 bg-slate-800 bg-opacity-50 border-tealAccent border-y-4'>
-				<MediumScreenProjectSkillsComponent
+				<MediumScreenProjectAccordion
 					selectedProject={selectedProject}
+					topAccordion={false}
+					activeSection={activeSection}
+					setActiveSection={setActiveSection}
 				/>
+				<div className='w-[100%] h-auto my-10 bg-slate-800 bg-opacity-50 border-tealAccent border-y-4'>
+					<MediumScreenProjectSkillsComponent
+						selectedProject={selectedProject}
+					/>
+				</div>
 			</div>
 		</div>
 	);

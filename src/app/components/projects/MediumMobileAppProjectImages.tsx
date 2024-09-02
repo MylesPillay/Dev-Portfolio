@@ -13,19 +13,50 @@ const MediumMobileAppProjectImages: React.FC<
 	MediumMobileAppProjectImagesProps
 > = ({ smallMobileScreen, images, currentImageIndex }) => {
 	return (
+		// <div
+		// 	className={`flex w-[96%]  px-4 rounded-lg align-start justify-center items-center my-4 overflow-y-scroll overflow-x-scroll ${
+		// 		smallMobileScreen
+		// 			? " h-auto max-h-[55vh] min-h-[35vh]"
+		// 			: "h-auto max-h-[40vh] min-h-[40vh]"
+		// 	} `}>
+		// 	<div className='flex flex-row space-x-4  justify-between  align-top items-start transition-transform duration-300'>
+		// 		{images.map((image, index) => (
+		// 			<div
+		// 				className={`w-[49.5%] h-auto  justify-center flex-grow flex-shrink-0  `}
+		// 				style={{
+		// 					transform: `translateX(-${
+		// 						currentImageIndex * 107.2
+		// 					}%)`
+		// 				}}>
+		// 				<Image
+		// 					src={image}
+		// 					className='rounded-lg'
+		// 					alt={`Project screenshot `}
+		// 					layout='responsive'
+		// 					objectFit='contain'
+		// 					width={500}
+		// 					height={450}
+		// 					style={{ minHeight: 200 }}
+		// 					quality={100}
+		// 				/>
+		// 			</div>
+		// 		))}
+		// 	</div>
+		// </div>
 		<div
-			className={`flex w-[100%] bg-pink-200 rounded-lg align-start justify-center items-center mt-4 overflow-y-scroll overflow-x-scroll ${
+			className={`flex rounded-lg align-start justify-center items-center my-4 overflow-y-scroll overflow-x-scroll ${
 				smallMobileScreen
-					? " h-auto max-h-[50vh] min-h-[35vh]"
-					: "h-auto max-h-[40vh] min-h-[40vh]"
+					? " h-auto max-h-[60vh] min-h-[35vh] w-[98%] px-6 "
+					: "h-auto max-h-[60vh] min-h-[50vh] w-[85%]"
 			} `}>
-			<div className='flex flex-row space-x-4 justify-between  align-top items-start transition-transform duration-300'>
+			<div className='flex flex-row space-x-4  justify-between  align-top items-start transition-transform duration-300'>
 				{images.map((image, index) => (
 					<div
-						className={`w-[50%] justify-center h-[50%]flex-grow flex-shrink-0  `}
+						className={` justify-center flex-grow flex-shrink-0
+							 ${smallMobileScreen ? " w-[49.5%] max-h-[60vh] min-h-[35vh]" : " w-[48%]"}  `}
 						style={{
 							transform: `translateX(-${
-								currentImageIndex * 99.5
+								currentImageIndex * 107.2
 							}%)`
 						}}>
 						<Image

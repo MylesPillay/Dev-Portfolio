@@ -51,9 +51,7 @@ const MobileProjectLayout = ({
 							setActiveSection={setActiveSection}
 						/>
 					</div>
-					<div
-						// className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto lg:w-[40vw] min-w-[30vw] h-[40vh] max-w-[45%] sticky lg:top-0 md:right-0  lg:flex flex-col justify-center items-center `}
-						className='w-full mx-auto h-full justify-center items-center align-middle'>
+					<div className='w-full mx-auto h-full justify-center items-center align-middle'>
 						<div className='flex w-full justify-center items-center'>
 							{selectedProject.images.mobile.length > 0 &&
 							selectedProject.images.web.length > 0 ? (
