@@ -3,6 +3,7 @@ import { Project } from "./ProjectsObject";
 
 interface ProjectAccordionWebProps {
 	selectedProject: Project;
+	selectedIndex: number;
 	imageContainerHovered: boolean;
 	activeSection: string;
 	setActiveSection: (section: string) => void;
@@ -13,6 +14,7 @@ interface ProjectAccordionWebProps {
 const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 	screenSize,
 	selectedProject,
+	selectedIndex,
 	imageContainerHovered,
 	setIsImageContainerHovered,
 	activeSection,
@@ -95,9 +97,13 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 			className={`flex flex-grow flex-col   border-t ${
 				activeSection === "Overview" ? "border-t-0" : ""
 			} border-orangeflame space-y-2 ${
+				(selectedIndex === 0 || selectedIndex === 3) &&
 				imageContainerHovered
 					? "lg:max-w-[51%] w-auto"
-					: "min-w-[73%] lg:max-w-[73%] w-auto"
+					: (selectedIndex === 0 || selectedIndex === 3) &&
+					  !imageContainerHovered
+					? "min-w-[73%] lg:max-w-[73%] w-auto"
+					: "lg:min-w-[78%] w-auto"
 			}`}
 			onMouseEnter={() => {
 				if (imageContainerHovered) {

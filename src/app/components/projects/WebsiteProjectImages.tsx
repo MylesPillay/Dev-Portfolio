@@ -13,13 +13,12 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 	images
 }) => {
 	return (
-		<div className='flex w-[100%] rounded-lg align-middle justify-center items-center self-center max-h-[110vh] h-full overflow-y-hidden overflow-x-hidden'>
+		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center max-h-[110vh] h-full min-h-[90vh] overflow-y-hidden overflow-x-hidden bg-yellow-200'>
 			<div
 				className={`
-									flex justify-center  w-full `}>
-				<div className='rounded-lg  max-h-[85vh]  w-auto overflow-y-auto overflow-x-hidden'>
-					<div
-						className={`w-[100%] justify-center h-full flex-shrink-0 flex-grow`}>
+									flex justify-center  h-full w-full `}>
+				<div className='rounded-lg  h-full  w-full overflow-y-auto overflow-x-hidden'>
+					<div className={`w-full justify-center h-auto  flex-grow`}>
 						<Image
 							src={images[currentImageIndex]}
 							className='rounded-lg'

@@ -3,7 +3,7 @@ import MobileImageContainer from "../MobileAppProjectImages";
 import ProjectAccordionWeb from "../ProjectAccordianWeb";
 import ProjectImagePagination from "../ProjectImagePagination";
 import { Project } from "../ProjectsObject";
-import WebsiteProjectImages from "../WebsiteProjectImages";
+import LargeScreenWebsiteProjectImages from "../LargeScreenWebsiteProjectImages";
 
 interface OverMediumLayoutProps {
 	setIsImageContainerHovered: (hovered: boolean) => void;
@@ -47,6 +47,7 @@ const OverMediumLayout = ({
 				<ProjectAccordionWeb
 					screenSize={screenSize}
 					selectedProject={selectedProject}
+					selectedIndex={selectedIndex}
 					imageContainerHovered={isImageContainerHovered}
 					activeSection={activeSection}
 					setActiveSection={setActiveSection}
@@ -104,12 +105,12 @@ const OverMediumLayout = ({
 						</div>
 					) : (
 						<div
-							className={`h-auto max-h-[80vh] overflow-y-hidden bg-pink-100 justify-center items-center transition-transform duration-300 ease-in-out ${
+							className={` absolute right-0 flex flex-col  mb-[40%] w-[200%] h-[70%] items-start align-top justify-around  self-start overflow-y-hidden bg-pink-100 transition-transform duration-300  ease-in-out ${
 								isImageContainerHovered
-									? "lg:absolute lg:left-0 lg:top-0 lg:w-full lg:h-full lg:translate-x-0 lg:z-20"
-									: "relative lg:min-w-[13vw] lg:translate-x-[0vw] w-auto flex"
+									? "lg:translate-x-[-3vw] "
+									: "  lg:translate-x-[0vw] "
 							}`}>
-							<WebsiteProjectImages
+							<LargeScreenWebsiteProjectImages
 								selectedProject={selectedProject}
 								images={
 									viewMode === "web"
@@ -117,6 +118,9 @@ const OverMediumLayout = ({
 										: selectedProject.images.mobile
 								}
 								currentImageIndex={currentImageIndex}
+								isImageContainerHovered={
+									isImageContainerHovered
+								}
 							/>
 							<div className='w-full justify-end items-end'>
 								<ProjectImagePagination
