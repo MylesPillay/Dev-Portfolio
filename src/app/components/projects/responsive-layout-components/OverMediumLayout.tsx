@@ -30,7 +30,6 @@ const OverMediumLayout = ({
 	activeSection,
 	setActiveSection
 }: OverMediumLayoutProps) => {
-	let screenSize = "Over Medium Layout";
 	return (
 		<div
 			onMouseEnter={() => setIsImageContainerHovered(false)}
@@ -45,7 +44,6 @@ const OverMediumLayout = ({
 					transition: "width 0.2s ease-in-out"
 				}}>
 				<ProjectAccordionWeb
-					screenSize={screenSize}
 					selectedProject={selectedProject}
 					selectedIndex={selectedIndex}
 					imageContainerHovered={isImageContainerHovered}

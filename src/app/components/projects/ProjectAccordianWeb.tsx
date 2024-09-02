@@ -8,11 +8,9 @@ interface ProjectAccordionWebProps {
 	activeSection: string;
 	setActiveSection: (section: string) => void;
 	setIsImageContainerHovered?: (hovered: boolean) => void;
-	screenSize?: string;
 }
 
 const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
-	screenSize,
 	selectedProject,
 	selectedIndex,
 	imageContainerHovered,
@@ -127,7 +125,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 								: "text-emerald-400"
 						}`}
 						onClick={() => setActiveSection(section.title)}>
-						{section.title} {screenSize ?? "no screen size prop"}
+						{section.title}
 						<span className='text-orangeflame text-xl'>
 							{" "}
 							{activeSection !== section.title ? " ..." : ""}
