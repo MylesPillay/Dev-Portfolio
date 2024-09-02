@@ -53,7 +53,7 @@ const OverMediumLayout = ({
 					setActiveSection={setActiveSection}
 					setIsImageContainerHovered={setIsImageContainerHovered}
 				/>
-				<div
+				{/* <div
 					className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
 						isImageContainerHovered
 							? "md:w-[43vw] md:translate-x-[0vw] w-auto"
@@ -71,9 +71,28 @@ const OverMediumLayout = ({
 							setViewMode={setViewMode}
 							headerPosition={false}
 						/>
-					</div>
+					</div> */}
 
-					{selectedIndex === 0 || selectedIndex === 3 ? (
+				{selectedIndex === 0 || selectedIndex === 3 ? (
+					<div
+						className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
+							isImageContainerHovered
+								? "md:w-[43vw] md:translate-x-[0vw] w-auto"
+								: "md:w-[23vw] md:translate-x-[11vw] w-auto"
+						}`}
+						style={{
+							transition: "transform 0.2s ease-in-out"
+						}}
+						onMouseEnter={() => setIsImageContainerHovered(true)}
+						onMouseLeave={() => {}}>
+						<div className='flex w-full justify-end items-center'>
+							<ImagesFormatSelector
+								selectedProject={selectedProject}
+								viewMode={viewMode}
+								setViewMode={setViewMode}
+								headerPosition={false}
+							/>
+						</div>
 						<div className='h-full w-full mx-auto justify-center items-center pl-4'>
 							<MobileImageContainer
 								hovered={isImageContainerHovered}
@@ -103,13 +122,31 @@ const OverMediumLayout = ({
 								/>
 							</div>
 						</div>
-					) : (
-						<div
-							className={` absolute right-0 flex flex-col  mb-[40%] w-[200%] h-[70%] items-start align-top justify-around  self-start overflow-y-hidden bg-pink-100 transition-transform duration-300  ease-in-out ${
-								isImageContainerHovered
-									? "lg:translate-x-[-3vw] "
-									: "  lg:translate-x-[0vw] "
-							}`}>
+					</div>
+				) : (
+					// 	<div
+					// 		className={` flex flex-col  mb-[40%] w-full h-full items-start align-top justify-around  self-start overflow-y-hidden bg-pink-100
+					// `}>
+					<div
+						className={`min-h-[59vh] max-h-[90vh] mt-0.5 lg:h-auto  min-w-[90.5vw] h-[80vh] max-w-[90vw] sticky top-0 right-0 overflow-x-scroll flex flex-col justify-center items-center ${
+							isImageContainerHovered
+								? " md:translate-x-[-15vw] "
+								: " md:translate-x-[51vw] "
+						}`}
+						style={{
+							transition: "transform 0.2s ease-in-out"
+						}}
+						onMouseEnter={() => setIsImageContainerHovered(true)}
+						onMouseLeave={() => {}}>
+						<div className='flex w-full justify-end items-center'>
+							<ImagesFormatSelector
+								selectedProject={selectedProject}
+								viewMode={viewMode}
+								setViewMode={setViewMode}
+								headerPosition={false}
+							/>
+						</div>
+						<div className='h-auto w-auto flex-grow-0 flex-shrink-0'>
 							<LargeScreenWebsiteProjectImages
 								selectedProject={selectedProject}
 								images={
@@ -122,7 +159,7 @@ const OverMediumLayout = ({
 									isImageContainerHovered
 								}
 							/>
-							<div className='w-full justify-end items-end'>
+							<div className='w-[60vw] mx-auto '>
 								<ProjectImagePagination
 									hovered={isImageContainerHovered}
 									currentImageIndex={currentImageIndex}
@@ -145,8 +182,8 @@ const OverMediumLayout = ({
 								/>
 							</div>
 						</div>
-					)}
-				</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

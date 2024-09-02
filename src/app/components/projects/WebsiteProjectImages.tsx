@@ -13,7 +13,7 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 	images
 }) => {
 	return (
-		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center max-h-[110vh] h-full min-h-[90vh] overflow-y-hidden overflow-x-hidden bg-yellow-200'>
+		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center h-auto max-h-[40vh] min-h-[40vh] overflow-y-scroll overflow-x-hidden '>
 			<div
 				className={`
 									flex justify-center  h-full w-full `}>
