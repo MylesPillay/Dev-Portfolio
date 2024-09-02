@@ -58,8 +58,8 @@ export default function RootLayout({
 					)}
 				</div>
 
-				<nav className='hidden md:flex flex-wrap sm:flex-col h-full md:w-full md:max-w-[9%] md:min-w-[100px]  text-black font-bold md:text-justify md:justify-center md:align-top md:items-center'>
-					<ul className='md:flex md:flex-row h-full w-full text-white bg-nav-gradient'>
+				<nav className='hidden md:flex flex-wrap sm:flex-col h-full md:w-auto md:max-w-[350px] md:min-w-[130px]   text-black font-bold md:text-justify md:justify-center md:align-top md:items-center'>
+					<ul className='md:flex md:flex-row h-full w-full max-w-[150px] text-white bg-nav-gradient pr-1'>
 						{[
 							{
 								href: "/contact",

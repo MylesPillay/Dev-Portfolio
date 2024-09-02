@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import projects from "../components/projects/ProjectsObject";
 import ProjectList from "../components/projects/ProjectList";
@@ -14,6 +13,9 @@ import MediumScreenProjectAccordion from "../components/projects/MediumScreenPor
 import MediumScreenProjectSkillsComponent from "../components/projects/MediumScreenProjectSkillsComponent";
 import MobileProjectLayout from "../components/projects/MobileProjectLayout";
 import MediumMobileAppProjectImages from "../components/projects/MediumMobileAppProjectImages";
+import ProjectListAndSkills from "../components/projects/responsive-layout-components/ProjectListAndSkills";
+import OverMediumLayout from "../components/projects/responsive-layout-components/OverMediumLayout";
+import MediumToLargeLayout from "../components/projects/responsive-layout-components/MediumToLargeLayout";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -81,226 +83,46 @@ const ProjectsDisplay = (): JSX.Element => {
 				onProjectClick={handleProjectClick}
 			/>
 			<div className='flex lg:flex-row flex-col items-start justify-start h-full min-h-[101vh] w-full'>
-				<div
-					className='flex flex-col justify-between min-w-[13.5vw] z-10 max-w-[13.5vw] h-full lg:mr-[3vw] lg:mt-[5.5vh] ]'
-					onMouseEnter={() => {
-						if (isImageContainerHovered) {
-							setIsImageContainerHovered(false);
-						}
-						return;
-					}}>
-					<ProjectList
-						selectedProject={selectedProject}
-						onProjectClick={handleProjectClick}
-					/>
-
-					<div className='hidden lg:flex sticky bottom-0'>
-						<ProjectSkillsComponent
-							selectedProject={selectedProject}
-							activeSection={activeSection}
-							isImageHovered={isImageContainerHovered}
-						/>
-					</div>
-				</div>
-
+				<ProjectListAndSkills
+					selectedProject={selectedProject}
+					handleProjectClick={handleProjectClick}
+					isImageContainerHovered={isImageContainerHovered}
+					setIsImageContainerHovered={setIsImageContainerHovered}
+					activeSection={activeSection}
+					setActiveSection={setActiveSection}
+				/>
 				<div
 					className={`relative flex flex-col h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen  overflow-x-hidden `}>
 					{/* HIDES BELOW md: */}
-					<div
-						onMouseEnter={() => setIsImageContainerHovered(false)}
-						className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto   `}
-						style={{
-							transition: "width 0.2s ease-in-out"
-						}}>
-						<ProjectAccordionWeb
-							selectedProject={selectedProject}
-							imageContainerHovered={isImageContainerHovered}
-							activeSection={activeSection}
-							setActiveSection={setActiveSection}
-							setIsImageContainerHovered={
-								setIsImageContainerHovered
-							}
-						/>
-						<div
-							className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
-								isImageContainerHovered
-									? "md:w-[43vw] md:translate-x-[0vw] w-auto"
-									: "md:w-[23vw] md:translate-x-[11vw] w-auto"
-							}`}
-							style={{
-								transition: "transform 0.2s ease-in-out"
-							}}
-							onMouseEnter={() =>
-								setIsImageContainerHovered(true)
-							}
-							onMouseLeave={() => {}}>
-							<div className='flex w-full justify-end items-center'>
-								<ImagesFormatSelector
-									selectedProject={selectedProject}
-									viewMode={viewMode}
-									setViewMode={setViewMode}
-									headerPosition={false}
-								/>
-							</div>
 
-							{selectedIndex === 0 || selectedIndex === 3 ? (
-								<div className='h-full w-full mx-auto justify-center items-center pl-4'>
-									<MobileImageContainer
-										hovered={isImageContainerHovered}
-										images={selectedProject.images.mobile}
-										currentImageIndex={currentImageIndex}
-									/>
-									<div className='w-full justify-end items-end'>
-										<ProjectImagePagination
-											hovered={isImageContainerHovered}
-											currentImageIndex={
-												currentImageIndex
-											}
-											totalImages={
-												selectedProject.images.mobile
-													.length
-											}
-											onPageChange={(index) =>
-												setCurrentImageIndex(index)
-											}
-											onPrevImage={() =>
-												setCurrentImageIndex(
-													(prevIndex) => prevIndex - 1
-												)
-											}
-											onNextImage={() =>
-												setCurrentImageIndex(
-													(prevIndex) => prevIndex + 1
-												)
-											}
-										/>
-									</div>
-								</div>
-							) : (
-								<div
-									className={`h-auto max-h-[80vh] overflow-y-hidden bg-pink-100 justify-center items-center transition-transform duration-300 ease-in-out ${
-										isImageContainerHovered
-											? "lg:absolute lg:left-0 lg:top-0 lg:w-full lg:h-full lg:translate-x-0 lg:z-20"
-											: "relative lg:min-w-[13vw] lg:translate-x-[0vw] w-auto flex"
-									}`}>
-									<WebsiteProjectImages
-										selectedProject={selectedProject}
-										images={
-											viewMode === "web"
-												? selectedProject.images.web
-												: selectedProject.images.mobile
-										}
-										currentImageIndex={currentImageIndex}
-									/>
-									<div className='w-full justify-end items-end'>
-										<ProjectImagePagination
-											hovered={isImageContainerHovered}
-											currentImageIndex={
-												currentImageIndex
-											}
-											totalImages={
-												selectedProject.images.mobile
-													.length
-											}
-											onPageChange={(index) =>
-												setCurrentImageIndex(index)
-											}
-											onPrevImage={() =>
-												setCurrentImageIndex(
-													(prevIndex) => prevIndex - 1
-												)
-											}
-											onNextImage={() =>
-												setCurrentImageIndex(
-													(prevIndex) => prevIndex + 1
-												)
-											}
-										/>
-									</div>
-								</div>
-							)}
-						</div>
-					</div>
+					<OverMediumLayout
+						setIsImageContainerHovered={setIsImageContainerHovered}
+						isImageContainerHovered={isImageContainerHovered}
+						selectedIndex={selectedIndex}
+						currentImageIndex={currentImageIndex}
+						setCurrentImageIndex={setCurrentImageIndex}
+						viewMode={viewMode}
+						setViewMode={setViewMode}
+						selectedProject={selectedProject}
+						activeSection={activeSection}
+						setActiveSection={setActiveSection}
+					/>
+
 					{/* md: screens to lg: screens  */}
-					<div
-						className={`hidden md:flex lg:hidden md:flex-col align-middle items-center justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto pb-[10vh]`}>
-						<div className='w-full mx-auto h-auto justify-center items-center align-middle'>
-							<MediumScreenProjectAccordion
-								selectedProject={selectedProject}
-								topAccordion={true}
-								activeSection={activeSection}
-								setActiveSection={setActiveSection}
-							/>
 
-							<div className='h-auto w-[100%] overflow-x-hidden py-10  bg-slate-800 bg-opacity-50  justify-evenly align-middle items-center'>
-								<div className=' flex flex-col justify-center h-full w-[100%] self-center align-top items-center overflow-x-scroll'>
-									<div className='w-[90%]'>
-										{selectedIndex === 0 ||
-										selectedIndex === 3 ? (
-											<MediumMobileAppProjectImages
-												images={
-													selectedProject.images[
-														viewMode
-													]
-												}
-												currentImageIndex={
-													currentImageIndex
-												}
-											/>
-										) : (
-											<div className='max-w-[90%] justify-center'>
-												<WebsiteProjectImages
-													images={
-														selectedProject.images[
-															viewMode
-														]
-													}
-													currentImageIndex={
-														currentImageIndex
-													}
-													selectedProject={
-														selectedProject
-													}
-												/>
-											</div>
-										)}
-									</div>
-									<ProjectImagePagination
-										hovered={true}
-										currentImageIndex={currentImageIndex}
-										totalImages={
-											selectedProject.images.mobile.length
-										}
-										onPageChange={(index) =>
-											setCurrentImageIndex(index)
-										}
-										onPrevImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex - 1
-											)
-										}
-										onNextImage={() =>
-											setCurrentImageIndex(
-												(prevIndex) => prevIndex + 1
-											)
-										}
-									/>
-								</div>
-							</div>
-						</div>
-
-						<MediumScreenProjectAccordion
-							selectedProject={selectedProject}
-							topAccordion={false}
-							activeSection={activeSection}
-							setActiveSection={setActiveSection}
-						/>
-						<div className='w-[100%] h-auto my-10 bg-slate-800 bg-opacity-50 border-tealAccent border-y-4'>
-							<MediumScreenProjectSkillsComponent
-								selectedProject={selectedProject}
-							/>
-						</div>
-					</div>
+					<MediumToLargeLayout
+						setIsImageContainerHovered={setIsImageContainerHovered}
+						isImageContainerHovered={isImageContainerHovered}
+						selectedIndex={selectedIndex}
+						currentImageIndex={currentImageIndex}
+						setCurrentImageIndex={setCurrentImageIndex}
+						viewMode={viewMode}
+						setViewMode={setViewMode}
+						selectedProject={selectedProject}
+						activeSection={activeSection}
+						setActiveSection={setActiveSection}
+					/>
+					{/* </div> */}
 					{/* HIDES at SCREEN ABOVE md:  */}
 					<MobileProjectLayout
 						selectedProject={selectedProject}

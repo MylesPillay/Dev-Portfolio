@@ -6,9 +6,11 @@ interface ProjectAccordionWebProps {
 	activeSection: string;
 	setActiveSection: (section: string) => void;
 	topAccordion: boolean;
+	screenSize?: string;
 }
 
 const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
+	screenSize,
 	selectedProject,
 	topAccordion,
 	activeSection,
@@ -122,7 +124,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 								: "text-emerald-400"
 						}`}
 						onClick={() => setActiveSection(section.title)}>
-						{section.title}{" "}
+						{section.title} {screenSize ?? "no screen size prop"}
 						<span className='text-orangeflame text-xl'>
 							{" "}
 							{activeSection !== section.title ? " ..." : ""}
