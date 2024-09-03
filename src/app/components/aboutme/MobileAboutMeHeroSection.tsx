@@ -5,7 +5,7 @@ import LinksComponent from "./LinksComponent";
 const MobileAboutMeHeroSection = () => {
 	return (
 		<div className='flex flex-col  h-full justify-center  py-8  w-full'>
-			<h1 className='text-4xl font-bold h-full items-center justify-center align-middle text-white  pl-6 '>
+			<h1 className='text-4xl font-bold h-full items-center justify-center align-middle text-emerald-200  pl-6 '>
 				MYLES PILLAY
 			</h1>
 
@@ -16,7 +16,7 @@ const MobileAboutMeHeroSection = () => {
 				</span>
 			</h3>
 
-			<div className='sticky top-0 bg-slate-800 bg-opacity-80 w-[105vw] p-4 pr-4  my-4 mb-10 border-t border-b border-orangeflame z-10'>
+			<div className='sticky top-0 bg-slate-800 bg-opacity-80 w-full p-4  px-6 my-4 mb-10 border-t border-b border-orangeflame z-10'>
 				<div className='w-full justify-center'>
 					<div className='flex flex-row flex-wrap w-auto   align-middle items-center justify-center '>
 						<h3 className=' text-2xl font-semibold text-emerald-200'>
@@ -35,29 +35,28 @@ const MobileAboutMeHeroSection = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-[100%] rounded-lg align-middle   justify-center items-center self-center h-full '>
+			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
 				<div
 					className={`
-									flex flex-grow justify-center   rounded-lg max-h-[40vh] h-auto py-6 mb-8 m-auto w-auto  overflow-y-hidden`}>
+									flex bg-green-200 justify-center rounded-lg h-auto max-h-[550px] flex-grow-0  w-[65%] mb-2 overflow-y-hidden`}>
 					<div
-						className={`h-full  rounded-lg mb-8
+						className={`h-full rounded-lg
 `}>
 						<Image
 							src={"/images/profile.jpg"}
 							className='rounded-lg'
 							alt={`Project screenshot `}
-							layout='responsive'
-							objectFit='cover'
+							objectFit=''
 							width={500}
-							height={1000}
-							style={{ maxHeight: 575, borderRadius: 10 }}
+							height={900}
+							style={{ maxHeight: 700, borderRadius: 10 }}
 							quality={100}
 						/>
 					</div>
 				</div>
 			</div>
 
-			<div className='flex flex-col justify-start my-8 items-center w-full h-auto '>
+			<div className='justify-center mt-14 items-center w-full h-auto '>
 				<LinksComponent mobileScreen={true} />
 			</div>
 			<div className='flex w-[80%] rounded-lg  justify-center items-center self-center h-full text-center '>

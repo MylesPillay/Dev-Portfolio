@@ -1,12 +1,11 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
+
 import SoftSkillsSection from "./components/aboutme/SoftSkillsComponent";
 import TechSkillsSection from "./components/aboutme/TechSkillsComponent";
 import LinksComponent from "./components/aboutme/LinksComponent";
 import AboutMeHeroSection from "./components/aboutme/AboutMeHeroSection";
 import AboutMeHeader from "./components/aboutme/AboutMeHeader";
-import MobileAboutMeHeroSection from "./components/aboutme/MobileBaoutMeHeroSection";
+import MobileAboutMeHeroSection from "./components/aboutme/MobileAboutMeHeroSection";
 import MobileTechSkillsSection from "./components/aboutme/MobileSkillsSections";
 import MobileSoftSkillsSection from "./components/aboutme/MobileSoftSkillsSection";
 
@@ -18,10 +17,10 @@ export default function Home() {
 					<div className='flex flex-col  w-full justify-start align-middle items-start '>
 						<div className='flex flex-col w-full h-auto rounded-lg items-start justify-start'>
 							<AboutMeHeader />
-							<div className='hidden md:flex w-[90%]'>
+							<div className='hidden md:flex w-[100%]'>
 								<AboutMeHeroSection />
 							</div>
-							<div className='md:hidden flex w-[90%]'>
+							<div className='md:hidden flex w-[100%]'>
 								<MobileAboutMeHeroSection />
 							</div>
 						</div>
