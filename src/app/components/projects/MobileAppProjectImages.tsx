@@ -20,6 +20,7 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 									flex flex-row justify-apart  h-[70%] w-full overflow-x-scroll`}>
 				{images.map((image, index) => (
 					<div
+						key={index}
 						className={`w-[27vh] flex-shrink-0 pr-3
 					transition-transform duration-300`}
 						style={{

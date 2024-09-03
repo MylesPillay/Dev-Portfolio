@@ -52,6 +52,7 @@ const MediumMobileAppProjectImages: React.FC<
 			<div className='flex flex-row space-x-4  justify-between  align-top items-start transition-transform duration-300'>
 				{images.map((image, index) => (
 					<div
+						key={index}
 						className={` justify-center flex-grow flex-shrink-0
 							 ${smallMobileScreen ? " w-[49.5%] max-h-[60vh] min-h-[35vh]" : " w-[48%]"}  `}
 						style={{
