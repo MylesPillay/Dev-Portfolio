@@ -1,7 +1,4 @@
 "use client";
-
-import SoftSkillsSection from "./components/aboutme/SoftSkillsComponent";
-import TechSkillsSection from "./components/aboutme/TechSkillsComponent";
 import LinksComponent from "./components/aboutme/LinksComponent";
 import AboutMeHeroSection from "./components/aboutme/AboutMeHeroSection";
 import AboutMeHeader from "./components/aboutme/AboutMeHeader";
@@ -13,10 +10,10 @@ export default function Home() {
 	return (
 		<div className='bg-projects-gradient lg:h-screen h-full w-full overflow-x-hidden lg:overflow-y-hidden  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
 			<div className='flex flex-col justify-between w-full'>
+				<AboutMeHeader />
 				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly  '>
 					<div className='flex flex-col  w-full justify-start align-middle items-start '>
 						<div className='flex flex-col w-full h-auto rounded-lg items-start justify-start'>
-							<AboutMeHeader />
 							<div className='hidden md:flex w-[100%]'>
 								<AboutMeHeroSection />
 							</div>

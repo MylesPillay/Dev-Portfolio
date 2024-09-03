@@ -7,6 +7,7 @@ import useDeviceScreenSize from "@/app/hooks/useDeviceScreenSize";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBars, FaXing } from "react-icons/fa";
+import MobileBurgerMenu from "../layout/MobileBurgerMenu";
 
 interface ProjectsHeaderProps {
 	selectedProject: Project;
@@ -33,7 +34,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 
 	return (
 		<div
-			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-10 pb-4 bg-project-title-gradient bg-opacity-100  z-50 '
+			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-8 pb-4 bg-project-title-gradient bg-opacity-100  z-50 '
 			onMouseEnter={() => {
 				if (isImageContainerHovered) {
 					setIsImageContainerHovered(false);
@@ -52,7 +53,12 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 						PROJECTS
 					</h1>
 				</button>
-				<div className='fixed  top-4 z-50'>
+				<MobileBurgerMenu
+					setProjectsMenuOpen={setProjectsMenuOpen}
+					mobileMenuOpen={mobileMenuOpen}
+					setMobileMenuOpen={setMobileMenuOpen}
+				/>
+				{/* <div className='fixed  top-4 z-50'>
 					{projectsMenuOpen && (
 						<div className=' fixed left-0 inset-0 p-6 h-auto max-h-[32vh] max-w-[300px] w-[60%]  bg-deepBlueBg z-40 border-emerald-200 border-x border-b'>
 							<div className='flex flex-col items-start pb-2 h-[10%]'>
@@ -88,7 +94,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 							</div>
 						</div>
 					)}
-				</div>
+				</div> */}
 
 				{/* Conditional Rendering of Project List */}
 			</div>
@@ -97,7 +103,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[8vw]  text-white'>
 				{selectedProject.name.toUpperCase()}
 			</h1>
-			<div className='md:hidden fixed top-8 right-4 z-50'>
+			{/* <div className='md:hidden fixed top-8 right-4 z-50'>
 				<button
 					onClick={() => {
 						setMobileMenuOpen(!mobileMenuOpen);
@@ -129,7 +135,12 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 						</div>
 					</div>
 				)}
-			</div>
+			</div> */}
+			<MobileBurgerMenu
+				setProjectsMenuOpen={setProjectsMenuOpen}
+				mobileMenuOpen={mobileMenuOpen}
+				setMobileMenuOpen={setMobileMenuOpen}
+			/>
 
 			{/* Image Format Selector */}
 			<ImagesFormatSelector
