@@ -38,10 +38,8 @@ const MobileAboutMeHeroSection = () => {
 			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
 				<div
 					className={`
-									flex bg-green-200 justify-center rounded-lg h-auto max-h-[550px] flex-grow-0  w-[65%] mb-2 overflow-y-hidden`}>
-					<div
-						className={`h-full rounded-lg
-`}>
+								flex bg-green-200 justify-center rounded-lg h-auto max-h-[550px] flex-grow-0  w-[65%] mb-2 overflow-y-hidden`}>
+					<div className={`h-full rounded-lg`}>
 						<Image
 							src={"/images/profile.jpg"}
 							className='rounded-lg'
