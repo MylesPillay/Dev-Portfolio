@@ -36,7 +36,7 @@ export default function RootLayout({
 						)}
 					</button>
 					{mobileMenuOpen && (
-						<div className='sm:hidden fixed right-0 inset-0 p-8 h-[38vh] w-[50%] ml-[50%] bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>
+						<div className='sm:hidden fixed top-0 right-0  p-8 h-auto w-[50%]  bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>
 							<div className='flex flex-col items-start p-2 h-[10%]'>
 								{[
 									{ href: "/contact", label: "CONTACT" },

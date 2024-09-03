@@ -4,6 +4,9 @@ import { Project } from "./ProjectsObject";
 import projects from "./ProjectsObject";
 import ImagesFormatSelector from "./ImagesFormatSelector";
 import useDeviceScreenSize from "@/app/hooks/useDeviceScreenSize";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaBars, FaXing } from "react-icons/fa";
 
 interface ProjectsHeaderProps {
 	selectedProject: Project;
@@ -26,6 +29,8 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 
 	const [width, height] = useDeviceScreenSize();
 
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 	return (
 		<div
 			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-10 pb-4 bg-project-title-gradient bg-opacity-100  z-50 '
@@ -37,22 +42,25 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			{/* PROJECTS Button */}
 			<div className='flex flex-col justify-between w-auto '>
 				<button
-					onClick={() => setProjectsMenuOpen(!projectsMenuOpen)}
+					onClick={() => {
+						setProjectsMenuOpen(!projectsMenuOpen);
+						setMobileMenuOpen(false);
+					}}
 					className='lg:pointer-events-none lg:cursor-default'
 					disabled={width >= 1100}>
-					<h1 className='text-2xl font-bold text-left w-auto   ml-4   sm:ml-0 justify-start h-auto align-text-bottom  text-orangeflame '>
+					<h1 className='text-2xl font-bold text-left w-[10vw]   ml-4   sm:ml-0 justify-start h-auto align-text-bottom  text-orangeflame '>
 						PROJECTS
 					</h1>
 				</button>
 				<div className='fixed  top-4 z-50'>
 					{projectsMenuOpen && (
-						<div className=' fixed left-0 inset-0 p-8 h-[38vh] w-[50%] ml-[10.7vw] bg-deepBlueBg z-40 border-emerald-200 border-x border-b'>
-							<div className='flex flex-col items-start p-2 h-[10%]'>
-								<ul className='flex flex-col font-medium w-full pl-2 pt-2'>
+						<div className=' fixed left-0 inset-0 p-6 h-auto max-h-[32vh] max-w-[300px] w-[60%]  bg-deepBlueBg z-40 border-emerald-200 border-x border-b'>
+							<div className='flex flex-col items-start pb-2 h-[10%]'>
+								<ul className='flex pt-6 flex-col font-medium w-full  '>
 									{projects.map((project, index) => (
 										<li
 											key={index}
-											className={`cursor-pointer mb-2text-left md:text-lg text-md ${
+											className={`cursor-pointer mb-2 text-left md:text-lg text-md ${
 												selectedProject.name ===
 												project.name
 													? "text-white font-bold md:text-xl text-lg"
@@ -69,7 +77,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 									))}
 
 									<li
-										className='cursor-pointer mb-2 text-right text-lg text-orangeflame font-bold
+										className='cursor-pointer  mt-2 text-right text-lg text-orangeflame font-bold
 												 hover:text-white hover:text-opacity-80 '
 										onClick={() =>
 											setProjectsMenuOpen(false)
@@ -89,6 +97,39 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full text-left max-w-[90vw] ml-[8vw]  text-white'>
 				{selectedProject.name.toUpperCase()}
 			</h1>
+			<div className='md:hidden fixed top-8 right-4 z-50'>
+				<button
+					onClick={() => {
+						setMobileMenuOpen(!mobileMenuOpen);
+						setProjectsMenuOpen(false);
+					}}
+					className='flex flex-col items-center justify-center text-emerald-200 p-2 rounded-md'>
+					{mobileMenuOpen ? (
+						<FaXing className='z-50' size={30} />
+					) : (
+						<FaBars size={30} />
+					)}
+				</button>
+				{mobileMenuOpen && (
+					<div className='sm:hidden fixed top-0 right-0  p-8 h-auto w-[50%]  bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>
+						<div className='flex flex-col items-start p-2 h-[10%]'>
+							{[
+								{ href: "/contact", label: "CONTACT" },
+								{ href: "/projects", label: "PROJECTS" },
+								{ href: "/", label: "ABOUT ME" }
+							].map((item) => (
+								<Link
+									key={item.href}
+									href={item.href}
+									className='text-orangeflame text-xl text-left font-semibold my-4'
+									onClick={() => setMobileMenuOpen(false)}>
+									{item.label}
+								</Link>
+							))}
+						</div>
+					</div>
+				)}
+			</div>
 
 			{/* Image Format Selector */}
 			<ImagesFormatSelector
