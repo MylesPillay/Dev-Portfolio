@@ -22,8 +22,8 @@ export default function Contact() {
 		useState<boolean>(false);
 
 	return (
-		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden sm:overflow-y-visible m-none  pr-0  border-0 sm:border-l-[0.5px] border-orangeflame '>
-			<div className='sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-10 pb-4 bg-project-title-gradient bg-opacity-100  z-50'>
+		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden lg:overflow-y-hidden sm:overflow-y-visible m-none  pr-0  border-0 sm:border-l-[0.5px] border-orangeflame  '>
+			<div className='sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-10 pb-4 bg-project-title-gradient bg-opacity-100 border-b sm:border-0 border-orangeflame z-50'>
 				<div className='flex flex-row flex-1 justify-between w-auto'>
 					<h1 className='text-2xl font-bold text-left w-[10vw]  ml-4   sm:ml-0 justify-start h-auto text-orangeflame'>
 						CONTACT

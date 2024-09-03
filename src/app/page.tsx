@@ -23,7 +23,7 @@ export default function Home() {
 							{/* <div className='lg:hidden flex w-[100%]'>
 								<MobileAboutMeHeroSection />
 							</div> */}
-							<div className=' sm:my-8 md:my-2 w-full'>
+							<div className='hidden md:flex sm:my-8 md:my-2 w-full'>
 								<LinksComponent mobileScreen={false} />
 							</div>
 						</div>
