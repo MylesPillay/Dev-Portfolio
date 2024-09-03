@@ -12,9 +12,9 @@ interface AnimatedTextProps {
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({
 	texts,
-	interval = 3000,
-	animationDuration = 400,
-	baseClassName = "md:text-xl lg:text-2xl font-semibold",
+	interval,
+	animationDuration,
+	baseClassName,
 	colourFlip,
 	textContent
 }) => {
@@ -46,13 +46,13 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 
 	return (
 		<div
-			className={`flex flex-wrap flex-1  items-center text-wrap ${
+			className={`flex flex-wrap mx-auto flex-1  items-center text-wrap ${
 				colourFlip ? "text-right " : "text-center"
 			}`}>
 			{/* Animated text with fade effect */}
 			<span className='flex-1 justify-center items-center'>
 				<span
-					className={` transition-opacity  ${
+					className={`flex-nowrap w-[10vw] transition-opacity  ${
 						isFading ? "opacity-0" : "opacity-100"
 					} ${baseClassName}  ${textColorClass(currentIndex)}
 
@@ -63,7 +63,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 					{texts[currentIndex]}
 				</span>
 				{textContent && (
-					<span className=' text-white ml-2 text-lg '>
+					<span className=' text-white ml-2 flex-1 text-xl font-semibold '>
 						{textContent}
 					</span>
 				)}
