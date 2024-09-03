@@ -12,16 +12,16 @@ const AboutMeHeader = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<div className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full pt-10 pb-4 ]bg-project-title-gradient bg-opacity-100  z-50 '>
+		<div className=' sticky top-0 flex flex-grow flex-row md:pl-8 sm:pl-6 pl-0 bg-project-title-gradient bg-opacity-100  justify-start items-baseline align-bottom w-full pt-10 pb-2 ]bg-project-title-gradient border-b border-orangeflame  z-50 '>
 			<div className='flex flex-row justify-between w-auto '>
-				<h1 className='text-2xl font-bold text-left w-auto  ml-4   sm:ml-0 justify-start h-auto min-w-[10vw]  pb-4  mb  pt-1 align-text-bottom  text-orangeflame '>
+				<h1 className='text-2xl font-bold text-left w-auto  ml-6  sm:ml-0 justify-start h-auto min-w-[18vw]  pb-4  mb  pt-1 align-text-bottom  text-orangeflame '>
 					ABOUT ME
 				</h1>
 
 				{/* Conditional Rendering of Project List */}
 
 				{/* Project Name Field */}
-				<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden  justify-start w-full align-text-top text-left min-w-[70%] text-white'>
+				<h1 className='text-4xl font-bold md:flex sm:flex-grow hidden ml-4 justify-start w-full align-text-top text-left min-w-[70%] text-white'>
 					MYLES PILLAY
 				</h1>
 				<div className='md:hidden fixed top-8 right-4 z-50'>

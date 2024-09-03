@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className='flex min-h-screen min-w-screen p-0'>
-				<div className='md:hidden fixed top-4 right-4 z-50'>
+				{/* <div className='md:hidden fixed top-4 right-4 z-50'>
 					<button
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
 						className='flex flex-col items-center justify-center text-emerald-200 p-2 rounded-md'>
@@ -56,7 +56,7 @@ export default function RootLayout({
 							</div>
 						</div>
 					)}
-				</div>
+				</div> */}
 
 				<nav className='hidden md:flex flex-wrap sm:flex-col h-full md:w-auto md:max-w-[350px] md:min-w-[130px]   text-black font-bold md:text-justify md:justify-center md:align-top md:items-center'>
 					<ul className='md:flex md:flex-row h-full w-full max-w-[150px] text-white bg-nav-gradient pr-1'>
