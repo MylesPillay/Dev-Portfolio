@@ -8,7 +8,7 @@ import MobileSoftSkillsSection from "./components/aboutme/MobileSoftSkillsSectio
 
 export default function Home() {
 	return (
-		<div className='bg-projects-gradient lg:h-screen h-full w-full overflow-x-hidden lg:overflow-y-hidden  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
+		<div className='bg-projects-gradient lg:h-screen h-screen w-full overflow-x-hidden lg:overflow-y-scroll  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
 			<div className='flex flex-col justify-between w-full'>
 				<AboutMeHeader />
 				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly  '>
@@ -23,7 +23,7 @@ export default function Home() {
 							{/* <div className='lg:hidden flex w-[100%]'>
 								<MobileAboutMeHeroSection />
 							</div> */}
-							<div className='my-8 w-full'>
+							<div className=' sm:my-8 md:my-2 w-full'>
 								<LinksComponent mobileScreen={false} />
 							</div>
 						</div>

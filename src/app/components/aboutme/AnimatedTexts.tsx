@@ -63,7 +63,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 					{texts[currentIndex]}
 				</span>
 				{textContent && (
-					<span className=' text-white ml-2 flex-1 text-xl font-semibold '>
+					<span className=' text-white ml-2 flex-1 text-xl font-light '>
 						{textContent}
 					</span>
 				)}

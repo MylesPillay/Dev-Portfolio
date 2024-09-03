@@ -4,20 +4,20 @@ import AnimatedText from "./AnimatedTexts";
 
 const AboutMeHeroSection = () => {
 	return (
-		<div className='flex w-full h-full justify-center p-10'>
+		<div className='flex w-full h-auto justify-center p-10'>
 			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
 				<div
 					className={`
-								flex bg-green-200 justify-center rounded-lg h-auto max-h-[550px] flex-grow-0  w-[65%] mb-2 overflow-y-hidden`}>
-					<div className={`h-full rounded-lg`}>
+								flex flex-2 bg-green-200 justify-end rounded-lg h-auto max-h-[50vh] flex-grow-0 ml-[5vw] w-[100%] mb-2 overflow-y-hidden`}>
+					<div className={`h-full justify-end rounded-lg`}>
 						<Image
 							src={"/images/profile.jpg"}
 							className='rounded-lg'
 							alt={`Project screenshot `}
 							objectFit=''
-							width={500}
+							width={240}
 							height={1000}
-							style={{ maxHeight: 800, borderRadius: 10 }}
+							style={{ maxHeight: "62vh", borderRadius: 10 }}
 							quality={100}
 						/>
 					</div>
@@ -30,7 +30,7 @@ const AboutMeHeroSection = () => {
 
 			{/* <div className='flex flex-col justify-center= items-center w-full h-auto lg:w-[55%] lg:h-[35vh] lg:mr-[15%] lg:mt-[10%]'>
 				<div className='lg:h-[100%] h-auto p-8 w-full min-w-[100%]'> */}
-			<div className='flex w-auto flex-1 h-full lg:max-w-[50%]justify-center items-center py-8 px-4'>
+			<div className='flex w-auto flex-1  h-full lg:max-w-[70%] justify-center items-center py-8 px-[10vw]'>
 				<div
 					className={`
 					 justify-center `}>
@@ -40,16 +40,16 @@ const AboutMeHeroSection = () => {
 							texts={["Full Stack", "React Native"]}
 							interval={2500}
 							animationDuration={200}
-							baseClassName='md:text-3xl lg:text-4xl xl:text-5xl text-2xl font-semibold w-full w-full min-w-[100%] flex-grow text-center lg:text-right '
+							baseClassName='md:text-3xl lg:text-4xl xl:text-5xl text-2xl font-light w-full w-full min-w-[100%] flex-grow text-center lg:text-right '
 							containerClassName='h-auto  mr-1 w-auto lg:text-right  pr-2'
 							colourFlip
 						/>
 
-						<h3 className='md:text-3xl lg:text-5xl text-3xl text-wrap flex-1 text-left font-medium text-white '>
+						<h3 className='md:text-3xl lg:text-5xl text-3xl text-wrap flex-1 text-left font-thin text-white '>
 							Developer
 						</h3>
 					</div>
-					<div className='flex flex-row flex-grow flex-wrap w-full min-w-[100%] mx-auto align-middle items-center justify-center  mx-auto my-8'>
+					<div className='flex flex-row flex-grow flex-wrap w-full min-w-[100%] mx-auto align-middle items-center justify-center  my-8'>
 						<AnimatedText
 							texts={[
 								"Versatile",
@@ -61,20 +61,20 @@ const AboutMeHeroSection = () => {
 							]}
 							interval={2500}
 							animationDuration={200}
-							baseClassName='md:text-2xl lg:text-3xl text-xl font-semibold '
+							baseClassName='md:text-2xl lg:text-3xl text-xl font-light '
 							containerClassName='h-auto  align-top items-start  mr-1 w-auto max-w-[11rem] '
 							textContent='dev with 2+ years experience creating scalable high-impact applications.'
 						/>
 					</div>
 
-					<h3 className='md:text-xl lg:text-2xl text-lg text-wrap flex-1 text-center font-medium text-white '>
+					<h3 className='md:text-xl lg:text-2xl text-lg text-wrap flex-1 text-center font-thin text-white '>
 						Whether a sophisticated
-						<span className='text-emerald-200 font-semibold'>
+						<span className='text-emerald-200 font-light'>
 							{" "}
 							web platform{" "}
 						</span>
 						or cutting-edge{" "}
-						<span className='text-orangeflame font-semibold'>
+						<span className='text-orangeflame font-light'>
 							{" "}
 							mobile app
 						</span>
@@ -82,7 +82,7 @@ const AboutMeHeroSection = () => {
 					</h3>
 					<div className='flex flex-row justify-end items-center w-full h-auto '>
 						<Link
-							className='justify-center items-center self-center w-auto mx-auto p-2 px-8  mt-[7vh] rounded-lg  bg-orangeflame  text-white border border-white lg:text-lg text-md font-bold  hover:bg-opacity-80'
+							className='justify-center items-center self-center w-auto mx-auto p-2 px-8  mt-[7vh] rounded-lg  bg-orangeflame  text-white border border-white lg:text-lg text-md font-medium  hover:bg-opacity-80'
 							href={"/projects"}>
 							LEARN MORE
 						</Link>

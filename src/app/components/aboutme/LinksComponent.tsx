@@ -109,12 +109,12 @@ const LinksComponent: React.FC<{ mobileScreen: boolean }> = ({
 	const iconSize = mobileScreen ? 28 : 30;
 
 	return (
-		<div className='bg-slate-800 bg-opacity-50 h-[100%] py-4 border-t border-b border-orangeflame w-full'>
-			<div className='flex flex-row w-full space-x-2   items-start justify-around px-6'>
-				<h2 className='text-2xl font-semibold  text-orangeflame pt-7 h-full lg:mb-0'>
+		<div className='bg-slate-800 bg-opacity-50 h-[100%] py-4 md:py-0 border-t border-b border-orangeflame w-full'>
+			<div className='flex flex-row w-full space-x-2 justify-around  items-center lg:justify-start px-6 lg:px-4'>
+				<h2 className='text-2xl font-semibold  text-orangeflame align-baseline h-full lg:mb-0 lg:mr-20'>
 					Links:
 				</h2>
-				<div className='flex flex-wrap justify-center  py-6 gap-4 snap-always align-baseline  '>
+				<div className='flex flex-wrap justify-center  py-6 lg:py-4 gap-4 lg:gap-8  snap-always align-baseline  '>
 					<IconLink
 						href='https://linkedin.com/in/myles-pillay-361868123'
 						icon={<FaLinkedin size={iconSize} />}
