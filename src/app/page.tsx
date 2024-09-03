@@ -23,6 +23,12 @@ export default function Home() {
 							<div className='md:hidden flex w-[100%]'>
 								<MobileAboutMeHeroSection />
 							</div>
+							{/* <div className='lg:hidden flex w-[100%]'>
+								<MobileAboutMeHeroSection />
+							</div> */}
+							<div className='my-8 w-full'>
+								<LinksComponent mobileScreen={false} />
+							</div>
 						</div>
 						<MobileTechSkillsSection />
 
@@ -30,15 +36,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className='flex flex-col justify-start items-center w-full h-auto lg:w-[55%] lg:h-[35vh] lg:mr-[15%] lg:mt-[10%]'>
-					<div className='hidden md:flex '>
-						<LinksComponent mobileScreen={false} />
+				{/* <TechSkillsSection />
 
-						<TechSkillsSection />
-
-						<SoftSkillsSection />
-					</div>
-				</div>
+						<SoftSkillsSection /> */}
 			</div>
 		</div>
 	);
