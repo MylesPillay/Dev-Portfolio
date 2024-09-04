@@ -34,6 +34,7 @@ const LargeScreenWebsiteProjectImages: React.FC<
 };
 
 export default LargeScreenWebsiteProjectImages;
+
 // "use client";
 // import React, { useState, useEffect } from "react";
 // import Image from "next/image";
