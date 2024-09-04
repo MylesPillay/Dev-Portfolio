@@ -57,7 +57,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 			{/* Animated text with fade effect */}
 			<span className='flex-1 justify-center items-center'>
 				<span
-					className={`flex-nowrap w-auto transition-opacity  ${
+					className={`flex-nowrap text-nowrap w-auto transition-opacity  ${
 						isFading ? "opacity-0" : "opacity-100"
 					} ${baseClassName}  ${textColorClass(currentIndex)}
 

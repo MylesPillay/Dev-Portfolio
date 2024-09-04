@@ -34,18 +34,31 @@ const AboutMeHeroSection = () => {
 				<div
 					className={`
 					 justify-center `}>
-					{/* <div className={`h-full`}></div> */}
-					<div className='flex md:flex-row sm:flex-col lg:flex-row flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
-						<AnimatedText
-							texts={["Full Stack", "React Native"]}
-							interval={3000}
-							animationDuration={500}
-							baseClassName='md:text-3xl lg:text-4xl xl:text-5xl text-2xl font-light w-full w-full min-w-[100%] flex-grow text-center lg:text-right '
-							containerClassName='h-auto  mr-1 lg:w-auto lg:text-right  pr-2'
-							colourFlip
-						/>
-
-						<h3 className='md:text-3xl lg:text-4xl xl:text-5xl text-wrap flex-1 text-left font-thin text-white '>
+					<div className='flex flex-row flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
+						<div
+							className={`flex flex-wrap   items-center text-wrap text-center
+							`}>
+							<span className='flex-1 justify-center items-center'>
+								<span
+									className={`flex-wrap text-wrap w-auto transition-opacity  md:text-3xl lg:text-4xl xl:text-3xl text-2xl font-light  flex-grow text-center lg:text-center text-emerald-200
+					`}>
+									React Native
+								</span>
+							</span>
+						</div>
+						<div className=' text-white text-3xl'>/</div>
+						<div
+							className={`flex flex-wrap   items-center text-wrap text-center
+							`}>
+							<span className='flex-1 justify-center items-center'>
+								<span
+									className={`flex-nowrap text-wrap w-auto transition-opacity  md:text-3xl lg:text-4xl xl:text-3xl text-2xl font-light  flex-grow text-center lg:text-center text-orangeflame
+					`}>
+									Full Stack
+								</span>
+							</span>
+						</div>
+						<h3 className='md:text-3xl lg:text-4xl xl:text-5xl text-wrap  text-center font-thin text-white '>
 							Developer
 						</h3>
 					</div>
