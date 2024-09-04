@@ -17,11 +17,11 @@ const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 			style={{
 				borderLeft: "none"
 			}}>
-			<h2 className='lg:text-lg text-md text- font-bold mb-3 text-orangeflame'>
+			<h2 className='md:text-xl  text-lg font-medium mb-3 text-orangeflame'>
 				Skills / CodeStack
 			</h2>
 
-			<ul className={` flex flex-wrap text-center  text-md font-medium`}>
+			<ul className={` flex flex-wrap text-center  text-md font-thin`}>
 				{selectedProject.skills.map((skill, index) => (
 					<li
 						key={index}

@@ -70,7 +70,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 
 	const renderContent = (section: any) => {
 		if (typeof section.content === "string") {
-			return <p>{section.content}</p>;
+			return <div className='font-thin'>{section.content}</div>;
 		}
 
 		if (section.title === "Tech Stack") {
@@ -78,10 +78,10 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 				<div
 					key={index}
 					className='flex flex-col px-6 pl-5 justify-start align-top items-start pb-2 text-white'>
-					<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+					<div className='text-lg mb-2 font-light pr-2 text-emerald-200 w-auto'>
 						{item.title}
 					</div>
-					<div>{item.item}</div>
+					<div className='font-thin'>{item.item}</div>
 				</div>
 			));
 		}
@@ -91,7 +91,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 				<div
 					key={index}
 					className='flex flex-col px-6 pl-5 justify-start align-top items-start pb-2 text-white'>
-					<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+					<div className='text-lg mb-2 font-light pr-2 text-emerald-200 w-auto'>
 						{item.split(": ")[0]}
 					</div>
 					<div>{item.split(": ")[1]}</div>
@@ -118,7 +118,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 							: ""
 					}`}>
 					<button
-						className={`w-full md:text-left text-justify text-2xl p-4 py-2 font-semibold ${
+						className={`w-full md:text-left text-justify text-2xl p-4 py-2 font-light ${
 							activeSection === section.title
 								? "text-orangeflame"
 								: "text-emerald-400"
@@ -131,7 +131,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 						</span>
 					</button>
 					{activeSection === section.title && (
-						<div className='p-4 text-white justify-start ml-[2vw] md:w-[80%] w-[100%]'>
+						<div className='p-4 text-white font-thin justify-start ml-[2vw] md:w-[80%] w-[100%]'>
 							{renderContent(section)}
 						</div>
 					)}
