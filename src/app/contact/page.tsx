@@ -39,7 +39,7 @@ export default function Contact() {
 				<TaglineText />
 
 				<h3 className='md:text-xl lg:text-2xl text-lg text-wrap text-center font-thin text-white pb-12  w-[80%]  mx-12 flex-grow-0 justify-center '>
-					Whether it's a sophisticated
+					Whether its a sophisticated
 					<span className='text-emerald-200 font-light'>
 						{" "}
 						web platform{" "}
