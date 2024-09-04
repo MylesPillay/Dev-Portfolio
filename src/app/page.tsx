@@ -5,11 +5,13 @@ import AboutMeHeader from "./components/aboutme/AboutMeHeader";
 import MobileAboutMeHeroSection from "./components/aboutme/MobileAboutMeHeroSection";
 import MobileTechSkillsSection from "./components/aboutme/MobileSkillsSections";
 import MobileSoftSkillsSection from "./components/aboutme/MobileSoftSkillsSection";
+import { useState } from "react";
 
 export default function Home() {
+	const [singularExpansion, setSingularExpansion] = useState("none");
 	return (
 		<div className='bg-projects-gradient lg:h-screen h-screen w-full overflow-x-hidden lg:overflow-y-scroll  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
-			<div className='flex flex-col xjustify-between w-full'>
+			<div className='flex flex-col justify-between w-full'>
 				<AboutMeHeader />
 				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly  '>
 					<div className='flex flex-col  w-full justify-start align-middle items-start '>
@@ -27,9 +29,15 @@ export default function Home() {
 								<LinksComponent mobileScreen={false} />
 							</div>
 						</div>
-						<MobileTechSkillsSection />
+						<MobileTechSkillsSection
+							singularExpansion={singularExpansion}
+							setSingularExpansion={setSingularExpansion}
+						/>
 
-						<MobileSoftSkillsSection />
+						<MobileSoftSkillsSection
+							singularExpansion={singularExpansion}
+							setSingularExpansion={setSingularExpansion}
+						/>
 					</div>
 				</div>
 

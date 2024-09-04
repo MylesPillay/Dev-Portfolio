@@ -1,7 +1,13 @@
 "use  client";
 import { useState } from "react";
 
-const MobileTechSkillsSection = () => {
+const MobileTechSkillsSection = ({
+	singularExpansion,
+	setSingularExpansion
+}: {
+	singularExpansion: string;
+	setSingularExpansion: React.Dispatch<React.SetStateAction<string>>;
+}) => {
 	const [isHovered, setIsHovered] = useState(false);
 
 	const techSkills = [
@@ -59,11 +65,17 @@ const MobileTechSkillsSection = () => {
 		<button
 			className={`w-full  justify-between h-auto p-4 border-t border-b border-orangeflame overflow-hidden transition-all duration-300 ease-in-out ${
 				isHovered
-					? "pb-2 bg-deepBlueBg bg-opacity-100"
+					? "pb-2 -translate-y-[8vh] bg-deepBlueBg bg-opacity-100"
 					: "bg-slate-800 bg-opacity-50"
 			}`}
-			onClick={() => setIsHovered(!isHovered)}>
-			<h2 className='text-xl  mr-8 font-medium text-left  text-emerald-200 pb-2'>
+			onClick={() => {
+				if (isHovered) {
+					return setSingularExpansion("none"), setIsHovered(false);
+				}
+				setSingularExpansion("tech");
+				setIsHovered(true);
+			}}>
+			<h2 className='text-xl  mr-8 font-light text-left  text-emerald-200'>
 				Tech Skills:
 				{!isHovered && (
 					<span className='text-emerald-600  ml-8 text-right font-light'>
@@ -73,12 +85,14 @@ const MobileTechSkillsSection = () => {
 			</h2>
 			<div
 				className={
-					isHovered ? "flex flex-wrap text-left py-6" : "hidden"
+					isHovered && singularExpansion === "tech"
+						? "flex flex-wrap text-left py-4"
+						: "hidden"
 				}>
 				{techSkills.map((skill, index) => (
 					<span
 						key={index}
-						className=' text-wrap  text-white text-md font-semibold mr-3 mb-2'>
+						className=' text-wrap  text-white text-md font-thin mr-3 mb-2'>
 						{skill}
 						{index < techSkills.length - 1 ? "," : ""}
 					</span>

@@ -66,7 +66,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 				<div
 					key={index}
 					className='flex flex-col px-6 pl-5 justify-start align-top items-start pb-2 text-white'>
-					<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+					<div className='text-lg mb-2 font-light pr-2 text-emerald-200 w-auto'>
 						{item.title}
 					</div>
 					<div>{item.item}</div>
@@ -79,7 +79,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 				<div
 					key={index}
 					className='flex flex-col px-6 pl-5 justify-start align-top items-start pb-2 text-white'>
-					<div className='text-lg mb-2 font-semibold pr-2 text-emerald-200 w-auto'>
+					<div className='text-lg mb-2 font-light pr-2 text-emerald-200 w-auto'>
 						{item.split(": ")[0]}
 					</div>
 					<div>{item.split(": ")[1]}</div>
@@ -119,7 +119,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 							: ""
 					}`}>
 					<button
-						className={`w-full text-left text-2xl p-4 py-2 font-semibold ${
+						className={`w-full text-left text-2xl p-4 py-2 font-light ${
 							activeSection === section.title
 								? "text-orangeflame"
 								: "text-emerald-400"
@@ -132,7 +132,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 						</span>
 					</button>
 					{activeSection === section.title && (
-						<div className='p-4 text-white'>
+						<div className='p-4 text-white font-thin text-xl'>
 							{renderContent(section)}
 						</div>
 					)}

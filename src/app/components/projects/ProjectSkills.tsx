@@ -35,7 +35,7 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 	return (
 		<div className='md:flex hidden flex-row space-between justify-end align-bottom item '>
 			<div
-				className={`flex flex-col w-full h-[20vh] z-20 pl-8 justify-center pr-2 py-[3vh] rounded-r-lg border-black border-opacity-50   ${
+				className={`flex flex-col w-full h-auto z-20 pl-8 justify-center pr-2 py-[3vh] rounded-r-lg border-black border-opacity-50   ${
 					isHovered ||
 					(!isImageHovered &&
 						!isHovered &&
@@ -56,29 +56,35 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 				}}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
-				<h2 className='md:text-xl text-lg text-left font-bold mb-3 text-white'>
+				<h2 className='text-lg text-left font-medium mb-3 text-white'>
 					Skills / CodeStack
 				</h2>
 
 				<ul
-					className={`flex flex-wrap  text-left  justify-start md:text-lg text-md font-medium`}>
-					{selectedProject.skills.map((skill, index) => (
-						<li
-							key={index}
-							className={`mb-2 mr-4  text-emerald-200 ${
-								isHovered ||
-								(!isImageHovered &&
-									!isHovered &&
-									activeSection == "Overview") ||
-								(!isHovered && activeSection == "Objectives")
-									? "text-justify"
-									: !isHovered && index >= 2
-									? "hidden"
-									: "text-justify"
-							}`}>
-							{skill} {index <= 2 && !isHovered ? " ..." : ""}
-						</li>
-					))}
+					className={`flex flex-wrap  text-left  justify-start md:text-lg text-md font-light`}>
+					{(!isImageHovered &&
+						!isHovered &&
+						activeSection == "Overview") ||
+					(!isHovered && activeSection == "Objectives") ||
+					isHovered
+						? selectedProject.skills.map((skill, index) => (
+								<li
+									key={index}
+									className={`mb-2 mr-4  text-emerald-200 text-justify`}>
+									{skill}
+								</li>
+						  ))
+						: selectedProject.skills
+								.slice(0, 2)
+								.map((skill, index) => (
+									<li
+										key={index}
+										className={`mb-2 mr-4  text-emerald-200
+									 text-justify
+							`}>
+										{skill} {" ..."}
+									</li>
+								))}
 				</ul>
 			</div>
 			{showHoverPrompt ? (

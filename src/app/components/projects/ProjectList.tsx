@@ -13,13 +13,13 @@ const ProjectList: React.FC<ProjectListProps> = ({
 	return (
 		<ul
 			className='lg:flex  justify-center px-8 items-start text-left flex-col hidden
-   md:font-medium w-auto min-w-[200px]'>
+   md:font-light w-auto min-w-[200px]'>
 			{projects.map((project, index) => (
 				<li
 					key={index}
 					className={`cursor-pointer mb-2 text-left md:text-responsive-xl text-lg ${
 						selectedProject.name === project.name
-							? "text-white font-bold "
+							? "text-white font-medium text-xl "
 							: "hover:text-white hover:text-opacity-80 text-emerald-200"
 					}`}
 					onClick={() => onProjectClick(index)}>

@@ -39,7 +39,7 @@ const OverMediumLayout = ({
 			}}>
 			<div
 				onMouseEnter={() => setIsImageContainerHovered(false)}
-				className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-[4vh] h-auto   `}
+				className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-4 h-auto   `}
 				style={{
 					transition: "width 0.2s ease-in-out"
 				}}>

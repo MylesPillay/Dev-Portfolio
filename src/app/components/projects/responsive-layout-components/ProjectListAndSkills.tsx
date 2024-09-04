@@ -20,7 +20,7 @@ const ProjectListAndSkills = ({
 }: ProjectListAndSkillsProps) => {
 	return (
 		<div
-			className='flex flex-col justify-between min-w-[13.5vw] max-w-[13.5vw] h-full lg:mr-[3vw] lg:mt-[5vh] ]'
+			className='flex flex-col justify-between min-w-[13.5vw] max-w-[13.5vw] h-full lg:mr-[3vw] lg:mt-7 ]'
 			onMouseEnter={() => {
 				if (isImageContainerHovered) {
 					setIsImageContainerHovered(false);
