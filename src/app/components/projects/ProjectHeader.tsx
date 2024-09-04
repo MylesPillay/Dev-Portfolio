@@ -34,7 +34,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 
 	return (
 		<div
-			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-8 pb-2 sm:pb-4bg-project-title-gradient bg-opacity-100  z-50 '
+			className=' sticky top-0 flex flex-grow flex-row justify-start items-baseline align-bottom w-full my-0 sm:pl-8 sm:pr-8 pt-8 pb-2 sm:pb-4 bg-project-title-gradient bg-opacity-100  z-50 '
 			onMouseEnter={() => {
 				if (isImageContainerHovered) {
 					setIsImageContainerHovered(false);

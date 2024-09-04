@@ -57,9 +57,9 @@ const MobileTechSkillsSection = () => {
 
 	return (
 		<button
-			className={`w-full  justify-between h-[100%] p-4 border-t border-b border-orangeflame overflow-hidden transition-all duration-300 ease-in-out ${
+			className={`w-full  justify-between h-auto p-4 border-t border-b border-orangeflame overflow-hidden transition-all duration-300 ease-in-out ${
 				isHovered
-					? "h-auto pb-4 bg-deepBlueBg bg-opacity-100"
+					? "pb-2 bg-deepBlueBg bg-opacity-100"
 					: "bg-slate-800 bg-opacity-50"
 			}`}
 			onClick={() => setIsHovered(!isHovered)}>

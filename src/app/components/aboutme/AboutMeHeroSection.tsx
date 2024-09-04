@@ -35,17 +35,17 @@ const AboutMeHeroSection = () => {
 					className={`
 					 justify-center `}>
 					{/* <div className={`h-full`}></div> */}
-					<div className='flex md:flex-row sm:flex-col lg:flex-col flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
+					<div className='flex md:flex-row sm:flex-col lg:flex-row flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
 						<AnimatedText
 							texts={["Full Stack", "React Native"]}
-							interval={2500}
-							animationDuration={800}
+							interval={3000}
+							animationDuration={500}
 							baseClassName='md:text-3xl lg:text-4xl xl:text-5xl text-2xl font-light w-full w-full min-w-[100%] flex-grow text-center lg:text-right '
 							containerClassName='h-auto  mr-1 lg:w-auto lg:text-right  pr-2'
 							colourFlip
 						/>
 
-						<h3 className='md:text-3xl lg:text-5xl text-3xl text-wrap flex-1 text-left font-thin text-white '>
+						<h3 className='md:text-3xl lg:text-4xl xl:text-5xl text-wrap flex-1 text-left font-thin text-white '>
 							Developer
 						</h3>
 					</div>
@@ -59,8 +59,8 @@ const AboutMeHeroSection = () => {
 								"Ambitious",
 								"Adaptable"
 							]}
-							interval={2500}
-							animationDuration={800}
+							interval={3000}
+							animationDuration={500}
 							baseClassName='md:text-2xl lg:text-3xl text-xl font-light '
 							containerClassName='h-auto  align-top items-start  mr-1 w-auto max-w-[11rem] '
 							textContent='dev with 2+ years experience creating scalable high-impact applications.'

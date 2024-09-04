@@ -9,7 +9,7 @@ import MobileSoftSkillsSection from "./components/aboutme/MobileSoftSkillsSectio
 export default function Home() {
 	return (
 		<div className='bg-projects-gradient lg:h-screen h-screen w-full overflow-x-hidden lg:overflow-y-scroll  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
-			<div className='flex flex-col justify-between w-full'>
+			<div className='flex flex-col xjustify-between w-full'>
 				<AboutMeHeader />
 				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly  '>
 					<div className='flex flex-col  w-full justify-start align-middle items-start '>
