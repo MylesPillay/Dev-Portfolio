@@ -30,6 +30,9 @@ const config: Config = {
 					gradient: "linear-gradient(to right, #1D787415, #FF7D11)"
 				}
 			},
+			fontSize: {
+				"5xl": "md:text-3xl lg:text-4xl xl:text-5xl text-2xl font-light"
+			},
 
 			plugins: []
 		}

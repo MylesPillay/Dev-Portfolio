@@ -63,10 +63,10 @@ const MobileTechSkillsSection = () => {
 					: "bg-slate-800 bg-opacity-50"
 			}`}
 			onClick={() => setIsHovered(!isHovered)}>
-			<h2 className='text-2xl font-semibold mr-8 text-left  text-emerald-200 pb-2'>
+			<h2 className='text-xl  mr-8 font-medium text-left  text-emerald-200 pb-2'>
 				Tech Skills:
 				{!isHovered && (
-					<span className='text-emerald-600  ml-8 text-right text-xl'>
+					<span className='text-emerald-600  ml-8 text-right font-light'>
 						Tap to Expand ....
 					</span>
 				)}

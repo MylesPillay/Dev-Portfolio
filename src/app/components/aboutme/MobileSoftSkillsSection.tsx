@@ -22,10 +22,10 @@ const MobileSoftSkillsSection = () => {
 					: "bg-slate-800 bg-opacity-50"
 			}`}
 			onClick={() => setIsHovered(!isHovered)}>
-			<h2 className='text-2xl font-semibold mr-8 text-emerald-200 pb-2'>
+			<h2 className='text-xl  mr-8 text-emerald-200 pb-2 font-medium'>
 				Soft Skills:
 				{!isHovered && (
-					<span className='text-emerald-600 text-xl ml-10 '>
+					<span className='font-light text-emerald-600 ml-10  '>
 						Tap to Expand ....
 					</span>
 				)}

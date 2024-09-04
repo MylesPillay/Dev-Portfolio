@@ -35,11 +35,26 @@ export default function Contact() {
 					/>
 				</div>
 			</div>
-			<div className=' w-full h-full flex flex-col justify-between pb-10 pt-4'>
+			<div className=' flex w-full h-[90%] flex-grow flex-col space-y-6 justify-between pb-4 pt-4'>
 				<TaglineText />
-				<div className='bg-slate-800 bg-opacity-50  w-screen p-4 lg:px-4 px-8 border-t border-b border-orangeflame '>
-					<div className='w-[80%] justify-center'>
-						<h1 className='lg:text-xl sm:text-md font-semibold text-center justify-center align-text-top text-white '>
+
+				<h3 className='md:text-xl lg:text-2xl text-lg text-wrap text-center font-thin text-white pb-12  w-[80%]  mx-12 flex-grow-0 justify-center '>
+					Whether it's a sophisticated
+					<span className='text-emerald-200 font-light'>
+						{" "}
+						web platform{" "}
+					</span>
+					or cutting-edge{" "}
+					<span className='text-orangeflame font-light'>
+						{" "}
+						mobile app
+					</span>
+					, I love bringing exciting ideas to life.
+				</h3>
+
+				<div className='bg-slate-800  bg-opacity-50 text-center w-screen p-4 lg:px-4 px-8 border-t border-b border-orangeflame '>
+					<div className='   w-[80%] flex-grow-0 justify-center '>
+						<h1 className='lg:text-2xl sm:text-xl font-light text-center justify-center align-text-top text-white '>
 							If you are ready to create something amazing, reach
 							out below — I would love to hear from you!
 						</h1>

@@ -35,12 +35,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
 	setNumber
 }) => {
 	return (
-		<form className='w-full justify-center ' onSubmit={() => {}}>
-			<div className='flex  flex-wrap lg:w-[68%] md:mx-[8%] mx-[4%] md:w-[75%] mt-4 pb-10 md:pb-0'>
-				<div className='flex md:flex-row flex-col flex-wrap justify-evenly md:w-[100%] w-[85%]'>
+		<form
+			className='md:w-[95%] w-[100%] sm:pb-8 mb-10 pb-4 '
+			onSubmit={() => {}}>
+			<div className='flex  flex-wrap w-[100%]  mx-0 sm:mx-4 mt-4  md:pb-0'>
+				<div className='flex md:flex-row flex-col flex-wrap justify-evenly w-[100%]'>
 					<div className=' flex flex-col flex-grow space-y-2 p-6'>
 						<div className=' flex-col space-y-2'>
-							<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  text-white'>
+							<h1 className='text-md font-thin text-left justify-start align-text-bottom w-auto  text-white'>
 								Your Name :
 							</h1>
 							<input
@@ -70,7 +72,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 						</div>
 
 						<div className=' flex-col space-y-2 flex-grow'>
-							<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto  mt text-white'>
+							<h1 className='text-md font-thin text-left justify-start align-text-bottom w-auto  mt text-white'>
 								Your Email :
 							</h1>
 							<input
@@ -100,7 +102,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 						</div>
 
 						<div className=' flex-col space-y-2 flex-grow'>
-							<h1 className='text-md font-bold text-left justify-start align-text-bottom   mt text-white'>
+							<h1 className='text-md font-thin text-left justify-start align-text-bottom   mt text-white'>
 								Your Contact Number:
 							</h1>
 							<input
@@ -114,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 					</div>
 					<div className='justify-center flex-grow md:w-[50%] w-[90%] ml-[4%] md:py-6 sm:pt-0 md:pt-6 '>
 						<div className='flex-col  space-y-2'>
-							<h1 className='text-md font-bold text-left justify-start align-text-bottom w-auto   text-white'>
+							<h1 className='text-md font-thin text-left justify-start align-text-bottom w-auto   text-white'>
 								Your Message :
 							</h1>
 							<textarea
@@ -142,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 						<div className=' flex-col flex-grow  w-[100%]  '>
 							<div className='flex flex-grow justify-end items-center w-full'>
 								<button
-									className='justify-end  w-auto   self-end py-1 px-8 mt-4 rounded-md  bg-orangeflame  text-white border border-white lg:text-lg text-md font-bold  hover:bg-opacity-80  '
+									className='justify-end  w-auto   self-end py-1 px-8 mt-4 rounded-md  bg-orangeflame  text-white border border-white lg:text-lg text-md font-medium  hover:bg-opacity-80  '
 									type='submit'>
 									Submit
 								</button>
