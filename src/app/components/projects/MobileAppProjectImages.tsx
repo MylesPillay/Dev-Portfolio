@@ -14,33 +14,36 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 	currentImageIndex
 }) => {
 	return (
-		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center h-auto max-h-[70vh] min-h-[40vh] overflow-y-scroll overflow-x-hidden '>
+		<div className='flex w-[100%] rounded-lg align-middle justify-center items-start self-center h-auto max-h-[80vh] min-h-[50vh] overflow-y-scroll overflow-x-hidden '>
 			<div
 				className={`
-									flex flex-row justify-apart  h-[70%] w-full overflow-x-scroll`}>
-				{images.map((image, index) => (
-					<div
-						key={index}
-						className={`w-[27vh] flex-shrink-0 pr-3
-					transition-transform duration-300`}
-						style={{
-							transform: hovered
-								? `translateX(-${currentImageIndex * 99.5}%)`
-								: `translateX(-${0}%)`
-						}}>
-						<Image
-							src={image}
-							className='rounded-lg'
-							alt={`Project screenshot `}
-							layout='responsive'
-							objectFit='contain'
-							width={1000}
-							height={450}
-							style={{ minHeight: 400 }}
-							quality={100}
-						/>
-					</div>
-				))}
+									flex flex-row justify-apart  space-x-4 h-full w-full overflow-x-scroll`}>
+				{images?.length > 0 &&
+					images?.map((image, index) => (
+						<div
+							key={index}
+							className={` justify-center flex-grow flex-shrink-0 w-[50%] transition-transform duration-300`}
+							style={{
+								transform: hovered
+									? `translateX(-${
+											currentImageIndex * 99.5
+									  }%)`
+									: `translateX(-${0}%)`
+							}}>
+							{/* eslint-disable-next-line @next/next/no-img-element */}
+							<img
+								src={image}
+								alt={`Image ${currentImageIndex}`}
+								style={{
+									display: "flex",
+
+									borderRadius: "10px",
+									width: "auto",
+									height: "auto"
+								}}
+							/>
+						</div>
+					))}
 			</div>
 		</div>
 	);

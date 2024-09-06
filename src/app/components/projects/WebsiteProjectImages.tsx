@@ -4,7 +4,7 @@ import projects from "./ProjectsObject";
 
 interface WebsiteProjectImagesProps {
 	selectedProject: (typeof projects)[0];
-	images: string[];
+	images: any[];
 	currentImageIndex: number;
 }
 
@@ -19,17 +19,20 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 									flex justify-center  h-full w-full `}>
 				<div className='rounded-lg  h-full  w-full overflow-y-auto overflow-x-hidden'>
 					<div className={`w-full justify-center h-auto  flex-grow`}>
-						<Image
-							src={images[currentImageIndex]}
-							className='rounded-lg'
-							alt={`Project screenshot `}
-							layout='responsive'
-							objectFit='contain'
-							width={1000}
-							height={450}
-							style={{ minHeight: 400 }}
-							quality={100}
-						/>
+						{images.length > 0 && (
+							// eslint-disable-next-line @next/next/no-img-element
+							<img
+								src={images[currentImageIndex]}
+								alt={`Image ${currentImageIndex}`}
+								style={{
+									display: "block",
+									maxHeight: "62vh",
+									borderRadius: "10px",
+									width: "auto",
+									height: "auto"
+								}}
+							/>
+						)}
 					</div>
 				</div>
 			</div>

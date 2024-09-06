@@ -8,12 +8,15 @@ import ImagesFormatSelector from "../../components/projects/ImagesFormatSelector
 import { Project } from "./ProjectsObject";
 import { on } from "events";
 import WebsiteProjectImages from "./WebsiteProjectImages";
+import LoadingSpinner from "../layout/LoadingSpinner";
 
 interface MobileProjectLayoutProps {
 	selectedProject: Project;
 	selectedIndex: number;
 	viewMode: "web" | "mobile";
 	setViewMode: (mode: "web" | "mobile") => void;
+	images: any;
+	loading: boolean;
 	currentImageIndex: number;
 	setCurrentImageIndex: Dispatch<SetStateAction<number>>;
 	setActiveSection: (section: string) => void;
@@ -26,6 +29,8 @@ const MobileProjectLayout = ({
 	selectedProject,
 	selectedIndex,
 	viewMode,
+	images,
+	loading,
 	setViewMode,
 	currentImageIndex,
 	setCurrentImageIndex,
@@ -53,13 +58,13 @@ const MobileProjectLayout = ({
 					</div>
 					<div className='w-full mx-auto h-full justify-center items-center align-middle'>
 						<div className='flex w-full justify-center items-center'>
-							{selectedProject.images.mobile.length > 0 &&
-							selectedProject.images.web.length > 0 ? (
+							{images?.length > 0 && images?.length > 0 ? (
 								<ImagesFormatSelector
 									selectedProject={selectedProject}
 									viewMode={viewMode}
 									setViewMode={setViewMode}
 									headerPosition={false}
+									images={images}
 								/>
 							) : (
 								<></>
@@ -67,13 +72,18 @@ const MobileProjectLayout = ({
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
-								<div className=''>
+								{loading ?? <LoadingSpinner />}
+								<div
+									className={`${
+										loading ? "hidden" : "flex"
+									}`}>
 									{selectedIndex === 0 ||
 									selectedIndex === 3 ? (
 										<MediumMobileAppProjectImages
 											smallMobileScreen={true}
 											images={
-												selectedProject.images[viewMode]
+												// selectedProject.images[viewMode]
+												images
 											}
 											currentImageIndex={
 												currentImageIndex
@@ -81,9 +91,7 @@ const MobileProjectLayout = ({
 										/>
 									) : (
 										<WebsiteProjectImages
-											images={
-												selectedProject.images[viewMode]
-											}
+											images={images}
 											currentImageIndex={
 												currentImageIndex
 											}
@@ -95,7 +103,8 @@ const MobileProjectLayout = ({
 									hovered={true}
 									currentImageIndex={currentImageIndex}
 									totalImages={
-										selectedProject.images.mobile.length
+										// selectedProject.images.mobile.length
+										images?.length
 									}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)

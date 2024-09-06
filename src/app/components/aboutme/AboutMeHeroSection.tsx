@@ -1,35 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedText from "./AnimatedTexts";
+import { useState } from "react";
+import LoadingSpinner from "../layout/LoadingSpinner";
+// import { on } from "events";
+import portrait from "/images/profile.jpg";
 
 const AboutMeHeroSection = () => {
+	const [isImageLoaded, setIsImageLoaded] = useState<boolean>(true);
+
+	// Handler for when the image has fully loaded
+
 	return (
 		<div className='flex w-full h-auto justify-center p-10'>
 			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
-				<div
+				{/* <div
 					className={`
 								flex flex-2 bg-green-200 justify-end rounded-lg h-auto max-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
-					<div className={`h-full justify-end rounded-lg`}>
-						<Image
-							src={"/images/profile.jpg"}
-							className='rounded-lg'
-							alt={`Project screenshot `}
-							objectFit=''
-							width={240}
-							height={1000}
-							style={{ maxHeight: "62vh", borderRadius: 10 }}
-							quality={100}
-						/>
-					</div>
-				</div>
+					<div className={`h-full justify-end rounded-lg`}> */}
+				{/* {!isImageLoaded && <LoadingSpinner />} */}
+				{/* <div className={`${!isImageLoaded ? "block" : "hidden"}`}>
+					{/* <LoadingSpinner /> */}
+
+				<img
+					src='/images/profile.jpg'
+					className={`h-auto justify-end rounded-lg 	flex flex-2 bg-green-200  max-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}
+					alt='Profile'
+					style={{
+						display: isImageLoaded ? "block" : "none",
+						maxHeight: "62vh",
+						borderRadius: "10px",
+						width: "auto", // Adjust width if needed
+						height: "auto" // Adjust height if needed
+					}}
+				/>
+				{/* </div>
+				</div> */}
 			</div>
 
 			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] ml-[8vw] '>
 				<h1 className='text-4xl font-bold  text-white'>MYLES PILLAY</h1>
 			</div>
 
-			{/* <div className='flex flex-col justify-center= items-center w-full h-auto lg:w-[55%] lg:h-[35vh] lg:mr-[15%] lg:mt-[10%]'>
-				<div className='lg:h-[100%] h-auto p-8 w-full min-w-[100%]'> */}
 			<div className='flex w-auto flex-1  h-full  lg:max-w-[75%] xl:max-w-[50%] justify-center items-center py-8 px-[5vw]'>
 				<div
 					className={`

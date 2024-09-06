@@ -1,3 +1,4 @@
+import LoadingSpinner from "../../layout/LoadingSpinner";
 import ImagesFormatSelector from "../ImagesFormatSelector";
 import MediumMobileAppProjectImages from "../MediumMobileAppProjectImages";
 import MediumScreenProjectAccordion from "../MediumScreenPorjectAccordian";
@@ -15,6 +16,8 @@ interface MediumToLargeLayoutProps {
 	currentImageIndex: number;
 	setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
 	viewMode: "web" | "mobile";
+	images: any;
+	loading: boolean;
 	setViewMode: (mode: "web" | "mobile") => void;
 	selectedProject: Project;
 	activeSection: string;
@@ -26,6 +29,8 @@ const MediumToLargeLayout = ({
 	currentImageIndex,
 	setCurrentImageIndex,
 	viewMode,
+	images,
+	loading,
 	setViewMode,
 	selectedProject,
 	activeSection,
@@ -47,11 +52,11 @@ const MediumToLargeLayout = ({
 
 				<div className='h-auto w-full overflow-x-hidden  bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center'>
 					<div className=' flex-col justify-center items-center align-middle'>
-						{selectedProject.images.mobile.length > 0 &&
-						selectedProject.images.web.length > 0 ? (
+						{images?.length > 0 && images?.length > 0 ? (
 							<ImagesFormatSelector
 								selectedProject={selectedProject}
 								viewMode={viewMode}
+								images={images}
 								setViewMode={setViewMode}
 								headerPosition={false}
 							/>
@@ -61,35 +66,40 @@ const MediumToLargeLayout = ({
 
 						<div className='flex flex-col flex-grow h-auto   overflow-x-hidden  bg-opacity-50  justify-center align-middle items-center w-auto'>
 							<div className=' flex flex-col justify-center h-auto w-[85%] max-h-[100%]  items-start overflow-x-scroll'>
-								{selectedIndex === 0 || selectedIndex === 3 ? (
-									<MediumMobileAppProjectImages
-										smallMobileScreen={false}
-										images={
-											selectedProject.images[viewMode]
-										}
-										currentImageIndex={currentImageIndex}
-									/>
-								) : (
-									<div className='w-[100%]  pr-[15%] h-auto max-h-[50vh]'>
-										<WebsiteProjectImages
-											images={
-												selectedProject.images[viewMode]
-											}
+								{loading ?? <LoadingSpinner />}
+								<div
+									className={`${
+										loading ? "hidden" : "flex"
+									}`}>
+									{selectedIndex === 0 ||
+									selectedIndex === 3 ? (
+										<MediumMobileAppProjectImages
+											smallMobileScreen={false}
+											images={images}
 											currentImageIndex={
 												currentImageIndex
 											}
-											selectedProject={selectedProject}
 										/>
-									</div>
-								)}
+									) : (
+										<div className='w-[100%]  pr-[15%] h-auto max-h-[50vh]'>
+											<WebsiteProjectImages
+												images={images}
+												currentImageIndex={
+													currentImageIndex
+												}
+												selectedProject={
+													selectedProject
+												}
+											/>
+										</div>
+									)}
+								</div>
 							</div>
 							<div className='w-full justify-center items-center mt-2'>
 								<ProjectImagePagination
 									hovered={true}
 									currentImageIndex={currentImageIndex}
-									totalImages={
-										selectedProject.images.mobile.length
-									}
+									totalImages={images?.length}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)
 									}

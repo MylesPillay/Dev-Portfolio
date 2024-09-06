@@ -4,6 +4,7 @@ import ProjectAccordionWeb from "../ProjectAccordianWeb";
 import ProjectImagePagination from "../ProjectImagePagination";
 import { Project } from "../ProjectsObject";
 import LargeScreenWebsiteProjectImages from "../LargeScreenWebsiteProjectImages";
+import LoadingSpinner from "../../layout/LoadingSpinner";
 
 interface OverMediumLayoutProps {
 	setIsImageContainerHovered: (hovered: boolean) => void;
@@ -12,6 +13,8 @@ interface OverMediumLayoutProps {
 	currentImageIndex: number;
 	setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
 	viewMode: "web" | "mobile";
+	images: any;
+	loading: boolean;
 	setViewMode: (mode: "web" | "mobile") => void;
 	selectedProject: Project;
 	activeSection: string;
@@ -25,6 +28,8 @@ const OverMediumLayout = ({
 	currentImageIndex,
 	setCurrentImageIndex,
 	viewMode,
+	loading,
+	images,
 	setViewMode,
 	selectedProject,
 	activeSection,
@@ -54,7 +59,7 @@ const OverMediumLayout = ({
 
 				{selectedIndex === 0 || selectedIndex === 3 ? (
 					<div
-						className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-auto  min-w-[30vw] h-[40vh] max-w-[49%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
+						className={`group pointer-events-none md:pointer-events-auto lg:min-h-[100vh] lg:max-h-[100vh] mt-0.5 lg:h-full  min-w-[30vw] h-[60vh]] max-w-[60%] sticky lg:top-0 md:right-0 overflow-x-scroll lg:flex flex-col justify-center items-center ${
 							isImageContainerHovered
 								? "md:w-[43vw] md:translate-x-[0vw] w-auto"
 								: "md:w-[23vw] md:translate-x-[11vw] w-auto"
@@ -68,23 +73,25 @@ const OverMediumLayout = ({
 							<ImagesFormatSelector
 								selectedProject={selectedProject}
 								viewMode={viewMode}
+								images={images}
 								setViewMode={setViewMode}
 								headerPosition={false}
 							/>
 						</div>
 						<div className='h-full w-[99%] mx-auto justify-end items-center ml-4'>
-							<MobileImageContainer
-								hovered={isImageContainerHovered}
-								images={selectedProject.images.mobile}
-								currentImageIndex={currentImageIndex}
-							/>
+							{loading ?? <LoadingSpinner />}
+							<div className={`${loading ? "hidden" : "flex"}`}>
+								<MobileImageContainer
+									hovered={isImageContainerHovered}
+									images={images}
+									currentImageIndex={currentImageIndex}
+								/>
+							</div>
 							<div className='w-full justify-end items-end'>
 								<ProjectImagePagination
 									hovered={isImageContainerHovered}
 									currentImageIndex={currentImageIndex}
-									totalImages={
-										selectedProject.images.mobile.length
-									}
+									totalImages={images?.length}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)
 									}
@@ -120,6 +127,7 @@ const OverMediumLayout = ({
 						<div className='flex w-full justify-end items-center'>
 							<ImagesFormatSelector
 								selectedProject={selectedProject}
+								images={images}
 								viewMode={viewMode}
 								setViewMode={setViewMode}
 								headerPosition={false}
@@ -128,11 +136,7 @@ const OverMediumLayout = ({
 						<div className='h-auto w-auto flex-grow-0 flex-shrink-0'>
 							<LargeScreenWebsiteProjectImages
 								selectedProject={selectedProject}
-								images={
-									viewMode === "web"
-										? selectedProject.images.web
-										: selectedProject.images.mobile
-								}
+								images={images}
 								currentImageIndex={currentImageIndex}
 								isImageContainerHovered={
 									isImageContainerHovered
@@ -142,12 +146,7 @@ const OverMediumLayout = ({
 								<ProjectImagePagination
 									hovered={isImageContainerHovered}
 									currentImageIndex={currentImageIndex}
-									totalImages={
-										viewMode === "web"
-											? selectedProject.images.web.length
-											: selectedProject.images.mobile
-													.length
-									}
+									totalImages={images?.length}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)
 									}

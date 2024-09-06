@@ -1,10 +1,8 @@
 export interface Project {
 	name: string;
+	supabaseId: string;
 	tagline: string;
-	images: {
-		web: string[];
-		mobile: string[];
-	};
+
 	details: {
 		overview: string;
 		objective: string;
@@ -38,19 +36,9 @@ export interface Project {
 const projects: Project[] = [
 	{
 		name: "Air Oasis Home",
+		supabaseId: "airoasis",
 		tagline: "- IoT Mobile Application",
-		images: {
-			web: [],
-			mobile: [
-				"/images/projects/airoasis/mobile/Mobile_Add_Schedule.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Devices_Screen.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Edit_Place.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Place_Control.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Places.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Schedule_List.jpg",
-				"/images/projects/airoasis/mobile/Mobile_Settings.jpg"
-			]
-		},
+
 		details: {
 			overview:
 				"Air Oasis Home is an IoT mobile application developed for Android and iOS, designed to manage and control air purification devices remotely. The app allows users to sync their Air Oasis air purifiers via Bluetooth and WiFi, providing a seamless interface for device control and scheduling. I independently developed the app from the ground up, including post-launch updates and maintenance.",
@@ -121,18 +109,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "WhoCo",
+		supabaseId: "whoco",
 		tagline: "The People Company",
-		images: {
-			web: [
-				"/images/projects/whoco/web/WHOCO-Talent.jpg",
-				"/images/projects/whoco/web/WhoCo-Home.jpg",
-				"/images/projects/whoco/web/WhoCo-Primary.jpg"
-			],
-			mobile: [
-				"/images/projects/whoco/mobile/WhoCo-Home.jpg",
-				"/images/projects/whoco/mobile/WhoCo-Talent.jpg"
-			]
-		},
+
 		url: "https://web.archive.org/web/20230216050654/https://whoco.com/",
 		details: {
 			overview:
@@ -210,19 +189,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "Fluent Outreach",
+		supabaseId: "fluent",
 		tagline: "AI Lead Converter",
-		images: {
-			web: [
-				"/images/projects/fluent/web/ContactOnboarding.jpg",
-				"/images/projects/fluent/web/AddCampaign.jpg",
-				"/images/projects/fluent/web/CampaignList.jpg",
-				"/images/projects/fluent/web/CampaignDetails.jpg",
-				"/images/projects/fluent/web/Contact.jpg",
-				"/images/projects/fluent/web/Messages.jpg",
-				"/images/projects/fluent/web/Settings.jpg"
-			],
-			mobile: []
-		},
+
 		details: {
 			overview:
 				"Fluent Outreach is a commercial web application designed to empower companies and teams to manage customer lead inboxes and monitor outreach campaign success. This application features an AI-powered customer service advisor, providing a seamless customer experience by automating responses and scheduling appointments based on real-time calendar availability.",
@@ -297,20 +266,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "Vibe-A-Day",
+		supabaseId: "vibeaday",
 		tagline: "Daily Song Selections",
-		images: {
-			web: [],
-			mobile: [
-				"/images/projects/vibeaday/mobile/VibeADay1.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay2.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay3.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay4.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay5.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay6.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay7.jpg",
-				"/images/projects/vibeaday/mobile/VibeADay8.jpg"
-			]
-		},
+
 		url: "",
 		details: {
 			overview:
@@ -387,21 +345,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "USAHI",
+		supabaseId: "usahi",
 		tagline: "Home Improvement",
-		images: {
-			web: [
-				"/images/projects/usahi/web/USA-AboutUS.jpg",
-				"/images/projects/usahi/web/USAHI-Services.jpg",
-				"/images/projects/usahi/web/USAhi-Contact.jpg",
-				"/images/projects/usahi/web/USAhi-Financing.jpg"
-			],
-			mobile: [
-				"/images/projects/usahi/mobile/USAHI-CONTACT-US.jpg",
-				"/images/projects/usahi/mobile/USAHI-FINANCING.jpg",
-				"/images/projects/usahi/mobile/USAHI-OURSERVICES.jpg",
-				"/images/projects/usahi/mobile/USAhi-AboutUS.jpg"
-			]
-		},
+
 		url: "https://usahomeimprovement.com/",
 		details: {
 			overview:
@@ -487,25 +433,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "Tuition Covered",
+		supabaseId: "tuition-covered",
 		tagline: "AI-Maintained Scholarship Database",
-		images: {
-			web: [
-				"/images/projects/tuition-covered/web/TC-Categories2.jpg",
-				"/images/projects/tuition-covered/web/TC-Categories3.jpg",
-				"/images/projects/tuition-covered/web/TC-Categories1.jpg",
-				"/images/projects/tuition-covered/web/TC-College-Listing.jpg",
-				"/images/projects/tuition-covered/web/TC-CollegesSearch.jpg",
-				"/images/projects/tuition-covered/web/TC-Home.jpg",
-				"/images/projects/tuition-covered/web/TC-ScholarshipsSearch.jpg"
-			],
-			mobile: [
-				"/images/projects/tuition-covered/mobile/TC-Blog.jpg",
-				"/images/projects/tuition-covered/mobile/TC-College-Details.jpg",
-				"/images/projects/tuition-covered/mobile/TC-Colleges-Search.jpg",
-				"/images/projects/tuition-covered/mobile/TC-Home.jpg",
-				"/images/projects/tuition-covered/mobile/TC-Scholarships.jpg"
-			]
-		},
+
 		url: "https://tuitioncovered.com/",
 		details: {
 			overview:

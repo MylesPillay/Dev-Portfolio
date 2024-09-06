@@ -4,12 +4,15 @@ const ImagesFormatSelector = ({
 	selectedProject,
 	viewMode,
 	setViewMode,
-	headerPosition
+	headerPosition,
+	images
 }: {
 	selectedProject: Project;
 	viewMode: "web" | "mobile";
 	setViewMode: (mode: "web" | "mobile") => void;
 	headerPosition: boolean;
+
+	images: any[];
 }) => {
 	// FORMAT BUTTON COMPONENT
 
@@ -53,7 +56,7 @@ const ImagesFormatSelector = ({
 					text='Desktop'
 					isActive={viewMode === "web"}
 					onClick={() => setViewMode("web")}
-					isDisabled={selectedProject.images.web.length === 0}
+					isDisabled={images?.length === 0}
 				/>
 
 				{/* Divider */}
@@ -64,7 +67,7 @@ const ImagesFormatSelector = ({
 					text='Mobile'
 					isActive={viewMode === "mobile"}
 					onClick={() => setViewMode("mobile")}
-					isDisabled={selectedProject.images.mobile.length === 0}
+					isDisabled={images?.length === 0}
 				/>
 			</div>
 		</>
