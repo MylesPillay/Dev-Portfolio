@@ -22,11 +22,11 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 						{images.length > 0 && (
 							// eslint-disable-next-line @next/next/no-img-element
 							<img
-								src={images[currentImageIndex]}
+								src={images?.[currentImageIndex]}
 								alt={`Image ${currentImageIndex}`}
 								style={{
-									display: "block",
-									maxHeight: "62vh",
+									display: "flex",
+
 									borderRadius: "10px",
 									width: "auto",
 									height: "auto"

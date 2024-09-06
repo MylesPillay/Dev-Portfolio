@@ -20,8 +20,12 @@ const ProjectsDisplay = (): JSX.Element => {
 
 	const [isImageContainerHovered, setIsImageContainerHovered] =
 		useState(false);
+	const [handleProjectClicked, setHandleProjectClicked] = useState(false);
+
 	const handleProjectClick = (index: number) => {
+		setHandleProjectClicked(true);
 		const project = projects[index];
+
 		setSelectedProjectIndex(index);
 		setViewMode(
 			selectedProjectIndex + 1 === 1
@@ -64,40 +68,6 @@ const ProjectsDisplay = (): JSX.Element => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
-	// useEffect(() => {
-	// 	const fetchImage = async () => {
-	// 		const supabase = createClient(
-	// 			"https://mgbwyyztxdknsphcbtof.supabase.co",
-	// 			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYnd5eXp0eGRrbnNwaGNidG9mIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyNTU1MzAxMywiZXhwIjoyMDQxMTI5MDEzfQ.wo4aqOWfpGLlNWO9_KgFrLTW5nUHwIDux0AG9TV1TdI"
-	// 		);
-	// 		setLoading(true);
-	// 		// .list(`projects/${selectedProject.name}/${viewMode}`, {
-	// 		try {
-	// 			const images = await supabase.storage
-	// 				.from("portfolio_images")
-	// 				.list(
-	// 					`projects/${selectedProject.supabaseId}/${viewMode}`,
-	// 					{
-	// 						limit: 10
-	// 					}
-	// 				);
-	// 			if (images) {
-	// 				console.log(images);
-	// 				console.log(
-	// 					"image recognized and retrieving it from supabase inside fetchImage()"
-	// 				);
-
-	// 				setImages(images?.data as any[]);
-	// 				setLoading(false);
-	// 				console.log(loading, "LOADING SHOULD NOW BE SET TO FALSE");
-	// 			}
-	// 		} catch (error) {
-	// 			setError("Failed to fetch images");
-	// 			console.error(error);
-	// 		}
-	// 	};
-	// 	fetchImage();
-	// }, [selectedProject, viewMode]);
 	useEffect(() => {
 		const fetchImage = async () => {
 			const supabase = createClient(
@@ -154,6 +124,10 @@ const ProjectsDisplay = (): JSX.Element => {
 						);
 					}
 				}
+				if (handleProjectClicked) {
+					setImages(imageList as any[]);
+					setLoading(false);
+				}
 
 				setImages(imageList as any[]);
 				setLoading(false);
@@ -163,7 +137,7 @@ const ProjectsDisplay = (): JSX.Element => {
 			}
 		};
 		fetchImage();
-	}, [selectedProjectIndex, viewMode]);
+	}, [selectedProjectIndex, viewMode, handleProjectClicked]);
 
 	return (
 		<div className='relative md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0   border-0 sm:border-l-[0.5px] border-orangeflame '>
