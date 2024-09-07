@@ -58,47 +58,33 @@ const MobileProjectLayout = ({
 					</div>
 					<div className='w-full mx-auto h-full justify-center items-center align-middle'>
 						<div className='flex w-full justify-center items-center'>
-							{images?.length > 0 && images?.length > 0 ? (
-								<ImagesFormatSelector
-									selectedProject={selectedProject}
-									viewMode={viewMode}
-									setViewMode={setViewMode}
-									headerPosition={false}
-									images={images}
-								/>
-							) : (
-								<></>
-							)}
+							<ImagesFormatSelector
+								viewMode={viewMode}
+								setViewMode={setViewMode}
+								headerPosition={false}
+								currentProjectIndex={selectedProject.index}
+							/>
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
-								{loading ?? <LoadingSpinner />}
-								<div
-									className={`${
-										loading ? "hidden" : "flex"
-									}`}>
-									{selectedIndex === 0 ||
-									selectedIndex === 3 ? (
-										<MediumMobileAppProjectImages
-											smallMobileScreen={true}
-											images={
-												// selectedProject.images[viewMode]
-												images
-											}
-											currentImageIndex={
-												currentImageIndex
-											}
-										/>
-									) : (
-										<WebsiteProjectImages
-											images={images}
-											currentImageIndex={
-												currentImageIndex
-											}
-											selectedProject={selectedProject}
-										/>
-									)}
-								</div>
+								{selectedIndex === 0 || selectedIndex === 3 ? (
+									<MediumMobileAppProjectImages
+										smallMobileScreen={true}
+										images={
+											// selectedProject.images[viewMode]
+											images
+										}
+										currentImageIndex={currentImageIndex}
+										loading={loading}
+									/>
+								) : (
+									<WebsiteProjectImages
+										images={images}
+										currentImageIndex={currentImageIndex}
+										selectedProject={selectedProject}
+									/>
+								)}
+								{/* </div> */}
 								<ProjectImagePagination
 									hovered={true}
 									currentImageIndex={currentImageIndex}

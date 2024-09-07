@@ -8,6 +8,7 @@ import ProjectListAndSkills from "../components/projects/responsive-layout-compo
 import OverMediumLayout from "../components/projects/responsive-layout-components/OverMediumLayout";
 import MediumToLargeLayout from "../components/projects/responsive-layout-components/MediumToLargeLayout";
 import { createClient } from "@supabase/supabase-js";
+import { processEnv } from "@next/env";
 
 const ProjectsDisplay = (): JSX.Element => {
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -20,23 +21,6 @@ const ProjectsDisplay = (): JSX.Element => {
 
 	const [isImageContainerHovered, setIsImageContainerHovered] =
 		useState(false);
-	const [handleProjectClicked, setHandleProjectClicked] = useState(false);
-
-	const handleProjectClick = (index: number) => {
-		setHandleProjectClicked(true);
-		const project = projects[index];
-
-		setSelectedProjectIndex(index);
-		setViewMode(
-			selectedProjectIndex + 1 === 1
-				? "web"
-				: selectedProjectIndex + 1 === 3
-				? "mobile"
-				: viewMode
-		);
-		setCurrentImageIndex(0);
-		setProjectsMenuOpen(false);
-	};
 
 	const [showHoverPrompt, setShowHoverPrompt] = useState<boolean | null>(
 		null
@@ -68,76 +52,90 @@ const ProjectsDisplay = (): JSX.Element => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
-	useEffect(() => {
-		const fetchImage = async () => {
-			const supabase = createClient(
-				"https://mgbwyyztxdknsphcbtof.supabase.co",
-				"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1nYnd5eXp0eGRrbnNwaGNidG9mIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyNTU1MzAxMywiZXhwIjoyMDQxMTI5MDEzfQ.wo4aqOWfpGLlNWO9_KgFrLTW5nUHwIDux0AG9TV1TdI"
-			);
-			setLoading(true);
+	const fetchImage = async () => {
+		const supabase = createClient(
+			process.env.SUPABASE_API_URL as string,
+			process.env.SUPABASE_API_SECRET_ACCESS_TOKEN as string
+		);
 
-			try {
-				let imageList: any[] = [];
+		try {
+			let imageList: any[] = [];
 
-				if (selectedProjectIndex === 1 || selectedProjectIndex === 3) {
-					// Fetch images for mobile-only projects
-					const { data: images, error } = await supabase.storage
-						.from("portfolio_images")
-						.list(
-							`projects/${selectedProject.supabaseId}/${viewMode}`,
-							{ limit: 10 }
-						);
+			if (selectedProjectIndex === 1 || selectedProjectIndex === 3) {
+				// Fetch images for mobile-only projects
+				const { data: images, error } = await supabase.storage
+					.from("portfolio_images")
+					.list(
+						`projects/${selectedProject.supabaseId}/${viewMode}`,
+						{ limit: 10 }
+					);
 
-					if (error) throw error;
+				if (error) throw error;
 
-					if (images) {
-						// Generate public URLs for each image
-						imageList = images.map(
-							(image) =>
-								supabase.storage
-									.from("portfolio_images")
-									.getPublicUrl(
-										`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
-									).data.publicUrl
-						);
-					}
-				} else {
-					// Fetch images for web projects or other types
-					const { data: images, error } = await supabase.storage
-						.from("portfolio_images")
-						.list(
-							`projects/${selectedProject.supabaseId}/${viewMode}`,
-							{ limit: 10 }
-						);
-
-					if (error) throw error;
-
-					if (images) {
-						// Generate public URLs for each image
-						imageList = images.map(
-							(image) =>
-								supabase.storage
-									.from("portfolio_images")
-									.getPublicUrl(
-										`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
-									).data.publicUrl
-						);
-					}
+				if (images) {
+					// Generate public URLs for each image
+					imageList = images.map(
+						(image) =>
+							supabase.storage
+								.from("portfolio_images")
+								.getPublicUrl(
+									`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
+								).data.publicUrl
+					);
 				}
-				if (handleProjectClicked) {
-					setImages(imageList as any[]);
-					setLoading(false);
+			} else {
+				// Fetch images for web projects or other types
+				const { data: images, error } = await supabase.storage
+					.from("portfolio_images")
+					.list(
+						`projects/${selectedProject.supabaseId}/${viewMode}`,
+						{ limit: 10 }
+					);
+				if (!images) {
+					setViewMode(viewMode === "web" ? "mobile" : "web");
 				}
+				if (error) throw error;
 
-				setImages(imageList as any[]);
-				setLoading(false);
-			} catch (error) {
-				setError("Failed to fetch images");
-				console.error(error);
+				if (images) {
+					// Generate public URLs for each image
+					imageList = images.map(
+						(image) =>
+							supabase.storage
+								.from("portfolio_images")
+								.getPublicUrl(
+									`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
+								).data.publicUrl
+					);
+				}
 			}
-		};
+			setImages(imageList as any[]);
+			setLoading(false);
+			return { data: imageList as any[] };
+		} catch (error) {
+			setError("Failed to fetch images");
+			console.error(error);
+		}
+	};
+
+	useEffect(() => {
 		fetchImage();
-	}, [selectedProjectIndex, viewMode, handleProjectClicked]);
+	}, [selectedProjectIndex, viewMode, selectedProject.supabaseId]);
+
+	const handleProjectClick = async (index: number) => {
+		setLoading(true);
+		setImages([]);
+		if (index === 0 || index === 3) {
+			setViewMode("mobile");
+		} else if (index === 2) {
+			setViewMode("web");
+		}
+		setSelectedProjectIndex(index);
+		setCurrentImageIndex(0);
+		setProjectsMenuOpen(false);
+		const image = await fetchImage();
+		setImages(image?.data as any[]);
+		setLoading(false);
+	};
 
 	return (
 		<div className='relative md:bg-projects-gradient bg-mobile-gradient  h-full w-full overflow-x-hidden  m-none  pr-0   border-0 sm:border-l-[0.5px] border-orangeflame '>

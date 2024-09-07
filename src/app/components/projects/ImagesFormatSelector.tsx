@@ -1,18 +1,15 @@
 import { Project } from "./ProjectsObject";
 
 const ImagesFormatSelector = ({
-	selectedProject,
 	viewMode,
 	setViewMode,
 	headerPosition,
-	images
+	currentProjectIndex
 }: {
-	selectedProject: Project;
 	viewMode: "web" | "mobile";
 	setViewMode: (mode: "web" | "mobile") => void;
 	headerPosition: boolean;
-
-	images: any[];
+	currentProjectIndex: number;
 }) => {
 	// FORMAT BUTTON COMPONENT
 
@@ -29,14 +26,14 @@ const ImagesFormatSelector = ({
 	}) => {
 		return (
 			<button
-				className={`w-1/2 h-auto text-lg rounded-md p-2 ${
+				className={`w-auto flex-shrink h-auto text-xl justify-start font-light pt-8 rounded-md p-2 mr-4 ${
 					isDisabled
-						? "bg-transparent opacity-50 cursor-default"
+						? "bg-transparent opacity-20 text-white cursor-default"
 						: "bg-transparent cursor-pointer"
 				} ${
 					isActive
 						? "underline underline-offset-4 text-emerald-200"
-						: "text-white"
+						: "text-orangeflame"
 				}`}
 				onClick={onClick}
 				disabled={isDisabled}>
@@ -48,7 +45,7 @@ const ImagesFormatSelector = ({
 	return (
 		<>
 			<div
-				className={`flex-row justify-center items-center space-x-4 ${
+				className={`flex flex-row flex-grow-0 items-center justify-center w-[90%]  align-middle p-8  py-0 ${
 					headerPosition ? "lg:flex hidden" : "flex lg:hidden"
 				}`}>
 				{/* Desktop Button */}
@@ -56,18 +53,22 @@ const ImagesFormatSelector = ({
 					text='Desktop'
 					isActive={viewMode === "web"}
 					onClick={() => setViewMode("web")}
-					isDisabled={images?.length === 0}
+					isDisabled={
+						currentProjectIndex === 0 || currentProjectIndex === 3
+							? true
+							: false
+					}
 				/>
 
 				{/* Divider */}
-				<div className='h-[90%] w-px bg-white vertical-align-middle'></div>
+				<div className='h-[90%] w-[2px] bg-white vertical-align-middle'></div>
 
 				{/* Mobile Button */}
 				<FormatButton
 					text='Mobile'
 					isActive={viewMode === "mobile"}
 					onClick={() => setViewMode("mobile")}
-					isDisabled={images?.length === 0}
+					isDisabled={currentProjectIndex === 2 ? true : false}
 				/>
 			</div>
 		</>
