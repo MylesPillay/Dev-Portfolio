@@ -19,7 +19,7 @@ const ProjectList: React.FC<ProjectListProps> = ({
 					key={index}
 					className={`cursor-pointer mb-2 text-left md:text-responsive-xl text-lg ${
 						selectedProject.name === project.name
-							? "text-white font-medium text-xl "
+							? "text-white  text-xl "
 							: "hover:text-white hover:text-opacity-80 text-emerald-200"
 					}`}
 					onClick={() => onProjectClick(index)}>

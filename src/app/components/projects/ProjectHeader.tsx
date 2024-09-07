@@ -97,10 +97,9 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			/>
 			{/* Image Format Selector */}
 			<ImagesFormatSelector
-				selectedProject={selectedProject}
+				currentProjectIndex={selectedProject.index}
 				viewMode={viewMode}
 				setViewMode={setViewMode}
-				images={images}
 				headerPosition={true}
 			/>
 		</div>
