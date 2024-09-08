@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import projects from "../components/projects/ProjectsObject";
 import ProjectsHeader from "../components/projects/ProjectHeader";
 import ProjectSkillsComponent from "../components/projects/ProjectSkills";
@@ -7,27 +7,43 @@ import MobileProjectLayout from "../components/projects/MobileProjectLayout";
 import ProjectListAndSkills from "../components/projects/responsive-layout-components/ProjectListAndSkills";
 import OverMediumLayout from "../components/projects/responsive-layout-components/OverMediumLayout";
 import MediumToLargeLayout from "../components/projects/responsive-layout-components/MediumToLargeLayout";
-import { createClient } from "@supabase/supabase-js";
-import { processEnv } from "@next/env";
+import useFetchMobileAppImages from "../hooks/useFetchMobileAppImages";
 
 const ProjectsDisplay = (): JSX.Element => {
+	const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
 	const [viewMode, setViewMode] = useState<"web" | "mobile">("mobile");
-	const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
 	const selectedProject = projects[selectedProjectIndex];
-	[selectedProjectIndex + 1];
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-	const [images, setImages] = useState<any[]>([]);
-
 	const [isImageContainerHovered, setIsImageContainerHovered] =
 		useState(false);
-
 	const [showHoverPrompt, setShowHoverPrompt] = useState<boolean | null>(
 		null
 	);
-
 	const [activeSection, setActiveSection] = useState("Overview");
-	React.useEffect(() => {
+	const [pendingProjectIndex, setPendingProjectIndex] = useState<
+		number | null
+	>(null);
+
+	const setLoadingCallback = useCallback((isLoading: boolean) => {
+		setLoading(isLoading);
+	}, []);
+
+	const { images, error } = useFetchMobileAppImages({
+		selectedProjectIndex:
+			pendingProjectIndex !== null
+				? pendingProjectIndex
+				: selectedProjectIndex,
+		viewMode,
+		supabaseId:
+			pendingProjectIndex !== null
+				? projects[pendingProjectIndex].supabaseId
+				: selectedProject.supabaseId,
+		setLoading: setLoadingCallback
+	});
+
+	useEffect(() => {
 		if (isImageContainerHovered) {
 			setActiveSection("Overview");
 		}
@@ -45,96 +61,27 @@ const ProjectsDisplay = (): JSX.Element => {
 		}
 	}, [isImageContainerHovered, showHoverPrompt]);
 
-	const selectedIndex = projects.findIndex(
-		(project) => project.name === selectedProject.name
-	);
-
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
-
-	const fetchImage = async () => {
-		const supabase = createClient(
-			process.env.SUPABASE_API_URL as string,
-			process.env.SUPABASE_API_SECRET_ACCESS_TOKEN as string
-		);
-
-		try {
-			let imageList: any[] = [];
-
-			if (selectedProjectIndex === 1 || selectedProjectIndex === 3) {
-				// Fetch images for mobile-only projects
-				const { data: images, error } = await supabase.storage
-					.from("portfolio_images")
-					.list(
-						`projects/${selectedProject.supabaseId}/${viewMode}`,
-						{ limit: 10 }
-					);
-
-				if (error) throw error;
-
-				if (images) {
-					// Generate public URLs for each image
-					imageList = images.map(
-						(image) =>
-							supabase.storage
-								.from("portfolio_images")
-								.getPublicUrl(
-									`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
-								).data.publicUrl
-					);
-				}
-			} else {
-				// Fetch images for web projects or other types
-				const { data: images, error } = await supabase.storage
-					.from("portfolio_images")
-					.list(
-						`projects/${selectedProject.supabaseId}/${viewMode}`,
-						{ limit: 10 }
-					);
-				if (!images) {
-					setViewMode(viewMode === "web" ? "mobile" : "web");
-				}
-				if (error) throw error;
-
-				if (images) {
-					// Generate public URLs for each image
-					imageList = images.map(
-						(image) =>
-							supabase.storage
-								.from("portfolio_images")
-								.getPublicUrl(
-									`projects/${selectedProject.supabaseId}/${viewMode}/${image.name}`
-								).data.publicUrl
-					);
-				}
-			}
-			setImages(imageList as any[]);
-			setLoading(false);
-			return { data: imageList as any[] };
-		} catch (error) {
-			setError("Failed to fetch images");
-			console.error(error);
-		}
-	};
-
 	useEffect(() => {
-		fetchImage();
-	}, [selectedProjectIndex, viewMode, selectedProject.supabaseId]);
+		if (pendingProjectIndex !== null && !loading) {
+			setSelectedProjectIndex(pendingProjectIndex);
+			setPendingProjectIndex(null);
+			setCurrentImageIndex(0);
+		}
+	}, [pendingProjectIndex, loading]);
 
-	const handleProjectClick = async (index: number) => {
+	const handleProjectClick = (index: number) => {
+		if (index === selectedProjectIndex) return;
+
 		setLoading(true);
-		setImages([]);
+		setPendingProjectIndex(index);
+
 		if (index === 0 || index === 3) {
 			setViewMode("mobile");
 		} else if (index === 2) {
 			setViewMode("web");
 		}
-		setSelectedProjectIndex(index);
-		setCurrentImageIndex(0);
+
 		setProjectsMenuOpen(false);
-		const image = await fetchImage();
-		setImages(image?.data as any[]);
-		setLoading(false);
 	};
 
 	return (
@@ -166,7 +113,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					<OverMediumLayout
 						setIsImageContainerHovered={setIsImageContainerHovered}
 						isImageContainerHovered={isImageContainerHovered}
-						selectedIndex={selectedIndex}
+						selectedIndex={selectedProjectIndex}
 						currentImageIndex={currentImageIndex}
 						setCurrentImageIndex={setCurrentImageIndex}
 						viewMode={viewMode}
@@ -183,7 +130,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					<MediumToLargeLayout
 						setIsImageContainerHovered={setIsImageContainerHovered}
 						isImageContainerHovered={isImageContainerHovered}
-						selectedIndex={selectedIndex}
+						selectedIndex={selectedProjectIndex}
 						currentImageIndex={currentImageIndex}
 						setCurrentImageIndex={setCurrentImageIndex}
 						viewMode={viewMode}
@@ -198,7 +145,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					{/* HIDES at SCREEN ABOVE md:  */}
 					<MobileProjectLayout
 						selectedProject={selectedProject}
-						selectedIndex={selectedIndex}
+						selectedIndex={selectedProjectIndex}
 						viewMode={viewMode}
 						setViewMode={setViewMode}
 						currentImageIndex={currentImageIndex}
