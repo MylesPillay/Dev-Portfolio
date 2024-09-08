@@ -89,10 +89,7 @@ const MobileProjectLayout = ({
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
-								{loading || imageLoading ? (
-									<LoadingSpinner />
-								) : selectedIndex === 0 ||
-								  selectedIndex === 3 ? (
+								{selectedIndex === 0 || selectedIndex === 3 ? (
 									<MediumMobileAppProjectImages
 										smallMobileScreen={true}
 										images={images}
