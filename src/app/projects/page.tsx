@@ -86,6 +86,7 @@ const ProjectsDisplay = (): JSX.Element => {
 	};
 	// Image onLoad event handler
 	const handleImageLoad = () => {
+		setLoading(false); // Image has loaded, stop loading state
 		setImageLoading(false); // Image has loaded, stop loading state
 	};
 
@@ -167,7 +168,7 @@ const ProjectsDisplay = (): JSX.Element => {
 						setViewMode={setViewMode}
 						currentImageIndex={currentImageIndex}
 						images={imagesArray}
-						loading={loading || imageLoading}
+						loading={loading}
 						setCurrentImageIndex={handleImageChange}
 						setActiveSection={setActiveSection}
 						activeSection={activeSection}
@@ -181,6 +182,9 @@ const ProjectsDisplay = (): JSX.Element => {
 							handleProjectClick(selectedProjectIndex + 1)
 						}
 						imageOnLoad={handleImageLoad}
+						imageLoading={imageLoading}
+						setImageLoading={setImageLoading}
+						setLoading={setLoading}
 					/>
 				</div>
 				<div className='flex md:hidden'>

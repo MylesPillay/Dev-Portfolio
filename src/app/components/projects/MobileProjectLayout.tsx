@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import MobileProjectTitleStickyHeader from "../../components/projects/MobileProjectTitleStickyHeader";
 import MediumScreenProjectAccordion from "../../components/projects/MediumScreenPorjectAccordian";
 import MediumMobileAppProjectImages from "../../components/projects/MediumMobileAppProjectImages";
@@ -25,6 +25,9 @@ interface MobileProjectLayoutProps {
 	onNextImage: () => void;
 	loadNextProject: () => void;
 	imageOnLoad: () => void;
+	imageLoading: boolean;
+	setImageLoading: (loading: boolean) => void;
+	setLoading: (loading: boolean) => void;
 }
 const MobileProjectLayout = ({
 	selectedProject,
@@ -32,6 +35,9 @@ const MobileProjectLayout = ({
 	viewMode,
 	images,
 	loading,
+	imageLoading,
+	setImageLoading,
+	setLoading,
 	setViewMode,
 	currentImageIndex,
 	setCurrentImageIndex,
@@ -42,6 +48,20 @@ const MobileProjectLayout = ({
 	loadNextProject,
 	imageOnLoad
 }: MobileProjectLayoutProps) => {
+	useEffect(() => {
+		let timeoutId: NodeJS.Timeout | null = null;
+
+		if (loading) {
+			timeoutId = setTimeout(() => {
+				setLoading(false);
+			}, 2000);
+		}
+
+		return () => {
+			if (timeoutId) clearTimeout(timeoutId);
+		};
+	}, [loading === true]);
+
 	return (
 		<>
 			<div className='md:hidden flex  flex-col w-full mx-auto h-auto'>
@@ -69,7 +89,7 @@ const MobileProjectLayout = ({
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
-								{loading ? (
+								{loading || imageLoading ? (
 									<LoadingSpinner />
 								) : selectedIndex === 0 ||
 								  selectedIndex === 3 ? (
