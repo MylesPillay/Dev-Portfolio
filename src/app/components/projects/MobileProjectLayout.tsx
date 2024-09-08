@@ -18,7 +18,7 @@ interface MobileProjectLayoutProps {
 	images: any;
 	loading: boolean;
 	currentImageIndex: number;
-	setCurrentImageIndex: Dispatch<SetStateAction<number>>;
+	setCurrentImageIndex: (newIndex: number) => void;
 	setActiveSection: (section: string) => void;
 	activeSection: string;
 	onPrevImage: () => void;
@@ -67,13 +67,13 @@ const MobileProjectLayout = ({
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
-								{selectedIndex === 0 || selectedIndex === 3 ? (
+								{loading ? (
+									<LoadingSpinner />
+								) : selectedIndex === 0 ||
+								  selectedIndex === 3 ? (
 									<MediumMobileAppProjectImages
 										smallMobileScreen={true}
-										images={
-											// selectedProject.images[viewMode]
-											images
-										}
+										images={images}
 										currentImageIndex={currentImageIndex}
 										loading={loading}
 									/>
@@ -88,15 +88,20 @@ const MobileProjectLayout = ({
 								<ProjectImagePagination
 									hovered={true}
 									currentImageIndex={currentImageIndex}
-									totalImages={
-										// selectedProject.images.mobile.length
-										images?.length
-									}
+									totalImages={images?.length}
 									onPageChange={(index) =>
 										setCurrentImageIndex(index)
 									}
-									onPrevImage={onPrevImage}
-									onNextImage={onNextImage}
+									onPrevImage={() =>
+										setCurrentImageIndex(
+											currentImageIndex - 1
+										)
+									}
+									onNextImage={() =>
+										setCurrentImageIndex(
+											currentImageIndex + 1
+										)
+									}
 								/>
 							</div>
 						</div>
