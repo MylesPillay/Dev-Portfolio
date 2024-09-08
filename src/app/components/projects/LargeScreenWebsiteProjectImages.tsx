@@ -9,11 +9,12 @@ interface LargeScreenWebsiteProjectImagesProps {
 	currentImageIndex: number;
 	isImageContainerHovered: boolean;
 	loading: boolean;
+	imageOnLoad: () => void;
 }
 
 const LargeScreenWebsiteProjectImages: React.FC<
 	LargeScreenWebsiteProjectImagesProps
-> = ({ currentImageIndex, images, loading }) => {
+> = ({ currentImageIndex, images, loading, imageOnLoad }) => {
 	return (
 		<div
 			className={`flex flex-col rounded-lg align-start justify-start items-start h-[60vh] max-h-[60vh] w-[60vw] overflow-y-auto`}>

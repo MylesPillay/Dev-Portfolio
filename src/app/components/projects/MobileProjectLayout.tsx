@@ -24,6 +24,7 @@ interface MobileProjectLayoutProps {
 	onPrevImage: () => void;
 	onNextImage: () => void;
 	loadNextProject: () => void;
+	imageOnLoad: () => void;
 }
 const MobileProjectLayout = ({
 	selectedProject,
@@ -38,7 +39,8 @@ const MobileProjectLayout = ({
 	setActiveSection,
 	onPrevImage,
 	onNextImage,
-	loadNextProject
+	loadNextProject,
+	imageOnLoad
 }: MobileProjectLayoutProps) => {
 	return (
 		<>
@@ -82,6 +84,7 @@ const MobileProjectLayout = ({
 										images={images}
 										currentImageIndex={currentImageIndex}
 										selectedProject={selectedProject}
+										imageOnLoad={imageOnLoad}
 									/>
 								)}
 								{/* </div> */}
