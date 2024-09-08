@@ -19,6 +19,10 @@ interface OverMediumLayoutProps {
 	selectedProject: Project;
 	activeSection: string;
 	setActiveSection: (section: string) => void;
+	onPrevImage: () => void;
+	onNextImage: () => void;
+	loadNextProject: () => void;
+	imageOnLoad: () => void;
 }
 
 const OverMediumLayout = ({
@@ -33,7 +37,8 @@ const OverMediumLayout = ({
 	setViewMode,
 	selectedProject,
 	activeSection,
-	setActiveSection
+	setActiveSection,
+	imageOnLoad
 }: OverMediumLayoutProps) => {
 	return (
 		// <div
@@ -83,6 +88,7 @@ const OverMediumLayout = ({
 							images={images}
 							loading={loading}
 							currentImageIndex={currentImageIndex}
+							imageOnLoad={imageOnLoad}
 						/>
 
 						<div className='w-full justify-end items-end'>
@@ -137,6 +143,7 @@ const OverMediumLayout = ({
 							loading={loading}
 							currentImageIndex={currentImageIndex}
 							isImageContainerHovered={isImageContainerHovered}
+							imageOnLoad={imageOnLoad}
 						/>
 						<div className='w-[60vw] mx-auto '>
 							<ProjectImagePagination

@@ -8,13 +8,15 @@ interface MobileImageContainerProps {
 	images: string[];
 	currentImageIndex: number;
 	loading: boolean;
+	imageOnLoad: () => void;
 }
 
 const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
 	hovered,
 	images,
 	currentImageIndex,
-	loading
+	loading,
+	imageOnLoad
 }) => {
 	const trimmedImages = images.slice(0, -1);
 
