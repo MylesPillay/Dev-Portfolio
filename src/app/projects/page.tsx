@@ -26,6 +26,8 @@ const ProjectsDisplay = (): JSX.Element => {
 		number | null
 	>(null);
 
+	const [imageLoading, setImageLoading] = useState(false);
+
 	const setLoadingCallback = useCallback((isLoading: boolean) => {
 		setLoading(isLoading);
 	}, []);
@@ -42,6 +44,19 @@ const ProjectsDisplay = (): JSX.Element => {
 				: selectedProject.supabaseId,
 		setLoading: setLoadingCallback
 	});
+	const handleImageChange = (newIndex: number) => {
+		setImageLoading(true);
+		setCurrentImageIndex(newIndex);
+	};
+
+	useEffect(() => {
+		if (imageLoading) {
+			const timer = setTimeout(() => {
+				setImageLoading(false);
+			}, 500); // Adjust this delay as needed
+			return () => clearTimeout(timer);
+		}
+	}, [imageLoading]);
 
 	useEffect(() => {
 		if (isImageContainerHovered) {
@@ -150,8 +165,8 @@ const ProjectsDisplay = (): JSX.Element => {
 						setViewMode={setViewMode}
 						currentImageIndex={currentImageIndex}
 						images={images}
-						loading={loading}
-						setCurrentImageIndex={setCurrentImageIndex}
+						loading={loading || imageLoading}
+						setCurrentImageIndex={handleImageChange}
 						setActiveSection={setActiveSection}
 						activeSection={activeSection}
 						onPrevImage={() =>
