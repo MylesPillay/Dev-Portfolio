@@ -42,20 +42,22 @@ const MobileAboutMeHeroSection = ({
 					</div>
 				</div>
 			</div>
-			<div className='flex w-auto align-middle  rounded-lg  justify-center items-center self-center h-auto '>
+			<div className=' flex w-auto align-middle  rounded-xl  justify-center items-center self-center h-auto '>
 				{loading ? (
 					<div
-						className={`h-auto justify-end rounded-lg 	flex flex-1 bg-orangeflame bg-opacity-10	max-h-[62vh] min-w-auto min-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
+						className={` md:hidden flex justify-end rounded-lg 	 flex-1 min-h-[50vh] bg-orangeflame bg-opacity-10	min-w-[40vw] h-full w-full flex-grow-0 ml-[5vw]  mb-2 overflow-y-hidden`}>
 						<LoadingSpinner />
 					</div>
 				) : (
 					<></>
 				)}
-				<div className='relative  ml-[5vw] rounded-lg   max-h-[50vh] mb-2 overflow-y-hidden'>
-					{/* Image */}
+
+				<div className='relative  rounded-xl   max-h-[50vh] overflow-y-hidden'>
 					<img
 						src={image}
-						className='h-auto justify-end flex flex-2 pb-20 flex-grow-0 w-auto '
+						className={`h-auto justify-end flex flex-2 flex-grow-0 w-auto ${
+							loading ? "hidden" : "flex"
+						}`}
 						alt='Profile'
 						style={{
 							maxHeight: "62vh",
@@ -64,8 +66,8 @@ const MobileAboutMeHeroSection = ({
 							height: "auto"
 						}}
 					/>
-					{/* Overlay */}
-					<div className='absolute inset-0 bg-orangeflame bg-opacity-20 rounded-lg'></div>
+
+					<div className='absolute inset-0  flex flex-grow-0  flex-2 h-auto	 max-w-[385px] w-auto   m-4 bg-orangeflame bg-opacity-10 rounded-lg'></div>
 				</div>
 			</div>
 
