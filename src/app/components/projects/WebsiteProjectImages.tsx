@@ -23,13 +23,13 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 	}, [currentImageIndex]);
 
 	return (
-		<div className='flex w-full  rounded-lg align-middle justify-center items-start self-center h-auto max-h-[40vh] min-h-[40vh] overflow-y-scroll overflow-x-hidden p-8 md:p-0 '>
+		<div className='flex w-full  rounded-lg align-middle justify-center items-start self-center h-auto lg:max-h-[40vh] md:max-h-[55vh] min-h-[40vh] max-h-[70vh] overflow-y-scroll overflow-x-hidden p-8 md:p-0 '>
 			<div className='flex justify-center h-full w-full'>
 				<div className='rounded-lg h-full w-full overflow-y-auto overflow-x-hidden'>
 					<div className={`w-full justify-center h-auto flex-grow`}>
 						{imageLoading && (
 							<div
-								className={`flex justify-center  max-h-[40vh] min-h-[40vh] w-[85vw] pr-40 pl-0 pt-8 items-center align-middle h-full  mr-4 rounded-lg bg-orangeflame bg-opacity-10 `}>
+								className={`flex justify-center   lg:min-h-[40vh] md:min-h-[55vh] min-h-[70vh]  items-center align-middle h-full  mr-4 rounded-lg bg-orangeflame bg-opacity-10 `}>
 								<LoadingSpinner />
 							</div>
 						)}
