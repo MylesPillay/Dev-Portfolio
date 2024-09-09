@@ -42,24 +42,26 @@ const ContactForm: React.FC<ContactFormProps> = ({
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
+		setIsNameFieldUpdated(true);
+		setIsEmailFieldUpdated(true);
+		setIsMessageFieldUpdated(true);
 		if (!name || !email || !message) {
-			// Handle validation errors
-			setIsNameFieldUpdated(true);
-			setIsEmailFieldUpdated(true);
-			setIsMessageFieldUpdated(true);
 			return;
 		}
 
 		const formData = {
 			contact_sender_name: name,
-			contact_number: number || null,
+			contact_number: number ? number : null,
 			contact_email: email,
 			contact_message: message
 		};
+		console.log("formData", formData);
+		console.log("firing submitContactForm()");
 
 		const result = await submitContactForm(formData);
 
 		if (result) {
+			console.log(result, "submitContactForm() RESULT RETURNED");
 			// Reset form fields
 			setName("");
 			setEmail("");

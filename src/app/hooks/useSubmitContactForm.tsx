@@ -21,19 +21,23 @@ const useSubmitContactForm = () => {
 		setLoading(true);
 		setError(null);
 
+		console.log("formData", formData, "ENTERED SUBMIT CONTACT FORM");
 		try {
 			const { data, error } = await supabase
 				.from("contact_inbox")
-				.insert([formData]);
+				.insert([formData])
+				.select();
 
 			if (error) throw error;
 
-			return data;
-		} catch (error) {
-			setError("Failed to submit contact form");
-			console.error(error);
-		} finally {
+			console.log("Data inserted successfully", data);
 			setLoading(false);
+			return data;
+		} catch (error: any) {
+			console.error("Error in submitContactForm", error);
+			setError(error.message || "Failed to submit contact form");
+			setLoading(false);
+			return null;
 		}
 	};
 

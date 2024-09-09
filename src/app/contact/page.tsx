@@ -23,7 +23,9 @@ export default function Contact() {
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 
 	const handleSubmitSuccess = () => {
+		console.log("handleSubmitSuccess() called");
 		setSubmitSuccess(true);
+		console.log("submitSuccess", submitSuccess, "should be true");
 		// Optionally, you can set a timeout to hide the success message after a few seconds
 		setTimeout(() => setSubmitSuccess(false), 5000);
 	};
@@ -59,21 +61,28 @@ export default function Contact() {
 					, I love bringing exciting ideas to life.
 				</h3>
 
-				<div className='bg-slate-800  bg-opacity-50 text-center w-screen p-4 lg:px-4 px-8 border-t border-b border-orangeflame '>
-					<div className='   w-[80%] flex-grow-0 justify-center '>
-						<h1 className='lg:text-xl sm:text-lg font-thin text-center justify-center align-text-top text-white '>
-							If you are ready to create something amazing, reach
-							out below — I would love to hear from you!
-						</h1>
+				<div className='bg-slate-800 bg-opacity-50 text-center w-screen p-4 lg:px-4 px-8 border-t border-b border-orangeflame'>
+					<div className='w-[80%] flex-grow-0 justify-center'>
+						{submitSuccess ? (
+							<h1 className='lg:text-xl sm:text-lg font-thin text-center justify-center align-text-top text-emerald-200'>
+								Thank you for your message! We'll get back to
+								you soon.
+							</h1>
+						) : (
+							<h1 className='lg:text-xl sm:text-lg font-thin text-center justify-center align-text-top text-white'>
+								If you are ready to create something amazing,
+								reach out below — I would love to hear from you!
+							</h1>
+						)}
 					</div>
 				</div>
 
 				{/* CONTACT FORM CONTAINER */}
-				{submitSuccess && (
+				{/* {submitSuccess && (
 					<div className='rounded-lg p-8 bg-orangeflame bg-opacity-10 text-emerald-200   border border-emerald-800 w-auto text-light  text-center'>
 						Thank you for your message! We'll get back to you soon.
 					</div>
-				)}
+				)} */}
 				<ContactForm
 					name={name}
 					email={email}
