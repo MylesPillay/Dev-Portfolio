@@ -48,11 +48,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 			<div className='flex flex-col justify-between w-auto '>
 				<button
 					onClick={() => {
-						console.log("PROJECTS MENU OPEN: ", projectsMenuOpen);
 						setProjectsMenuOpen(!projectsMenuOpen);
-						console.log(
-							"CLICKING PROJECTS FIELD IS IT DOISABLED?? "
-						);
 						setMobileMenuOpen(false);
 					}}
 					className='lg:pointer-events-none lg:cursor-default'
