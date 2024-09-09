@@ -6,14 +6,20 @@ import LoadingSpinner from "../layout/LoadingSpinner";
 // import { on } from "events";
 import portrait from "/images/profile.jpg";
 
-const AboutMeHeroSection = () => {
-	const [isImageLoaded, setIsImageLoaded] = useState<boolean>(true);
+const AboutMeHeroSection = ({
+	image,
+	loading
+}: {
+	image: string;
+	loading: boolean;
+}) => {
+	// const [isImageLoaded, setIsImageLoaded] = useState<boolean>(true);
 
 	// Handler for when the image has fully loaded
 
 	return (
 		<div className='flex w-full h-auto justify-center p-10'>
-			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
+			<div className='flex w-auto align-middle rounded-lg  justify-center items-center self-center h-auto '>
 				{/* <div
 					className={`
 								flex flex-2 bg-green-200 justify-end rounded-lg h-auto max-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
@@ -21,21 +27,31 @@ const AboutMeHeroSection = () => {
 				{/* {!isImageLoaded && <LoadingSpinner />} */}
 				{/* <div className={`${!isImageLoaded ? "block" : "hidden"}`}>
 					{/* <LoadingSpinner /> */}
-
-				<img
-					src='/images/profile.jpg'
-					className={`h-auto justify-end rounded-lg 	flex flex-2 bg-green-200  max-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}
-					alt='Profile'
-					style={{
-						display: isImageLoaded ? "block" : "none",
-						maxHeight: "62vh",
-						borderRadius: "10px",
-						width: "auto", // Adjust width if needed
-						height: "auto" // Adjust height if needed
-					}}
-				/>
-				{/* </div>
-				</div> */}
+				{loading ? (
+					<div
+						className={`h-auto justify-end rounded-lg 	flex flex-1 bg-orangeflame bg-opacity-10	max-h-[62vh] min-w-auto min-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
+						<LoadingSpinner />
+					</div>
+				) : (
+					<></>
+				)}
+				{/* Image with overlay */}
+				<div className='relative  ml-[5vw] rounded-lg  max-h-[50vh] mb-2 overflow-y-hidden'>
+					{/* Image */}
+					<img
+						src={image}
+						className='h-auto justify-end flex flex-2 pb-20 flex-grow-0 w-auto '
+						alt='Profile'
+						style={{
+							maxHeight: "62vh",
+							borderRadius: "10px",
+							width: "auto",
+							height: "auto"
+						}}
+					/>
+					{/* Overlay */}
+					<div className='absolute inset-0 bg-orangeflame bg-opacity-20 rounded-lg'></div>
+				</div>
 			</div>
 
 			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] ml-[8vw] '>

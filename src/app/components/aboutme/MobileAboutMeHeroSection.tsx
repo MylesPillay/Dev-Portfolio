@@ -1,8 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import LinksComponent from "./LinksComponent";
+import LoadingSpinner from "../layout/LoadingSpinner";
 
-const MobileAboutMeHeroSection = () => {
+const MobileAboutMeHeroSection = ({
+	image,
+	loading
+}: {
+	image: string;
+	loading: boolean;
+}) => {
 	return (
 		<div className='flex flex-col  h-full justify-center  py-8  w-full'>
 			<h1 className='text-4xl font-thin h-full items-center justify-center align-middle text-emerald-200 text-center  '>
@@ -35,22 +42,30 @@ const MobileAboutMeHeroSection = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex w-auto align-middle  justify-center items-center self-center h-auto '>
-				<div
-					className={`
-								flex bg-green-200 justify-center rounded-lg h-auto max-h-[550px] flex-grow-0  w-[65%] mb-2 overflow-y-hidden`}>
-					<div className={`h-full rounded-lg`}>
-						<Image
-							src={"/images/profile.jpg"}
-							className='rounded-lg'
-							alt={`Project screenshot `}
-							objectFit=''
-							width={500}
-							height={900}
-							style={{ maxHeight: 700, borderRadius: 10 }}
-							quality={100}
-						/>
+			<div className='flex w-auto align-middle  rounded-lg  justify-center items-center self-center h-auto '>
+				{loading ? (
+					<div
+						className={`h-auto justify-end rounded-lg 	flex flex-1 bg-orangeflame bg-opacity-10	max-h-[62vh] min-w-auto min-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
+						<LoadingSpinner />
 					</div>
+				) : (
+					<></>
+				)}
+				<div className='relative  ml-[5vw] rounded-lg   max-h-[50vh] mb-2 overflow-y-hidden'>
+					{/* Image */}
+					<img
+						src={image}
+						className='h-auto justify-end flex flex-2 pb-20 flex-grow-0 w-auto '
+						alt='Profile'
+						style={{
+							maxHeight: "62vh",
+							borderRadius: "10px",
+							width: "auto",
+							height: "auto"
+						}}
+					/>
+					{/* Overlay */}
+					<div className='absolute inset-0 bg-orangeflame bg-opacity-20 rounded-lg'></div>
 				</div>
 			</div>
 
