@@ -27,7 +27,12 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 			<div className='flex justify-center h-full w-full'>
 				<div className='rounded-lg h-full w-full overflow-y-auto overflow-x-hidden'>
 					<div className={`w-full justify-center h-auto flex-grow`}>
-						{imageLoading && <LoadingSpinner />}{" "}
+						{imageLoading && (
+							<div
+								className={`flex justify-center  max-h-[40vh] min-h-[40vh] w-[85vw] pr-40 pl-0 pt-8 items-center align-middle h-full  mr-4 rounded-lg bg-orangeflame bg-opacity-10 `}>
+								<LoadingSpinner />
+							</div>
+						)}
 						{/* Show spinner while loading */}
 						<img
 							src={images[currentImageIndex]}

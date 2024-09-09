@@ -104,7 +104,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-grow flex-col   w-full border-y ${
+			className={`flex flex-grow flex-col py-14  w-full border-y ${
 				activeSection === "Overview" ? "border-t-0" : ""
 			}  border-orangeflame space-y-2
 			`}

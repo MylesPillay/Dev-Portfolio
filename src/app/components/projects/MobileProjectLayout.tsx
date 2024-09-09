@@ -88,7 +88,7 @@ const MobileProjectLayout = ({
 							/>
 						</div>
 						<div className='flex flex-grow h-auto bg-slate-800  min-w-[70vw] w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
-							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
+							<div className=' flex flex-col justify-center h-auto w-[100%]   items-center overflow-x-scroll'>
 								{selectedIndex === 0 || selectedIndex === 3 ? (
 									<MediumMobileAppProjectImages
 										smallMobileScreen={true}
