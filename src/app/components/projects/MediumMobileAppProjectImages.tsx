@@ -21,7 +21,7 @@ const MediumMobileAppProjectImages: React.FC<
 
 	return (
 		<div
-			className={`flex rounded-lg align-start justify-center items-center my-4 overflow-y-scroll overflow-x-scroll ${
+			className={`flex rounded-lg align-start min-w-[80%] justify-center items-center my-4 overflow-y-scroll overflow-x-scroll ${
 				smallMobileScreen
 					? "h-auto max-h-[60vh] min-h-[35vh] w-[98%] px-6"
 					: "h-auto max-h-[60vh] min-h-[50vh] w-[85%]"

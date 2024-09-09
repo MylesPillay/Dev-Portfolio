@@ -1,3 +1,4 @@
+import useSubmitContactForm from "@/app/hooks/useSubmitContactForm";
 import React from "react";
 
 interface ContactFormProps {
@@ -16,6 +17,7 @@ interface ContactFormProps {
 	setEmail: (value: string) => void;
 	setMessage: (value: string) => void;
 	setNumber: (value: string) => void;
+	onSubmitSuccess: () => void;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
@@ -32,12 +34,49 @@ const ContactForm: React.FC<ContactFormProps> = ({
 	setName,
 	setEmail,
 	setMessage,
-	setNumber
+	setNumber,
+	onSubmitSuccess
 }) => {
+	const { submitContactForm, loading, error } = useSubmitContactForm();
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+
+		if (!name || !email || !message) {
+			// Handle validation errors
+			setIsNameFieldUpdated(true);
+			setIsEmailFieldUpdated(true);
+			setIsMessageFieldUpdated(true);
+			return;
+		}
+
+		const formData = {
+			contact_sender_name: name,
+			contact_number: number || null,
+			contact_email: email,
+			contact_message: message
+		};
+
+		const result = await submitContactForm(formData);
+
+		if (result) {
+			// Reset form fields
+			setName("");
+			setEmail("");
+			setMessage("");
+			setNumber("");
+			setIsNameFieldUpdated(false);
+			setIsEmailFieldUpdated(false);
+			setIsMessageFieldUpdated(false);
+
+			onSubmitSuccess();
+		}
+	};
+
 	return (
 		<form
 			className='md:w-[95%] w-[100%] sm:pb-8 mb-10 pb-4 '
-			onSubmit={() => {}}>
+			onSubmit={handleSubmit}>
 			<div className='flex  flex-wrap w-[100%]  mx-0 sm:mx-4 mt-4  md:pb-0'>
 				<div className='flex md:flex-row flex-col flex-wrap justify-evenly w-[100%]'>
 					<div className=' flex flex-col flex-grow space-y-2 p-6'>
@@ -145,10 +184,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
 							<div className='flex flex-grow justify-end items-center w-full'>
 								<button
 									className='justify-end  w-auto   self-end py-1 px-8 mt-4 rounded-md  bg-orangeflame  text-white border border-white lg:text-lg text-md font-medium  hover:bg-opacity-80  '
-									type='submit'>
-									Submit
+									type='submit'
+									disabled={loading}>
+									{loading ? "Submitting..." : "Submit"}
 								</button>
 							</div>
+
+							{error && (
+								<div className='text-red-500 text-sm mt-2'>
+									{error}
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

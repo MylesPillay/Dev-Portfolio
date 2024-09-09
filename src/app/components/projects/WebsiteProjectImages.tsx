@@ -23,7 +23,7 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
 	}, [currentImageIndex]);
 
 	return (
-		<div className='flex w-full  rounded-lg align-middle justify-center items-start self-center h-auto lg:max-h-[40vh] md:max-h-[55vh] min-h-[40vh] max-h-[70vh] overflow-y-scroll overflow-x-hidden p-8 md:p-0 '>
+		<div className='flex w-full  rounded-lg align-middle justify-center items-start self-center h-auto lg:max-h-[40vh] md:max-h-[55vh] min-h-[40vh] max-h-[70vh] min-w-[80%] overflow-y-scroll overflow-x-hidden p-8 md:p-0 '>
 			<div className='flex justify-center h-full w-full'>
 				<div className='rounded-lg h-full w-full overflow-y-auto overflow-x-hidden'>
 					<div className={`w-full justify-center h-auto flex-grow`}>
