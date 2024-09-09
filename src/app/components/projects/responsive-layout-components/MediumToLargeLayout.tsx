@@ -75,7 +75,7 @@ const MediumToLargeLayout = ({
 										loading={loading}
 									/>
 								) : (
-									<div className='w-[100%] pr-[15%] h-auto max-h-[50vh]'>
+									<div className='w-[100%] pr-[15%] h-auto max-h-[70vh]'>
 										<WebsiteProjectImages
 											images={images}
 											currentImageIndex={
