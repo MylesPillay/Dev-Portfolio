@@ -26,7 +26,7 @@ const ImagesFormatSelector = ({
 	}) => {
 		return (
 			<button
-				className={`w-auto flex-shrink h-auto text-xl justify-start font-light pt-8 rounded-md p-2 mr-4 ${
+				className={`w-auto min-w-[100px] flex-shrink-0 h-auto flex-grow text-xl justify-center font-light rounded-md p-2 ${
 					isDisabled
 						? "bg-transparent opacity-20 text-white cursor-default"
 						: "bg-transparent cursor-pointer"
@@ -45,7 +45,7 @@ const ImagesFormatSelector = ({
 	return (
 		<>
 			<div
-				className={`flex flex-row flex-grow-0 items-center justify-center w-[90%]  align-middle p-8  py-0 ${
+				className={`flex flex-row flex-grow items-center justify-end   sm:py-8 py-12  align-middle ${
 					headerPosition ? "lg:flex hidden" : "flex lg:hidden"
 				}`}>
 				{/* Desktop Button */}
@@ -61,7 +61,7 @@ const ImagesFormatSelector = ({
 				/>
 
 				{/* Divider */}
-				<div className='h-[90%] w-[2px] bg-white vertical-align-middle'></div>
+				{/* <div className='h-[90%] w-[2px] bg-white vertical-align-middle'></div> */}
 
 				{/* Mobile Button */}
 				<FormatButton

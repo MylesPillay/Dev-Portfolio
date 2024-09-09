@@ -78,8 +78,8 @@ const MobileProjectLayout = ({
 							setActiveSection={setActiveSection}
 						/>
 					</div>
-					<div className='w-full mx-auto h-full justify-center items-center align-middle'>
-						<div className='flex w-full justify-center items-center'>
+					<div className='w-full min-w-[70vw] mx-auto h-full justify-center items-center align-middle'>
+						<div className='flex w-full min-w-[70vw] justify-center items-center '>
 							<ImagesFormatSelector
 								viewMode={viewMode}
 								setViewMode={setViewMode}
@@ -87,7 +87,7 @@ const MobileProjectLayout = ({
 								currentProjectIndex={selectedProject.index}
 							/>
 						</div>
-						<div className='flex flex-grow h-auto bg-slate-800  w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
+						<div className='flex flex-grow h-auto bg-slate-800  min-w-[70vw] w-[100%] overflow-x-hidden  bg-opacity-50  justify-start align-start items-start'>
 							<div className=' flex flex-col justify-center h-auto w-[100%]   items-start overflow-x-scroll'>
 								{selectedIndex === 0 || selectedIndex === 3 ? (
 									<MediumMobileAppProjectImages
