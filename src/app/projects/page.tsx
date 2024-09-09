@@ -74,6 +74,7 @@ const ProjectsDisplay = (): JSX.Element => {
 		setLoading(true);
 		setSelectedProjectIndex(index);
 		setViewMode(index === 0 || index === 3 ? "mobile" : "web");
+		setProjectsMenuOpen(false);
 	};
 
 	const handleImageChange = (newIndex: number) => {
