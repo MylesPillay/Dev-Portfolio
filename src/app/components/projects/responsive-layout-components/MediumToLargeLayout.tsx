@@ -62,8 +62,8 @@ const MediumToLargeLayout = ({
 							headerPosition={false}
 						/>
 
-						<div className='flex flex-col flex-grow h-auto overflow-x-hidden bg-opacity-50 justify-center align-middle items-center w-auto'>
-							<div className='flex flex-col justify-center h-auto w-[85%] max-h-[100%] items-start overflow-x-scroll'>
+						<div className='flex flex-col flex-grow h-auto overflow-x-hidden bg-opacity-50 justify-center align-middle items-center w-full'>
+							<div className='flex flex-col justify-center h-auto w-[85%] min-w-[80vw] max-h-[100%] items-start overflow-x-scroll'>
 								{loading ? ( // Ensure loading state is properly managed
 									<LoadingSpinner />
 								) : selectedIndex === 0 ||
@@ -75,7 +75,7 @@ const MediumToLargeLayout = ({
 										loading={loading}
 									/>
 								) : (
-									<div className='w-[100%] pr-[15%] h-auto max-h-[70vh]'>
+									<div className='w-[100%] pr-[15%] h-auto max-h-[50vh]'>
 										<WebsiteProjectImages
 											images={images}
 											currentImageIndex={

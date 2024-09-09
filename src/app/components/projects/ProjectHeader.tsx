@@ -73,7 +73,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 											key={index}
 											className='text-orangeflame text-xl text-left font-light my-4 hover:text-white hover:text-opacity-80'
 											onClick={() =>
-												onProjectClick(index)
+												onProjectClick(project.index)
 											}>
 											{project.name}
 										</li>

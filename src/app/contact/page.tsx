@@ -20,6 +20,13 @@ export default function Contact() {
 		useState<boolean>(false);
 	const [isMessageFieldUpdated, setIsMessageFieldUpdated] =
 		useState<boolean>(false);
+	const [submitSuccess, setSubmitSuccess] = useState(false);
+
+	const handleSubmitSuccess = () => {
+		setSubmitSuccess(true);
+		// Optionally, you can set a timeout to hide the success message after a few seconds
+		setTimeout(() => setSubmitSuccess(false), 5000);
+	};
 
 	return (
 		<div className='md:bg-projects-gradient bg-mobile-gradient  h-screen w-full overflow-x-hidden overflow-y-auto m-none  pr-0  border-0 sm:border-l-[0.5px] border-orangeflame  '>
@@ -62,7 +69,11 @@ export default function Contact() {
 				</div>
 
 				{/* CONTACT FORM CONTAINER */}
-
+				{submitSuccess && (
+					<div className='rounded-lg p-8 bg-orangeflame bg-opacity-10 text-emerald-200   border border-emerald-800 w-auto text-light  text-center'>
+						Thank you for your message! We'll get back to you soon.
+					</div>
+				)}
 				<ContactForm
 					name={name}
 					email={email}
@@ -78,6 +89,7 @@ export default function Contact() {
 					setEmail={setEmail}
 					setMessage={setMessage}
 					setNumber={setNumber}
+					onSubmitSuccess={handleSubmitSuccess}
 				/>
 			</div>
 		</div>
