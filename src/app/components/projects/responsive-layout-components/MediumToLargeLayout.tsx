@@ -54,7 +54,7 @@ const MediumToLargeLayout = ({
 				/>
 
 				<div className='h-auto w-full overflow-x-hidden bg-slate-800 bg-opacity-50 flex flex-col items-center justify-center'>
-					<div className='flex-col justify-center items-center align-middle'>
+					<div className='flex-col  justify-center items-center align-middle'>
 						<ImagesFormatSelector
 							currentProjectIndex={selectedProject.index}
 							viewMode={viewMode}
