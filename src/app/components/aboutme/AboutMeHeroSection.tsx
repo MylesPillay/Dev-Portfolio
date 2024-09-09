@@ -13,55 +13,53 @@ const AboutMeHeroSection = ({
 	image: string;
 	loading: boolean;
 }) => {
-	// const [isImageLoaded, setIsImageLoaded] = useState<boolean>(true);
-
-	// Handler for when the image has fully loaded
-
 	return (
-		<div className='flex w-full h-auto justify-center p-10'>
-			<div className='flex w-auto align-middle rounded-lg  justify-center items-center self-center h-auto '>
-				{/* <div
-					className={`
-								flex flex-2 bg-green-200 justify-end rounded-lg h-auto max-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
-					<div className={`h-full justify-end rounded-lg`}> */}
-				{/* {!isImageLoaded && <LoadingSpinner />} */}
-				{/* <div className={`${!isImageLoaded ? "block" : "hidden"}`}>
-					{/* <LoadingSpinner /> */}
-				{loading ? (
-					<div
-						className={`h-auto justify-end rounded-lg 	flex flex-1 bg-orangeflame bg-opacity-10	max-h-[62vh] min-w-auto min-h-[50vh] flex-grow-0 ml-[5vw] w-auto mb-2 overflow-y-hidden`}>
-						<LoadingSpinner />
-					</div>
-				) : (
-					<></>
-				)}
-				{/* Image with overlay */}
-				<div className='relative  ml-[5vw] rounded-lg  max-h-[50vh] mb-2 overflow-y-hidden'>
-					{/* Image */}
-					<img
-						src={image}
-						className='h-auto justify-end flex flex-2 pb-20 flex-grow-0 w-auto '
-						alt='Profile'
-						style={{
-							maxHeight: "62vh",
-							borderRadius: "10px",
-							width: "auto",
-							height: "auto"
-						}}
-					/>
-					{/* Overlay */}
-					<div className='absolute inset-0 bg-orangeflame bg-opacity-20 rounded-lg'></div>
+		<div className='flex w-[100vw] flex-auto h-auto justify-around py-10'>
+			{loading ? (
+				<div
+					className={`hidden md:flex justify-end rounded-xl  bg-orangeflame bg-opacity-90	 h-auto flex-grow-0 overflow-y-hidden
+ xl:flex-1   xl:min-h-[63vh] xl:max-w-[40vw]  lg:flex-2   lg:min-h-[50vh] lg:max-w-[30vw] md:flex-wrap   md:min-h-[45vh] md:max-h-[45vw]
+
+
+					`}>
+					<LoadingSpinner />
 				</div>
+			) : (
+				<></>
+			)}
+
+			<div className='relative  min-w-[30vw]  ml-[8vw] rounded-xl max-h-[62vh] mb-2 '>
+				<img
+					src={image}
+					className={`h-auto justify-end flex flex-2 flex-grow-0 w-auto ${
+						loading ? "hidden" : "flex"
+					}`}
+					alt='Profile'
+					style={{
+						maxHeight: "62vh",
+						borderRadius: "10px",
+						width: "auto",
+						height: "auto"
+					}}
+				/>
+
+				<div
+					className={` inset-0   flex-grow-0  flex-2 h-auto	 max-w-[385px] w-auto   m-4 bg-orangeflame bg-opacity-10 rounded-lg ${
+						loading ? "hidden" : "absolute"
+					}`}></div>
 			</div>
 
 			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] ml-[8vw] '>
 				<h1 className='text-4xl font-bold  text-white'>MYLES PILLAY</h1>
 			</div>
 
-			<div className='flex w-auto flex-1  h-full  lg:max-w-[75%] xl:max-w-[50%] justify-center items-center py-8 px-[5vw]'>
+			<div
+				className={`flex w-full flex-1 flex-grow   h-full  justify-start items-center py-8
+
+				`}>
 				<div
 					className={`
-					 justify-center `}>
+					 justify-center  w-[40vw] min-w-[40vw]`}>
 					<div className='flex flex-row flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
 						<div
 							className={`flex flex-wrap   items-center text-wrap text-center

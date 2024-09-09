@@ -15,7 +15,7 @@ const supabase = createClient(
 
 export default function Home() {
 	const [singularExpansion, setSingularExpansion] = useState("none");
-	const [loading, setLoading] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
 	const [image, setImage] = useState<string>("");
 	const [error, setError] = useState<string | null>(null);
 
