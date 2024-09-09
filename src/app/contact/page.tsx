@@ -23,9 +23,7 @@ export default function Contact() {
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 
 	const handleSubmitSuccess = () => {
-		console.log("handleSubmitSuccess() called");
 		setSubmitSuccess(true);
-		console.log("submitSuccess", submitSuccess, "should be true");
 		// Optionally, you can set a timeout to hide the success message after a few seconds
 		setTimeout(() => setSubmitSuccess(false), 5000);
 	};
@@ -48,7 +46,7 @@ export default function Contact() {
 				<TaglineText />
 
 				<h3 className='md:text-xl lg:text-xl text-lg text-wrap text-center font-thin text-white pb-8 pt-4  w-[80%]  mx-12 flex-grow-0 justify-center '>
-					Whether its a sophisticated
+					Whether it's a sophisticated
 					<span className='text-emerald-200 font-light'>
 						{" "}
 						web platform{" "}
@@ -70,7 +68,7 @@ export default function Contact() {
 							</h1>
 						) : (
 							<h1 className='lg:text-xl sm:text-lg font-thin text-center justify-center align-text-top text-white'>
-								If you are ready to create something amazing,
+								If you're ready to create something amazing,
 								reach out below — I would love to hear from you!
 							</h1>
 						)}

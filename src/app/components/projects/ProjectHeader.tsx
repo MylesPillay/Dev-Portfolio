@@ -53,7 +53,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 					}}
 					className='lg:pointer-events-none lg:cursor-default'
 					disabled={width >= 1200}>
-					<h1 className='text-2xl font-medium text-left w-[10vw] pt-2 sm:pt-0  ml-4   sm:ml-0 justify-start h-auto align-text-bottom  text-orangeflame '>
+					<h1 className='text-2xl font-medium text-left min-w-[10vw] w-auto pt-2 sm:pt-0  ml-4   sm:ml-0 justify-start h-auto align-text-bottom  text-orangeflame '>
 						PROJECTS
 					</h1>
 				</button>
