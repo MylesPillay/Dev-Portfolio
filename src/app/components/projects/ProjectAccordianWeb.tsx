@@ -119,7 +119,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 							: ""
 					}`}>
 					<button
-						className={`w-full text-left text-2xl p-4 py-2 font-light ${
+						className={`w-full text-left text-xl p-4 py-2 font-light ${
 							activeSection === section.title
 								? "text-orangeflame"
 								: "text-emerald-400"
@@ -132,7 +132,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 						</span>
 					</button>
 					{activeSection === section.title && (
-						<div className='p-4 text-white font-thin text-xl'>
+						<div className='p-4 text-white font-thin text-lg'>
 							{renderContent(section)}
 						</div>
 					)}
