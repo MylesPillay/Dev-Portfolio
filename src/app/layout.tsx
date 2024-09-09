@@ -25,39 +25,6 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className='flex min-h-screen min-w-screen p-0'>
-				{/* <div className='md:hidden fixed top-4 right-4 z-50'>
-					<button
-						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-						className='flex flex-col items-center justify-center text-emerald-200 p-2 rounded-md'>
-						{mobileMenuOpen ? (
-							<FaXing className='z-50' size={30} />
-						) : (
-							<FaBars size={30} />
-						)}
-					</button>
-					{mobileMenuOpen && (
-						<div className='sm:hidden fixed top-0 right-0  p-8 h-auto w-[50%]  bg-deepBlueBg z-40 border-emerald-200 border-l border-b'>
-							<div className='flex flex-col items-start p-2 h-[10%]'>
-								{[
-									{ href: "/contact", label: "CONTACT" },
-									{ href: "/projects", label: "PROJECTS" },
-									{ href: "/", label: "ABOUT ME" }
-								].map((item) => (
-									<Link
-										key={item.href}
-										href={item.href}
-										className='text-orangeflame text-xl text-left font-semibold my-4'
-										onClick={() =>
-											setMobileMenuOpen(false)
-										}>
-										{item.label}
-									</Link>
-								))}
-							</div>
-						</div>
-					)}
-				</div> */}
-
 				<nav className='hidden md:flex flex-wrap sm:flex-col h-full md:w-auto md:max-w-[350px] md:min-w-[130px]   text-black font-bold md:text-justify md:justify-center md:align-top md:items-center'>
 					<ul className='md:flex md:flex-row h-full w-full max-w-[150px] text-white bg-nav-gradient pr-1'>
 						{[

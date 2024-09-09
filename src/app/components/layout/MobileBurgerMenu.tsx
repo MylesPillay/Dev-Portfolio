@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaBars, FaXing } from "react-icons/fa";
 
 interface MobileBurgerMenuProps {
@@ -12,6 +13,7 @@ const MobileBurgerMenu = ({
 	mobileMenuOpen,
 	setMobileMenuOpen
 }: MobileBurgerMenuProps) => {
+	const pathname = usePathname();
 	return (
 		<div className='md:hidden fixed top-8 right-4 z-50'>
 			<button
@@ -33,15 +35,17 @@ const MobileBurgerMenu = ({
 							{ href: "/contact", label: "CONTACT" },
 							{ href: "/projects", label: "PROJECTS" },
 							{ href: "/", label: "ABOUT ME" }
-						].map((item) => (
-							<Link
-								key={item.href}
-								href={item.href}
-								className='text-orangeflame text-xl text-left font-semibold my-4'
-								onClick={() => setMobileMenuOpen(false)}>
-								{item.label}
-							</Link>
-						))}
+						]
+							.filter((item) => item.href !== pathname)
+							.map((item) => (
+								<Link
+									key={item.href}
+									href={item.href}
+									className='text-orangeflame text-xl text-left font-semibold my-4'
+									onClick={() => setMobileMenuOpen(false)}>
+									{item.label}
+								</Link>
+							))}
 					</div>
 				</div>
 			)}
