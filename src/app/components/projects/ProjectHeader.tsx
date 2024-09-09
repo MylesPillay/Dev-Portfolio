@@ -62,14 +62,22 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
 					<div className=' fixed top-0 left-0   pr-4 p-8 pb-4 h-auto w-[50%] max-w-[350px]  bg-deepBlueBg z-40 border-emerald-200 border-r border-b'>
 						<div className='flex flex-col items-start p-2 h-[10%]'>
 							<ul>
-								{projects.map((project, index) => (
-									<li
-										key={index}
-										className='text-orangeflame text-xl text-left font-light my-4 hover:text-white hover:text-opacity-80'
-										onClick={() => onProjectClick(index)}>
-										{project.name}
-									</li>
-								))}
+								{projects
+									.filter(
+										(project) =>
+											project.index !==
+											selectedProject.index
+									)
+									.map((project, index) => (
+										<li
+											key={index}
+											className='text-orangeflame text-xl text-left font-light my-4 hover:text-white hover:text-opacity-80'
+											onClick={() =>
+												onProjectClick(index)
+											}>
+											{project.name}
+										</li>
+									))}
 							</ul>
 							<button
 								onClick={() => {
