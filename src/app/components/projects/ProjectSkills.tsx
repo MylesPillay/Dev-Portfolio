@@ -56,12 +56,12 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
 				}}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
-				<h2 className='text-lg text-left font-medium mb-3 text-white'>
+				<h2 className='text-md text-left font-medium mb-3 text-white'>
 					Skills / CodeStack
 				</h2>
 
 				<ul
-					className={`flex flex-wrap  text-left  justify-start md:text-lg text-md font-light`}>
+					className={`flex flex-wrap  text-left  justify-start md:text-md text-md font-light`}>
 					{(!isImageHovered &&
 						!isHovered &&
 						activeSection == "Overview") ||
