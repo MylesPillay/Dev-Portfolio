@@ -43,19 +43,19 @@ const MobileAboutMeHeroSection = ({
 				</div>
 			</div>
 			<div className=' flex w-auto align-middle  rounded-xl  justify-center items-center self-center h-auto '>
-				{loading ? (
+				{/* {loading ? (
 					<div
 						className={` md:hidden flex justify-end rounded-lg 	 flex-1 min-h-[50vh] bg-orangeflame bg-opacity-10	min-w-[40vw] h-full w-full flex-grow-0 ml-[5vw]  mb-2 overflow-y-hidden`}>
 						<LoadingSpinner />
 					</div>
 				) : (
 					<></>
-				)}
+				)} */}
 
-				<div className='relative  rounded-xl   max-h-[50vh] overflow-y-hidden'>
+				<div className='relative  rounded-xl w-auto min-w-[75vw] h-auto max-h-[50vh] overflow-y-hidden'>
 					<img
 						src={image}
-						className={`h-auto justify-end flex flex-2 flex-grow-0 w-auto ${
+						className={`h-auto justify-center flex flex-2 flex-grow-0 w-full ${
 							loading ? "hidden" : "flex"
 						}`}
 						alt='Profile'
@@ -67,7 +67,25 @@ const MobileAboutMeHeroSection = ({
 						}}
 					/>
 
-					<div className='absolute inset-0  flex flex-grow-0  flex-2 h-auto	 max-w-[385px] w-auto   m-4 bg-orangeflame bg-opacity-10 rounded-lg'></div>
+					{/* <div
+						className={`absolute inset-0  flex flex-grow-0  flex-2 h-auto	 max-w-[385px] w-auto   m-4 bg-orangeflame bg-opacity-10 rounded-lg 		${
+							loading ? "hidden" : "absolute"
+						}
+					`}></div> */}
+					<div
+						className={` inset-0  flex-2 h-auto	flex flex-2 flex-grow-0 w-auto max-w-[45vh] m-[2.5vw] bg-orangeflame bg-opacity-10 rounded-lg ${
+							loading ? "hidden" : "absolute"
+						}`}></div>
+					{loading ? (
+						<div
+							className={` flex flex-2 flex-grow min-h-[45vh] max-[50vh] min-w-[75vw] justify-center align-middle items-center bg-orangeflame bg-opacity-10 h-full  w-full
+							${loading ? "flex" : "hidden"}
+					`}>
+							<LoadingSpinner />
+						</div>
+					) : (
+						<></>
+					)}
 				</div>
 			</div>
 
