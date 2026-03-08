@@ -54,23 +54,38 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 		{ title: "Outcomes", content: getCategoryContent("Outcomes") }
 	];
 
-	// Filter sections based on the topAccordion prop
 	const filteredSections = topAccordion
 		? sections.filter(
 				(section) =>
 					section.title === "Overview" ||
 					section.title === "Objectives" ||
 					section.title === "Key Features"
-		  )
+			)
 		: sections.filter(
 				(section) =>
 					section.title === "Tech Stack" ||
 					section.title === "Outcomes"
-		  );
+			);
 
 	const renderContent = (section: any) => {
 		if (typeof section.content === "string") {
-			return <div className='font-thin'>{section.content}</div>;
+			return (
+				<div className='font-thin'>
+					{section.content}
+					{section.title === "Overview" && selectedProject.url && (
+						<>
+							{" "}
+							<a
+								href={selectedProject.url}
+								target='_blank'
+								rel='noopener noreferrer'
+								className='underline text-emerald-300 hover:text-emerald-200 transition-colors'>
+								View the live site here.
+							</a>
+						</>
+					)}
+				</div>
+			);
 		}
 
 		if (section.title === "Tech Stack") {
@@ -104,15 +119,14 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-grow flex-col py-14  w-full border-y ${
+			className={`flex flex-grow flex-col py-14 w-full border-y ${
 				activeSection === "Overview" ? "border-t-0" : ""
-			}  border-orangeflame space-y-2
-			`}
+			} border-orangeflame space-y-2`}
 			style={{ borderTopWidth: topAccordion ? undefined : 1 }}>
-			{filteredSections.map((section, index) => (
+			{filteredSections.map((section) => (
 				<div
 					key={section.title}
-					className={` px-[3%] ${
+					className={`px-[3%] ${
 						activeSection === section.title
 							? "border-orangeflame border-y"
 							: ""
