@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Project } from "./ProjectsObject";
 
 interface ProjectAccordionWebProps {
@@ -58,7 +58,23 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 
 	const renderContent = (section: any) => {
 		if (typeof section.content === "string") {
-			return <p>{section.content}</p>;
+			return (
+				<p>
+					{section.content}
+					{section.title === "Overview" && selectedProject.url && (
+						<>
+							{" "}
+							<a
+								href={selectedProject.url}
+								target='_blank'
+								rel='noopener noreferrer'
+								className='underline text-emerald-300 hover:text-emerald-200 transition-colors'>
+								View the live site here.
+							</a>
+						</>
+					)}
+				</p>
+			);
 		}
 
 		if (section.title === "Tech Stack") {
@@ -92,16 +108,16 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 
 	return (
 		<div
-			className={`flex flex-grow flex-col   border-t ${
+			className={`flex flex-grow flex-col border-t ${
 				activeSection === "Overview" ? "border-t-0" : ""
 			} border-orangeflame space-y-2 ${
 				(selectedIndex === 0 || selectedIndex === 3) &&
 				imageContainerHovered
 					? "lg:max-w-[51%] w-auto"
 					: (selectedIndex === 0 || selectedIndex === 3) &&
-					  !imageContainerHovered
-					? "min-w-[73%] lg:max-w-[73%] w-auto"
-					: "lg:min-w-[78%] w-auto"
+						  !imageContainerHovered
+						? "min-w-[73%] lg:max-w-[73%] w-auto"
+						: "lg:min-w-[78%] w-auto"
 			}`}
 			onMouseEnter={() => {
 				if (imageContainerHovered) {
@@ -110,10 +126,10 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 						: null;
 				}
 			}}>
-			{sections.map((section, index) => (
+			{sections.map((section) => (
 				<div
 					key={section.title}
-					className={` px-2 ${
+					className={`px-2 ${
 						activeSection === section.title
 							? "border-orangeflame border-y"
 							: ""
