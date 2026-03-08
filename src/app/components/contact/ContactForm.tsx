@@ -55,13 +55,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
 			contact_email: email,
 			contact_message: message
 		};
-		console.log("formData", formData);
-		console.log("firing submitContactForm()");
 
 		const result = await submitContactForm(formData);
 
 		if (result) {
-			console.log(result, "submitContactForm() RESULT RETURNED");
 			// Reset form fields
 			setName("");
 			setEmail("");
