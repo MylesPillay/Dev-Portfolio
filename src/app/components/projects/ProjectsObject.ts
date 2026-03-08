@@ -37,7 +37,7 @@ export interface Project {
 const projects: Project[] = [
 	{
 		name: "Air Oasis Home",
-		index: 5,
+		index: 0,
 		supabaseId: "airoasis",
 		tagline: "- IoT Mobile Application",
 
@@ -111,7 +111,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "WhoCo",
-		index: 0,
+		index: 1,
 		supabaseId: "whoco",
 		tagline: "The People Company",
 
@@ -192,9 +192,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "Fluent Outreach",
-		index: 4,
+		index: 2,
 		supabaseId: "fluent",
-		tagline: "AI Lead Converter",
+		tagline: "AI Customer Outreach Platform",
 
 		details: {
 			overview:
@@ -270,9 +270,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "Vibe-A-Day",
-		index: 1,
+		index: 3,
 		supabaseId: "vibeaday",
-		tagline: "Daily Song Selections",
+		tagline: "Music Discovery Mobile App",
 
 		url: "",
 		details: {
@@ -350,9 +350,9 @@ const projects: Project[] = [
 	},
 	{
 		name: "USAHI",
-		index: 2,
+		index: 4,
 		supabaseId: "usahi",
-		tagline: "Home Improvement",
+		tagline: "Lead Conversion & Booking Platform",
 
 		url: "https://usahomeimprovement.com/",
 		details: {
@@ -439,7 +439,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "Tuition Covered",
-		index: 3,
+		index: 5,
 		supabaseId: "tuition-covered",
 		tagline: "AI-Maintained Scholarship Database",
 
@@ -520,6 +520,89 @@ const projects: Project[] = [
 			"Responsive Design",
 			"AI Integration",
 			"Agile Development"
+		]
+	},
+	{
+		name: "Mind How You Go",
+		index: 6,
+		supabaseId: "mind-how-you-go",
+		tagline: "CBT Therapy Practice Website",
+
+		url: "https://mindhowyougo.org.uk/",
+		details: {
+			overview:
+				"Mind How You Go is a modern therapy website built for a Bristol-based private psychotherapy practice specialising in Cognitive Behavioural Therapy and outdoor walking therapy. The platform introduces prospective clients to the therapist, explains the therapeutic process, and provides an accessible way for users to learn about services and make contact. The site was designed to communicate warmth, trust, and professionalism while maintaining strong performance and accessibility across all devices.",
+
+			objective:
+				"The goal of the project was to create a clean, calming, and professional online presence for a newly established therapy practice. The website needed to clearly communicate the therapist’s credentials, outline available services, and encourage potential clients to take the first step by booking an introductory call or getting in touch.",
+
+			motivation:
+				"This project was created for a friend launching a private psychotherapy practice outside the NHS. The intention was to build a digital platform that reflects the ethos of the practice — approachable, supportive, and grounded — while ensuring the site performs well technically, loads quickly, and provides a seamless experience for users seeking mental health support.",
+
+			techStack: {
+				title: "Tech Stack",
+				frontend:
+					"Next.js with React and TypeScript for a fast, server-rendered web application, styled using Tailwind CSS and Styled Components to create a calm and visually cohesive design.",
+				stateManagement:
+					"React Hook Form for handling form validation and submissions, ensuring a smooth and reliable contact workflow for prospective clients.",
+				backend:
+					"Supabase for authentication and data handling, with integrations such as the Google APIs for handling communication workflows. Image optimisation handled through Next.js and Sharp for performance."
+			},
+
+			keyFeatures: {
+				title: "Key Features",
+				features: [
+					{
+						title: "Professional Therapy Practice Website",
+						text: "Designed and developed a modern website that clearly presents the therapist’s qualifications, services, and therapeutic approach while creating a welcoming and trustworthy user experience."
+					},
+					{
+						title: "Accessible Client Journey",
+						text: "Structured the site around a clear user journey, allowing visitors to quickly understand what therapy involves, explore services offered, and easily contact the therapist for an introductory call."
+					},
+					{
+						title: "Interactive UI and Animation",
+						text: "Implemented subtle animations and motion using GSAP and Framer Motion to create a calm, engaging browsing experience without distracting from the site’s content."
+					},
+					{
+						title: "Optimised Performance",
+						text: "Utilised Next.js server-side rendering, image optimisation with Sharp, and modern frontend tooling to ensure fast load times and strong performance across mobile and desktop devices."
+					}
+				]
+			},
+
+			outcomes: {
+				title: "Outcomes",
+				outcome: [
+					{
+						title: "Professional Online Presence",
+						text: "Delivered a polished and trustworthy website that helps establish the therapy practice’s credibility while making it easy for prospective clients to learn about services and get in touch."
+					},
+					{
+						title: "Clear Communication of Services",
+						text: "The website clearly explains the therapy process, the therapist’s qualifications, and the types of challenges clients may seek support for, helping users feel informed and comfortable before reaching out."
+					},
+					{
+						title: "High Performance and Maintainability",
+						text: "Built using a modern Next.js architecture that ensures the site remains fast, scalable, and easy to maintain as the practice grows."
+					}
+				]
+			}
+		},
+
+		skills: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Tailwind CSS",
+			"Styled Components",
+			"Supabase",
+			"React Hook Form",
+			"Google APIs",
+			"Next.js Image Optimization",
+			"Responsive Design",
+			"Accessibility",
+			"UI/UX Design"
 		]
 	}
 ];
