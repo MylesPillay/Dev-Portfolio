@@ -27,9 +27,13 @@ const MobileSoftSkillsSection = ({
 					? " pb-2 -translate-y-[8vh] bg-deepBlueBg bg-opacity-100"
 					: "bg-slate-800 bg-opacity-50"
 			}`}
+			onMouseLeave={() => {
+				setSingularExpansion("none");
+				setIsHovered(false);
+			}}
 			onClick={() => {
 				if (isHovered) {
-					return setSingularExpansion("none"), setIsHovered(false);
+					return (setSingularExpansion("none"), setIsHovered(false));
 				}
 				setSingularExpansion("soft");
 				setIsHovered(true);
