@@ -21,7 +21,6 @@ const useSubmitContactForm = () => {
 		setLoading(true);
 		setError(null);
 
-		console.log("formData", formData, "ENTERED SUBMIT CONTACT FORM");
 		try {
 			const { data, error } = await supabase
 				.from("contact_inbox")
@@ -30,7 +29,6 @@ const useSubmitContactForm = () => {
 
 			if (error) throw error;
 
-			console.log("Data inserted successfully", data);
 			setLoading(false);
 			return data;
 		} catch (error: any) {

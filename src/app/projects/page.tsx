@@ -36,7 +36,6 @@ const ProjectsDisplay = (): JSX.Element => {
 			setLoading
 		}
 	);
-	console.log("imagesArray:", JSON.stringify(imagesArray, null, 2));
 	// Determine images to display based on project type
 	const images =
 		selectedProjectIndex === 0 || selectedProjectIndex === 3
