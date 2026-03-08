@@ -45,7 +45,7 @@ const ProjectsDisplay = (): JSX.Element => {
 	// Handle side effects for image loading
 	useEffect(() => {
 		if (imageLoading) {
-			const timer = setTimeout(() => setImageLoading(false), 500);
+			const timer = setTimeout(() => setImageLoading(false), 300);
 			return () => clearTimeout(timer);
 		}
 	}, [imageLoading]);
@@ -60,7 +60,7 @@ const ProjectsDisplay = (): JSX.Element => {
 	// Manage hover prompt display
 	useEffect(() => {
 		if (!isImageContainerHovered) {
-			const timer = setTimeout(() => setShowHoverPrompt(true), 5000);
+			const timer = setTimeout(() => setShowHoverPrompt(true), 2500);
 			return () => clearTimeout(timer);
 		}
 		setShowHoverPrompt(false);

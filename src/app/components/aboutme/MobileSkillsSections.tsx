@@ -1,4 +1,4 @@
-"use  client";
+"use client";
 import { useState } from "react";
 
 const MobileTechSkillsSection = ({
@@ -11,54 +11,43 @@ const MobileTechSkillsSection = ({
 	const [isHovered, setIsHovered] = useState(false);
 
 	const techSkills = [
+		"React",
 		"React Native",
 		"TypeScript",
 		"Firebase",
 		"Cloud Firestore",
 		"Xcode",
 		"Android Studio",
-		"Android SDKs",
 		"Jest",
 		"JavaScript",
-		"Bluetooth Low Energy",
-		"React Native Maps",
+		"Bluetooth LE",
+		"Bluetooth Classic",
+		"RN Maps",
+		"RN Hook Form",
 		"XState",
 		"Zustand",
-		"React Native Testing Library",
+		"ZOD",
+		"Redux",
+		"RN Testing Library",
+		"PostgreSQL",
+		"REST APIs",
 		"Next.js",
 		"Next-Auth",
 		"Supabase",
-		"Supabase Client API",
-		"PostgreSQL",
-		"Tailwind CSS",
-		"ChatGPT API",
-		"React Hook Form",
-		"REST APIs",
-		"SQL",
+		"Tailwind",
 		"Google Analytics",
 		"SEO Optimization",
 		"Responsive Design",
 		"AI Integration",
-		"HTML",
-		"CSS",
-		"XML Sitemaps",
 		"HubSpot",
 		"HubL",
 		"HubDb",
 		"Salesforce",
+		"Django",
 		"Expo",
-		"Auth",
 		"OAuth2.0",
-		"Spotify API",
-		"Spotify Auth",
-		"SoundCloud API",
-		"SoundCloud Auth",
-		"Bandcamp API",
-		"Bandcamp Auth",
-		"Firebase-Auth",
 		"Upstash",
-		"Twilio",
-		"SCSS"
+		"Twilio"
 	];
 
 	return (
