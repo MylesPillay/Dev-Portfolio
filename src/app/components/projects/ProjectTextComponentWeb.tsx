@@ -22,6 +22,18 @@ const ProjectTextContentWeb: React.FC<ProjectTextContentWebProps> = ({
 				</h2>
 				<p className='text-md font-normal text-white mb-4 w-auto'>
 					{selectedProject.details.overview}
+					{selectedProject.url && (
+						<>
+							{" "}
+							<a
+								href={selectedProject.url}
+								target='_blank'
+								rel='noopener noreferrer'
+								className='underline'>
+								View the live site here.
+							</a>
+						</>
+					)}
 				</p>
 			</div>
 			<div className='project-text-section'>

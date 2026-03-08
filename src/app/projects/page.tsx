@@ -81,14 +81,13 @@ const ProjectsDisplay = (): JSX.Element => {
 		const isValidIndex = newIndex >= 0 && newIndex < imagesArray.length;
 
 		if (isValidIndex) {
-			setImageLoading(true); // Start loading state
-			setCurrentImageIndex(newIndex); // Set new index
+			setImageLoading(true);
+			setCurrentImageIndex(newIndex);
 		}
 	};
-	// Image onLoad event handler
 	const handleImageLoad = () => {
-		setLoading(false); // Image has loaded, stop loading state
-		setImageLoading(false); // Image has loaded, stop loading state
+		setLoading(false);
+		setImageLoading(false);
 	};
 
 	return (
@@ -113,7 +112,7 @@ const ProjectsDisplay = (): JSX.Element => {
 					activeSection={activeSection}
 					setActiveSection={setActiveSection}
 				/>
-				<div className='relative flex flex-col h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen overflow-x-hidden '>
+				<div className='relative flex flex-col h-auto overflow-y-scroll w-screen max-w-[100vw] lg:min-h-[85vh] min-h-screen overflow-x-hidden'>
 					<OverMediumLayout
 						setIsImageContainerHovered={setIsImageContainerHovered}
 						isImageContainerHovered={isImageContainerHovered}
