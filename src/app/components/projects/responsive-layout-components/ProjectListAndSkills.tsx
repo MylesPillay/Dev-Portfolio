@@ -27,10 +27,12 @@ const ProjectListAndSkills = ({
 				}
 				return;
 			}}>
-			<ProjectList
-				selectedProject={selectedProject}
-				onProjectClick={handleProjectClick}
-			/>
+			<div className='flex top-0 sticky'>
+				<ProjectList
+					selectedProject={selectedProject}
+					onProjectClick={handleProjectClick}
+				/>
+			</div>
 			<div className='hidden lg:flex sticky bottom-0'>
 				<ProjectSkillsComponent
 					selectedProject={selectedProject}

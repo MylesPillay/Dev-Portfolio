@@ -41,12 +41,6 @@ const OverMediumLayout = ({
 	imageOnLoad
 }: OverMediumLayoutProps) => {
 	return (
-		// <div
-		// 	onMouseEnter={() => setIsImageContainerHovered(false)}
-		// 	className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden  h-auto   `}
-		// 	style={{
-		// 		transition: "width 0.2s ease-in-out"
-		// 	}}>
 		<div
 			onMouseEnter={() => setIsImageContainerHovered(false)}
 			className={`hidden lg:flex md:flex-row justify-between lg:w-full overflow-y-scroll  overflow-x-hidden md:pt-4 h-auto   `}
@@ -169,7 +163,6 @@ const OverMediumLayout = ({
 				</div>
 			)}
 		</div>
-		// </div>
 	);
 };
 

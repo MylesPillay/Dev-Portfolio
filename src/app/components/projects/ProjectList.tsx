@@ -12,8 +12,8 @@ const ProjectList: React.FC<ProjectListProps> = ({
 }) => {
 	return (
 		<ul
-			className='lg:flex  justify-center px-8 items-start text-left flex-col hidden
-   md:font-light w-auto min-w-[200px]'>
+			className='lg:flex sticky top-0 justify-center px-8 items-start text-left flex-col hidden
+   md:font-light w-auto min-w-[220px]'>
 			{projects.map((project, index) => (
 				<li
 					key={index}
