@@ -46,7 +46,7 @@ export default function Home() {
 		<div className='bg-projects-gradient lg:h-screen h-screen w-full overflow-x-hidden lg:overflow-y-scroll  overflow-y-scroll  border-0 sm:border-l border-orangeflame '>
 			<div className='flex flex-col justify-between w-full'>
 				<AboutMeHeader />
-				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly  '>
+				<div className='flex lg:flex-row flex-col lg:justify-between justify-evenly'>
 					<div className='flex flex-col  w-full justify-start align-middle items-start '>
 						<div className='flex flex-col w-full h-auto rounded-lg items-start justify-start'>
 							<div className='hidden md:flex w-[100%]'>
@@ -61,9 +61,6 @@ export default function Home() {
 									loading={loading}
 								/>
 							</div>
-							{/* <div className='lg:hidden flex w-[100%]'>
-								<MobileAboutMeHeroSection />
-							</div> */}
 							<div className='hidden md:flex sm:my-8 md:my-2 w-full'>
 								<LinksComponent mobileScreen={false} />
 							</div>

@@ -37,7 +37,7 @@ export interface Project {
 const projects: Project[] = [
 	{
 		name: "Air Oasis Home",
-		index: 0,
+		index: 5,
 		supabaseId: "airoasis",
 		tagline: "- IoT Mobile Application",
 
@@ -111,7 +111,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "WhoCo",
-		index: 1,
+		index: 0,
 		supabaseId: "whoco",
 		tagline: "The People Company",
 
@@ -192,7 +192,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "Fluent Outreach",
-		index: 2,
+		index: 4,
 		supabaseId: "fluent",
 		tagline: "AI Lead Converter",
 
@@ -270,7 +270,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "Vibe-A-Day",
-		index: 3,
+		index: 1,
 		supabaseId: "vibeaday",
 		tagline: "Daily Song Selections",
 
@@ -350,7 +350,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "USAHI",
-		index: 4,
+		index: 2,
 		supabaseId: "usahi",
 		tagline: "Home Improvement",
 
@@ -439,7 +439,7 @@ const projects: Project[] = [
 	},
 	{
 		name: "Tuition Covered",
-		index: 5,
+		index: 3,
 		supabaseId: "tuition-covered",
 		tagline: "AI-Maintained Scholarship Database",
 
