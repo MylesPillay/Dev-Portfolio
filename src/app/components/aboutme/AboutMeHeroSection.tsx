@@ -11,7 +11,7 @@ const AboutMeHeroSection = ({
 }) => {
 	return (
 		<div className='flex w-[100vw] flex-auto h-auto justify-around py-10'>
-			<div className='relative lg:min-w-[30vw] min-w-[50%] ml-0 mr-0 md:ml-[6vw] md:mr-[2vw] rounded-xl max-h-[62vh] mb-2'>
+			<div className='relative lg:min-w-[30vw] min-w-[45%] ml-0 mr-0 md:ml-[3vw] md:mr-[2vw] rounded-xl max-h-[62vh] mb-2'>
 				<img
 					src={image}
 					className={`h-auto justify-end flex flex-2 flex-grow-0 w-auto ${
@@ -40,7 +40,7 @@ const AboutMeHeroSection = ({
 					<></>
 				)}
 			</div>
-			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] ml-[8vw]'>
+			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] mr-[2vw] ml-[8vw]'>
 				<h1 className='text-4xl font-bold  text-white'>MYLES PILLAY</h1>
 			</div>
 			<div
