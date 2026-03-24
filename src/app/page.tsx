@@ -26,7 +26,7 @@ export default function Home() {
 
 				const image = await supabase.storage
 					.from("portfolio_images")
-					.getPublicUrl(`profile/profile.jpg`).data.publicUrl;
+					.getPublicUrl(`profile/profile.webp`).data.publicUrl;
 				if (image) {
 					setImage(image);
 					setLoading(false);
