@@ -76,9 +76,6 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-
-				{/* <TechSkillsSection />
-						<SoftSkillsSection /> */}
 			</div>
 		</div>
 	);
