@@ -2,8 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
 const supabase = createClient(
-	process.env.SUPABASE_API_URL as string,
-	process.env.SUPABASE_API_SECRET_ACCESS_TOKEN as string
+	process.env.NEXT_PUBLIC_SUPABASE_API_URL as string,
+	process.env.NEXT_PUBLIC_SUPABASE_API_SECRET_ACCESS_TOKEN as string
 );
 
 interface useFetchMobileAppImagesProps {
