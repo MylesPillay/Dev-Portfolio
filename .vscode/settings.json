@@ -1,0 +1,5 @@
+{
+	"prettier.enableDebugLogs": true,
+	"notebook.formatOnSave.enabled": true,
+	"cSpell.words": ["Bandcamp", "orangeflame", "vibeaday"]
+}
