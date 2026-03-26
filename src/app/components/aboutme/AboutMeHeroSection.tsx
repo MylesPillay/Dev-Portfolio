@@ -1,110 +1,108 @@
-import Link from "next/link";
-import AnimatedText from "./AnimatedTexts";
-import LoadingSpinner from "../layout/LoadingSpinner";
+import Link from 'next/link';
+import AnimatedText from './AnimatedText';
+import LoadingSpinner from '../layout/LoadingSpinner';
 
 const AboutMeHeroSection = ({
-	image,
-	loading
+  image,
+  loading,
 }: {
-	image: string;
-	loading: boolean;
+  image: string;
+  loading: boolean;
 }) => {
-	return (
-		<div className='flex w-[100vw] flex-auto h-auto justify-around py-10'>
-			<div className='relative lg:min-w-[30vw] min-w-[45%] ml-0 mr-0 md:ml-[3vw] md:mr-[2vw] rounded-xl max-h-[62vh] mb-2'>
-				<img
-					src={image}
-					className={`h-auto justify-end flex flex-2 flex-grow-0 w-auto ${
-						loading ? "hidden" : "flex"
-					}`}
-					alt='Profile'
-					style={{
-						maxHeight: "54vh",
-						borderRadius: "10px",
-						width: "auto",
-						height: "auto"
-					}}
-				/>
-				<div
-					className={`inset-0 flex-grow-0 flex-2 h-auto max-w-[385px] sm:max-w-[370px] md:max-w-[39vh] w-auto m-4 bg-orangeflame bg-opacity-10 rounded-lg ${
-						loading ? "hidden" : "absolute"
-					}`}></div>
-				{loading ? (
-					<div
-						className={`flex flex-2 flex-grow justify-center align-middle min-h-[65vh] items-center min-w-[45vh] max-w-[45vh] bg-orangeflame bg-opacity-10 h-full w-full
-							${loading ? "flex" : "hidden"}
-					`}>
-						<LoadingSpinner />
-					</div>
-				) : (
-					<></>
-				)}
-			</div>
-			<div className='flex sm:flex-grow md:hidden justify-start w-full text-left max-w-[90vw] mr-[2vw] ml-[8vw]'>
-				<h1 className='text-4xl font-bold  text-white'>MYLES PILLAY</h1>
-			</div>
-			<div
-				className={`flex w-full flex-1 flex-grow h-full justify-start items-center py-8`}>
-				<div
-					className={`
-					 justify-center  w-[40vw] min-w-[40vw]`}>
-					<div className='flex flex-row flex-wrap w-full min-w-[105%] mr-8 align-middle items-center justify-center space-x-2 '>
-						<div
-							className={`flex flex-wrap   items-center text-wrap text-center
-							`}>
-							<span className='flex-1 justify-center items-center'>
-								<span
-									className={`flex-wrap text-wrap w-auto transition-opacity md:text-3xl lg:text-4xl xl:text-4xl text-2xl font-light flex-grow text-center lg:text-center text-emerald-200
-					`}>
-									React Native
-								</span>
-							</span>
-						</div>
-						<div className=' text-white text-3xl'>/</div>
-						<div
-							className={`flex flex-wrap items-center text-wrap text-center
-							`}>
-							<span className='flex-1 justify-center items-center'>
-								<span
-									className={`flex-nowrap text-wrap w-auto transition-opacity md:text-3xl lg:text-4xl xl:text-4xl text-2xl font-light flex-grow text-center lg:text-center text-orangeflame
-					`}>
-									Full Stack
-								</span>
-							</span>
-						</div>
-						<h3 className='md:text-3xl lg:text-4xl xl:text-4xl text-wrap text-center font-thin text-white'>
-							Developer
-						</h3>
-					</div>
-					<div className='flex flex-row flex-grow flex-wrap w-full min-w-[100%] mx-auto align-middle items-center justify-center  my-8'>
-						<AnimatedText
-							texts={[
-								"Versatile",
-								"Dedicated",
-								"Creative  ",
-								"Passionate",
-								"Ambitious",
-								"Adaptable"
-							]}
-							interval={3000}
-							animationDuration={500}
-							baseClassName='md:text-2xl lg:text-3xl text-xl font-light '
-							containerClassName='h-auto  align-top items-start  mr-1 w-auto max-w-[11rem] '
-							textContent='dev with 2+ years experience creating scalable high-impact applications.'
-						/>
-					</div>
+  return (
+    <div className="flex h-auto w-[100vw] flex-auto justify-around py-10">
+      <div className="relative mb-2 ml-0 mr-0 max-h-[62vh] min-w-[45%] rounded-xl md:ml-[3vw] md:mr-[2vw] lg:min-w-[30vw]">
+        {/* eslint-disable-next-line  */}
+        <img
+          src={image}
+          className={`flex-2 flex h-auto w-auto flex-grow-0 justify-end ${
+            loading ? 'hidden' : 'flex'
+          }`}
+          alt="Profile"
+          style={{
+            maxHeight: '54vh',
+            borderRadius: '10px',
+            width: 'auto',
+            height: 'auto',
+          }}
+        />
+        <div
+          className={`flex-2 inset-0 m-4 h-auto w-auto max-w-[385px] flex-grow-0 rounded-lg bg-orangeflame bg-opacity-10 sm:max-w-[370px] md:max-w-[39vh] ${
+            loading ? 'hidden' : 'absolute'
+          }`}
+        ></div>
+        {loading ? (
+          <div
+            className={`flex-2 flex h-full min-h-[65vh] w-full min-w-[45vh] max-w-[45vh] flex-grow items-center justify-center bg-orangeflame bg-opacity-10 align-middle ${loading ? 'flex' : 'hidden'} `}
+          >
+            <LoadingSpinner />
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div className="ml-[8vw] mr-[2vw] flex w-full max-w-[90vw] justify-start text-left sm:flex-grow md:hidden">
+        <h1 className="text-4xl font-bold text-white">MYLES PILLAY</h1>
+      </div>
+      <div
+        className={`flex h-full w-full flex-1 flex-grow items-center justify-start py-8`}
+      >
+        <div className={`w-[40vw] min-w-[40vw] justify-center`}>
+          <div className="mr-8 flex w-full min-w-[105%] flex-row flex-wrap items-center justify-center space-x-2 align-middle">
+            <div
+              className={`flex flex-wrap items-center text-wrap text-center`}
+            >
+              <span className="flex-1 items-center justify-center">
+                <span
+                  className={`w-auto flex-grow flex-wrap text-wrap text-center text-2xl font-light text-emerald-200 transition-opacity md:text-3xl lg:text-center lg:text-4xl xl:text-4xl`}
+                >
+                  React Native
+                </span>
+              </span>
+            </div>
+            <div className="text-3xl text-white">/</div>
+            <div
+              className={`flex flex-wrap items-center text-wrap text-center`}
+            >
+              <span className="flex-1 items-center justify-center">
+                <span
+                  className={`w-auto flex-grow flex-nowrap text-wrap text-center text-2xl font-light text-orangeflame transition-opacity md:text-3xl lg:text-center lg:text-4xl xl:text-4xl`}
+                >
+                  Full Stack
+                </span>
+              </span>
+            </div>
+            <h3 className="text-wrap text-center font-thin text-white md:text-3xl lg:text-4xl xl:text-4xl">
+              Developer
+            </h3>
+          </div>
+          <div className="mx-auto my-8 flex w-full min-w-[100%] flex-grow flex-row flex-wrap items-center justify-center align-middle">
+            <AnimatedText
+              textArray={[
+                'Versatile',
+                'Dedicated',
+                'Creative',
+                'Passionate',
+                'Ambitious',
+                'Adaptable',
+              ]}
+              baseClassName="md:text-2xl lg:text-3xl text-xl font-light "
+              textContent="dev with 2+ years experience creating scalable high-impact applications."
+            />
+          </div>
 
-					<div className='flex flex-row justify-end items-center w-full h-auto '>
-						<Link
-							className='justify-center items-center self-center w-auto mx-auto p-2 px-8  mt-[7vh] rounded-lg  bg-orangeflame  text-white border border-white lg:text-lg text-md font-medium  hover:bg-opacity-80'
-							href={"/projects"}>
-							LEARN MORE
-						</Link>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+          <div className="flex h-auto w-full flex-row items-center justify-end">
+            <Link
+              className="text-md mx-auto mt-[7vh] w-auto items-center justify-center self-center rounded-lg border border-white bg-orangeflame p-2 px-8 font-medium text-white hover:bg-opacity-80 lg:text-lg"
+              href={'/projects'}
+            >
+              LEARN MORE
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AboutMeHeroSection;

@@ -2,208 +2,222 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-	:root {
-		--color-goldenrod: 218, 165, 32;
-	}
+  :root {
+    --color-goldenrod: 218, 165, 32;
+  }
 }
 
 html,
 body {
-	@apply h-full overflow-hidden;
+  @apply h-full overflow-hidden;
 }
 
 body {
-	@apply font-sans leading-relaxed;
+  @apply font-sans leading-relaxed;
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+  .text-balance {
+    text-wrap: balance;
+  }
 }
-/* color pallete   */
 
 .background {
-	background-color: "#1D7874";
+  background-color: '#1D7874';
 }
 .container {
-	display: flex;
-	height: 100vh;
-	width: 100vw;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
 }
 
 nav {
-	width: 80px;
-	height: 100%;
-	background-color: #333;
-	color: #fff;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  width: 80px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-title {
-	writing-mode: vertical-rl;
-	text-orientation: mixed;
-	padding: 20px 0;
-	font-size: 1.2em;
-	font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 20px 0;
+  font-size: 1.2em;
+  font-weight: bold;
 }
+
 .project-text-section {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
+
 .shadow-neon {
-	box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
-		0 0 10px rgb(29, 234, 132), 0 0 15px rgb(29, 234, 132);
-	animation: neon-glow 1.5s ease-in-out infinite alternate;
+  box-shadow:
+    0 0 5px rgb(29, 234, 132),
+    0 0 10px rgb(29, 234, 132),
+    0 0 10px rgb(29, 234, 132),
+    0 0 15px rgb(29, 234, 132);
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes neon-glow {
-	from {
-		box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
-			0 0 15px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132);
-	}
-	to {
-		box-shadow: 0 0 10px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132),
-			0 0 10px rgb(29, 234, 132), 0 0 40px rgb(29, 234, 132);
-	}
+  from {
+    box-shadow:
+      0 0 5px rgb(29, 234, 132),
+      0 0 10px rgb(29, 234, 132),
+      0 0 15px rgb(29, 234, 132),
+      0 0 20px rgb(29, 234, 132);
+  }
+  to {
+    box-shadow:
+      0 0 10px rgb(29, 234, 132),
+      0 0 20px rgb(29, 234, 132),
+      0 0 10px rgb(29, 234, 132),
+      0 0 40px rgb(29, 234, 132);
+  }
 }
 .shadow-neon-bottom {
-	box-shadow: 0 5px 0 rgb(29, 234, 132), 0 5px 0 rgb(29, 234, 132),
-		0 5px 0 rgb(29, 234, 132), 0 5px 0 rgb(29, 234, 132);
-	animation: neon-glow-bottom 1.5s ease-in-out infinite alternate;
-	opacity: 0;
-	transition: opacity 1s ease-in-out;
+  box-shadow:
+    0 5px 0 rgb(29, 234, 132),
+    0 5px 0 rgb(29, 234, 132),
+    0 5px 0 rgb(29, 234, 132),
+    0 5px 0 rgb(29, 234, 132);
+  animation: neon-glow-bottom 1.5s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
-/*
-.shadow-neon-dot {
-	box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
-		0 0 10px rgb(29, 234, 132), 0 0 15px rgb(29, 234, 132);
-	animation: neon-glow-dot 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes neon-glow-dot {
-	from {
-		box-shadow: 0 0 5px rgb(29, 234, 132), 0 0 10px rgb(29, 234, 132),
-			0 0 15px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132);
-	}
-	to {
-		box-shadow: 0 0 10px rgb(29, 234, 132), 0 0 20px rgb(29, 234, 132),
-			0 0 10px rgb(29, 234, 132), 0 0 40px rgb(29, 234, 132);
-	}
-} */
 @layer base {
-	input[type="number"]::-webkit-inner-spin-button,
-	input[type="number"]::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 .shadow-neon-dot {
-	border-width: 2px;
-	border-color: rgb(255, 98, 0);
-	box-shadow: 0 0 5px rgb(255, 115, 22), 0 0 10px rgb(255, 115, 22),
-		0 0 10px rgb(255, 115, 22), 0 0 15px rgb(255, 115, 22);
+  border-width: 2px;
+  border-color: rgb(255, 98, 0);
+  box-shadow:
+    0 0 5px rgb(255, 115, 22),
+    0 0 10px rgb(255, 115, 22),
+    0 0 10px rgb(255, 115, 22),
+    0 0 15px rgb(255, 115, 22);
 }
 
 .shadow-neon-bottom.show {
-	opacity: 1;
+  opacity: 1;
 }
 
 @keyframes neon-glow-bottom {
-	from {
-		box-shadow: 0 5px 5px rgb(29, 234, 132), 0 10px 10px rgb(29, 234, 132),
-			0 15px 15px rgb(29, 234, 132), 0 20px 20px rgb(29, 234, 132);
-	}
-	to {
-		box-shadow: 0 10px 10px rgb(29, 234, 132), 0 20px 20px rgb(29, 234, 132),
-			0 30px 30px rgb(29, 234, 132), 0 40px 40px rgb(29, 234, 132);
-	}
+  from {
+    box-shadow:
+      0 5px 5px rgb(29, 234, 132),
+      0 10px 10px rgb(29, 234, 132),
+      0 15px 15px rgb(29, 234, 132),
+      0 20px 20px rgb(29, 234, 132);
+  }
+  to {
+    box-shadow:
+      0 10px 10px rgb(29, 234, 132),
+      0 20px 20px rgb(29, 234, 132),
+      0 30px 30px rgb(29, 234, 132),
+      0 40px 40px rgb(29, 234, 132);
+  }
 }
 .shadow-neon-right {
-	box-shadow: 10px 15px 0 #02ff80, 0 25px 0 #02ff80, 0 25px 0 #02ff80,
-		0 0 0 #02ff80;
-	animation: neon-glow-right 1.5s ease-in-out infinite alternate;
-	opacity: 0.8;
-	transition: opacity 1s ease-in-out;
+  box-shadow:
+    10px 15px 0 #02ff80,
+    0 25px 0 #02ff80,
+    0 25px 0 #02ff80,
+    0 0 0 #02ff80;
+  animation: neon-glow-right 1.5s ease-in-out infinite alternate;
+  opacity: 0.8;
+  transition: opacity 1s ease-in-out;
 }
 
 .shadow-neon-right.show {
-	opacity: 1;
+  opacity: 1;
 }
 
 @keyframes neon-glow-right {
-	from {
-		box-shadow: 10px 20px 5px rgb(29, 234, 132),
-			0 20px 5px rgb(29, 234, 132), 0 30px 30px rgb(29, 234, 132),
-			0 40px 40px rgb(29, 234, 132);
-	}
-	to {
-		box-shadow: 0 20px 5px rgb(29, 234, 132), 0 20px 5px rgb(29, 234, 132),
-			0 30px 30px rgb(29, 234, 132), 0 40px 40px rgb(29, 234, 132);
-	}
+  from {
+    box-shadow:
+      10px 20px 5px rgb(29, 234, 132),
+      0 20px 5px rgb(29, 234, 132),
+      0 30px 30px rgb(29, 234, 132),
+      0 40px 40px rgb(29, 234, 132);
+  }
+  to {
+    box-shadow:
+      0 20px 5px rgb(29, 234, 132),
+      0 20px 5px rgb(29, 234, 132),
+      0 30px 30px rgb(29, 234, 132),
+      0 40px 40px rgb(29, 234, 132);
+  }
 }
 
 @keyframes neon-glow-left {
-	from {
-		box-shadow: -5px 0 5px rgb(29, 234, 132), -10px 0 10px rgb(29, 234, 132),
-			-15px 0 15px rgb(29, 234, 132);
-	}
-	to {
-		box-shadow: -10px 0 10px rgb(29, 234, 132),
-			-20px 0 20px rgb(29, 234, 132), -30px 0 30px rgb(29, 234, 132);
-	}
+  from {
+    box-shadow:
+      -5px 0 5px rgb(29, 234, 132),
+      -10px 0 10px rgb(29, 234, 132),
+      -15px 0 15px rgb(29, 234, 132);
+  }
+  to {
+    box-shadow:
+      -10px 0 10px rgb(29, 234, 132),
+      -20px 0 20px rgb(29, 234, 132),
+      -30px 0 30px rgb(29, 234, 132);
+  }
 }
 
 .letter-visible {
-	opacity: 1;
+  opacity: 1;
 }
 
 .project-skills {
-	transition: transform 0.5s ease-in-out;
-	transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(100%);
 }
 
 .project-skills.expanded {
-	transform: translateX(0);
+  transform: translateX(0);
 }
 
 .project-skills.transitioning {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 nav ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 nav ul li {
-	margin: 10px 0;
+  margin: 10px 0;
 }
 
 nav ul li a {
-	color: #fff;
-	text-decoration: none;
-	writing-mode: vertical-lr;
-	text-orientation: mixed;
-	/* transform: rotate(180deg); */
-	/* padding: 10px 0; */
+  color: #fff;
+  text-decoration: none;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
 }
 
 main {
-	flex-grow: 1;
-	/* padding: 2rem; */
-	overflow-y: auto;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+  .text-balance {
+    text-wrap: balance;
+  }
 }

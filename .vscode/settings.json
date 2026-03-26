@@ -1,5 +1,7 @@
 {
 	"prettier.enableDebugLogs": true,
 	"notebook.formatOnSave.enabled": true,
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"cSpell.words": ["Bandcamp", "orangeflame", "vibeaday"]
 }

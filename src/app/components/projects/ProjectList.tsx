@@ -1,33 +1,32 @@
-import React from "react";
-import projects from "./ProjectsObject";
+import React from 'react';
+import projects from './ProjectsObject';
 
 interface ProjectListProps {
-	selectedProject: (typeof projects)[0];
-	onProjectClick: (index: number) => void;
+  selectedProject: (typeof projects)[0];
+  onProjectClick: (index: number) => void;
 }
 
 const ProjectList: React.FC<ProjectListProps> = ({
-	selectedProject,
-	onProjectClick
+  selectedProject,
+  onProjectClick,
 }) => {
-	return (
-		<ul
-			className='lg:flex sticky top-0 justify-center px-8 items-start text-left flex-col hidden
-   md:font-light w-auto min-w-[220px]'>
-			{projects.map((project, index) => (
-				<li
-					key={index}
-					className={`cursor-pointer mb-2 text-left md:text-responsive-xl text-lg ${
-						selectedProject.name === project.name
-							? "text-white  text-xl "
-							: "hover:text-white hover:text-opacity-80 text-emerald-200"
-					}`}
-					onClick={() => onProjectClick(index)}>
-					{project.name}
-				</li>
-			))}
-		</ul>
-	);
+  return (
+    <ul className="sticky top-0 hidden w-auto min-w-[220px] flex-col items-start justify-center px-8 text-left md:font-light lg:flex">
+      {projects.map((project, index) => (
+        <li
+          key={index}
+          className={`md:text-responsive-xl mb-2 text-left text-lg ${
+            selectedProject.name === project.name
+              ? 'cursor-default text-xl text-white'
+              : 'cursor-pointer text-emerald-200 hover:text-white hover:text-opacity-80'
+          }`}
+          onClick={() => onProjectClick(index)}
+        >
+          {project.name}
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default ProjectList;
