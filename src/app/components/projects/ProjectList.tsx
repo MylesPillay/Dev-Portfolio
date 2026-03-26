@@ -1,5 +1,5 @@
 import React from 'react';
-import projects from './ProjectsObject';
+import projects from '@/data/projects';
 
 interface ProjectListProps {
   selectedProject: (typeof projects)[0];

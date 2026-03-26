@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ContactForm from '../components/contact/ContactForm';
 import TaglineText from '../components/contact/TaglineTexts';
-import MobileBurgerMenu from '../components/layout/MobileBurgerMenu';
+import MobileBurgerMenu from '../components/ui/MobileBurgerMenu';
 
 export default function Contact() {
   const [name, setName] = useState('');

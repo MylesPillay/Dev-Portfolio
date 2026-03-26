@@ -1,6 +1,6 @@
 import ProjectList from '../ProjectList';
 import ProjectSkillsComponent from '../ProjectSkills';
-import { Project } from '../ProjectsObject';
+import { Project } from '@/data/projects';
 
 interface ProjectListAndSkillsProps {
   selectedProject: Project;

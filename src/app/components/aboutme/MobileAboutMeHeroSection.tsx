@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import LinksComponent from './LinksComponent';
-import LoadingSpinner from '../layout/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 const MobileAboutMeHeroSection = ({
   image,

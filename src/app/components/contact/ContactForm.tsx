@@ -1,4 +1,4 @@
-import useSubmitContactForm from '@/app/hooks/useSubmitContactForm';
+import useSubmitContactForm from '@/hooks/useSubmitContactForm';
 import React from 'react';
 
 interface ContactFormProps {

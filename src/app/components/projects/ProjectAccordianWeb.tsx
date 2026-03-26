@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from './ProjectsObject';
+import { Project } from '@/data/projects';
 
 interface ProjectAccordionWebProps {
   selectedProject: Project;

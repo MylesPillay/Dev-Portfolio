@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import projects from './ProjectsObject';
-import LoadingSpinner from '../layout/LoadingSpinner';
+import projects from '@/data/projects';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 interface LargeScreenWebsiteProjectImagesProps {
   selectedProject: (typeof projects)[0];
