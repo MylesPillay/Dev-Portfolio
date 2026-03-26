@@ -1,11 +1,10 @@
-// components/LoadingSpinner.js
-import React from "react";
-import { ClipLoader } from "react-spinners"; // Example spinner
+import React from 'react';
+import { ClipLoader } from 'react-spinners';
 
 const LoadingSpinner = ({ size = 50 }) => (
-	<div className='flex justify-center items-center flex-1 flex-grow w-full h-full'>
-		<ClipLoader size={size} color={"#FFFFFF99"} />
-	</div>
+  <div className="flex h-full w-full flex-1 flex-grow items-center justify-center">
+    <ClipLoader size={size} color={'#FFFFFF99'} />
+  </div>
 );
 
 export default LoadingSpinner;
