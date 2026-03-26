@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import AnimatedText from './AnimatedText';
-import LoadingSpinner from '../layout/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 const AboutMeHeroSection = ({
   image,

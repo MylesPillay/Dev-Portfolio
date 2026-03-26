@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import LoadingSpinner from '../layout/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 interface MobileImageContainerProps {
   hovered: boolean;

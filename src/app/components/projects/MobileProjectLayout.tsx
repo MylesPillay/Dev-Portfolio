@@ -5,7 +5,7 @@ import MediumMobileAppProjectImages from './MediumMobileAppProjectImages';
 import MediumScreenProjectSkillsComponent from './MediumScreenProjectSkillsComponent';
 import ProjectImagePagination from './ProjectImagePagination';
 import { ImagesFormatSelector } from './ImagesFormatSelector';
-import { Project } from './ProjectsObject';
+import { Project } from '@/data/projects';
 import WebsiteProjectImages from './WebsiteProjectImages';
 
 interface MobileProjectLayoutProps {

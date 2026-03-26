@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import { Project } from './ProjectsObject';
-import projects from './ProjectsObject';
+import { Project } from '@/data/projects';
+import projects from '@/data/projects';
 import { ImagesFormatSelector } from './ImagesFormatSelector';
-import useDeviceScreenSize from '@/app/hooks/useDeviceScreenSize';
-import MobileBurgerMenu from '../layout/MobileBurgerMenu';
+import useDeviceScreenSize from '@/hooks/useDeviceScreenSize';
+import MobileBurgerMenu from '../ui/MobileBurgerMenu';
 
 interface ProjectsHeaderProps {
   selectedProject: Project;

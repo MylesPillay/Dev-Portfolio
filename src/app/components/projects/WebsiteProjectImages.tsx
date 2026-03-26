@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LoadingSpinner from '../layout/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
 interface WebsiteProjectImagesProps {
   images: string[];

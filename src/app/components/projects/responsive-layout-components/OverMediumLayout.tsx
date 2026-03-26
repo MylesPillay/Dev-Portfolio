@@ -2,7 +2,7 @@ import { ImagesFormatSelector } from '../ImagesFormatSelector';
 import MobileImageContainer from '../MobileAppProjectImages';
 import ProjectAccordionWeb from '../ProjectAccordianWeb';
 import ProjectImagePagination from '../ProjectImagePagination';
-import { Project } from '../ProjectsObject';
+import { Project } from '@/data/projects';
 import LargeScreenWebsiteProjectImages from '../LargeScreenWebsiteProjectImages';
 
 interface OverMediumLayoutProps {

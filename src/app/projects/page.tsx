@@ -1,13 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import projects from '../components/projects/ProjectsObject';
+import projects from '@/data/projects';
 import ProjectsHeader from '../components/projects/ProjectHeader';
 import ProjectSkillsComponent from '../components/projects/ProjectSkills';
 import MobileProjectLayout from '../components/projects/MobileProjectLayout';
 import ProjectListAndSkills from '../components/projects/responsive-layout-components/ProjectListAndSkills';
 import OverMediumLayout from '../components/projects/responsive-layout-components/OverMediumLayout';
 import MediumToLargeLayout from '../components/projects/responsive-layout-components/MediumToLargeLayout';
-import useFetchMobileAppImages from '../hooks/useFetchMobileAppImages';
+import useFetchMobileAppImages from '@/hooks/useFetchMobileAppImages';
 
 const ProjectsDisplay = (): JSX.Element => {
   const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);

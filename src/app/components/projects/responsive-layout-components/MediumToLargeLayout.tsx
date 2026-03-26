@@ -1,11 +1,11 @@
-import LoadingSpinner from '../../layout/LoadingSpinner';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 import { ImagesFormatSelector } from '../ImagesFormatSelector';
 import MediumMobileAppProjectImages from '../MediumMobileAppProjectImages';
 import MediumScreenProjectAccordion from '../MediumScreenPorjectAccordian';
 import MediumScreenProjectSkillsComponent from '../MediumScreenProjectSkillsComponent';
 import WebsiteProjectImages from '../WebsiteProjectImages';
 import ProjectImagePagination from '../ProjectImagePagination';
-import { Project } from '../ProjectsObject';
+import { Project } from '@/data/projects';
 
 interface MediumToLargeLayoutProps {
   setIsImageContainerHovered: (hovered: boolean) => void;
