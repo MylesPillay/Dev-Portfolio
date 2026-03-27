@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 interface ProjectImagePaginationProps {
@@ -10,7 +10,7 @@ interface ProjectImagePaginationProps {
   onNextImage: () => void;
 }
 
-const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
+const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = React.memo(({
   hovered,
   currentImageIndex,
   totalImages,
@@ -18,21 +18,18 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
   onPrevImage,
   onNextImage,
 }) => {
-  const getPaginationDots = () => {
+  const paginationDots = useMemo(() => {
     const maxDots = 5;
-
     const totalDots = Math.min(totalImages, maxDots);
-
-    let startIndex = Math.max(
+    const startIndex = Math.max(
       0,
       Math.min(
         currentImageIndex - Math.floor(totalDots / 2),
         totalImages - totalDots
       )
     );
-
     return Array.from({ length: totalDots }, (_, i) => i + startIndex);
-  };
+  }, [currentImageIndex, totalImages]);
 
   const isFirstImage = currentImageIndex === 0;
   const isLastImage = currentImageIndex === totalImages - 1;
@@ -52,7 +49,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
       >
         <FaChevronLeft color="rgb(255, 115, 22)" size={23} />
       </button>
-      {getPaginationDots().map((dotIndex) => (
+      {paginationDots.map((dotIndex) => (
         <button
           key={dotIndex}
           onClick={() => onPageChange(dotIndex)}
@@ -77,6 +74,6 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
       </button>
     </div>
   );
-};
+});
 
 export default ProjectImagePagination;

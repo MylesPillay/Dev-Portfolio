@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 import './globals.css';
+import Link from 'next/link';
 import { FaEnvelope, FaLaptopCode, FaPortrait } from 'react-icons/fa';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';

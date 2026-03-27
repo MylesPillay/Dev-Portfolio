@@ -2,7 +2,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
 
 interface IconLinkProps {
   href: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
   label: string;
   mobileScreen: boolean;
 }
