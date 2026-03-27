@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-
+import { motion } from 'motion/react';
 interface ProjectDetailsProps {
   selectedProject: {
     skills: string[];
@@ -9,7 +8,7 @@ interface ProjectDetailsProps {
   isImageHovered: boolean;
 }
 
-const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
+const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = React.memo(({
   selectedProject,
   activeSection,
   isImageHovered,
@@ -65,6 +64,6 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
       </motion.div>
     </div>
   );
-};
+});
 
 export default ProjectSkillsComponent;

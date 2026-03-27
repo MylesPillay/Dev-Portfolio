@@ -5,7 +5,7 @@ interface ProjectDetailsProps {
   };
 }
 
-const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
+const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = React.memo(({
   selectedProject,
 }) => {
   return (
@@ -28,6 +28,6 @@ const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
       </ul>
     </div>
   );
-};
+});
 
 export default MediumScreenProjectSkillsComponent;

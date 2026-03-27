@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import projects from '@/data/projects';
 import ProjectsHeader from '../components/projects/ProjectHeader';
 import ProjectSkillsComponent from '../components/projects/ProjectSkills';
@@ -9,11 +9,15 @@ import OverMediumLayout from '../components/projects/responsive-layout-component
 import MediumToLargeLayout from '../components/projects/responsive-layout-components/MediumToLargeLayout';
 import useFetchMobileAppImages from '@/hooks/useFetchMobileAppImages';
 
-const ProjectsDisplay = (): JSX.Element => {
+const ProjectsDisplay = (): React.ReactElement => {
   const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'web' | 'mobile'>('mobile');
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [mobileImageIndex, setMobileImageIndex] = useState<number>(0);
+  const [webImageIndex, setWebImageIndex] = useState<number>(0);
+
+  const currentImageIndex = viewMode === 'mobile' ? mobileImageIndex : webImageIndex;
+  const setCurrentImageIndex = viewMode === 'mobile' ? setMobileImageIndex : setWebImageIndex;
   const [isImageContainerHovered, setIsImageContainerHovered] = useState(false);
   const [activeSection, setActiveSection] = useState('Overview');
   const [loading, setLoading] = useState(false);
@@ -41,28 +45,30 @@ const ProjectsDisplay = (): JSX.Element => {
     }
   }, [isImageContainerHovered]);
 
-  const handleProjectClick = (index: number) => {
+  const handleProjectClick = useCallback((index: number) => {
     if (index === selectedProjectIndex) return;
 
     setLoading(true);
-    setCurrentImageIndex(0);
+    setMobileImageIndex(0);
+    setWebImageIndex(0);
     setSelectedProjectIndex(index);
     setViewMode(index === 0 || index === 3 ? 'mobile' : 'web');
     setProjectsMenuOpen(false);
-  };
+  }, [selectedProjectIndex]);
 
-  const handleImageChange = (newIndex: number) => {
+  const handleImageChange = useCallback((newIndex: number) => {
     const isValidIndex = newIndex >= 0 && newIndex < imagesArray.length;
 
     if (isValidIndex) {
       setImageLoading(true);
-      setCurrentImageIndex(newIndex);
+      (viewMode === 'mobile' ? setMobileImageIndex : setWebImageIndex)(newIndex);
     }
-  };
-  const handleImageLoad = () => {
+  }, [imagesArray.length, viewMode]);
+
+  const handleImageLoad = useCallback(() => {
     setLoading(false);
     setImageLoading(false);
-  };
+  }, []);
 
   return (
     <div className="m-none relative h-full w-full overflow-x-hidden border-0 border-orangeflame bg-mobile-gradient pr-0 sm:border-l-[0.5px] md:bg-projects-gradient">

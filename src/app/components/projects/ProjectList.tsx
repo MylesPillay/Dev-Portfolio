@@ -6,7 +6,7 @@ interface ProjectListProps {
   onProjectClick: (index: number) => void;
 }
 
-const ProjectList: React.FC<ProjectListProps> = ({
+const ProjectList: React.FC<ProjectListProps> = React.memo(({
   selectedProject,
   onProjectClick,
 }) => {
@@ -27,6 +27,6 @@ const ProjectList: React.FC<ProjectListProps> = ({
       ))}
     </ul>
   );
-};
+});
 
 export default ProjectList;
