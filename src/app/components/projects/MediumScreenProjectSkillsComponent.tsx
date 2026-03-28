@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React from 'react';
 interface ProjectDetailsProps {
-	selectedProject: {
-		skills: string[];
-	};
+  selectedProject: {
+    skills: string[];
+  };
 }
 
-const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
-	selectedProject
+const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = React.memo(({
+  selectedProject,
 }) => {
-	return (
-		<div
-			className={`flex flex-col w-full px-[5%]   h-auto md:max-w-[88%] max-w-[100%] justify-start pr-2  py-[3vh] rounded-r-lg
+  return (
+    <div
+      className={`flex h-auto w-full max-w-[100%] flex-col justify-start rounded-r-lg px-[5%] py-[3vh] pr-2 md:max-w-[88%]`}
+      style={{
+        borderLeft: 'none',
+      }}
+    >
+      <h2 className="mb-3 text-lg font-medium text-orangeflame md:text-xl">
+        Skills / CodeStack
+      </h2>
 
-    `}
-			style={{
-				borderLeft: "none"
-			}}>
-			<h2 className='md:text-xl  text-lg font-medium mb-3 text-orangeflame'>
-				Skills / CodeStack
-			</h2>
-
-			<ul className={` flex flex-wrap text-center  text-md font-thin`}>
-				{selectedProject.skills.map((skill, index) => (
-					<li
-						key={index}
-						className={`mb-2 mr-4  text-white
-
-      `}>
-						{skill}
-					</li>
-				))}
-			</ul>
-		</div>
-	);
-};
+      <ul className={`text-md flex flex-wrap text-center font-thin`}>
+        {selectedProject.skills.map((skill, index) => (
+          <li key={index} className={`mb-2 mr-4 text-white`}>
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+});
 
 export default MediumScreenProjectSkillsComponent;

@@ -1,17 +1,17 @@
 const MobileProjectTitleStickyHeader = ({
-	projectTitle
+  projectTitle,
 }: {
-	projectTitle: string;
+  projectTitle: string;
 }) => {
-	return (
-		<div className='sticky top-0 bg-slate-800 bg-opacity-80 w-full p-4 border-t border-b border-orangeflame z-10'>
-			<div className='w-full justify-center'>
-				<h1 className=' text-xl font-light text-center text-white'>
-					{projectTitle.toUpperCase()}
-				</h1>
-			</div>
-		</div>
-	);
+  return (
+    <div className="sticky top-0 z-10 w-full border-b border-t border-orangeflame bg-slate-800 bg-opacity-80 p-4">
+      <div className="w-full justify-center">
+        <h1 className="text-center text-xl font-light text-white">
+          {projectTitle.toUpperCase()}
+        </h1>
+      </div>
+    </div>
+  );
 };
 
 export default MobileProjectTitleStickyHeader;
