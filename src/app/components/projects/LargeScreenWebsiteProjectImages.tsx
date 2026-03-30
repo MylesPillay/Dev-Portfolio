@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import projects from '@/data/projects';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
@@ -20,29 +21,34 @@ const LargeScreenWebsiteProjectImages: React.FC<
   }, [currentImageIndex]);
 
   return (
-    <div
-      className={`align-start flex h-[60vh] max-h-[60vh] w-[60vw] flex-col items-start justify-start overflow-y-auto rounded-lg`}
-    >
+    <div className="relative h-[60vh] max-h-[60vh] w-[60vw] items-center justify-center overflow-hidden rounded-lg bg-red-800 bg-opacity-50 align-middle">
       {(loading || imageLoading) && (
-        <div className="flex h-full w-full items-center justify-center bg-orangeflame bg-opacity-10">
+        <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-orangeflame bg-opacity-10">
           <LoadingSpinner />
         </div>
       )}
-      {/* eslint-disable-next-line  */}
-      <img
-        src={images?.[currentImageIndex]}
-        alt={`Image ${currentImageIndex}`}
-        style={{
-          display: loading || imageLoading ? 'none' : 'flex',
-          borderRadius: '10px',
-          width: 'auto',
-          height: 'auto',
-        }}
-        onLoad={() => {
-          setImageLoading(false);
-          imageOnLoad();
-        }}
-      />
+      {images?.[currentImageIndex] && (
+        <>
+          <Image
+            src={images[currentImageIndex]}
+            alt={`Project screenshot ${currentImageIndex + 1}`}
+            fill
+            style={{
+              objectFit: 'contain',
+              borderRadius: '10px',
+              opacity: loading || imageLoading ? 0 : 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingLeft: '50%',
+            }}
+            onLoad={() => {
+              setImageLoading(false);
+              imageOnLoad();
+            }}
+          />
+          <h1>HELLO</h1>
+        </>
+      )}
     </div>
   );
 };

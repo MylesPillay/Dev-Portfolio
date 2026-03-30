@@ -11,7 +11,6 @@ interface ProjectsHeaderProps {
   viewMode: 'web' | 'mobile';
   setViewMode: (mode: 'web' | 'mobile') => void;
   isImageContainerHovered: boolean;
-  images: any[];
   setIsImageContainerHovered: (hovered: boolean) => void;
   onProjectClick: (index: number) => void;
   projectsMenuOpen: boolean;
@@ -47,12 +46,10 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
             setProjectsMenuOpen(!projectsMenuOpen);
             setMobileMenuOpen(false);
           }}
-          className="lg:pointer-events-none lg:cursor-default"
+          className="ml-4 h-auto w-auto min-w-[10vw] justify-start pt-2 text-left align-text-bottom text-2xl font-medium text-orangeflame sm:ml-0 sm:pt-0 lg:pointer-events-none lg:cursor-default"
           disabled={width >= 1200}
         >
-          <h1 className="ml-4 h-auto w-auto min-w-[10vw] justify-start pt-2 text-left align-text-bottom text-2xl font-medium text-orangeflame sm:ml-0 sm:pt-0">
-            PROJECTS
-          </h1>
+          PROJECTS
         </button>
 
         {projectsMenuOpen && (
@@ -91,7 +88,8 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <ImagesFormatSelector
-        currentProjectIndex={selectedProject.index}
+        isMobileOnly={selectedProject.isMobileOnly}
+        isWebOnly={selectedProject.isWebOnly}
         viewMode={viewMode}
         setViewMode={setViewMode}
         headerPosition={true}

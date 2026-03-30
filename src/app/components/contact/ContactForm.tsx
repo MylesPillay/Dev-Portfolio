@@ -1,73 +1,83 @@
 import useSubmitContactForm from '@/hooks/useSubmitContactForm';
-import React from 'react';
+import React, { useReducer } from 'react';
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface ContactFormProps {
+  onSubmitSuccess: () => void;
+}
+
+type FormState = {
   name: string;
   email: string;
   message: string;
   number: string;
-  isNameFieldUpdated: boolean;
-  isEmailFieldUpdated: boolean;
-  isMessageFieldUpdated: boolean;
-  setIsNameFieldUpdated: (value: boolean) => void;
-  setIsEmailFieldUpdated: (value: boolean) => void;
-  setIsMessageFieldUpdated: (value: boolean) => void;
+  touched: {
+    name: boolean;
+    email: boolean;
+    message: boolean;
+  };
+};
 
-  setName: (value: string) => void;
-  setEmail: (value: string) => void;
-  setMessage: (value: string) => void;
-  setNumber: (value: string) => void;
-  onSubmitSuccess: () => void;
+type FormAction =
+  | { type: 'UPDATE_FIELD'; field: 'name' | 'email' | 'message'; value: string }
+  | { type: 'SET_NUMBER'; value: string }
+  | { type: 'TOUCH_ALL' }
+  | { type: 'RESET' };
+
+const initialState: FormState = {
+  name: '',
+  email: '',
+  message: '',
+  number: '',
+  touched: { name: false, email: false, message: false },
+};
+
+function formReducer(state: FormState, action: FormAction): FormState {
+  switch (action.type) {
+    case 'UPDATE_FIELD':
+      return {
+        ...state,
+        [action.field]: action.value,
+        touched: { ...state.touched, [action.field]: true },
+      };
+    case 'SET_NUMBER':
+      return { ...state, number: action.value };
+    case 'TOUCH_ALL':
+      return { ...state, touched: { name: true, email: true, message: true } };
+    case 'RESET':
+      return initialState;
+  }
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({
-  name,
-  email,
-  message,
-  number,
-  isNameFieldUpdated,
-  isEmailFieldUpdated,
-  isMessageFieldUpdated,
-  setIsNameFieldUpdated,
-  setIsEmailFieldUpdated,
-  setIsMessageFieldUpdated,
-  setName,
-  setEmail,
-  setMessage,
-  setNumber,
-  onSubmitSuccess,
-}) => {
+const ContactForm: React.FC<ContactFormProps> = ({ onSubmitSuccess }) => {
+  const [state, dispatch] = useReducer(formReducer, initialState);
   const { submitContactForm, loading, error } = useSubmitContactForm();
+
+  const nameError = state.touched.name && !state.name;
+  const emailError =
+    state.touched.email && (!state.email || !EMAIL_REGEX.test(state.email));
+  const messageError = state.touched.message && !state.message;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    dispatch({ type: 'TOUCH_ALL' });
 
-    setIsNameFieldUpdated(true);
-    setIsEmailFieldUpdated(true);
-    setIsMessageFieldUpdated(true);
-    if (!name || !email || !message) {
+    if (!state.name || !EMAIL_REGEX.test(state.email) || !state.message) {
       return;
     }
 
     const formData = {
-      contact_sender_name: name,
-      contact_number: number ? number : null,
-      contact_email: email,
-      contact_message: message,
+      contact_sender_name: state.name,
+      contact_number: state.number || null,
+      contact_email: state.email,
+      contact_message: state.message,
     };
 
     const result = await submitContactForm(formData);
 
     if (result) {
-      // Reset form fields
-      setName('');
-      setEmail('');
-      setMessage('');
-      setNumber('');
-      setIsNameFieldUpdated(false);
-      setIsEmailFieldUpdated(false);
-      setIsMessageFieldUpdated(false);
-
+      dispatch({ type: 'RESET' });
       onSubmitSuccess();
     }
   };
@@ -86,25 +96,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </h1>
               <input
                 className={`text-md w-full rounded-md border-2 border-opacity-75 bg-black bg-opacity-50 px-4 py-2 text-left text-white focus:border-2 focus:border-tealAccent focus:border-opacity-100 focus:outline-none ${
-                  isNameFieldUpdated && !name.length
-                    ? 'border-red-400'
-                    : 'border-orangeflame'
+                  nameError ? 'border-red-400' : 'border-orangeflame'
                 }`}
                 required
                 type="text"
-                value={name}
-                onChange={(e) => {
-                  setIsNameFieldUpdated(true);
-                  setName(e.target.value);
-                }}
+                value={state.name}
+                onChange={(e) =>
+                  dispatch({ type: 'UPDATE_FIELD', field: 'name', value: e.target.value })
+                }
                 placeholder=""
               />
               <div
-                className={`text-left text-sm text-red-500 ${
-                  isNameFieldUpdated && !name.length ? 'flex' : 'hidden'
-                }`}
+                className={`text-left text-sm text-red-500 ${nameError ? 'flex' : 'hidden'}`}
               >
-                {' '}
                 Please enter your name
               </div>
             </div>
@@ -115,25 +119,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </h1>
               <input
                 className={`text-md w-full rounded-md border-2 border-opacity-75 bg-black bg-opacity-50 px-4 py-2 text-left text-white focus:border-2 focus:border-tealAccent focus:border-opacity-100 focus:outline-none ${
-                  isEmailFieldUpdated && !email.length
-                    ? 'border-red-400'
-                    : 'border-orangeflame'
+                  emailError ? 'border-red-400' : 'border-orangeflame'
                 }`}
-                type="text"
+                type="email"
                 required
                 placeholder=""
-                value={email}
-                onChange={(e) => {
-                  setIsEmailFieldUpdated(true);
-                  setEmail(e.target.value);
-                }}
+                value={state.email}
+                onChange={(e) =>
+                  dispatch({ type: 'UPDATE_FIELD', field: 'email', value: e.target.value })
+                }
               />
               <div
-                className={`text-left text-sm text-red-500 ${
-                  isEmailFieldUpdated && !email.length ? 'flex' : 'hidden'
-                }`}
+                className={`text-left text-sm text-red-500 ${emailError ? 'flex' : 'hidden'}`}
               >
-                Please enter your email
+                {!state.email ? 'Please enter your email' : 'Please enter a valid email address'}
               </div>
             </div>
 
@@ -142,11 +141,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 Your Contact Number:
               </h1>
               <input
-                className={`text-md my-2 w-full rounded-md border-2 border-orangeflame border-opacity-75 bg-black bg-opacity-50 px-4 py-2 text-left text-white focus:border-2 focus:border-tealAccent focus:border-opacity-100 focus:outline-none`}
+                className="text-md my-2 w-full rounded-md border-2 border-orangeflame border-opacity-75 bg-black bg-opacity-50 px-4 py-2 text-left text-white focus:border-2 focus:border-tealAccent focus:border-opacity-100 focus:outline-none"
                 type="number"
                 placeholder=""
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
+                value={state.number}
+                onChange={(e) => dispatch({ type: 'SET_NUMBER', value: e.target.value })}
               />
             </div>
           </div>
@@ -157,22 +156,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </h1>
               <textarea
                 className={`text-md min-h-[21vh] w-full rounded-md border-2 border-opacity-75 bg-black bg-opacity-50 px-4 py-2 text-left text-white focus:border-2 focus:border-tealAccent focus:border-opacity-100 focus:outline-none ${
-                  isMessageFieldUpdated && !message.length
-                    ? 'border-red-400'
-                    : 'border-orangeflame'
+                  messageError ? 'border-red-400' : 'border-orangeflame'
                 }`}
-                value={message}
+                value={state.message}
                 required
-                onChange={(e) => {
-                  setIsMessageFieldUpdated(true);
-                  setMessage(e.target.value);
-                }}
+                onChange={(e) =>
+                  dispatch({ type: 'UPDATE_FIELD', field: 'message', value: e.target.value })
+                }
                 placeholder=""
               ></textarea>
               <div
-                className={`text-left text-sm text-red-500 ${
-                  isMessageFieldUpdated && !message.length ? 'flex' : 'hidden'
-                }`}
+                className={`text-left text-sm text-red-500 ${messageError ? 'flex' : 'hidden'}`}
               >
                 Please let me know your reason for contacting
               </div>

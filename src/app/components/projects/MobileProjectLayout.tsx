@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+
+const LOADING_TIMEOUT_MS = 2000;
 import MobileProjectTitleStickyHeader from './MobileProjectTitleStickyHeader';
-import MediumScreenProjectAccordion from './MediumScreenPorjectAccordian';
+import MediumScreenProjectAccordion from './MediumScreenProjectAccordion';
 import MediumMobileAppProjectImages from './MediumMobileAppProjectImages';
 import MediumScreenProjectSkillsComponent from './MediumScreenProjectSkillsComponent';
 import ProjectImagePagination from './ProjectImagePagination';
@@ -10,26 +12,21 @@ import WebsiteProjectImages from './WebsiteProjectImages';
 
 interface MobileProjectLayoutProps {
   selectedProject: Project;
-  selectedIndex: number;
   viewMode: 'web' | 'mobile';
   setViewMode: (mode: 'web' | 'mobile') => void;
-  images: any;
+  images: string[];
   loading: boolean;
   currentImageIndex: number;
   setCurrentImageIndex: (newIndex: number) => void;
   setActiveSection: (section: string) => void;
   activeSection: string;
-  onPrevImage: () => void;
-  onNextImage: () => void;
   loadNextProject: () => void;
   imageOnLoad: () => void;
   imageLoading: boolean;
-  setImageLoading: (loading: boolean) => void;
   setLoading: (loading: boolean) => void;
 }
 const MobileProjectLayout = ({
   selectedProject,
-  selectedIndex,
   viewMode,
   images,
   loading,
@@ -43,18 +40,14 @@ const MobileProjectLayout = ({
   imageOnLoad,
 }: MobileProjectLayoutProps) => {
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null;
+    if (!loading) return;
 
-    if (loading) {
-      timeoutId = setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-    }
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, LOADING_TIMEOUT_MS);
 
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [loading]);
+    return () => clearTimeout(timeoutId);
+  }, [loading, setLoading]);
 
   return (
     <>
@@ -77,12 +70,13 @@ const MobileProjectLayout = ({
                 viewMode={viewMode}
                 setViewMode={setViewMode}
                 headerPosition={false}
-                currentProjectIndex={selectedProject.index}
+                isMobileOnly={selectedProject.isMobileOnly}
+                isWebOnly={selectedProject.isWebOnly}
               />
             </div>
             <div className="align-start flex h-auto w-[100%] min-w-[70vw] flex-grow items-start justify-start overflow-x-hidden bg-slate-800 bg-opacity-50">
               <div className="flex h-auto w-[100%] flex-col items-center justify-center overflow-x-scroll">
-                {selectedIndex === 0 || selectedIndex === 3 ? (
+                {selectedProject.isMobileOnly ? (
                   <MediumMobileAppProjectImages
                     smallMobileScreen={true}
                     images={images}

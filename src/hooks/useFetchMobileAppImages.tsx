@@ -1,10 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_API_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_API_SECRET_ACCESS_TOKEN as string
-);
+import { supabase } from '@/lib/supabaseClient';
 
 interface useFetchMobileAppImagesProps {
   selectedProjectIndex: number;
@@ -49,8 +44,7 @@ const useFetchMobileAppImages = ({
 
         setImages(imageList);
       } catch (error) {
-        setError('Failed to fetch images');
-        console.error(error);
+        setError(error instanceof Error ? error.message : 'Failed to fetch images');
       } finally {
         setLoading(false);
       }
