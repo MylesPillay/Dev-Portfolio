@@ -2,6 +2,8 @@ export interface Project {
   name: string;
   index: number;
   supabaseId: string;
+  isMobileOnly: boolean;
+  isWebOnly: boolean;
   tagline: string;
 
   details: {
@@ -39,6 +41,8 @@ const projects: Project[] = [
     name: 'Air Oasis Home',
     index: 0,
     supabaseId: 'airoasis',
+    isMobileOnly: true,
+    isWebOnly: false,
     tagline: '- IoT Mobile Application',
 
     details: {
@@ -112,6 +116,8 @@ const projects: Project[] = [
     name: 'WhoCo',
     index: 1,
     supabaseId: 'whoco',
+    isMobileOnly: false,
+    isWebOnly: false,
     tagline: 'The People Company',
 
     url: 'https://web.archive.org/web/20230216050654/https://whoco.com/',
@@ -193,6 +199,8 @@ const projects: Project[] = [
     name: 'Fluent Outreach',
     index: 2,
     supabaseId: 'fluent',
+    isMobileOnly: false,
+    isWebOnly: true,
     tagline: 'AI Customer Outreach Platform',
 
     details: {
@@ -271,6 +279,8 @@ const projects: Project[] = [
     name: 'Vibe-A-Day',
     index: 3,
     supabaseId: 'vibeaday',
+    isMobileOnly: true,
+    isWebOnly: false,
     tagline: 'Music Discovery Mobile App',
 
     url: '',
@@ -351,6 +361,8 @@ const projects: Project[] = [
     name: 'USAHI',
     index: 4,
     supabaseId: 'usahi',
+    isMobileOnly: false,
+    isWebOnly: false,
     tagline: 'Lead Conversion & Booking Platform',
 
     url: 'https://usahomeimprovement.com/',
@@ -440,6 +452,8 @@ const projects: Project[] = [
     name: 'Tuition Covered',
     index: 5,
     supabaseId: 'tuition-covered',
+    isMobileOnly: false,
+    isWebOnly: false,
     tagline: 'AI-Maintained Scholarship Database',
 
     url: 'https://tuitioncovered.com/',
@@ -525,6 +539,8 @@ const projects: Project[] = [
     name: 'Mind How You Go',
     index: 6,
     supabaseId: 'mind-how-you-go',
+    isMobileOnly: false,
+    isWebOnly: false,
     tagline: 'CBT Therapy Practice Website',
 
     url: 'https://mindhowyougo.org.uk/',

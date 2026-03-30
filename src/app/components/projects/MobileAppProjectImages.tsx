@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
 interface MobileImageContainerProps {
@@ -52,22 +53,20 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
           {trimmedImages?.map((image, index) => (
             <div
               key={index}
-              className={`w-[50%] flex-shrink-0 flex-grow justify-center transition-transform duration-300`}
+              className="relative w-[50%] min-h-[50vh] flex-shrink-0 flex-grow transition-transform duration-300"
               style={{
                 transform: hovered
                   ? `translateX(-${currentImageIndex * 99.5}%)`
                   : `translateX(-${0}%)`,
               }}
             >
-              {/* eslint-disable-next-line  */}
-              <img
+              <Image
                 src={image}
-                alt={`Image ${index}`}
+                alt={`Mobile app screenshot ${index + 1}`}
+                fill
                 style={{
-                  display: 'flex',
+                  objectFit: 'contain',
                   borderRadius: '10px',
-                  width: 'auto',
-                  height: 'auto',
                 }}
               />
             </div>

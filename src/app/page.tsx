@@ -6,12 +6,7 @@ import MobileAboutMeHeroSection from './components/aboutme/MobileAboutMeHeroSect
 import TechSkillsSection from './components/aboutme/TechSkillsSections';
 import SoftSkillsSection from './components/aboutme/SoftSkillsSection';
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_API_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_API_SECRET_ACCESS_TOKEN as string
-);
+import { supabase } from '@/lib/supabaseClient';
 
 export default function Home() {
   const [singularExpansion, setSingularExpansion] = useState('none');
@@ -30,15 +25,14 @@ export default function Home() {
           setImage(image);
         }
       } catch (error) {
-        setError('Failed to fetch image');
-        console.error(error);
+        setError(error instanceof Error ? error.message : 'Failed to fetch image');
       } finally {
         setLoading(false);
       }
     };
 
     fetchImage();
-  }, [image, loading]);
+  }, []);
 
   return (
     <div className="h-screen w-full overflow-x-hidden overflow-y-scroll border-0 border-orangeflame bg-projects-gradient sm:border-l lg:h-screen lg:overflow-y-scroll">

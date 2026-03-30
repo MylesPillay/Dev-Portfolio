@@ -8,7 +8,6 @@ interface ProjectListAndSkillsProps {
   isImageContainerHovered: boolean;
   setIsImageContainerHovered: (hovered: boolean) => void;
   activeSection: string;
-  setActiveSection: (section: string) => void;
 }
 
 const ProjectListAndSkills = ({

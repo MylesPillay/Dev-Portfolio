@@ -4,22 +4,15 @@ import ContactForm from '../components/contact/ContactForm';
 import TaglineText from '../components/contact/TaglineTexts';
 import MobileBurgerMenu from '../components/ui/MobileBurgerMenu';
 
+const SUCCESS_DISMISS_DELAY_MS = 5000;
+
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [number, setNumber] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isNameFieldUpdated, setIsNameFieldUpdated] = useState<boolean>(false);
-  const [isEmailFieldUpdated, setIsEmailFieldUpdated] =
-    useState<boolean>(false);
-  const [isMessageFieldUpdated, setIsMessageFieldUpdated] =
-    useState<boolean>(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleSubmitSuccess = () => {
     setSubmitSuccess(true);
-    setTimeout(() => setSubmitSuccess(false), 5000);
+    setTimeout(() => setSubmitSuccess(false), SUCCESS_DISMISS_DELAY_MS);
   };
 
   return (
@@ -60,23 +53,7 @@ export default function Contact() {
             )}
           </div>
         </div>
-        <ContactForm
-          name={name}
-          email={email}
-          message={message}
-          number={number}
-          isNameFieldUpdated={isNameFieldUpdated}
-          isEmailFieldUpdated={isEmailFieldUpdated}
-          isMessageFieldUpdated={isMessageFieldUpdated}
-          setIsNameFieldUpdated={setIsNameFieldUpdated}
-          setIsEmailFieldUpdated={setIsEmailFieldUpdated}
-          setIsMessageFieldUpdated={setIsMessageFieldUpdated}
-          setName={setName}
-          setEmail={setEmail}
-          setMessage={setMessage}
-          setNumber={setNumber}
-          onSubmitSuccess={handleSubmitSuccess}
-        />
+        <ContactForm onSubmitSuccess={handleSubmitSuccess} />
       </div>
     </div>
   );

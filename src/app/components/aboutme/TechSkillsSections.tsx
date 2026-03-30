@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { handleClickSkillsContainer, handleCloseSkillsContainer } from './helpers/helpers';
 
 const TechSkillsSection = ({
   singularExpansion,
@@ -57,17 +58,8 @@ const TechSkillsSection = ({
           ? '-translate-y-[8vh] bg-deepBlueBg bg-opacity-100 pb-2'
           : 'bg-slate-800 bg-opacity-50'
       }`}
-      onMouseLeave={() => {
-        setSingularExpansion('none');
-        setIsHovered(false);
-      }}
-      onClick={() => {
-        if (isHovered) {
-          return (setSingularExpansion('none'), setIsHovered(false));
-        }
-        setSingularExpansion('tech');
-        setIsHovered(true);
-      }}
+      onMouseLeave={() => handleCloseSkillsContainer({ setSingularExpansion, setIsHovered })}
+      onClick={() => handleClickSkillsContainer({ setSingularExpansion, setIsHovered, isHovered, section: 'tech' })}
     >
       <h2 className="mr-8 text-left text-xl font-light text-emerald-200">
         Tech Skills:

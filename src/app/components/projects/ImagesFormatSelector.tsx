@@ -2,12 +2,14 @@ export const ImagesFormatSelector = ({
   viewMode,
   setViewMode,
   headerPosition,
-  currentProjectIndex,
+  isMobileOnly,
+  isWebOnly,
 }: {
   viewMode: 'web' | 'mobile';
   setViewMode: (mode: 'web' | 'mobile') => void;
   headerPosition: boolean;
-  currentProjectIndex: number;
+  isMobileOnly: boolean;
+  isWebOnly: boolean;
 }) => {
   const FormatButton = ({
     text,
@@ -51,11 +53,7 @@ export const ImagesFormatSelector = ({
           text="Desktop"
           isActive={viewMode === 'web'}
           onClick={() => setViewMode('web')}
-          isDisabled={
-            currentProjectIndex === 0 || currentProjectIndex === 3
-              ? true
-              : false
-          }
+          isDisabled={isMobileOnly}
         />
 
         {/* Mobile Button */}
@@ -63,7 +61,7 @@ export const ImagesFormatSelector = ({
           text="Mobile"
           isActive={viewMode === 'mobile'}
           onClick={() => setViewMode('mobile')}
-          isDisabled={currentProjectIndex === 2 ? true : false}
+          isDisabled={isWebOnly}
         />
       </div>
     </>
