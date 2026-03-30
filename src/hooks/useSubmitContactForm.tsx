@@ -1,10 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
 import { useState } from 'react';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_API_URL as string,
-  process.env.NEXT_PUBLIC_SUPABASE_API_SECRET_ACCESS_TOKEN as string
-);
+import { supabase } from '@/lib/supabaseClient';
 
 interface ContactFormData {
   contact_sender_name: string;
@@ -31,9 +26,8 @@ const useSubmitContactForm = () => {
 
       setLoading(false);
       return data;
-    } catch (error: any) {
-      console.error('Error in submitContactForm', error);
-      setError(error.message || 'Failed to submit contact form');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to submit contact form');
       setLoading(false);
       return null;
     }

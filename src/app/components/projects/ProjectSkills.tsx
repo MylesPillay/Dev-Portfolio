@@ -8,7 +8,7 @@ interface ProjectDetailsProps {
   isImageHovered: boolean;
 }
 
-const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = React.memo(({
+const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
   selectedProject,
   activeSection,
   isImageHovered,
@@ -64,6 +64,6 @@ const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = React.memo(({
       </motion.div>
     </div>
   );
-});
+};
 
 export default ProjectSkillsComponent;

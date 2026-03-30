@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedText from './AnimatedText';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
@@ -12,20 +13,19 @@ const AboutMeHeroSection = ({
   return (
     <div className="flex h-auto w-[100vw] flex-auto justify-around py-10">
       <div className="relative mb-2 ml-0 mr-0 max-h-[62vh] min-w-[45%] rounded-xl md:ml-[3vw] md:mr-[2vw] lg:min-w-[30vw]">
-        {/* eslint-disable-next-line  */}
-        <img
-          src={image}
-          className={`flex-2 flex h-auto w-auto flex-grow-0 justify-end ${
-            loading ? 'hidden' : 'flex'
-          }`}
-          alt="Profile"
-          style={{
-            maxHeight: '54vh',
-            borderRadius: '10px',
-            width: 'auto',
-            height: 'auto',
-          }}
-        />
+        <div
+          className={`relative h-[54vh] w-full ${loading ? 'hidden' : 'block'}`}
+        >
+          <Image
+            src={image}
+            alt="Profile photo of Myles Pillay"
+            fill
+            style={{
+              objectFit: 'contain',
+              borderRadius: '10px',
+            }}
+          />
+        </div>
         <div
           className={`flex-2 inset-0 m-4 h-auto w-auto max-w-[385px] flex-grow-0 rounded-lg bg-orangeflame bg-opacity-10 sm:max-w-[370px] md:max-w-[39vh] ${
             loading ? 'hidden' : 'absolute'

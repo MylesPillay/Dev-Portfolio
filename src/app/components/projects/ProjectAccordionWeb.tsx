@@ -1,9 +1,14 @@
 import React from 'react';
 import { Project } from '@/data/projects';
 
+type TechStackItem = { title: string; item: string | undefined };
+type ProjectSection = {
+  title: string;
+  content: string | TechStackItem[] | string[] | undefined;
+};
+
 interface ProjectAccordionWebProps {
   selectedProject: Project;
-  selectedIndex: number;
   imageContainerHovered: boolean;
   activeSection: string;
   setActiveSection: (section: string) => void;
@@ -12,7 +17,6 @@ interface ProjectAccordionWebProps {
 
 const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
   selectedProject,
-  selectedIndex,
   imageContainerHovered,
   setIsImageContainerHovered,
   activeSection,
@@ -56,7 +60,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
     { title: 'Outcomes', content: getCategoryContent('Outcomes') },
   ];
 
-  const renderContent = (section: any) => {
+  const renderContent = (section: ProjectSection) => {
     if (typeof section.content === 'string') {
       return (
         <p>
@@ -79,7 +83,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
     }
 
     if (section.title === 'Tech Stack') {
-      return section.content.map((item: any, index: number) => (
+      return (section.content as TechStackItem[]).map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-start justify-start px-6 pb-2 pl-5 align-top text-white"
@@ -93,7 +97,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
     }
 
     if (section.title === 'Key Features' || section.title === 'Outcomes') {
-      return section.content.map((item: string, index: number) => (
+      return (section.content as string[]).map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-start justify-start px-6 pb-2 pl-5 align-top text-white"
@@ -114,10 +118,9 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
       className={`flex flex-grow flex-col border-t ${
         activeSection === 'Overview' ? 'border-t-0' : ''
       } space-y-2 border-orangeflame ${
-        (selectedIndex === 0 || selectedIndex === 3) && imageContainerHovered
+        selectedProject.isMobileOnly && imageContainerHovered
           ? 'w-auto lg:max-w-[51%]'
-          : (selectedIndex === 0 || selectedIndex === 3) &&
-              !imageContainerHovered
+          : selectedProject.isMobileOnly && !imageContainerHovered
             ? 'w-auto min-w-[73%] lg:max-w-[73%]'
             : 'w-auto lg:min-w-[78%]'
       }`}

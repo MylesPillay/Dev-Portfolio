@@ -10,7 +10,7 @@ interface ProjectImagePaginationProps {
   onNextImage: () => void;
 }
 
-const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = React.memo(({
+const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
   hovered,
   currentImageIndex,
   totalImages,
@@ -74,6 +74,6 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = React.memo
       </button>
     </div>
   );
-});
+};
 
 export default ProjectImagePagination;

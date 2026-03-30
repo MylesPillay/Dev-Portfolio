@@ -45,16 +45,15 @@ const ProjectsDisplay = (): React.ReactElement => {
     }
   }, [isImageContainerHovered]);
 
-  const handleProjectClick = useCallback((index: number) => {
+  const handleProjectClick = (index: number) => {
     if (index === selectedProjectIndex) return;
-
     setLoading(true);
     setMobileImageIndex(0);
     setWebImageIndex(0);
     setSelectedProjectIndex(index);
-    setViewMode(index === 0 || index === 3 ? 'mobile' : 'web');
+    setViewMode(projects[index].isMobileOnly ? 'mobile' : 'web');
     setProjectsMenuOpen(false);
-  }, [selectedProjectIndex]);
+  };
 
   const handleImageChange = useCallback((newIndex: number) => {
     const isValidIndex = newIndex >= 0 && newIndex < imagesArray.length;
@@ -76,7 +75,6 @@ const ProjectsDisplay = (): React.ReactElement => {
         selectedProject={selectedProject}
         viewMode={viewMode}
         setViewMode={setViewMode}
-        images={imagesArray}
         isImageContainerHovered={isImageContainerHovered}
         setIsImageContainerHovered={setIsImageContainerHovered}
         onProjectClick={handleProjectClick}
@@ -90,13 +88,11 @@ const ProjectsDisplay = (): React.ReactElement => {
           isImageContainerHovered={isImageContainerHovered}
           setIsImageContainerHovered={setIsImageContainerHovered}
           activeSection={activeSection}
-          setActiveSection={setActiveSection}
         />
         <div className="relative flex h-auto min-h-screen w-screen max-w-[100vw] flex-col overflow-x-hidden overflow-y-scroll lg:min-h-[85vh]">
           <OverMediumLayout
             setIsImageContainerHovered={setIsImageContainerHovered}
             isImageContainerHovered={isImageContainerHovered}
-            selectedIndex={selectedProjectIndex}
             currentImageIndex={currentImageIndex}
             setCurrentImageIndex={setCurrentImageIndex}
             viewMode={viewMode}
@@ -106,15 +102,10 @@ const ProjectsDisplay = (): React.ReactElement => {
             selectedProject={selectedProject}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-            onPrevImage={() => handleImageChange(currentImageIndex - 1)}
-            onNextImage={() => handleImageChange(currentImageIndex + 1)}
-            loadNextProject={() => handleProjectClick(selectedProjectIndex + 1)}
             imageOnLoad={handleImageLoad}
           />
           <MediumToLargeLayout
-            setIsImageContainerHovered={setIsImageContainerHovered}
             isImageContainerHovered={isImageContainerHovered}
-            selectedIndex={selectedProjectIndex}
             currentImageIndex={currentImageIndex}
             setCurrentImageIndex={setCurrentImageIndex}
             viewMode={viewMode}
@@ -124,14 +115,10 @@ const ProjectsDisplay = (): React.ReactElement => {
             selectedProject={selectedProject}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
-            onPrevImage={() => handleImageChange(currentImageIndex - 1)}
-            onNextImage={() => handleImageChange(currentImageIndex + 1)}
-            loadNextProject={() => handleProjectClick(selectedProjectIndex + 1)}
             imageOnLoad={handleImageLoad}
           />
           <MobileProjectLayout
             selectedProject={selectedProject}
-            selectedIndex={selectedProjectIndex}
             viewMode={viewMode}
             setViewMode={setViewMode}
             currentImageIndex={currentImageIndex}
@@ -140,12 +127,9 @@ const ProjectsDisplay = (): React.ReactElement => {
             setCurrentImageIndex={handleImageChange}
             setActiveSection={setActiveSection}
             activeSection={activeSection}
-            onPrevImage={() => handleImageChange(currentImageIndex - 1)}
-            onNextImage={() => handleImageChange(currentImageIndex + 1)}
             loadNextProject={() => handleProjectClick(selectedProjectIndex + 1)}
             imageOnLoad={handleImageLoad}
             imageLoading={imageLoading}
-            setImageLoading={setImageLoading}
             setLoading={setLoading}
           />
         </div>

@@ -1,6 +1,12 @@
 import React from 'react';
 import { Project } from '@/data/projects';
 
+type TechStackItem = { title: string; item: string | undefined };
+type ProjectSection = {
+  title: string;
+  content: string | TechStackItem[] | string[] | undefined;
+};
+
 interface ProjectAccordionWebProps {
   selectedProject: Project;
   activeSection: string;
@@ -64,7 +70,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
           section.title === 'Tech Stack' || section.title === 'Outcomes'
       );
 
-  const renderContent = (section: any) => {
+  const renderContent = (section: ProjectSection) => {
     if (typeof section.content === 'string') {
       return (
         <div className="font-thin">
@@ -87,7 +93,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
     }
 
     if (section.title === 'Tech Stack') {
-      return section.content.map((item: any, index: number) => (
+      return (section.content as TechStackItem[]).map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-start justify-start px-6 pb-2 pl-5 align-top text-white"
@@ -101,7 +107,7 @@ const MediumScreenProjectAccordion: React.FC<ProjectAccordionWebProps> = ({
     }
 
     if (section.title === 'Key Features' || section.title === 'Outcomes') {
-      return section.content.map((item: string, index: number) => (
+      return (section.content as string[]).map((item, index) => (
         <div
           key={index}
           className="flex flex-col items-start justify-start px-6 pb-2 pl-5 align-top text-white"
