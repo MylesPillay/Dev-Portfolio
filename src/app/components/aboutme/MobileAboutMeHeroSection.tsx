@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import LinksComponent from './LinksComponent';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import Image from 'next/image';
 
 const MobileAboutMeHeroSection = ({
   image,
@@ -38,19 +39,23 @@ const MobileAboutMeHeroSection = ({
       <div className="flex h-auto w-auto items-center justify-center self-center rounded-xl align-middle">
         <div className="relative h-auto max-h-[50vh] w-auto min-w-[75vw] overflow-y-hidden rounded-xl">
           {/* eslint-disable-next-line  */}
-          <img
-            src={image}
-            className={`flex-2 flex h-auto w-full flex-grow-0 justify-center ${
-              loading ? 'hidden' : 'flex'
-            }`}
-            alt="Profile"
-            style={{
-              maxHeight: '62vh',
-              borderRadius: '10px',
-              width: 'auto',
-              height: 'auto',
-            }}
-          />
+          {image && (
+            <Image
+              src={image}
+              width={480}
+              height={500}
+              priority
+              className={`flex-2 flex h-auto w-full flex-grow-0 justify-center ${
+                loading ? 'hidden' : 'flex'
+              }`}
+              alt="Profile"
+              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
+              style={{
+                maxHeight: '62vh',
+                borderRadius: '10px',
+              }}
+            />
+          )}
 
           <div
             className={`flex-2 flex-2 inset-0 m-[2.5vw] flex h-auto w-auto max-w-[45vh] flex-grow-0 rounded-lg bg-orangeflame bg-opacity-10 ${

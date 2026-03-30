@@ -1,6 +1,6 @@
 import { ImagesFormatSelector } from '../ImagesFormatSelector';
 import MobileImageContainer from '../MobileAppProjectImages';
-import ProjectAccordionWeb from '../ProjectAccordianWeb';
+import ProjectAccordionWeb from '../ProjectAccordionWeb';
 import ProjectImagePagination from '../ProjectImagePagination';
 import { Project } from '@/data/projects';
 import LargeScreenWebsiteProjectImages from '../LargeScreenWebsiteProjectImages';
@@ -8,26 +8,21 @@ import LargeScreenWebsiteProjectImages from '../LargeScreenWebsiteProjectImages'
 interface OverMediumLayoutProps {
   setIsImageContainerHovered: (hovered: boolean) => void;
   isImageContainerHovered: boolean;
-  selectedIndex: number;
   currentImageIndex: number;
   setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
   viewMode: 'web' | 'mobile';
-  images: any;
+  images: string[];
   loading: boolean;
   setViewMode: (mode: 'web' | 'mobile') => void;
   selectedProject: Project;
   activeSection: string;
   setActiveSection: (section: string) => void;
-  onPrevImage: () => void;
-  onNextImage: () => void;
-  loadNextProject: () => void;
   imageOnLoad: () => void;
 }
 
 const OverMediumLayout = ({
   setIsImageContainerHovered,
   isImageContainerHovered,
-  selectedIndex,
   currentImageIndex,
   setCurrentImageIndex,
   viewMode,
@@ -49,14 +44,13 @@ const OverMediumLayout = ({
     >
       <ProjectAccordionWeb
         selectedProject={selectedProject}
-        selectedIndex={selectedIndex}
         imageContainerHovered={isImageContainerHovered}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         setIsImageContainerHovered={setIsImageContainerHovered}
       />
 
-      {selectedIndex === 0 || selectedIndex === 3 ? (
+      {selectedProject.isMobileOnly ? (
         <div
           className={`h-[60vh]] group pointer-events-none sticky mt-0.5 min-w-[30vw] max-w-[60%] flex-col items-center justify-center overflow-x-scroll md:pointer-events-auto md:right-0 lg:top-0 lg:flex lg:h-full lg:max-h-[100vh] lg:min-h-[100vh] ${
             isImageContainerHovered
@@ -67,11 +61,11 @@ const OverMediumLayout = ({
             transition: 'transform 0.2s ease-in-out',
           }}
           onMouseEnter={() => setIsImageContainerHovered(true)}
-          onMouseLeave={() => {}}
         >
           <div className="flex w-full items-center justify-end">
             <ImagesFormatSelector
-              currentProjectIndex={selectedProject.index}
+              isMobileOnly={selectedProject.isMobileOnly}
+              isWebOnly={selectedProject.isWebOnly}
               viewMode={viewMode}
               setViewMode={setViewMode}
               headerPosition={false}
@@ -120,7 +114,8 @@ const OverMediumLayout = ({
               viewMode={viewMode}
               setViewMode={setViewMode}
               headerPosition={false}
-              currentProjectIndex={selectedProject.index}
+              isMobileOnly={selectedProject.isMobileOnly}
+              isWebOnly={selectedProject.isWebOnly}
             />
           </div>
           <div className="h-auto w-auto flex-shrink-0 flex-grow-0">

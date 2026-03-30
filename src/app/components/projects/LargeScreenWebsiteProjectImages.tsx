@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import projects from '@/data/projects';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
@@ -21,7 +22,7 @@ const LargeScreenWebsiteProjectImages: React.FC<
 
   return (
     <div
-      className={`align-start flex h-[60vh] max-h-[60vh] w-[60vw] flex-col items-start justify-start overflow-y-auto rounded-lg`}
+      className={`align-start relative flex h-[60vh] max-h-[60vh] w-[60vw] flex-col items-start justify-start overflow-y-auto rounded-lg`}
     >
       {(loading || imageLoading) && (
         <div className="flex h-full w-full items-center justify-center bg-orangeflame bg-opacity-10">
@@ -29,20 +30,24 @@ const LargeScreenWebsiteProjectImages: React.FC<
         </div>
       )}
       {/* eslint-disable-next-line  */}
-      <img
-        src={images?.[currentImageIndex]}
-        alt={`Image ${currentImageIndex}`}
-        style={{
-          display: loading || imageLoading ? 'none' : 'flex',
-          borderRadius: '10px',
-          width: 'auto',
-          height: 'auto',
-        }}
-        onLoad={() => {
-          setImageLoading(false);
-          imageOnLoad();
-        }}
-      />
+      {images?.[currentImageIndex] && (
+        <Image
+          src={images[currentImageIndex]}
+          alt={`Image ${currentImageIndex}`}
+          height={1000}
+          width={1000}
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
+          style={{
+            display: loading || imageLoading ? 'none' : 'flex',
+            borderRadius: '10px',
+            justifyContent: 'center',
+          }}
+          onLoad={() => {
+            setImageLoading(false);
+            imageOnLoad();
+          }}
+        />
+      )}
     </div>
   );
 };

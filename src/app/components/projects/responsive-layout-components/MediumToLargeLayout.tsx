@@ -1,33 +1,28 @@
+import React from 'react';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 import { ImagesFormatSelector } from '../ImagesFormatSelector';
 import MediumMobileAppProjectImages from '../MediumMobileAppProjectImages';
-import MediumScreenProjectAccordion from '../MediumScreenPorjectAccordian';
+import MediumScreenProjectAccordion from '../MediumScreenProjectAccordion';
 import MediumScreenProjectSkillsComponent from '../MediumScreenProjectSkillsComponent';
 import WebsiteProjectImages from '../WebsiteProjectImages';
 import ProjectImagePagination from '../ProjectImagePagination';
 import { Project } from '@/data/projects';
 
 interface MediumToLargeLayoutProps {
-  setIsImageContainerHovered: (hovered: boolean) => void;
   isImageContainerHovered: boolean;
-  selectedIndex: number;
   currentImageIndex: number;
   setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
   viewMode: 'web' | 'mobile';
-  images: any;
+  images: string[];
   loading: boolean;
   setViewMode: (mode: 'web' | 'mobile') => void;
   selectedProject: Project;
   activeSection: string;
   setActiveSection: (section: string) => void;
-  onPrevImage: () => void;
-  onNextImage: () => void;
-  loadNextProject: () => void;
   imageOnLoad: () => void;
 }
 
 const MediumToLargeLayout = ({
-  selectedIndex,
   currentImageIndex,
   setCurrentImageIndex,
   viewMode,
@@ -39,8 +34,6 @@ const MediumToLargeLayout = ({
   setActiveSection,
   imageOnLoad,
 }: MediumToLargeLayoutProps) => {
-  let screenSize = 'Medium to Large Layout';
-
   return (
     <div
       className={`hidden h-auto items-center justify-between overflow-x-hidden overflow-y-scroll pb-[10vh] align-middle md:flex md:flex-col md:pt-[4vh] lg:hidden lg:w-full`}
@@ -56,17 +49,18 @@ const MediumToLargeLayout = ({
         <div className="flex h-auto w-full flex-col items-center justify-center overflow-x-hidden bg-slate-800 bg-opacity-50">
           <div className="flex-col items-center justify-center align-middle">
             <ImagesFormatSelector
-              currentProjectIndex={selectedProject.index}
+              isMobileOnly={selectedProject.isMobileOnly}
+              isWebOnly={selectedProject.isWebOnly}
               viewMode={viewMode}
               setViewMode={setViewMode}
               headerPosition={false}
             />
 
-            <div className="flex h-auto w-full flex-grow flex-col items-center justify-center overflow-x-hidden bg-opacity-50 align-middle">
-              <div className="flex h-auto max-h-[100%] w-[85%] min-w-[80vw] flex-col items-start justify-center overflow-x-scroll">
+            <div className="flex h-auto w-auto flex-grow flex-col items-center justify-center overflow-x-hidden bg-opacity-50 align-middle">
+              <div className="flex h-auto max-h-[100%] w-auto flex-col items-start justify-center overflow-x-scroll">
                 {loading ? (
                   <LoadingSpinner />
-                ) : selectedIndex === 0 || selectedIndex === 3 ? (
+                ) : selectedProject.isMobileOnly ? (
                   <MediumMobileAppProjectImages
                     smallMobileScreen={false}
                     images={images}
@@ -74,7 +68,7 @@ const MediumToLargeLayout = ({
                     loading={loading}
                   />
                 ) : (
-                  <div className="h-auto max-h-[50vh] w-[100%] pr-[15%]">
+                  <div className="bg-opacity-50align-middle mx-auto h-auto max-h-[65vh] w-auto items-center justify-center bg-red-800">
                     <WebsiteProjectImages
                       images={images}
                       currentImageIndex={currentImageIndex}
@@ -83,7 +77,7 @@ const MediumToLargeLayout = ({
                   </div>
                 )}
               </div>
-              <div className="mt-2 w-full items-center justify-center">
+              <div className="mt-2 w-auto items-center justify-center">
                 <ProjectImagePagination
                   hovered={true}
                   currentImageIndex={currentImageIndex}

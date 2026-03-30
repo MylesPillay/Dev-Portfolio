@@ -53,7 +53,7 @@ const ProjectImagePagination: React.FC<ProjectImagePaginationProps> = ({
         <button
           key={dotIndex}
           onClick={() => onPageChange(dotIndex)}
-          className={`mx-2 h-2 w-2 rounded-full bg-white bg-opacity-85 ${
+          className={`mx-2 h-2 w-2 rounded-full bg-white bg-opacity-85 md:mx-3 md:h-3 md:w-4 lg:mx-2 lg:h-2 lg:w-2 ${
             dotIndex === currentImageIndex ? 'shadow-neon-dot' : ''
           }`}
         />

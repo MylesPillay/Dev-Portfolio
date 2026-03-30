@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
 interface MediumMobileAppProjectImagesProps {
@@ -22,8 +23,8 @@ const MediumMobileAppProjectImages: React.FC<
     <div
       className={`align-start my-4 flex min-w-[80%] items-center justify-center overflow-x-scroll overflow-y-scroll rounded-lg ${
         smallMobileScreen
-          ? 'h-auto max-h-[60vh] min-h-[35vh] w-[98%] px-6'
-          : 'h-auto max-h-[60vh] min-h-[50vh] w-[85%]'
+          ? 'h-auto max-h-[65vh] min-h-[50vh] w-[98%] px-6'
+          : 'h-auto max-h-[65vh] min-h-[50vh] w-[85%]'
       }`}
     >
       {loading ? (
@@ -74,16 +75,15 @@ const MediumMobileAppProjectImages: React.FC<
                 }}
               >
                 {/* eslint-disable-next-line  */}
-                <img
+                <Image
                   src={image}
-                  alt={`Image ${currentImageIndex}`}
+                  height={800}
+                  width={500}
+                  alt={`Mobile app screenshot ${index + 1}`}
+                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
                   style={{
                     display: 'block',
-                    minHeight: 200,
-                    maxHeight: 500,
                     borderRadius: '10px',
-                    width: 'auto',
-                    height: 'auto',
                   }}
                 />
               </div>
