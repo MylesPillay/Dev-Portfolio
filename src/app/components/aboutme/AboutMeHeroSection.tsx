@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import AnimatedText from './AnimatedText';
 import LoadingSpinner from '../ui/LoadingSpinner';
+import Image from 'next/image';
 
 const AboutMeHeroSection = ({
   image,
@@ -13,19 +13,24 @@ const AboutMeHeroSection = ({
   return (
     <div className="flex h-auto w-[100vw] flex-auto justify-around py-10">
       <div className="relative mb-2 ml-0 mr-0 max-h-[62vh] min-w-[45%] rounded-xl md:ml-[3vw] md:mr-[2vw] lg:min-w-[30vw]">
-        <div
-          className={`relative h-[54vh] w-full ${loading ? 'hidden' : 'block'}`}
-        >
+        {image && (
           <Image
             src={image}
-            alt="Profile photo of Myles Pillay"
-            fill
+            width={450}
+            height={690}
+            sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
+            className={`flex-2 flex h-auto w-auto flex-grow-0 justify-end ${
+              loading ? 'hidden' : 'flex'
+            }`}
+            alt="Profile"
             style={{
-              objectFit: 'contain',
+              maxHeight: '54vh',
               borderRadius: '10px',
+              width: 'auto',
+              height: 'auto',
             }}
           />
-        </div>
+        )}
         <div
           className={`flex-2 inset-0 m-4 h-auto w-auto max-w-[385px] flex-grow-0 rounded-lg bg-orangeflame bg-opacity-10 sm:max-w-[370px] md:max-w-[39vh] ${
             loading ? 'hidden' : 'absolute'

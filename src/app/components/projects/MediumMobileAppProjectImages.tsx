@@ -23,8 +23,8 @@ const MediumMobileAppProjectImages: React.FC<
     <div
       className={`align-start my-4 flex min-w-[80%] items-center justify-center overflow-x-scroll overflow-y-scroll rounded-lg ${
         smallMobileScreen
-          ? 'h-auto max-h-[60vh] min-h-[35vh] w-[98%] px-6'
-          : 'h-auto max-h-[60vh] min-h-[50vh] w-[85%]'
+          ? 'h-auto max-h-[65vh] min-h-[50vh] w-[98%] px-6'
+          : 'h-auto max-h-[65vh] min-h-[50vh] w-[85%]'
       }`}
     >
       {loading ? (
@@ -76,14 +76,13 @@ const MediumMobileAppProjectImages: React.FC<
               >
                 <Image
                   src={image}
+                  height={800}
+                  width={500}
                   alt={`Mobile app screenshot ${index + 1}`}
-                  fill
+                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
                   style={{
-                    objectFit: 'contain',
+                    display: 'block',
                     borderRadius: '10px',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    paddingLeft: '50%',
                   }}
                 />
               </div>
