@@ -68,7 +68,7 @@ const MediumToLargeLayout = ({
                     loading={loading}
                   />
                 ) : (
-                  <div className="bg-opacity-50align-middle mx-auto h-auto max-h-[65vh] w-auto items-center justify-center bg-red-800">
+                  <div className="mx-auto mr-0 h-auto max-h-[65vh] w-auto items-center justify-center bg-red-800 bg-opacity-50 align-middle md:mr-20">
                     <WebsiteProjectImages
                       images={images}
                       currentImageIndex={currentImageIndex}

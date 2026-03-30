@@ -116,7 +116,7 @@ const OverMediumLayout = ({
               isWebOnly={selectedProject.isWebOnly}
             />
           </div>
-          <div className="mx-auto flex w-[60vw] flex-col items-center justify-center pl-[25%]">
+          <div className="mx-auto flex w-[60vw] flex-col items-center justify-center">
             <LargeScreenWebsiteProjectImages
               selectedProject={selectedProject}
               images={images}
