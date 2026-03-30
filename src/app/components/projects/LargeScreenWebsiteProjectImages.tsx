@@ -25,11 +25,10 @@ const LargeScreenWebsiteProjectImages: React.FC<
       className={`align-start relative flex h-[60vh] max-h-[60vh] w-[60vw] flex-col items-start justify-start overflow-y-auto rounded-lg`}
     >
       {(loading || imageLoading) && (
-        <div className="flex h-full w-full items-center justify-center bg-orangeflame bg-opacity-10">
+        <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-orangeflame bg-opacity-10">
           <LoadingSpinner />
         </div>
       )}
-      {/* eslint-disable-next-line  */}
       {images?.[currentImageIndex] && (
         <Image
           src={images[currentImageIndex]}

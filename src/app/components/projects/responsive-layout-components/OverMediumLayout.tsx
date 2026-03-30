@@ -71,7 +71,7 @@ const OverMediumLayout = ({
               headerPosition={false}
             />
           </div>
-          <div className="mx-auto ml-4 h-[100vh] w-[99%] items-center justify-end">
+          <div className="mx-auto flex h-[100vh] w-full flex-col items-center justify-start">
             <MobileImageContainer
               hovered={isImageContainerHovered}
               images={images}
@@ -79,8 +79,7 @@ const OverMediumLayout = ({
               currentImageIndex={currentImageIndex}
               imageOnLoad={imageOnLoad}
             />
-
-            <div className="w-full items-end justify-end">
+            <div className="w-full">
               <ProjectImagePagination
                 hovered={isImageContainerHovered}
                 currentImageIndex={currentImageIndex}
@@ -107,7 +106,6 @@ const OverMediumLayout = ({
             transition: 'transform 0.2s ease-in-out',
           }}
           onMouseEnter={() => setIsImageContainerHovered(true)}
-          onMouseLeave={() => {}}
         >
           <div className="flex w-full items-center justify-end">
             <ImagesFormatSelector
@@ -118,7 +116,7 @@ const OverMediumLayout = ({
               isWebOnly={selectedProject.isWebOnly}
             />
           </div>
-          <div className="h-auto w-auto flex-shrink-0 flex-grow-0">
+          <div className="mx-auto flex w-[60vw] flex-col items-center justify-center pl-[25%]">
             <LargeScreenWebsiteProjectImages
               selectedProject={selectedProject}
               images={images}
@@ -126,7 +124,7 @@ const OverMediumLayout = ({
               currentImageIndex={currentImageIndex}
               imageOnLoad={imageOnLoad}
             />
-            <div className="mx-auto w-[60vw]">
+            <div className="w-full">
               <ProjectImagePagination
                 hovered={isImageContainerHovered}
                 currentImageIndex={currentImageIndex}

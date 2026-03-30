@@ -14,8 +14,8 @@ const MediumMobileAppProjectImages: React.FC<
   MediumMobileAppProjectImagesProps
 > = ({ smallMobileScreen, images, currentImageIndex, loading }) => {
   const containerStyles = smallMobileScreen
-    ? 'w-[49.5%] max-h-[60vh] min-h-[35vh]'
-    : 'w-[32%] max-h-[60vh] min-h-[50vh]';
+    ? 'w-[49.5%] h-[55vh]'
+    : 'w-[32%] h-[55vh]';
 
   const validImages = images.slice(0, -1);
 
@@ -69,12 +69,11 @@ const MediumMobileAppProjectImages: React.FC<
             validImages.map((image, index) => (
               <div
                 key={index}
-                className={`flex w-[33%] flex-shrink-0 flex-grow items-center justify-center ${containerStyles} transition-transform duration-300`}
+                className={`relative flex-shrink-0 flex-grow ${containerStyles} transition-transform duration-300`}
                 style={{
                   transform: `translateX(-${currentImageIndex * 107.2}%)`,
                 }}
               >
-                {/* eslint-disable-next-line  */}
                 <Image
                   src={image}
                   height={800}

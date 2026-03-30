@@ -27,9 +27,7 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
             className={`mx-auto h-auto w-full flex-grow justify-center pl-20 sm:mx-0 sm:pl-0`}
           >
             {imageLoading && (
-              <div
-                className={`mr-4 flex h-full min-h-[70vh] items-center justify-center rounded-lg bg-orangeflame bg-opacity-10 align-middle md:min-h-[55vh] lg:min-h-[40vh]`}
-              >
+              <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-orangeflame bg-opacity-10 align-middle">
                 <LoadingSpinner />
               </div>
             )}

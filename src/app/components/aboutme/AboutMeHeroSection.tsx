@@ -13,7 +13,6 @@ const AboutMeHeroSection = ({
   return (
     <div className="flex h-auto w-[100vw] flex-auto justify-around py-10">
       <div className="relative mb-2 ml-0 mr-0 max-h-[62vh] min-w-[45%] rounded-xl md:ml-[3vw] md:mr-[2vw] lg:min-w-[30vw]">
-        {/* eslint-disable-next-line  */}
         {image && (
           <Image
             src={image}
