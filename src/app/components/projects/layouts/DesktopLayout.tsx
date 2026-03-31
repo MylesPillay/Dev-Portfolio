@@ -1,11 +1,11 @@
-import { ImagesFormatSelector } from '../ImagesFormatSelector';
-import MobileImageContainer from '../MobileAppProjectImages';
-import ProjectAccordionWeb from '../ProjectAccordionWeb';
-import ProjectImagePagination from '../ProjectImagePagination';
+import { ProjectViewToggle } from '../shared/ProjectViewToggle';
+import AppImagesAllBreakpoints from '../mobile/AppImagesAllBreakpoints';
+import DesktopProjectAccordion from '../desktop/DesktopProjectAccordion';
+import ProjectImagePagination from '../shared/ProjectImagePagination';
 import { Project } from '@/data/projects';
-import LargeScreenWebsiteProjectImages from '../LargeScreenWebsiteProjectImages';
+import DesktopWebsiteImages from '../desktop/DesktopWebsiteImages';
 
-interface OverMediumLayoutProps {
+interface DesktopLayoutProps {
   setIsImageContainerHovered: (hovered: boolean) => void;
   isImageContainerHovered: boolean;
   currentImageIndex: number;
@@ -20,7 +20,7 @@ interface OverMediumLayoutProps {
   imageOnLoad: () => void;
 }
 
-const OverMediumLayout = ({
+const DesktopLayout = ({
   setIsImageContainerHovered,
   isImageContainerHovered,
   currentImageIndex,
@@ -33,7 +33,7 @@ const OverMediumLayout = ({
   activeSection,
   setActiveSection,
   imageOnLoad,
-}: OverMediumLayoutProps) => {
+}: DesktopLayoutProps) => {
   return (
     <div
       onMouseEnter={() => setIsImageContainerHovered(false)}
@@ -42,7 +42,7 @@ const OverMediumLayout = ({
         transition: 'width 0.2s ease-in-out',
       }}
     >
-      <ProjectAccordionWeb
+      <DesktopProjectAccordion
         selectedProject={selectedProject}
         imageContainerHovered={isImageContainerHovered}
         activeSection={activeSection}
@@ -63,7 +63,7 @@ const OverMediumLayout = ({
           onMouseEnter={() => setIsImageContainerHovered(true)}
         >
           <div className="flex w-full items-center justify-end">
-            <ImagesFormatSelector
+            <ProjectViewToggle
               isMobileOnly={selectedProject.isMobileOnly}
               isWebOnly={selectedProject.isWebOnly}
               viewMode={viewMode}
@@ -72,7 +72,7 @@ const OverMediumLayout = ({
             />
           </div>
           <div className="mx-auto flex h-[100vh] w-full flex-col items-center justify-start">
-            <MobileImageContainer
+            <AppImagesAllBreakpoints
               hovered={isImageContainerHovered}
               images={images}
               loading={loading}
@@ -108,7 +108,7 @@ const OverMediumLayout = ({
           onMouseEnter={() => setIsImageContainerHovered(true)}
         >
           <div className="flex w-full items-center justify-end">
-            <ImagesFormatSelector
+            <ProjectViewToggle
               viewMode={viewMode}
               setViewMode={setViewMode}
               headerPosition={false}
@@ -117,7 +117,7 @@ const OverMediumLayout = ({
             />
           </div>
           <div className="mx-auto flex w-[60vw] flex-col items-center justify-center">
-            <LargeScreenWebsiteProjectImages
+            <DesktopWebsiteImages
               selectedProject={selectedProject}
               images={images}
               loading={loading}
@@ -145,4 +145,4 @@ const OverMediumLayout = ({
   );
 };
 
-export default OverMediumLayout;
+export default DesktopLayout;

@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { Project } from '@/data/projects';
 import projects from '@/data/projects';
-import { ImagesFormatSelector } from './ImagesFormatSelector';
+import { ProjectViewToggle } from './ProjectViewToggle';
 import useDeviceScreenSize from '@/hooks/useDeviceScreenSize';
-import MobileBurgerMenu from '../ui/MobileBurgerMenu';
+import MobileBurgerMenu from '../../ui/MobileBurgerMenu';
 
 interface ProjectsHeaderProps {
   selectedProject: Project;
@@ -87,7 +87,7 @@ const ProjectsHeader: React.FC<ProjectsHeaderProps> = ({
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />
-      <ImagesFormatSelector
+      <ProjectViewToggle
         isMobileOnly={selectedProject.isMobileOnly}
         isWebOnly={selectedProject.isWebOnly}
         viewMode={viewMode}

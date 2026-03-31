@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 
 const LOADING_TIMEOUT_MS = 2000;
-import MobileProjectTitleStickyHeader from './MobileProjectTitleStickyHeader';
-import MediumScreenProjectAccordion from './MediumScreenProjectAccordion';
-import MediumMobileAppProjectImages from './MediumMobileAppProjectImages';
-import MediumScreenProjectSkillsComponent from './MediumScreenProjectSkillsComponent';
-import ProjectImagePagination from './ProjectImagePagination';
-import { ImagesFormatSelector } from './ImagesFormatSelector';
+import MobileStickyTitle from '../mobile/MobileStickyTitle';
+import TabletProjectAccordion from '../tablet/TabletProjectAccordion';
+import MobileAppImages from '../mobile/MobileAppImages';
+import TabletProjectSkills from '../tablet/TabletProjectSkills';
+import ProjectImagePagination from '../shared/ProjectImagePagination';
+import { ProjectViewToggle } from '../shared/ProjectViewToggle';
 import { Project } from '@/data/projects';
-import WebsiteProjectImages from './WebsiteProjectImages';
+import TabletWebsiteImages from '../tablet/TabletWebsiteImages';
 
-interface MobileProjectLayoutProps {
+interface MobileLayoutProps {
   selectedProject: Project;
   viewMode: 'web' | 'mobile';
   setViewMode: (mode: 'web' | 'mobile') => void;
@@ -25,7 +25,7 @@ interface MobileProjectLayoutProps {
   imageLoading: boolean;
   setLoading: (loading: boolean) => void;
 }
-const MobileProjectLayout = ({
+const MobileLayout = ({
   selectedProject,
   viewMode,
   images,
@@ -38,7 +38,7 @@ const MobileProjectLayout = ({
   setActiveSection,
   loadNextProject,
   imageOnLoad,
-}: MobileProjectLayoutProps) => {
+}: MobileLayoutProps) => {
   useEffect(() => {
     if (!loading) return;
 
@@ -52,12 +52,12 @@ const MobileProjectLayout = ({
   return (
     <>
       <div className="mx-auto flex h-auto w-full flex-col md:hidden">
-        <MobileProjectTitleStickyHeader projectTitle={selectedProject.name} />
+        <MobileStickyTitle projectTitle={selectedProject.name} />
         <div
           className={`flex w-full flex-col items-center justify-between overflow-x-hidden overflow-y-scroll align-middle md:hidden`}
         >
           <div className="mx-auto h-auto w-full items-center justify-center align-middle">
-            <MediumScreenProjectAccordion
+            <TabletProjectAccordion
               selectedProject={selectedProject}
               topAccordion={true}
               activeSection={activeSection}
@@ -66,7 +66,7 @@ const MobileProjectLayout = ({
           </div>
           <div className="mx-auto h-full w-full min-w-[70vw] items-center justify-center align-middle">
             <div className="flex w-full min-w-[70vw] items-center justify-center">
-              <ImagesFormatSelector
+              <ProjectViewToggle
                 viewMode={viewMode}
                 setViewMode={setViewMode}
                 headerPosition={false}
@@ -77,14 +77,14 @@ const MobileProjectLayout = ({
             <div className="align-start flex h-auto w-[100%] min-w-[70vw] flex-grow items-start justify-start overflow-x-hidden bg-slate-800 bg-opacity-50">
               <div className="flex h-auto w-[100%] flex-col items-center justify-center overflow-x-scroll">
                 {selectedProject.isMobileOnly ? (
-                  <MediumMobileAppProjectImages
+                  <MobileAppImages
                     smallMobileScreen={true}
                     images={images}
                     currentImageIndex={currentImageIndex}
                     loading={loading}
                   />
                 ) : (
-                  <WebsiteProjectImages
+                  <TabletWebsiteImages
                     images={images}
                     currentImageIndex={currentImageIndex}
                     imageOnLoad={imageOnLoad}
@@ -107,14 +107,14 @@ const MobileProjectLayout = ({
             </div>
           </div>
 
-          <MediumScreenProjectAccordion
+          <TabletProjectAccordion
             selectedProject={selectedProject}
             topAccordion={false}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
           />
           <div className="mb-6 mt-10 h-auto w-[100%] border-y-4 border-emerald-600 bg-slate-800 bg-opacity-50">
-            <MediumScreenProjectSkillsComponent
+            <TabletProjectSkills
               selectedProject={selectedProject}
             />
           </div>
@@ -132,4 +132,4 @@ const MobileProjectLayout = ({
   );
 };
 
-export default MobileProjectLayout;
+export default MobileLayout;

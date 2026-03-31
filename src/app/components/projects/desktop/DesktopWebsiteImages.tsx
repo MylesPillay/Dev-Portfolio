@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import projects from '@/data/projects';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
-interface LargeScreenWebsiteProjectImagesProps {
+interface DesktopWebsiteImagesProps {
   selectedProject: (typeof projects)[0];
   images: string[];
   currentImageIndex: number;
@@ -11,9 +11,12 @@ interface LargeScreenWebsiteProjectImagesProps {
   imageOnLoad: () => void;
 }
 
-const LargeScreenWebsiteProjectImages: React.FC<
-  LargeScreenWebsiteProjectImagesProps
-> = ({ currentImageIndex, images, loading, imageOnLoad }) => {
+const DesktopWebsiteImages: React.FC<DesktopWebsiteImagesProps> = ({
+  currentImageIndex,
+  images,
+  loading,
+  imageOnLoad,
+}) => {
   const [imageLoading, setImageLoading] = useState(true);
 
   useEffect(() => {
@@ -51,4 +54,4 @@ const LargeScreenWebsiteProjectImages: React.FC<
   );
 };
 
-export default LargeScreenWebsiteProjectImages;
+export default DesktopWebsiteImages;

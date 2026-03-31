@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
-interface MobileImageContainerProps {
+interface AppImagesAllBreakpointsProps {
   hovered: boolean;
   images: string[];
   currentImageIndex: number;
@@ -11,7 +11,7 @@ interface MobileImageContainerProps {
   imageOnLoad: () => void;
 }
 
-const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
+const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
   hovered,
   images,
   currentImageIndex,
@@ -112,4 +112,4 @@ const MobileImageContainer: React.FC<MobileImageContainerProps> = ({
   );
 };
 
-export default MobileImageContainer;
+export default AppImagesAllBreakpoints;

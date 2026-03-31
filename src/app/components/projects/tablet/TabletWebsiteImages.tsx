@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
-interface WebsiteProjectImagesProps {
+interface TabletWebsiteImagesProps {
   images: string[];
   currentImageIndex: number;
   imageOnLoad: () => void;
 }
 
-const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
+const TabletWebsiteImages: React.FC<TabletWebsiteImagesProps> = ({
   images,
   currentImageIndex,
   imageOnLoad,
@@ -58,4 +58,4 @@ const WebsiteProjectImages: React.FC<WebsiteProjectImagesProps> = ({
   );
 };
 
-export default WebsiteProjectImages;
+export default TabletWebsiteImages;
