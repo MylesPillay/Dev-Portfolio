@@ -1,14 +1,14 @@
 import React from 'react';
 import LoadingSpinner from '../../ui/LoadingSpinner';
-import { ImagesFormatSelector } from '../ImagesFormatSelector';
-import MediumMobileAppProjectImages from '../MediumMobileAppProjectImages';
-import MediumScreenProjectAccordion from '../MediumScreenProjectAccordion';
-import MediumScreenProjectSkillsComponent from '../MediumScreenProjectSkillsComponent';
-import WebsiteProjectImages from '../WebsiteProjectImages';
-import ProjectImagePagination from '../ProjectImagePagination';
+import { ProjectViewToggle } from '../shared/ProjectViewToggle';
+import MobileAppImages from '../mobile/MobileAppImages';
+import TabletProjectAccordion from '../tablet/TabletProjectAccordion';
+import TabletProjectSkills from '../tablet/TabletProjectSkills';
+import TabletWebsiteImages from '../tablet/TabletWebsiteImages';
+import ProjectImagePagination from '../shared/ProjectImagePagination';
 import { Project } from '@/data/projects';
 
-interface MediumToLargeLayoutProps {
+interface TabletLayoutProps {
   isImageContainerHovered: boolean;
   currentImageIndex: number;
   setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
@@ -22,7 +22,7 @@ interface MediumToLargeLayoutProps {
   imageOnLoad: () => void;
 }
 
-const MediumToLargeLayout = ({
+const TabletLayout = ({
   currentImageIndex,
   setCurrentImageIndex,
   viewMode,
@@ -33,13 +33,13 @@ const MediumToLargeLayout = ({
   activeSection,
   setActiveSection,
   imageOnLoad,
-}: MediumToLargeLayoutProps) => {
+}: TabletLayoutProps) => {
   return (
     <div
       className={`hidden h-auto items-center justify-between overflow-x-hidden overflow-y-scroll pb-[10vh] align-middle md:flex md:flex-col md:pt-[4vh] lg:hidden lg:w-full`}
     >
       <div className="mx-auto h-auto w-full items-center justify-center align-middle">
-        <MediumScreenProjectAccordion
+        <TabletProjectAccordion
           selectedProject={selectedProject}
           topAccordion={true}
           activeSection={activeSection}
@@ -48,7 +48,7 @@ const MediumToLargeLayout = ({
 
         <div className="flex h-auto w-full flex-col items-center justify-center overflow-x-hidden bg-slate-800 bg-opacity-50">
           <div className="flex-col items-center justify-center align-middle">
-            <ImagesFormatSelector
+            <ProjectViewToggle
               isMobileOnly={selectedProject.isMobileOnly}
               isWebOnly={selectedProject.isWebOnly}
               viewMode={viewMode}
@@ -61,7 +61,7 @@ const MediumToLargeLayout = ({
                 {loading ? (
                   <LoadingSpinner />
                 ) : selectedProject.isMobileOnly ? (
-                  <MediumMobileAppProjectImages
+                  <MobileAppImages
                     smallMobileScreen={false}
                     images={images}
                     currentImageIndex={currentImageIndex}
@@ -69,7 +69,7 @@ const MediumToLargeLayout = ({
                   />
                 ) : (
                   <div className="mx-auto mr-0 h-auto max-h-[65vh] w-auto items-center justify-center bg-red-800 bg-opacity-50 align-middle md:mr-20">
-                    <WebsiteProjectImages
+                    <TabletWebsiteImages
                       images={images}
                       currentImageIndex={currentImageIndex}
                       imageOnLoad={imageOnLoad}
@@ -95,14 +95,14 @@ const MediumToLargeLayout = ({
           </div>
         </div>
 
-        <MediumScreenProjectAccordion
+        <TabletProjectAccordion
           selectedProject={selectedProject}
           topAccordion={false}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
         <div className="my-10 h-auto w-[100%] border-y-4 border-tealAccent bg-slate-800 bg-opacity-50">
-          <MediumScreenProjectSkillsComponent
+          <TabletProjectSkills
             selectedProject={selectedProject}
           />
         </div>
@@ -111,4 +111,4 @@ const MediumToLargeLayout = ({
   );
 };
 
-export default MediumToLargeLayout;
+export default TabletLayout;

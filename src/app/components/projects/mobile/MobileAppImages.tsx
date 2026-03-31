@@ -1,18 +1,21 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../../ui/LoadingSpinner';
 
-interface MediumMobileAppProjectImagesProps {
+interface MobileAppImagesProps {
   smallMobileScreen?: boolean;
   images: string[];
   currentImageIndex: number;
   loading: boolean;
 }
 
-const MediumMobileAppProjectImages: React.FC<
-  MediumMobileAppProjectImagesProps
-> = ({ smallMobileScreen, images, currentImageIndex, loading }) => {
+const MobileAppImages: React.FC<MobileAppImagesProps> = ({
+  smallMobileScreen,
+  images,
+  currentImageIndex,
+  loading,
+}) => {
   const containerStyles = smallMobileScreen
     ? 'w-[49.5%] h-[55vh]'
     : 'w-[32%] h-[55vh]';
@@ -93,4 +96,4 @@ const MediumMobileAppProjectImages: React.FC<
   );
 };
 
-export default MediumMobileAppProjectImages;
+export default MobileAppImages;

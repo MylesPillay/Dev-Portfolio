@@ -1,12 +1,12 @@
 'use client';
 import React, { useCallback, useEffect, useState } from 'react';
 import projects from '@/data/projects';
-import ProjectsHeader from '../components/projects/ProjectHeader';
-import ProjectSkillsComponent from '../components/projects/ProjectSkills';
-import MobileProjectLayout from '../components/projects/MobileProjectLayout';
-import ProjectListAndSkills from '../components/projects/responsive-layout-components/ProjectListAndSkills';
-import OverMediumLayout from '../components/projects/responsive-layout-components/OverMediumLayout';
-import MediumToLargeLayout from '../components/projects/responsive-layout-components/MediumToLargeLayout';
+import ProjectsHeader from '../components/projects/shared/ProjectHeader';
+import ProjectSkillsComponent from '../components/projects/sidebar/ProjectSkills';
+import MobileLayout from '../components/projects/layouts/MobileLayout';
+import ProjectSidebar from '../components/projects/sidebar/ProjectSidebar';
+import DesktopLayout from '../components/projects/layouts/DesktopLayout';
+import TabletLayout from '../components/projects/layouts/TabletLayout';
 import useFetchMobileAppImages from '@/hooks/useFetchMobileAppImages';
 
 const ProjectsDisplay = (): React.ReactElement => {
@@ -82,7 +82,7 @@ const ProjectsDisplay = (): React.ReactElement => {
         setProjectsMenuOpen={setProjectsMenuOpen}
       />
       <div className="flex h-full min-h-[101vh] w-full flex-col items-start justify-start lg:flex-row">
-        <ProjectListAndSkills
+        <ProjectSidebar
           selectedProject={selectedProject}
           handleProjectClick={handleProjectClick}
           isImageContainerHovered={isImageContainerHovered}
@@ -90,7 +90,7 @@ const ProjectsDisplay = (): React.ReactElement => {
           activeSection={activeSection}
         />
         <div className="relative flex h-auto min-h-screen w-screen max-w-[100vw] flex-col overflow-x-hidden overflow-y-scroll lg:min-h-[85vh]">
-          <OverMediumLayout
+          <DesktopLayout
             setIsImageContainerHovered={setIsImageContainerHovered}
             isImageContainerHovered={isImageContainerHovered}
             currentImageIndex={currentImageIndex}
@@ -104,7 +104,7 @@ const ProjectsDisplay = (): React.ReactElement => {
             setActiveSection={setActiveSection}
             imageOnLoad={handleImageLoad}
           />
-          <MediumToLargeLayout
+          <TabletLayout
             isImageContainerHovered={isImageContainerHovered}
             currentImageIndex={currentImageIndex}
             setCurrentImageIndex={setCurrentImageIndex}
@@ -117,7 +117,7 @@ const ProjectsDisplay = (): React.ReactElement => {
             setActiveSection={setActiveSection}
             imageOnLoad={handleImageLoad}
           />
-          <MobileProjectLayout
+          <MobileLayout
             selectedProject={selectedProject}
             viewMode={viewMode}
             setViewMode={setViewMode}

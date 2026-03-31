@@ -5,7 +5,7 @@ interface ProjectDetailsProps {
   };
 }
 
-const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
+const TabletProjectSkills: React.FC<ProjectDetailsProps> = ({
   selectedProject,
 }) => {
   return (
@@ -30,4 +30,4 @@ const MediumScreenProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
   );
 };
 
-export default MediumScreenProjectSkillsComponent;
+export default TabletProjectSkills;
