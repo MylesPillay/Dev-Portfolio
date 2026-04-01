@@ -1,4 +1,4 @@
-const MobileProjectTitleStickyHeader = ({
+const MobileStickyTitle = ({
   projectTitle,
 }: {
   projectTitle: string;
@@ -14,4 +14,4 @@ const MobileProjectTitleStickyHeader = ({
   );
 };
 
-export default MobileProjectTitleStickyHeader;
+export default MobileStickyTitle;

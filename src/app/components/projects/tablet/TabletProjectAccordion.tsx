@@ -7,18 +7,16 @@ type ProjectSection = {
   content: string | TechStackItem[] | string[] | undefined;
 };
 
-interface ProjectAccordionWebProps {
+interface TabletProjectAccordionProps {
   selectedProject: Project;
-  imageContainerHovered: boolean;
   activeSection: string;
   setActiveSection: (section: string) => void;
-  setIsImageContainerHovered?: (hovered: boolean) => void;
+  topAccordion: boolean;
 }
 
-const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
+const TabletProjectAccordion: React.FC<TabletProjectAccordionProps> = ({
   selectedProject,
-  imageContainerHovered,
-  setIsImageContainerHovered,
+  topAccordion,
   activeSection,
   setActiveSection,
 }) => {
@@ -60,10 +58,22 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
     { title: 'Outcomes', content: getCategoryContent('Outcomes') },
   ];
 
+  const filteredSections = topAccordion
+    ? sections.filter(
+        (section) =>
+          section.title === 'Overview' ||
+          section.title === 'Objectives' ||
+          section.title === 'Key Features'
+      )
+    : sections.filter(
+        (section) =>
+          section.title === 'Tech Stack' || section.title === 'Outcomes'
+      );
+
   const renderContent = (section: ProjectSection) => {
     if (typeof section.content === 'string') {
       return (
-        <p>
+        <div className="font-thin">
           {section.content}
           {section.title === 'Overview' && selectedProject.url && (
             <>
@@ -78,7 +88,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
               </a>
             </>
           )}
-        </p>
+        </div>
       );
     }
 
@@ -91,7 +101,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
           <div className="mb-2 w-auto pr-2 text-lg font-light text-emerald-200">
             {item.title}
           </div>
-          <div>{item.item}</div>
+          <div className="font-thin">{item.item}</div>
         </div>
       ));
     }
@@ -115,33 +125,23 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
 
   return (
     <div
-      className={`flex flex-grow flex-col border-t ${
+      className={`flex w-full flex-grow flex-col border-y py-14 ${
         activeSection === 'Overview' ? 'border-t-0' : ''
-      } space-y-2 border-orangeflame ${
-        selectedProject.isMobileOnly && imageContainerHovered
-          ? 'w-auto lg:max-w-[51%]'
-          : selectedProject.isMobileOnly && !imageContainerHovered
-            ? 'w-auto min-w-[73%] lg:max-w-[73%]'
-            : 'w-auto lg:min-w-[78%]'
-      }`}
-      onMouseEnter={() => {
-        if (imageContainerHovered) {
-          setIsImageContainerHovered ? setIsImageContainerHovered(false) : null;
-        }
-      }}
+      } space-y-2 border-orangeflame`}
+      style={{ borderTopWidth: topAccordion ? undefined : 1 }}
     >
-      {sections.map((section) => (
+      {filteredSections.map((section) => (
         <div
           key={section.title}
-          className={`px-2 ${
+          className={`px-[3%] ${
             activeSection === section.title ? 'border-y border-orangeflame' : ''
           }`}
         >
           <button
-            className={`w-full p-4 py-2 text-left text-xl font-light ${
+            className={`w-full p-4 py-2 text-justify text-2xl font-light md:text-left ${
               activeSection === section.title
-                ? 'cursor-default text-orangeflame'
-                : 'text-emerald-400 hover:text-emerald-200'
+                ? 'text-orangeflame'
+                : 'text-emerald-400'
             }`}
             onClick={() => setActiveSection(section.title)}
           >
@@ -152,7 +152,7 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
             </span>
           </button>
           {activeSection === section.title && (
-            <div className="p-4 text-lg font-thin text-white">
+            <div className="ml-[2vw] w-[100%] justify-start p-4 font-thin text-white md:w-[80%]">
               {renderContent(section)}
             </div>
           )}
@@ -162,4 +162,4 @@ const ProjectAccordionWeb: React.FC<ProjectAccordionWebProps> = ({
   );
 };
 
-export default ProjectAccordionWeb;
+export default TabletProjectAccordion;

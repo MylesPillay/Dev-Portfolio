@@ -1,8 +1,8 @@
-import ProjectList from '../ProjectList';
-import ProjectSkillsComponent from '../ProjectSkills';
+import ProjectList from './ProjectList';
+import ProjectSkillsComponent from './ProjectSkills';
 import { Project } from '@/data/projects';
 
-interface ProjectListAndSkillsProps {
+interface ProjectSidebarProps {
   selectedProject: Project;
   handleProjectClick: (index: number) => void;
   isImageContainerHovered: boolean;
@@ -10,13 +10,13 @@ interface ProjectListAndSkillsProps {
   activeSection: string;
 }
 
-const ProjectListAndSkills = ({
+const ProjectSidebar = ({
   selectedProject,
   handleProjectClick,
   isImageContainerHovered,
   setIsImageContainerHovered,
   activeSection,
-}: ProjectListAndSkillsProps) => {
+}: ProjectSidebarProps) => {
   return (
     <div
       className="] flex h-full min-w-[13.5vw] max-w-[13.5vw] flex-col justify-between lg:mr-[3vw] lg:mt-7"
@@ -45,4 +45,4 @@ const ProjectListAndSkills = ({
   );
 };
 
-export default ProjectListAndSkills;
+export default ProjectSidebar;
