@@ -20,7 +20,7 @@ const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
   const trimmedImages = images.slice(0, -1);
 
   return (
-    <div className="flex h-auto max-h-[80vh] min-h-[50vh] w-[100%] items-start justify-center self-center overflow-x-hidden overflow-y-scroll rounded-lg pr-2 align-middle">
+    <div className="flex h-auto w-[100%] items-start justify-center self-center overflow-x-hidden overflow-y-scroll rounded-lg py-4 pr-2 align-middle">
       {loading ? (
         <div
           className={`flex h-full min-h-[57vh] w-full flex-row justify-start overflow-x-scroll`}
@@ -55,7 +55,7 @@ const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
             {trimmedImages?.map((image, index) => (
               <div
                 key={index}
-                className="relative min-h-[50vh] w-[50%] flex-shrink-0 flex-grow transition-transform duration-300"
+                className="relative h-full w-[50%] flex-shrink-0 flex-grow transition-transform duration-300"
                 style={{
                   transform: hovered
                     ? `translateX(-${currentImageIndex * 99.5}%)`
@@ -69,7 +69,8 @@ const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
                   width={500}
                   sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
                   style={{
-                    objectFit: 'contain',
+                    width: '100%',
+                    height: 'auto',
                     borderRadius: '10px',
                   }}
                 />
@@ -79,12 +80,12 @@ const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
 
           {/* Mobile/medium (below lg): explicit dimensions */}
           <div
-            className={`justify-apart flex h-full w-full flex-row space-x-4 overflow-x-scroll lg:hidden`}
+            className={`justify-apart flex h-full w-full flex-row space-x-4 overflow-x-scroll py-10 lg:hidden`}
           >
             {trimmedImages?.map((image, index) => (
               <div
                 key={index}
-                className="relative mx-auto min-h-[50vh] w-[50%] flex-shrink-0 flex-grow justify-center pl-24 transition-transform duration-300"
+                className="relative mt-8 flex h-auto max-h-[90%] w-[50%] flex-shrink-0 flex-grow transition-transform duration-300"
                 style={{
                   transform: hovered
                     ? `translateX(-${currentImageIndex * 105.5}%)`
@@ -94,13 +95,13 @@ const AppImagesAllBreakpoints: React.FC<AppImagesAllBreakpointsProps> = ({
                 <Image
                   src={image}
                   alt={`Mobile app screenshot ${index + 1}`}
-                  height={1000}
+                  height={400}
                   width={500}
                   sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
                   style={{
-                    display: 'block',
+                    width: '100%',
+                    height: 'auto',
                     borderRadius: '10px',
-                    justifyContent: 'center',
                   }}
                 />
               </div>

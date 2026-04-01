@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import projects from '@/data/projects';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 
 interface DesktopWebsiteImagesProps {
-  selectedProject: (typeof projects)[0];
   images: string[];
   currentImageIndex: number;
   loading: boolean;
@@ -40,9 +38,8 @@ const DesktopWebsiteImages: React.FC<DesktopWebsiteImagesProps> = ({
           width={1000}
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 30vw"
           style={{
-            display: loading || imageLoading ? 'none' : 'flex',
+            opacity: loading || imageLoading ? 0 : 1,
             borderRadius: '10px',
-            justifyContent: 'center',
           }}
           onLoad={() => {
             setImageLoading(false);

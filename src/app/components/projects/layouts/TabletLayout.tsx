@@ -2,14 +2,14 @@ import React from 'react';
 import LoadingSpinner from '../../ui/LoadingSpinner';
 import { ProjectViewToggle } from '../shared/ProjectViewToggle';
 import MobileAppImages from '../mobile/MobileAppImages';
-import TabletProjectAccordion from '../tablet/TabletProjectAccordion';
+import ProjectAccordion from '../shared/ProjectAccordion';
 import TabletProjectSkills from '../tablet/TabletProjectSkills';
 import TabletWebsiteImages from '../tablet/TabletWebsiteImages';
 import ProjectImagePagination from '../shared/ProjectImagePagination';
 import { Project } from '@/data/projects';
+import type { ProjectSection } from '@/constants';
 
 interface TabletLayoutProps {
-  isImageContainerHovered: boolean;
   currentImageIndex: number;
   setCurrentImageIndex: React.Dispatch<React.SetStateAction<number>>;
   viewMode: 'web' | 'mobile';
@@ -17,8 +17,8 @@ interface TabletLayoutProps {
   loading: boolean;
   setViewMode: (mode: 'web' | 'mobile') => void;
   selectedProject: Project;
-  activeSection: string;
-  setActiveSection: (section: string) => void;
+  activeSection: ProjectSection;
+  setActiveSection: (section: ProjectSection) => void;
   imageOnLoad: () => void;
 }
 
@@ -36,10 +36,11 @@ const TabletLayout = ({
 }: TabletLayoutProps) => {
   return (
     <div
-      className={`hidden h-auto items-center justify-between overflow-x-hidden overflow-y-scroll pb-[10vh] align-middle md:flex md:flex-col md:pt-[4vh] lg:hidden lg:w-full`}
+      className={`hidden h-auto items-start justify-between overflow-x-hidden overflow-y-scroll pb-[10vh] align-middle md:flex md:flex-col md:pt-[4vh] lg:hidden lg:w-full`}
     >
       <div className="mx-auto h-auto w-full items-center justify-center align-middle">
-        <TabletProjectAccordion
+        <ProjectAccordion
+          variant="compact"
           selectedProject={selectedProject}
           topAccordion={true}
           activeSection={activeSection}
@@ -68,7 +69,7 @@ const TabletLayout = ({
                     loading={loading}
                   />
                 ) : (
-                  <div className="mx-auto mr-0 h-auto max-h-[65vh] w-auto items-center justify-center bg-red-800 bg-opacity-50 align-middle md:mr-20">
+                  <div className="mx-auto mr-0 h-auto max-h-[65vh] w-auto items-center justify-center align-middle md:mr-20">
                     <TabletWebsiteImages
                       images={images}
                       currentImageIndex={currentImageIndex}
@@ -95,7 +96,8 @@ const TabletLayout = ({
           </div>
         </div>
 
-        <TabletProjectAccordion
+        <ProjectAccordion
+          variant="compact"
           selectedProject={selectedProject}
           topAccordion={false}
           activeSection={activeSection}

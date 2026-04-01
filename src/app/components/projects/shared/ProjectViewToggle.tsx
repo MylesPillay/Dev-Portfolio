@@ -24,7 +24,7 @@ export const ProjectViewToggle = ({
   }) => {
     return (
       <button
-        className={`h-auto w-auto min-w-[100px] flex-shrink-0 flex-grow justify-center rounded-md p-2 text-xl font-light ${
+        className={`h-auto max-h-20 w-auto min-w-[100px] flex-shrink-0 flex-grow justify-center rounded-md p-2 text-xl font-light ${
           isDisabled
             ? 'cursor-default bg-transparent text-white opacity-20'
             : 'cursor-pointer bg-transparent'
@@ -44,7 +44,7 @@ export const ProjectViewToggle = ({
   return (
     <>
       <div
-        className={`flex flex-grow flex-row items-center justify-end py-12 align-middle sm:py-8 ${
+        className={`flex flex-grow flex-row items-center justify-end pt-12 align-middle sm:py-8 ${
           headerPosition ? 'hidden lg:flex' : 'flex lg:hidden'
         }`}
       >

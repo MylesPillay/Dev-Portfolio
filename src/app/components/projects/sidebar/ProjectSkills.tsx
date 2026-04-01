@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-interface ProjectDetailsProps {
+import type { ProjectSection } from '@/constants';
+
+interface ProjectSkillsProps {
   selectedProject: {
     skills: string[];
   };
-  activeSection: string;
+  activeSection: ProjectSection;
   isImageHovered: boolean;
 }
 
-const ProjectSkillsComponent: React.FC<ProjectDetailsProps> = ({
+const ProjectSkillsComponent: React.FC<ProjectSkillsProps> = ({
   selectedProject,
   activeSection,
   isImageHovered,

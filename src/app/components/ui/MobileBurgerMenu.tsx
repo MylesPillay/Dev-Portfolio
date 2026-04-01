@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaBars, FaXing } from 'react-icons/fa';
+import { NAV_ITEMS } from '@/constants';
 
 interface MobileBurgerMenuProps {
   mobileMenuOpen: boolean;
@@ -29,11 +30,7 @@ const MobileBurgerMenu = ({
       {mobileMenuOpen && (
         <div className="fixed right-0 top-0 z-40 h-auto w-[50%] border-b border-l border-emerald-200 bg-deepBlueBg p-8 md:hidden">
           <div className="flex h-[10%] flex-col items-start p-2">
-            {[
-              { href: '/contact', label: 'CONTACT' },
-              { href: '/projects', label: 'PROJECTS' },
-              { href: '/', label: 'ABOUT ME' },
-            ]
+            {[...NAV_ITEMS]
               .filter((item) => item.href !== pathname)
               .map((item) => (
                 <Link

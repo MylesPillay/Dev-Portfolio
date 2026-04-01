@@ -2,12 +2,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import projects from '@/data/projects';
 import ProjectsHeader from '../components/projects/shared/ProjectHeader';
-import ProjectSkillsComponent from '../components/projects/sidebar/ProjectSkills';
 import MobileLayout from '../components/projects/layouts/MobileLayout';
 import ProjectSidebar from '../components/projects/sidebar/ProjectSidebar';
 import DesktopLayout from '../components/projects/layouts/DesktopLayout';
 import TabletLayout from '../components/projects/layouts/TabletLayout';
 import useFetchMobileAppImages from '@/hooks/useFetchMobileAppImages';
+import type { ProjectSection } from '@/constants'; // used as generic for useState below
 
 const ProjectsDisplay = (): React.ReactElement => {
   const [projectsMenuOpen, setProjectsMenuOpen] = useState(false);
@@ -19,7 +19,7 @@ const ProjectsDisplay = (): React.ReactElement => {
   const currentImageIndex = viewMode === 'mobile' ? mobileImageIndex : webImageIndex;
   const setCurrentImageIndex = viewMode === 'mobile' ? setMobileImageIndex : setWebImageIndex;
   const [isImageContainerHovered, setIsImageContainerHovered] = useState(false);
-  const [activeSection, setActiveSection] = useState('Overview');
+  const [activeSection, setActiveSection] = useState<ProjectSection>('Overview');
   const [loading, setLoading] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
 
@@ -105,7 +105,6 @@ const ProjectsDisplay = (): React.ReactElement => {
             imageOnLoad={handleImageLoad}
           />
           <TabletLayout
-            isImageContainerHovered={isImageContainerHovered}
             currentImageIndex={currentImageIndex}
             setCurrentImageIndex={setCurrentImageIndex}
             viewMode={viewMode}
@@ -129,15 +128,7 @@ const ProjectsDisplay = (): React.ReactElement => {
             activeSection={activeSection}
             loadNextProject={() => handleProjectClick(selectedProjectIndex + 1)}
             imageOnLoad={handleImageLoad}
-            imageLoading={imageLoading}
             setLoading={setLoading}
-          />
-        </div>
-        <div className="flex md:hidden">
-          <ProjectSkillsComponent
-            selectedProject={selectedProject}
-            activeSection={activeSection}
-            isImageHovered={isImageContainerHovered}
           />
         </div>
       </div>

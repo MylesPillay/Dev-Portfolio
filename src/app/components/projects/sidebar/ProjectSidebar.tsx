@@ -1,13 +1,14 @@
 import ProjectList from './ProjectList';
 import ProjectSkillsComponent from './ProjectSkills';
 import { Project } from '@/data/projects';
+import type { ProjectSection } from '@/constants';
 
 interface ProjectSidebarProps {
   selectedProject: Project;
   handleProjectClick: (index: number) => void;
   isImageContainerHovered: boolean;
   setIsImageContainerHovered: (hovered: boolean) => void;
-  activeSection: string;
+  activeSection: ProjectSection;
 }
 
 const ProjectSidebar = ({
