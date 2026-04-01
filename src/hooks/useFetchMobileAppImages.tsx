@@ -23,11 +23,12 @@ const useFetchMobileAppImages = ({
         setLoading(true);
         let imageList: string[] = [];
 
+        const bucket = 'portfolio_images';
+        const basePath = `projects/${supabaseId}/${viewMode}`;
+
         const { data: images, error } = await supabase.storage
-          .from('portfolio_images')
-          .list(`projects/${supabaseId}/${viewMode}`, {
-            limit: 10,
-          });
+          .from(bucket)
+          .list(basePath, { limit: 10 });
 
         if (error) throw error;
 
@@ -35,10 +36,8 @@ const useFetchMobileAppImages = ({
           imageList = images.map(
             (image) =>
               supabase.storage
-                .from('portfolio_images')
-                .getPublicUrl(
-                  `projects/${supabaseId}/${viewMode}/${image.name}`
-                ).data.publicUrl
+                .from(bucket)
+                .getPublicUrl(`${basePath}/${image.name}`).data.publicUrl
           );
         }
 

@@ -3,10 +3,10 @@ import LinksComponent from './components/aboutme/LinksComponent';
 import AboutMeHeroSection from './components/aboutme/AboutMeHeroSection';
 import AboutMeHeader from './components/aboutme/AboutMeHeader';
 import MobileAboutMeHeroSection from './components/aboutme/MobileAboutMeHeroSection';
-import TechSkillsSection from './components/aboutme/TechSkillsSections';
-import SoftSkillsSection from './components/aboutme/SoftSkillsSection';
+import SkillsSection from './components/aboutme/SkillsSection';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
+import { TECH_SKILLS, SOFT_SKILLS } from '@/constants';
 
 export default function Home() {
   const [singularExpansion, setSingularExpansion] = useState('none');
@@ -51,14 +51,20 @@ export default function Home() {
                 <LinksComponent mobileScreen={false} />
               </div>
             </div>
-            <TechSkillsSection
+            <SkillsSection
+              title="Tech Skills:"
+              sectionKey="tech"
+              skills={TECH_SKILLS}
               singularExpansion={singularExpansion}
               setSingularExpansion={setSingularExpansion}
             />
-
-            <SoftSkillsSection
+            <SkillsSection
+              title="Soft Skills:"
+              sectionKey="soft"
+              skills={SOFT_SKILLS}
               singularExpansion={singularExpansion}
               setSingularExpansion={setSingularExpansion}
+              className="my-2"
             />
           </div>
         </div>

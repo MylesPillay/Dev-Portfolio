@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 
 const LOADING_TIMEOUT_MS = 2000;
 import MobileStickyTitle from '../mobile/MobileStickyTitle';
-import TabletProjectAccordion from '../tablet/TabletProjectAccordion';
+import ProjectAccordion from '../shared/ProjectAccordion';
 import MobileAppImages from '../mobile/MobileAppImages';
 import TabletProjectSkills from '../tablet/TabletProjectSkills';
 import ProjectImagePagination from '../shared/ProjectImagePagination';
 import { ProjectViewToggle } from '../shared/ProjectViewToggle';
 import { Project } from '@/data/projects';
+import type { ProjectSection } from '@/constants';
 import TabletWebsiteImages from '../tablet/TabletWebsiteImages';
 
 interface MobileLayoutProps {
@@ -18,11 +19,10 @@ interface MobileLayoutProps {
   loading: boolean;
   currentImageIndex: number;
   setCurrentImageIndex: (newIndex: number) => void;
-  setActiveSection: (section: string) => void;
-  activeSection: string;
+  setActiveSection: (section: ProjectSection) => void;
+  activeSection: ProjectSection;
   loadNextProject: () => void;
   imageOnLoad: () => void;
-  imageLoading: boolean;
   setLoading: (loading: boolean) => void;
 }
 const MobileLayout = ({
@@ -54,10 +54,11 @@ const MobileLayout = ({
       <div className="mx-auto flex h-auto w-full flex-col md:hidden">
         <MobileStickyTitle projectTitle={selectedProject.name} />
         <div
-          className={`flex w-full flex-col items-center justify-between overflow-x-hidden overflow-y-scroll align-middle md:hidden`}
+          className={`flex w-full flex-col items-start justify-between overflow-x-hidden overflow-y-scroll align-middle md:hidden`}
         >
           <div className="mx-auto h-auto w-full items-center justify-center align-middle">
-            <TabletProjectAccordion
+            <ProjectAccordion
+              variant="compact"
               selectedProject={selectedProject}
               topAccordion={true}
               activeSection={activeSection}
@@ -90,7 +91,6 @@ const MobileLayout = ({
                     imageOnLoad={imageOnLoad}
                   />
                 )}
-                {/* </div> */}
                 <ProjectImagePagination
                   hovered={true}
                   currentImageIndex={currentImageIndex}
@@ -107,7 +107,8 @@ const MobileLayout = ({
             </div>
           </div>
 
-          <TabletProjectAccordion
+          <ProjectAccordion
+            variant="compact"
             selectedProject={selectedProject}
             topAccordion={false}
             activeSection={activeSection}

@@ -16,12 +16,6 @@ body {
   @apply font-sans leading-relaxed;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 .background {
   background-color: '#1D7874';
 }

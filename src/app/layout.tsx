@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaEnvelope, FaLaptopCode, FaPortrait } from 'react-icons/fa';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { NAV_ITEMS, NAV_ICON_COLOR } from '@/constants';
 
 export default function RootLayout({
   children,
@@ -28,7 +29,7 @@ export default function RootLayout({
                   <FaEnvelope
                     size={hovered === '/contact' ? 32 : 30}
                     opacity={1}
-                    color="#A7F3D0"
+                    color={NAV_ICON_COLOR}
                   />
                 ),
               },
@@ -39,7 +40,7 @@ export default function RootLayout({
                 icon: (
                   <FaLaptopCode
                     size={hovered === '/projects' ? 32 : 30}
-                    color="#A7F3D0"
+                    color={NAV_ICON_COLOR}
                   />
                 ),
               },
@@ -50,7 +51,7 @@ export default function RootLayout({
                 icon: (
                   <FaPortrait
                     size={hovered === '/' ? 32 : 30}
-                    color="#A7F3D0"
+                    color={NAV_ICON_COLOR}
                   />
                 ),
               },

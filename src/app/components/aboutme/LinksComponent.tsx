@@ -1,4 +1,5 @@
 import { FaEnvelope, FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
+import { PERSONAL_LINKS } from '@/constants';
 
 interface IconLinkProps {
   href: string;
@@ -43,25 +44,25 @@ const LinksComponent: React.FC<{ mobileScreen: boolean }> = ({
         </div>
         <div className="flex flex-grow snap-always flex-wrap justify-evenly gap-4 py-6 pr-6 align-baseline md:pr-10 lg:flex-1 lg:gap-8 lg:py-4 lg:pr-20">
           <IconLink
-            href="https://linkedin.com/in/myles-pillay-361868123"
+            href={PERSONAL_LINKS.linkedin}
             icon={<FaLinkedin size={iconSize} />}
             label="LinkedIn"
             mobileScreen={mobileScreen}
           />
           <IconLink
-            href="mailto:mpillaydev@gmail.com"
+            href={PERSONAL_LINKS.email}
             icon={<FaEnvelope size={iconSize} />}
             label="Email"
             mobileScreen={mobileScreen}
           />
           <IconLink
-            href="https://open.spotify.com/artist/2R49hNeoiCEqa3obgMLV5E?si=GcrDwpr4TAuLOYEizmxtSw"
+            href={PERSONAL_LINKS.spotify}
             icon={<FaSpotify size={iconSize} />}
             label="Spotify"
             mobileScreen={mobileScreen}
           />
           <IconLink
-            href="https://github.com/MylesPillay"
+            href={PERSONAL_LINKS.github}
             icon={<FaGithub size={iconSize} />}
             label="GitHub"
             mobileScreen={mobileScreen}
